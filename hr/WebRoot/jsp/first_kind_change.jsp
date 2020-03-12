@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--I级机构设置 </font></td>
   </tr>
   <tr>
-    <td align="right"><input type="button" value="提交" class="BUTTON_STYLE1" onclick="window.location.href='first_kind_change_success.html'">
+    <td align="right"><input type="button" value="提交" class="BUTTON_STYLE1" onclick="window.location.href='first_kind_change_success.jsp'">
       <input type="button" value="返回" class="BUTTON_STYLE1" onclick="history.back();"></td>
   </tr>
   </table>

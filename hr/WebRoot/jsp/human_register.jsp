@@ -81,7 +81,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 				<tr>
 					<td align="right">
 						<input type="button" value="提交" class="BUTTON_STYLE1"
-							onclick="window.location.href='register_choose_picture.html'">
+							onclick="window.location.href='register_choose_picture.jsp'">
 						<input type="reset" value="清除" class="BUTTON_STYLE1">
 					</td>
 				</tr>

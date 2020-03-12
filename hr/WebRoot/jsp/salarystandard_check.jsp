@@ -120,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		function doEdit(id)
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=doEdit&method=check&id=" + id;
-			document.forms[0].action ="salarystandard_check_success.html";
+			document.forms[0].action ="salarystandard_check_success.jsp";
 			document.forms[0].submit();
 		}
 		</script>

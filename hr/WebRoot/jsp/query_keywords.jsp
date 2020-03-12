@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function doStart()
 	{
 		//document.forms[0].action = document.forms[0].action + "?operate=doSearch&method=query&delete_status=1";
-		document.forms[0].action ="query_list.html";
+		document.forms[0].action ="query_list.jsp";
 		document.forms[0].submit();
 	}
 </script>

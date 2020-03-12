@@ -110,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function list()
 	{
 		//document.forms[0].action = document.forms[0].action + "?operate=list&status=1&method=change";
-		document.forms[0].action = "salarystandard_change_list.html";
+		document.forms[0].action = "salarystandard_change_list.jsp";
 		document.forms[0].submit();
 	}
 </script>

@@ -107,13 +107,13 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
  		function list()
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=list&method=recovery&delete_status=0";
-			document.forms[0].action ="query_list.html";
+			document.forms[0].action ="query_list.jsp";
 			document.forms[0].submit();
 		}
 		function search()
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=toSearch&method=recovery";
-			document.forms[0].action ="query_keywords.html";
+			document.forms[0].action ="query_keywords.jsp";
 			document.forms[0].submit();
 		}
  		</script>

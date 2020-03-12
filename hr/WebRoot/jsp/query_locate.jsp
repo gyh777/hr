@@ -105,19 +105,19 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
  		function list()
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=list&method=query&delete_status=1";
-			document.forms[0].action ="query_list.html";
+			document.forms[0].action ="query_list.jsp";
 			document.forms[0].submit();
 		}
 		function search()
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=toSearch&method=query";
-			document.forms[0].action ="query_keywords.html";
+			document.forms[0].action ="query_keywords.jsp";
 			document.forms[0].submit();
 		}
 		function doExport(name)
 		{
 			//document.forms[0].action = "exportfile.do?operate=doExport&name="+name;
-			document.forms[0].action ="excel_locate.html";
+			document.forms[0].action ="excel_locate.jsp";
 			document.forms[0].submit();
 		}
  		</script>

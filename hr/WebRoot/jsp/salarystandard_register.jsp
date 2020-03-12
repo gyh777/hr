@@ -149,7 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td align="right">
-						<input type="button" value="提交" onclick="window.location.href='salarystandard_register_success.html'" class="BUTTON_STYLE1">
+						<input type="button" value="提交" onclick="window.location.href='salarystandard_register_success.jsp'" class="BUTTON_STYLE1">
 						<input type="reset" value="清除" class="BUTTON_STYLE1" >
 					</td>
 				</tr>

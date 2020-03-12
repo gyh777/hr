@@ -54,7 +54,7 @@ subcat1[1] = ["2", "药店", "集团/生物科技有限公司/药店","集团/�
 		 	function downExport()
 		 	{
 		 		//document.forms[0].action = document.forms[0].action + "?operate=downExport&method=excel";
-				document.forms[0].action = "excel_success.html";
+				document.forms[0].action = "excel_success.jsp";
 				document.forms[0].submit();
 		 	}
 </script>

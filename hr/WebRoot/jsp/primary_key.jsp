@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function toRegister()
 	{
 		//document.forms[0].action = document.forms[0].action + "?operate=list";
-		document.forms[0].action ="primary_key_register.html";
+		document.forms[0].action ="primary_key_register.jsp";
 		document.forms[0].submit();
 	}
 </script>

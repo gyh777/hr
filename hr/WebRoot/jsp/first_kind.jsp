@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td align="right">
 						<input type="button" value="添加" class="BUTTON_STYLE1"
-							onclick="window.location.href='first_kind_register.html'" />
+							onclick="window.location.href='first_kind_register.jsp'" />
 					</td>
 				</tr>
 			</table>
@@ -94,10 +94,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							1
 						</td>
 						<td class="TD_STYLE2">
-							<a href="first_kind_change.html">变更</a>
+							<a href="first_kind_change.jsp">变更</a>
 						</td>
 						<td class="TD_STYLE2">
-							<a href="first_kind_delete.html">删除</a>
+							<a href="first_kind_delete.jsp">删除</a>
 						</td>
 					</tr>
 				

@@ -100,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							销售
 						</td>
 						<td class="TD_STYLE2">
-							<a href="major_kind_delete.html">删除</a>
+							<a href="major_kind_delete.jsp">删除</a>
 						</td>
 					</tr>
 				

@@ -92,7 +92,7 @@ function toCheck(id)
 							经理
 						</td>
 						<td class="TD_STYLE2">
-							<a href="human_check.html">复核</a>
+							<a href="human_check.jsp">复核</a>
 						</td>
 					</tr>
 				

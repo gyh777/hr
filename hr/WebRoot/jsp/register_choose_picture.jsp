@@ -100,8 +100,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td width="59%">提交成功，如有照片，请选择上传照片(.jpg、.gif文件)
 	<input type="file" class="FILE_STYLE1" name="thePhoto" width="100%"></td>
     <td width="41%" align="right">
-    <input type="button" value="上传照片" class="BUTTON_STYLE1" onclick="window.location.href='register_choose_attachment.html';">
-	<input type="button" value="上传附件" class="BUTTON_STYLE1" onclick="window.location.href='register_choose_attachment.html';">
+    <input type="button" value="上传照片" class="BUTTON_STYLE1" onclick="window.location.href='register_choose_attachment.jsp';">
+	<input type="button" value="上传附件" class="BUTTON_STYLE1" onclick="window.location.href='register_choose_attachment.jsp';">
       <input type="button" value="完成" class="BUTTON_STYLE1" onclick="javascript:finish();"></td>
   </tr>
   </table>
