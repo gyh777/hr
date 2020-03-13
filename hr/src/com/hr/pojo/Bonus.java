@@ -3,116 +3,163 @@ package com.hr.pojo;
 import java.util.Date;
 
 public class Bonus {
-	private int bon_id;
-	private char major_kind_id;
-	private String major_kind_name;
-	private char major_id;
-	private String major_name;
-	private String human_id;
-	private String human_name;
-	private String bonus_item;
-	private double bonus_worth;
-	private String bonus_degree;
-	private String remark;
-	private String register;
-	private String checker;
-	private Date regist_time;
-	private Date check_time;
-	private int check_status;
-	public int getBon_id() {
-		return bon_id;
-	}
-	public void setBon_id(int bon_id) {
-		this.bon_id = bon_id;
-	}
-	public char getMajor_kind_id() {
-		return major_kind_id;
-	}
-	public void setMajor_kind_id(char major_kind_id) {
-		this.major_kind_id = major_kind_id;
-	}
-	public String getMajor_kind_name() {
-		return major_kind_name;
-	}
-	public void setMajor_kind_name(String major_kind_name) {
-		this.major_kind_name = major_kind_name;
-	}
-	public char getMajor_id() {
-		return major_id;
-	}
-	public void setMajor_id(char major_id) {
-		this.major_id = major_id;
-	}
-	public String getMajor_name() {
-		return major_name;
-	}
-	public void setMajor_name(String major_name) {
-		this.major_name = major_name;
-	}
-	public String getHuman_id() {
-		return human_id;
-	}
-	public void setHuman_id(String human_id) {
-		this.human_id = human_id;
-	}
-	public String getHuman_name() {
-		return human_name;
-	}
-	public void setHuman_name(String human_name) {
-		this.human_name = human_name;
-	}
-	public String getBonus_item() {
-		return bonus_item;
-	}
-	public void setBonus_item(String bonus_item) {
-		this.bonus_item = bonus_item;
-	}
-	public double getBonus_worth() {
-		return bonus_worth;
-	}
-	public void setBonus_worth(double bonus_worth) {
-		this.bonus_worth = bonus_worth;
-	}
-	public String getBonus_degree() {
-		return bonus_degree;
-	}
-	public void setBonus_degree(String bonus_degree) {
-		this.bonus_degree = bonus_degree;
-	}
-	public String getRemark() {
-		return remark;
-	}
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-	public String getRegister() {
-		return register;
-	}
-	public void setRegister(String register) {
-		this.register = register;
-	}
-	public String getChecker() {
-		return checker;
-	}
-	public void setChecker(String checker) {
-		this.checker = checker;
-	}
-	public Date getRegist_time() {
-		return regist_time;
-	}
-	public void setRegist_time(Date regist_time) {
-		this.regist_time = regist_time;
-	}
-	public Date getCheck_time() {
-		return check_time;
-	}
-	public void setCheck_time(Date check_time) {
-		this.check_time = check_time;
-	}
-	public int getCheck_status() {
-		return check_status;
-	}
-	public void setCheck_status(int check_status) {
-		this.check_status = check_status;
-	}
+    private Short bonId;
+
+    private String majorKindId;
+
+    private String majorKindName;
+
+    private String majorId;
+
+    private String majorName;
+
+    private String humanId;
+
+    private String humanName;
+
+    private String bonusItem;
+
+    private Double bonusWorth;
+
+    private String bonusDegree;
+
+    private String register;
+
+    private String checker;
+
+    private Date registTime;
+
+    private Date checkTime;
+
+    private Short checkStatus;
+
+    private String remark;
+
+    public Short getBonId() {
+        return bonId;
+    }
+
+    public void setBonId(Short bonId) {
+        this.bonId = bonId;
+    }
+
+    public String getMajorKindId() {
+        return majorKindId;
+    }
+
+    public void setMajorKindId(String majorKindId) {
+        this.majorKindId = majorKindId == null ? null : majorKindId.trim();
+    }
+
+    public String getMajorKindName() {
+        return majorKindName;
+    }
+
+    public void setMajorKindName(String majorKindName) {
+        this.majorKindName = majorKindName == null ? null : majorKindName.trim();
+    }
+
+    public String getMajorId() {
+        return majorId;
+    }
+
+    public void setMajorId(String majorId) {
+        this.majorId = majorId == null ? null : majorId.trim();
+    }
+
+    public String getMajorName() {
+        return majorName;
+    }
+
+    public void setMajorName(String majorName) {
+        this.majorName = majorName == null ? null : majorName.trim();
+    }
+
+    public String getHumanId() {
+        return humanId;
+    }
+
+    public void setHumanId(String humanId) {
+        this.humanId = humanId == null ? null : humanId.trim();
+    }
+
+    public String getHumanName() {
+        return humanName;
+    }
+
+    public void setHumanName(String humanName) {
+        this.humanName = humanName == null ? null : humanName.trim();
+    }
+
+    public String getBonusItem() {
+        return bonusItem;
+    }
+
+    public void setBonusItem(String bonusItem) {
+        this.bonusItem = bonusItem == null ? null : bonusItem.trim();
+    }
+
+    public Double getBonusWorth() {
+        return bonusWorth;
+    }
+
+    public void setBonusWorth(Double bonusWorth) {
+        this.bonusWorth = bonusWorth;
+    }
+
+    public String getBonusDegree() {
+        return bonusDegree;
+    }
+
+    public void setBonusDegree(String bonusDegree) {
+        this.bonusDegree = bonusDegree == null ? null : bonusDegree.trim();
+    }
+
+    public String getRegister() {
+        return register;
+    }
+
+    public void setRegister(String register) {
+        this.register = register == null ? null : register.trim();
+    }
+
+    public String getChecker() {
+        return checker;
+    }
+
+    public void setChecker(String checker) {
+        this.checker = checker == null ? null : checker.trim();
+    }
+
+    public Date getRegistTime() {
+        return registTime;
+    }
+
+    public void setRegistTime(Date registTime) {
+        this.registTime = registTime;
+    }
+
+    public Date getCheckTime() {
+        return checkTime;
+    }
+
+    public void setCheckTime(Date checkTime) {
+        this.checkTime = checkTime;
+    }
+
+    public Short getCheckStatus() {
+        return checkStatus;
+    }
+
+    public void setCheckStatus(Short checkStatus) {
+        this.checkStatus = checkStatus;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
 }
