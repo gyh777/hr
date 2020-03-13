@@ -121,7 +121,7 @@ a{ CURSOR: hand}
 										<table width="100%" border="0">
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
 													<a href="first_kind.jsp"
@@ -139,7 +139,7 @@ a{ CURSOR: hand}
 											</tr>
 											<tr>
 												<td>
-													<img src="images/jt0.gif">
+													<img src="/jsp/images/jt0.gif">
 												</td>
 												<td>
 													<a href="configfilethirdkind.do?operate=list" target="mainFrame">III级机构设置</a>
@@ -637,7 +637,7 @@ a{ CURSOR: hand}
 			<!-- 招聘管理 -->
 			<tr>
 				<td width="2%">
-					<a onClick="noneORblock(engage)"><img src="images/plus22.gif"
+					<a onClick="noneORblock(engage)"><img src="/hr/jsp/images/plus22.gif"
 							onClick="plusORminus(engage,engage_pic)" id="engage_pic">
 					</a>
 				</td>
@@ -653,7 +653,7 @@ a{ CURSOR: hand}
 							<tr>
 								<td width="2%">
 									<a onClick="noneORblock(engage_major_release)"><img
-											src="images/plus22.gif"
+											src="/hr/jsp/images/plus22.gif"
 											onClick="plusORminus(engage_major_release,engage_major_release_pic)"
 											id="engage_major_release_pic">
 									</a>
@@ -669,28 +669,28 @@ a{ CURSOR: hand}
 										<table width="100%" border="0">
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="engagemajorrelease.do?operate=toAdd"
+													<a href="/hr/jsp/engagemajorrelease.do?operate=toAdd"
 														target="mainFrame">职位发布登记</a>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="engagemajorrelease.do?operate=toEdit"
+													<a href="/hr/jsp/engagemajorrelease.do?operate=toEdit"
 														target="mainFrame">职位发布变更</a>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="engagemajorrelease.do?operate=list"
+													<a href="/hr/jsp/engagemajorrelease.do?operate=list"
 														target="mainFrame">职位发布查询</a>
 												</td>
 											</tr>
@@ -700,7 +700,7 @@ a{ CURSOR: hand}
 							<tr>
 								<td>
 									<a onClick="noneORblock(engage_resume)"><img
-											src="images/plus22.gif"
+											src="/hr/jsp/images/plus22.gif"
 											onClick="plusORminus(engage_resume,engage_resume_pic)"
 											id="engage_resume_pic">
 									</a>
@@ -716,26 +716,26 @@ a{ CURSOR: hand}
 										<table width="100%" border="0">
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="engageresume.do?operate=toAdd" target="mainFrame">简历登记</a>
+													<a href="/hr/jsp/engageresume.do?operate=toAdd" target="mainFrame">简历登记</a>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="engageresume.do?operate=locate&method=check" target="mainFrame">简历筛选</a>
+													<a href="/hr/jsp/engageresume.do?operate=locate&method=check" target="mainFrame">简历筛选</a>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="engageresume.do?operate=locate&method=query" target="mainFrame">有效简历查询</a>
+													<a href="/hr/jsp/engageresume.do?operate=locate&method=query" target="mainFrame">有效简历查询</a>
 												</td>
 											</tr>
 										</table> </span>
@@ -744,7 +744,7 @@ a{ CURSOR: hand}
 							<tr>
 								<td>
 									<a onClick="noneORblock(engage_rinterview)"><img
-											src="images/plus22.gif"
+											src="/hr/jsp/images/plus22.gif"
 											onClick="plusORminus(engage_rinterview,engage_rinterview_pic)"
 											id="engage_rinterview_pic">
 									</a>
@@ -760,18 +760,18 @@ a{ CURSOR: hand}
 										<table width="100%" border="0">
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="engageresume.do?operate=locate&method=interview" target="mainFrame">面试结果登记</a>
+													<a href="/hr/jsp/engageresume.do?operate=locate&method=interview" target="mainFrame">面试结果登记</a>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="engageinterview.do?operate=list" target="mainFrame">面试筛选</a>
+													<a href="/hr/jsp/engageinterview.do?operate=list" target="mainFrame">面试筛选</a>
 												</td>
 											</tr>
 										</table> </span>
@@ -780,7 +780,7 @@ a{ CURSOR: hand}
 							<tr>
 								<td>
 									<a onClick="noneORblock(engage_question)"><img
-											src="images/plus22.gif"
+											src="/hr/jsp/images/plus22.gif"
 											onClick="plusORminus(engage_question,engage_question_pic)"
 											id="engage_question_pic">
 									</a>
@@ -796,26 +796,26 @@ a{ CURSOR: hand}
 										<table width="100%" border="0">
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="engagesubjects.do?operate=toAdd" target="mainFrame">试题登记</a>
+													<a href="/hr/jsp/engagesubjects.do?operate=toAdd" target="mainFrame">试题登记</a>
 												</td>
 											</tr>
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="engagesubjects.do?operate=locate&param=query" target="mainFrame">试题查询</a>
+													<a href="/hr/jsp/engagesubjects.do?operate=locate&param=query" target="mainFrame">试题查询</a>
 												</td>
 											</tr>
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="engagesubjects.do?operate=locate&param=change" target="mainFrame">试题变更</a>
+													<a href="/hr/jsp/engagesubjects.do?operate=locate&param=change" target="mainFrame">试题变更</a>
 												</td>
 											</tr>
 										</table></span>
@@ -824,7 +824,7 @@ a{ CURSOR: hand}
 							<tr>
 								<td>
 									<a onClick="noneORblock(engage_test)"><img
-											src="images/plus22.gif"
+											src="/hr/jsp/images/plus22.gif"
 											onClick="plusORminus(engage_test,engage_test_pic)"
 											id="engage_test_pic">
 									</a>
@@ -840,7 +840,7 @@ a{ CURSOR: hand}
 										<table width="100%" border="0">
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
 													考试出题
@@ -848,7 +848,7 @@ a{ CURSOR: hand}
 											</tr>
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
 													考试答题
@@ -856,7 +856,7 @@ a{ CURSOR: hand}
 											</tr>
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
 													考试阅卷
@@ -864,7 +864,7 @@ a{ CURSOR: hand}
 											</tr>
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
 													成绩查询筛选
@@ -876,7 +876,7 @@ a{ CURSOR: hand}
 							<tr>
 								<td>
 									<a onClick="noneORblock(engage_pass)"><img
-											src="images/plus22.gif"
+											src="/hr/jsp/images/plus22.gif"
 											onClick="plusORminus(engage_pass,engage_pass_pic)"
 											id="engage_pass_pic">
 									</a>
@@ -892,26 +892,26 @@ a{ CURSOR: hand}
 										<table width="100%" border="0">
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="engageresume.do?operate=passList&method=register&passStatus=0" target="mainFrame">录用申请</a>
+													<a href="/hr/jsp/engageresume.do?operate=passList&method=register&passStatus=0" target="mainFrame">录用申请</a>
 												</td>
 											</tr>
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="engageresume.do?operate=passList&method=check&passStatus=1" target="mainFrame">录用审批</a>
+													<a href="/hr/jsp/engageresume.do?operate=passList&method=check&passStatus=1" target="mainFrame">录用审批</a>
 												</td>
 											</tr>
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="engageresume.do?operate=passList&method=query&passStatus=2" target="mainFrame">录用查询</a>
+													<a href="/hr/jsp/engageresume.do?operate=passList&method=query&passStatus=2" target="mainFrame">录用查询</a>
 												</td>
 											</tr>
 										</table> </span>
