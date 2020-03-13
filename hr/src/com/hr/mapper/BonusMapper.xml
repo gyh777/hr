@@ -3,16 +3,30 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.BonusMapper">
-	<select id="selectAll" resultType="com.hr.pojo.Bonus">
+	<select id="selectAllBonus" resultType="com.hr.pojo.Bonus">
 		select * from bonus
 	</select>
-	<insert id="insert" parameterType="">
-		
+	<insert id="saveBonus" parameterType="com.hr.pojo.Bonus">
+		 insert into bonus(bon_id,major_kind_id,major_kind_name,major_id,major_name,human_id,
+		 human_name,bonus_item,bonus_worth,bonus_degree,remark,register,checker,regist_time,check_time,check_status) 
+  			values (#{bon_id},#{major_kind_id},#{major_kind_name},#{major_id},#{major_name},#{human_id},#{human_name},#{bonus_item},#{bonus_worth},#{bonus_degree},#{remark},#{register_name},#{checker_name},#{regist_time},#{check_time},#{check_status})
 	</insert>
-	<delete id="delete" parameterType="">
-		
+	<delete id="deleteStudentByBon_id" parameterType="_int">
+		delete from bonus where  bon_id = #{id}
 	</delete>
-	<update id="update" parameterType="">
-		
+	
+	<update id="updateBonus" parameterType="com.hr.pojo.Bonus">
+		update bonus set bon_id =#{bon_id},major_kind_id=#{major_kind_id},
+		major_kind_name=#{major_kind_name},major_id=#{major_id},
+		major_name=#{major_name},human_id=#{human_id},
+		human_name=#{human_name},bonus_item=#{bonus_item},
+		bonus_worth=#{bonus_worth},bonus_degree=#{bonus_degree},
+		remark=#{remark},register=#{register},checker=#{checker},
+		regist_time=#{regist_time},check_time=#{check_time},
+		check_status=#{check_status}
 	</update>
+	
+	<select id="selectBonusByBon_id" resultType="_int">
+	     select * from bonus where bon_id = #{id}
+	</select>
 </mapper>
