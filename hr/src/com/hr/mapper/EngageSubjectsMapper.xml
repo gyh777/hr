@@ -3,5 +3,29 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.EngageSubjectsMapper">
-	
+    <sql id="EngageSubjects">
+    	sub_id,
+    	first_kind_id,
+    	first_kind_name,
+    	second_kind_id,
+    	second_kind_name,
+    	register,
+    	regist_time,
+    	derivation,
+    	content,
+    	key_a,
+    	key_b,
+    	key_c,
+    	key_d,
+    	key_e,
+    	correct_key,
+    	changer,
+    	change_time
+    </sql>
+	<!-- <insert id="insert" parameterType="com.hr.pojo.EngageSubjects">
+		insert into engage_subjects (
+		<include id="EngageSubjects"></include>
+		) where
+		(#{subId},#{firstKindId},#{firstKindId},#{firstKindName},#{secondKindId},#{secondKindName},#{register},#{registTime},#{derivation},#{content},#{keyA},#{keyB},#{keyC},#{keyD},#{keyE},#{changer},#{changeTime})
+	</insert> -->
 </mapper>
