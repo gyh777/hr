@@ -3,5 +3,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.ConfigPublicCharMapper">
+	<select id="selectConfigPublicChar" resultType="com.hr.pojo.ConfigPublicChar">
+		select * from config_public_char
+	</select>
 	
+	<delete id="deleteConfigPublicChar" parameterType="_int">
+		delete from config_public_char where pbcId=#{pbc_id}
+	</delete>
+	
+	<insert  id="addConfigPublicChar" parameterType="com.hr.pojo.ConfigPublicChar">
+		insert into config_public_char(attribute_kind,attribute_name) 
+			values(#{attribute_kind},#{attribute_name})
+	</insert>
 </mapper>
