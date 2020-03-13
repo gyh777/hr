@@ -1,5 +1,5 @@
 package com.hr.mapper;
 
-public class ConfigFileFirstKindMapper {
+public interface ConfigFileFirstKindMapper {
 
 }
