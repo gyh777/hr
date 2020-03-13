@@ -1,4 +1,4 @@
-package com.hr.mapperTest;
+package com.hr.test;
 
 import java.util.List;
 
