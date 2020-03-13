@@ -3,5 +3,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.ConfigMajorMapper">
+	<select id="selectConfigMajor" resultType="com.hr.pojo.ConfigMajor">
+		select * from config_major
+	</select>
 	
+	<delete id="deleteConfigMajor" parameterType="_int">
+		delete from config_major where makId=#{mak_id}
+	</delete>
+	
+	<insert  id="addConfigMajor" parameterType="com.hr.pojo.ConfigMajor">
+		insert into config_major(major_kind_id,major_kind_name,major_id,major_name,test_amount) 
+			values(#{major_kind_id},#{major_kind_name},#{major_id},#{major_name},#{test_amount})
+	</insert>
 </mapper>
