@@ -1,9 +1,10 @@
 package com.hr.pojo;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class EngageSubjects {
-    private Short subId;
+    private String subId;
 
     private String firstKindId;
 
@@ -15,7 +16,7 @@ public class EngageSubjects {
 
     private String register;
 
-    private Date registTime;
+    private Timestamp registTime;
 
     private String derivation;
 
@@ -30,95 +31,79 @@ public class EngageSubjects {
     
     private String changer;
 
-    private Date changeTime;
+    private Timestamp  changeTime;
 
-    public Short getSubId() {
-        return subId;
-    }
+	public String getSubId() {
+		return subId;
+	}
 
-    public void setSubId(Short subId) {
-        this.subId = subId;
-    }
+	public void setSubId(String subId) {
+		this.subId = subId;
+	}
 
-    public String getFirstKindId() {
-        return firstKindId;
-    }
+	public String getFirstKindId() {
+		return firstKindId;
+	}
 
-    public void setFirstKindId(String firstKindId) {
-        this.firstKindId = firstKindId == null ? null : firstKindId.trim();
-    }
+	public void setFirstKindId(String firstKindId) {
+		this.firstKindId = firstKindId;
+	}
 
-    public String getFirstKindName() {
-        return firstKindName;
-    }
+	public String getFirstKindName() {
+		return firstKindName;
+	}
 
-    public void setFirstKindName(String firstKindName) {
-        this.firstKindName = firstKindName == null ? null : firstKindName.trim();
-    }
+	public void setFirstKindName(String firstKindName) {
+		this.firstKindName = firstKindName;
+	}
 
-    public String getSecondKindId() {
-        return secondKindId;
-    }
+	public String getSecondKindId() {
+		return secondKindId;
+	}
 
-    public void setSecondKindId(String secondKindId) {
-        this.secondKindId = secondKindId == null ? null : secondKindId.trim();
-    }
+	public void setSecondKindId(String secondKindId) {
+		this.secondKindId = secondKindId;
+	}
 
-    public String getSecondKindName() {
-        return secondKindName;
-    }
+	public String getSecondKindName() {
+		return secondKindName;
+	}
 
-    public void setSecondKindName(String secondKindName) {
-        this.secondKindName = secondKindName == null ? null : secondKindName.trim();
-    }
+	public void setSecondKindName(String secondKindName) {
+		this.secondKindName = secondKindName;
+	}
 
-    public String getRegister() {
-        return register;
-    }
+	public String getRegister() {
+		return register;
+	}
 
-    public void setRegister(String register) {
-        this.register = register == null ? null : register.trim();
-    }
+	public void setRegister(String register) {
+		this.register = register;
+	}
 
-    public Date getRegistTime() {
-        return registTime;
-    }
+	public Timestamp getRegistTime() {
+		return registTime;
+	}
 
-    public void setRegistTime(Date registTime) {
-        this.registTime = registTime;
-    }
+	public void setRegistTime(Timestamp registTime) {
+		this.registTime = registTime;
+	}
 
-    public String getDerivation() {
-        return derivation;
-    }
+	public String getDerivation() {
+		return derivation;
+	}
 
-    public void setDerivation(String derivation) {
-        this.derivation = derivation == null ? null : derivation.trim();
-    }
+	public void setDerivation(String derivation) {
+		this.derivation = derivation;
+	}
 
-    public String getCorrectKey() {
-        return correctKey;
-    }
+	public String getCorrectKey() {
+		return correctKey;
+	}
 
-    public void setCorrectKey(String correctKey) {
-        this.correctKey = correctKey == null ? null : correctKey.trim();
-    }
-
-    public String getChanger() {
-        return changer;
-    }
-
-    public void setChanger(String changer) {
-        this.changer = changer == null ? null : changer.trim();
-    }
-
-    public Date getChangeTime() {
-        return changeTime;
-    }
-
-    public void setChangeTime(Date changeTime) {
-        this.changeTime = changeTime;
-    }
+	public void setCorrectKey(String correctKey) {
+		this.correctKey = correctKey;
+	}
 
 	public String getContent() {
 		return content;
@@ -167,5 +152,21 @@ public class EngageSubjects {
 	public void setKeyE(String keyE) {
 		this.keyE = keyE;
 	}
-    
+
+	public String getChanger() {
+		return changer;
+	}
+
+	public void setChanger(String changer) {
+		this.changer = changer;
+	}
+
+	public Timestamp getChangeTime() {
+		return changeTime;
+	}
+
+	public void setChangeTime(Timestamp changeTime) {
+		this.changeTime = changeTime;
+	}
+
 }

@@ -22,11 +22,12 @@
     	<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
     	<property name="jdbcUrl" value="jdbc:mysql://47.98.38.153:3308/hr?useUnicode=true&amp;characterEncoding=UTF-8"></property>
     	<property name="user" value="root"></property>
-    	<property name="password" value="root"></property>
+    	<property name="password" value="1234"></property>
         <property name="initialPoolSize" value="10"/>
     	<property name="minPoolSize" value="10"/>
     	<property name="maxPoolSize" value="200"/>
        	<property name="maxIdleTime" value="10"/>
+       	
     </bean>
     
     <!-- 
