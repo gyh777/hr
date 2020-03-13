@@ -1,5 +1,9 @@
 package com.hr.mapper;
 
-public interface ConfigFileFirstKindMapper {
+import java.util.List;
 
+import com.hr.pojo.ConfigFileFirstKind;
+
+public interface ConfigFileFirstKindMapper {
+      
 }
