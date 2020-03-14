@@ -14,9 +14,8 @@ public class ConfigMajorController {
 	
 	@RequestMapping("/toDelete")
 	public String toDelete(int makId) {
-		System.out.println("toDelete");
-//		configMajorServiceImpl.deleteConfigMajor(makId);
-		return null;
+		configMajorServiceImpl.deleteConfigMajor(makId);
+		return "main";
 	}
 	
 }

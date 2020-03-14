@@ -5,58 +5,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
@@ -115,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							区域经理
 						</td>
 						<td class="TD_STYLE2">
-							<a href="configmajor.do?operate=toDel(1)">删除</a>
+							<a href="/hr/configMajor/toDelete?makId=1">删除</a>
 						</td>
 					</tr>
 				

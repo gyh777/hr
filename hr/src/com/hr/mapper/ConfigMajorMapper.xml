@@ -8,7 +8,7 @@
 	</select>
 	
 	<delete id="deleteConfigMajor" parameterType="_int">
-		delete from config_major where makId=#{mak_id}
+		delete from config_major where mak_id=#{mak_id}
 	</delete>
 	
 	<insert  id="addConfigMajor" parameterType="com.hr.pojo.ConfigMajor">
