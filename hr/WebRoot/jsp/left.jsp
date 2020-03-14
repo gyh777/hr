@@ -102,7 +102,7 @@ a{ CURSOR: hand}
 											</tr>
 											<tr>
 												<td>
-													<img src="/jsp/images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
 													<a href="configfilethirdkind.do?operate=list" target="mainFrame">III级机构设置</a>
@@ -228,7 +228,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													试题II级分类设置
+													<a href="/hr/configQuestionSecondKind/getAll" target="mainFrame">试题II级分类设置</a>
 												</td>
 											</tr>
 										</table> </span>

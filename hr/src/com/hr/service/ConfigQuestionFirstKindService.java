@@ -9,6 +9,8 @@ import com.hr.pojo.ConfigQuestionFirstKind;
 public interface ConfigQuestionFirstKindService {
 	public List<ConfigQuestionFirstKind> listConfigQuestionFirstKind();
 	
+	public ConfigQuestionFirstKind getByFirstKindId(String first_kind_id);
+	
 	public ConfigQuestionFirstKind getConfigQuestionFirstKind(@Param("qfkId") String qfkId);
 	
 	public Boolean save(ConfigQuestionFirstKind configQuestionFirstKind);

@@ -12,6 +12,8 @@ public interface ConfigQuestionFirstKindMapper {
 	
 	public ConfigQuestionFirstKind selectByQfkId(@Param("qfk_id") String qfkId);
 	
+	public ConfigQuestionFirstKind selectByFirstKindId(String first_kind_id);
+	
 	public int insert(ConfigQuestionFirstKind configQuestionFirstKind);
 	
 	public int update(ConfigQuestionFirstKind configQuestionFirstKind);

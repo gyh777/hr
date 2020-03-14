@@ -9,6 +9,9 @@
 	<select id="selectByQfkId" parameterType="String" resultType="com.hr.pojo.ConfigQuestionFirstKind">
 		select * from config_question_first_kind where qfk_id=#{qfk_id}
 	</select>
+	<select id="selectByFirstKindId" parameterType="String" resultType="com.hr.pojo.ConfigQuestionFirstKind">
+		select * from config_question_first_kind where first_kind_id=#{first_kind_id}
+	</select>
 	<insert id="insert" parameterType="com.hr.pojo.ConfigQuestionFirstKind">
 		insert into config_question_first_kind values (#{qfk_id},#{first_kind_id},#{first_kind_name})
 	</insert>

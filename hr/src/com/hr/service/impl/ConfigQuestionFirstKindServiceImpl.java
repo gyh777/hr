@@ -45,5 +45,10 @@ public class ConfigQuestionFirstKindServiceImpl implements ConfigQuestionFirstKi
 			return true;
 		return false;
 	}
+
+	@Override
+	public ConfigQuestionFirstKind getByFirstKindId(String first_kind_id) {
+		return configQuestionFirstKindMapper.selectByFirstKindId(first_kind_id);
+	}
 	
 }

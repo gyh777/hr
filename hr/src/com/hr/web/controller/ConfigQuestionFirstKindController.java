@@ -26,6 +26,13 @@ public class ConfigQuestionFirstKindController {
 		return "jsp/question_first_kind";
 	}
 	
+	@RequestMapping("/getAllForTwo")
+	public String getAllForTwo(HttpServletRequest request){
+		List<ConfigQuestionFirstKind> list = configQuestionFirstKindServiceImpl.listConfigQuestionFirstKind();
+		request.setAttribute("configQuestionFirstKindList", list);
+		return "jsp/question_second_kind_rigister";
+	}
+	
 	@RequestMapping("/getByQfkIdForUpdate")
 	public String getByQfkId(String qfkId, HttpServletRequest request){
 		ConfigQuestionFirstKind configQuestionFirstKind = configQuestionFirstKindServiceImpl.getConfigQuestionFirstKind(qfkId);

@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form method="post" action="configfilefirstkind.do">
+		<form method="post" action="/hr/jsp/question_second_kind_rigister.jsp">
 			<table width="100%">
 				<tr>
 					<td>
@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td align="right">
 						<input type="button" value="添加" class="BUTTON_STYLE1"
-							onclick="window.location.href='first_kind_register.jsp'" />
+							onclick="window.location.href='/hr/configQuestionFirstKind/getAllForTwo'" />
 					</td>
 				</tr>
 			</table>
@@ -38,6 +38,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="20%" class="TD_STYLE1">
 						I级试题名称
 					</td>
+					<td width="20%" class="TD_STYLE1">
+						II级试题编号
+					</td>
+					<td width="20%" class="TD_STYLE1">
+						II级试题名称
+					</td>
 					<td width="5%" class="TD_STYLE1">
 						变更
 					</td>
@@ -45,20 +51,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						删除
 					</td>
 				</tr>
-					<c:forEach var="configQuestionFirstKind" items="${configQuestionFirstKindList }">
+					<c:forEach var="configQuestionSecondKind" items="${configQuestionSecondKindList }">
 						<tr>
 							<td class="TD_STYLE2">
-								${configQuestionFirstKind.first_kind_id }
+								${configQuestionSecondKind.first_kind_id }
 							</td>
 							<td class="TD_STYLE2">
-								${configQuestionFirstKind.first_kind_name }
+								${configQuestionSecondKind.first_kind_name }
 							</td>
 							<td class="TD_STYLE2">
-								<%-- <a href="/hr/jsp/question_first_kind_change.jsp?changeConfigQuestionFirstKind="+${configQuestionFirstKind }>变更</a> --%>
-								<a href="/hr/configQuestionFirstKind/getByQfkIdForUpdate?qfkId=${configQuestionFirstKind.qfk_id }">变更</a>
+								${configQuestionSecondKind.second_kind_id }
 							</td>
 							<td class="TD_STYLE2">
-								<a href="/hr/configQuestionFirstKind/getByQfkIdForRemove?qfkId=${configQuestionFirstKind.qfk_id }">删除</a>
+								${configQuestionSecondKind.second_kind_name }
+							</td>
+							<td class="TD_STYLE2">
+								<a href="/hr/configQuestionSecondKind/getByQfkIdForUpdate?qskId=${configQuestionSecondKind.qsk_id }">变更</a>
+							</td>
+							<td class="TD_STYLE2">
+								<a href="/hr/configQuestionSecondKind/getByQfkIdForRemove?qskId=${configQuestionSecondKind.qsk_id }">删除</a>
 							</td>
 						</tr>
 					</c:forEach>
