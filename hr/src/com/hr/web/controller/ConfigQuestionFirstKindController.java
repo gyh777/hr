@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hr.pojo.ConfigQuestionFirstKind;
 import com.hr.service.ConfigQuestionFirstKindService;
+import com.hr.util.UUIDHelper;
 
 @Controller
 @RequestMapping("/configQuestionFirstKind")
@@ -32,10 +33,18 @@ public class ConfigQuestionFirstKindController {
 		return "jsp/question_first_kind_change";
 	}
 	
+	@RequestMapping("/getByQfkIdForRemove")
+	public String getByQfkIdForRemove(String qfkId, HttpServletRequest request){
+		ConfigQuestionFirstKind configQuestionFirstKind = configQuestionFirstKindServiceImpl.getConfigQuestionFirstKind(qfkId);
+		request.setAttribute("deleteConfigQuestionFirstKind", configQuestionFirstKind);
+		return "jsp/question_first_kind_delete";
+	}
+	
 	@RequestMapping("/save")
 	public String save(ConfigQuestionFirstKind configQuestionFirstKind){
+		configQuestionFirstKind.setQfk_id(UUIDHelper.getUUID());
 		configQuestionFirstKindServiceImpl.save(configQuestionFirstKind);
-		return null;
+		return "jsp/question_first_kind_rigister_success";
 	}
 	
 	@RequestMapping("/update")
@@ -49,7 +58,7 @@ public class ConfigQuestionFirstKindController {
 	@RequestMapping("/remove")
 	public String remove(String qfkId){
 		configQuestionFirstKindServiceImpl.remove(qfkId);
-		return null;
+		return "forward:/configQuestionFirstKind/getAll";
 	}
 
 }

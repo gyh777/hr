@@ -10,7 +10,7 @@
 		select * from config_question_first_kind where qfk_id=#{qfk_id}
 	</select>
 	<insert id="insert" parameterType="com.hr.pojo.ConfigQuestionFirstKind">
-		insert into config_question_first_kind values (#{first_kind_id},#{first_kind_name})
+		insert into config_question_first_kind values (#{qfk_id},#{first_kind_id},#{first_kind_name})
 	</insert>
 	<update id="update" parameterType="com.hr.pojo.ConfigQuestionFirstKind">
 		update config_question_first_kind set first_kind_id=#{first_kind_id},first_kind_name=#{first_kind_name} where qfk_id=#{qfk_id}

@@ -13,18 +13,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form method="post" action="/hr/jsp/question_first_kind_rigister.jsp">
+		<form method="post" action="configfilefirstkind.do">
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：人力资源--客户化设置--题库管理设置--试题I级分类设置
+						<font color="#0000CC">您正在做的业务是：人力资源--客户化设置--题库管理设置--试题II级分类设置
 						</font>
 					</td>
 				</tr>
 				<tr>
 					<td align="right">
 						<input type="button" value="添加" class="BUTTON_STYLE1"
-							onclick="window.location.href='/hr/jsp/question_first_kind_rigister.jsp'" />
+							onclick="window.location.href='first_kind_register.jsp'" />
 					</td>
 				</tr>
 			</table>
