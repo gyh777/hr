@@ -4,15 +4,53 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.EngageInterviewMapper">
 	<select id="select">
-		select * from 
+		select * from engage_interview
 	</select>
-	<insert id="">
-		
+	<sql id="s">
+		ein_id,human_name,interview_amount,human_major_kind_id,
+			human_major_kind_name,human_major_id,human_major_name,image_degree,native_language_degree,
+			foreign_language_degree,response_speed_degree,EQ_degree,IQ_degree,multi_quality_degree,
+			register,checker,resume_id,result,interview_comment,check_comment,
+			interview_status,check_status
+	</sql>
+	<sql id="ss">
+		ein_id=#{einId},human_name=#{humanName},
+			interview_amount=#{interviewAmount},human_major_kind_id=#{humanMajorKindId},
+			human_major_kind_nam=#{humanMajorKindNam},human_major_id=#{humanMajorId},
+			human_major_name=#{humanMajorName},image_degree=#{imageDegree},
+			native_language_degree=#{nativeLanguageDegree},foreign_language_degree=#{foreignLanguageDegree},
+			response_speed_degree=#{responseSpeedDegree},EQ_degree=#{ewDegree},IQ_degree=#{iqDegree},
+			multi_quality_degree=#{multiQualityDegree},register=#{register},checker=#{checker},
+			registe_time=#{registeTime},check_time=#{checkTime},resume_id=#{resumeId},
+			result=#{result},interview_comment=#{interviewComment},check_comment=#{checkComment},
+			interview_status=#{interviewStatus},check_status=#{check_status}
+	</sql>
+	<insert id="insert" parameterType="com.hr.pojo.EngageInterview">
+		insert into engage_interview values (#{einId},#{humanName},
+			#{interviewAmount},#{humanMajorKindId},
+			#{humanMajorKindNam},#{humanMajorId},
+			#{humanMajorName},#{imageDegree},
+			#{nativeLanguageDegree},#{foreignLanguageDegree},
+			#{responseSpeedDegree},#{ewDegree},#{iqDegree},
+			#{multiQualityDegree},#{register},#{checker},
+			#{resumeId},
+			#{result},#{interviewComment},#{checkComment},
+			#{interviewStatus},#{check_status}
+		)
 	</insert>
-	<update id="">
-		
+	<update id="update">
+		update engage_interview set human_name=#{humanName},
+			interview_amount=#{interviewAmount},human_major_kind_id=#{humanMajorKindId},
+			human_major_kind_nam=#{humanMajorKindNam},human_major_id=#{humanMajorId},
+			human_major_name=#{humanMajorName},image_degree=#{imageDegree},
+			native_language_degree=#{nativeLanguageDegree},foreign_language_degree=#{foreignLanguageDegree},
+			response_speed_degree=#{responseSpeedDegree},EQ_degree=#{ewDegree},IQ_degree=#{iqDegree},
+			multi_quality_degree=#{multiQualityDegree},register=#{register},checker=#{checker},
+			resume_id=#{resumeId},
+			result=#{result},interview_comment=#{interviewComment},check_comment=#{checkComment},
+			interview_status=#{interviewStatus},check_status=#{check_status} where ein_id=#{einId}
 	</update>
-	<delete id="">
-		
+	<delete id="delete">
+		delete from engage_interview where ein_id=#{einId}
 	</delete>
 </mapper>

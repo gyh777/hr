@@ -10,11 +10,11 @@ import com.hr.pojo.ConfigQuestionFirstKind;
 public interface ConfigQuestionFirstKindMapper {
 	public List<ConfigQuestionFirstKind> select();
 	
-	public ConfigQuestionFirstKind selectByQfkId(@Param("qfkId") String qfkId);
+	public ConfigQuestionFirstKind selectByQfkId(@Param("qfk_id") String qfkId);
 	
 	public int insert(ConfigQuestionFirstKind configQuestionFirstKind);
 	
 	public int update(ConfigQuestionFirstKind configQuestionFirstKind);
 	
-	public int delete(@Param("qfkId") String qfkId);
+	public int delete(@Param("qfk_id") String qfkId);
 }

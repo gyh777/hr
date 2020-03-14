@@ -1,5 +1,10 @@
 package com.hr.web.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,15 +19,17 @@ public class ConfigQuestionFirstKindController {
 	ConfigQuestionFirstKindService configQuestionFirstKindServiceImpl;
 	
 	@RequestMapping("/getAll")
-	public String getAll(){
-		configQuestionFirstKindServiceImpl.listConfigQuestionFirstKind();
-		return null;
+	public String getAll(HttpServletRequest request){
+		List<ConfigQuestionFirstKind> list = configQuestionFirstKindServiceImpl.listConfigQuestionFirstKind();
+		request.setAttribute("configQuestionFirstKindList", list);
+		return "jsp/question_first_kind";
 	}
 	
-	@RequestMapping("/getByQfkId")
-	public String getByQfkId(String qfkId){
-		configQuestionFirstKindServiceImpl.getConfigQuestionFirstKind(qfkId);
-		return null;
+	@RequestMapping("/getByQfkIdForUpdate")
+	public String getByQfkId(String qfkId, HttpServletRequest request){
+		ConfigQuestionFirstKind configQuestionFirstKind = configQuestionFirstKindServiceImpl.getConfigQuestionFirstKind(qfkId);
+		request.setAttribute("changeConfigQuestionFirstKind", configQuestionFirstKind);
+		return "jsp/question_first_kind_change";
 	}
 	
 	@RequestMapping("/save")
@@ -32,9 +39,11 @@ public class ConfigQuestionFirstKindController {
 	}
 	
 	@RequestMapping("/update")
-	public String update(ConfigQuestionFirstKind configQuestionFirstKind){
+	public String update(ConfigQuestionFirstKind configQuestionFirstKind) throws UnsupportedEncodingException{
+//		有编码问题
+//		System.out.println(configQuestionFirstKind.getQfk_id()+"==="+configQuestionFirstKind.getFirst_kind_name());
 		configQuestionFirstKindServiceImpl.update(configQuestionFirstKind);
-		return null;
+		return "forward:/configQuestionFirstKind/getAll";
 	}
 	
 	@RequestMapping("/remove")

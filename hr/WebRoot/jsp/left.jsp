@@ -5,43 +5,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html>
 	<head>
 		<title>无标题文档</title>
@@ -254,15 +217,15 @@ a{ CURSOR: hand}
 										<table width="100%" border="0">
 											<tr>
 												<td width="2%">
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													试题I级分类设置
+													<a href="/hr/configQuestionFirstKind/getAll" target="mainFrame">试题I级分类设置</a>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/jt0.gif">
+													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
 													试题II级分类设置
@@ -274,7 +237,7 @@ a{ CURSOR: hand}
 							<tr>
 								<td>
 									<a onClick="noneORblock(config_other)"><img
-											src="images/plus22.gif"
+											src="/hr/jsp/images/plus22.gif"
 											onClick="plusORminus(config_other,config_other_pic)"
 											id="config_other_pic">
 									</a>
