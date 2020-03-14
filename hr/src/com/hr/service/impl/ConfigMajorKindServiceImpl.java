@@ -3,11 +3,13 @@ package com.hr.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.hr.mapper.ConfigMajorKindMapper;
 import com.hr.pojo.ConfigMajorKind;
 import com.hr.service.ConfigMajorKindService;
 
+@Service
 public class ConfigMajorKindServiceImpl implements ConfigMajorKindService{
 	@Autowired
 	ConfigMajorKindMapper mapper = null;
@@ -25,9 +27,9 @@ public class ConfigMajorKindServiceImpl implements ConfigMajorKindService{
 	}
 
 	@Override
-	public boolean addConfigMajorKind(ConfigMajorKind ck) {
+	public boolean addConfigMajorKind(ConfigMajorKind cmk) {
 		// TODO Auto-generated method stub
-		return mapper.addConfigMajorKind(ck);
+		return mapper.addConfigMajorKind(cmk);
 	}
 
 }

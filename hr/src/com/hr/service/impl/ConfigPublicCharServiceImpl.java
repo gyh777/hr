@@ -3,11 +3,13 @@ package com.hr.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.hr.mapper.ConfigPublicCharMapper;
 import com.hr.pojo.ConfigPublicChar;
 import com.hr.service.ConfigPublicCharService;
 
+@Service
 public class ConfigPublicCharServiceImpl implements ConfigPublicCharService{
 	@Autowired
 	ConfigPublicCharMapper mapper = null;
