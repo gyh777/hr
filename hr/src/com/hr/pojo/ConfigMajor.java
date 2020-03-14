@@ -1,63 +1,63 @@
 package com.hr.pojo;
 
 public class ConfigMajor {
-    private Short makId;
+    private Short mak_id;
 
-    private String majorKindId;
+    private String major_kind_id;
 
-    private String majorKindName;
+    private String major_kind_name;
 
-    private String majorId;
+    private String major_id;
 
-    private String majorName;
+    private String major_name;
 
-    private Short testAmount;
+    private Short test_amount;
 
-    public Short getMakId() {
-        return makId;
-    }
+	public Short getMak_id() {
+		return mak_id;
+	}
 
-    public void setMakId(Short makId) {
-        this.makId = makId;
-    }
+	public void setMak_id(Short mak_id) {
+		this.mak_id = mak_id;
+	}
 
-    public String getMajorKindId() {
-        return majorKindId;
-    }
+	public String getMajor_kind_id() {
+		return major_kind_id;
+	}
 
-    public void setMajorKindId(String majorKindId) {
-        this.majorKindId = majorKindId == null ? null : majorKindId.trim();
-    }
+	public void setMajor_kind_id(String major_kind_id) {
+		this.major_kind_id = major_kind_id;
+	}
 
-    public String getMajorKindName() {
-        return majorKindName;
-    }
+	public String getMajor_kind_name() {
+		return major_kind_name;
+	}
 
-    public void setMajorKindName(String majorKindName) {
-        this.majorKindName = majorKindName == null ? null : majorKindName.trim();
-    }
+	public void setMajor_kind_name(String major_kind_name) {
+		this.major_kind_name = major_kind_name;
+	}
 
-    public String getMajorId() {
-        return majorId;
-    }
+	public String getMajor_id() {
+		return major_id;
+	}
 
-    public void setMajorId(String majorId) {
-        this.majorId = majorId == null ? null : majorId.trim();
-    }
+	public void setMajor_id(String major_id) {
+		this.major_id = major_id;
+	}
 
-    public String getMajorName() {
-        return majorName;
-    }
+	public String getMajor_name() {
+		return major_name;
+	}
 
-    public void setMajorName(String majorName) {
-        this.majorName = majorName == null ? null : majorName.trim();
-    }
+	public void setMajor_name(String major_name) {
+		this.major_name = major_name;
+	}
 
-    public Short getTestAmount() {
-        return testAmount;
-    }
+	public Short getTest_amount() {
+		return test_amount;
+	}
 
-    public void setTestAmount(Short testAmount) {
-        this.testAmount = testAmount;
-    }
+	public void setTest_amount(Short test_amount) {
+		this.test_amount = test_amount;
+	}
 }
