@@ -25,4 +25,10 @@ public class EngageSubjectsController {
 		return "";
 	}
 	
+	@RequestMapping("find")
+	public String find(String firstKindName, String keyWord, String start, String end){
+		engageSubjectsServiceImpl.listEngageSubjects(firstKindName, keyWord, start, end);
+		return "";
+	}
+	
 }
