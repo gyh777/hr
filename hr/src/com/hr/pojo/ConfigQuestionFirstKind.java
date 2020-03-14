@@ -1,17 +1,17 @@
 package com.hr.pojo;
 
 public class ConfigQuestionFirstKind {
-    private Short qfkId;
+    private String qfkId;
 
     private String firstKindId;
 
     private String firstKindName;
 
-    public Short getQfkId() {
+    public String getQfkId() {
         return qfkId;
     }
 
-    public void setQfkId(Short qfkId) {
+    public void setQfkId(String qfkId) {
         this.qfkId = qfkId;
     }
 

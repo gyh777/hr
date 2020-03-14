@@ -8,6 +8,7 @@ import com.hr.pojo.EngageSubjects;
 import com.hr.service.EngageSubjectsService;
 
 @Controller
+@RequestMapping("/engageSubjects")
 public class EngageSubjectsController {
 	@Autowired
 	EngageSubjectsService engageSubjectsServiceImpl;

@@ -1,7 +1,7 @@
 package com.hr.pojo;
 
 public class ConfigQuestionSecondKind {
-    private Short qskId;
+    private String qskId;
 
     private String firstKindId;
 
@@ -11,11 +11,11 @@ public class ConfigQuestionSecondKind {
 
     private String secondKindName;
 
-    public Short getQskId() {
+    public String getQskId() {
         return qskId;
     }
 
-    public void setQskId(Short qskId) {
+    public void setQskId(String qskId) {
         this.qskId = qskId;
     }
 
