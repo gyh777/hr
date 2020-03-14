@@ -7,27 +7,27 @@ public class ConfigQuestionFirstKind {
 
     private String firstKindName;
 
-    public String getQfkId() {
-        return qfkId;
-    }
+	public String getQfkId() {
+		return qfkId;
+	}
 
-    public void setQfkId(String qfkId) {
-        this.qfkId = qfkId;
-    }
+	public void setQfkId(String qfkId) {
+		this.qfkId = qfkId;
+	}
 
-    public String getFirstKindId() {
-        return firstKindId;
-    }
+	public String getFirstKindId() {
+		return firstKindId;
+	}
 
-    public void setFirstKindId(String firstKindId) {
-        this.firstKindId = firstKindId == null ? null : firstKindId.trim();
-    }
+	public void setFirstKindId(String firstKindId) {
+		this.firstKindId = firstKindId;
+	}
 
-    public String getFirstKindName() {
-        return firstKindName;
-    }
+	public String getFirstKindName() {
+		return firstKindName;
+	}
 
-    public void setFirstKindName(String firstKindName) {
-        this.firstKindName = firstKindName == null ? null : firstKindName.trim();
-    }
+	public void setFirstKindName(String firstKindName) {
+		this.firstKindName = firstKindName;
+	}
 }
