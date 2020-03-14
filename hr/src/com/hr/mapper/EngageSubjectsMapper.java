@@ -10,5 +10,5 @@ import com.hr.pojo.EngageSubjects;
 public interface EngageSubjectsMapper {
 	public int insert(EngageSubjects engageSubjects);
 	public int update(EngageSubjects engageSubjects);
-	public List<EngageSubjects> select(@Param("firstKindName") String firstKindName);
+	public List<EngageSubjects> select(@Param("firstKindName") String firstKindName, @Param("keyWord") String keyWord, @Param("start") String start, @Param("end") String end);
 }

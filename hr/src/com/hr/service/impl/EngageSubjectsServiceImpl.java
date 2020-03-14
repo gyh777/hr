@@ -1,5 +1,7 @@
 package com.hr.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +23,10 @@ public class EngageSubjectsServiceImpl implements EngageSubjectsService{
 		if(engageSubjectsMapper.update(engageSubjects) > 0)
 			return true;
 		return false;
+	}
+	
+	public List<EngageSubjects> listEngageSubjects(String firstKindName,
+			String keyWord, String start, String end) {
+		return engageSubjectsMapper.select(firstKindName, keyWord, start, end);
 	}
 }

@@ -35,16 +35,17 @@
 	</update>
 	<select id="select" parameterType="String" resultType="com.hr.pojo.EngageSubjects">
 		select * from engage_subjects
-		<where>
+		<trim prefixOverrides="where" suffixOverrides="and">
 			<if test="firstKindName != null">
-				first_kind_id=#{firstKindId},
+				first_kind_id=#{firstKindId} and
 			</if>
 			<if test="keyWord != null">
-				first_kind_id=#{firstKindId},
+				<bind name="keyWordOne" value="'%'+keyWord+'%'"/>
+				content like #{keyWordOne} or register like #{keyWordOne} or derivation like #{keyWordOne} and
 			</if>
 			<if test="start != null &amp;&amp; end !=null">
-				regist_time &gt; #{start} and regist_time &lt; #{end}
+				regist_time &gt; #{start} and regist_time &lt; #{end} and
 			</if>
-		</where>
+		</trim>
 	</select>
 </mapper>
