@@ -19,7 +19,6 @@
     	key_e,
     	correct_key,
     	changer)
-    	<!-- change_time -->
     </sql>
 	<insert id="insert" parameterType="com.hr.pojo.EngageSubjects">
 		insert into engage_subjects <include refid="EngageSubjects"/> values

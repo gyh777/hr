@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.hr.service.ConfigQuestionSecondKindService;
 
 @Controller
-@RequestMapping("/ConfigQuestionSecondKind")
+@RequestMapping("/configQuestionSecondKind")
 public class ConfigQuestionSecondKindController {
 	@Autowired
 	ConfigQuestionSecondKindService configQuestionSecondKindServiceImpl;
