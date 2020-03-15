@@ -130,7 +130,7 @@ a{ CURSOR: hand}
 													<img src="images/jt0.gif">
 												</td>
 												<td>
-													<a href="major.jsp"
+													<a href="/hr/configMajor/selectAll"
 														target="mainFrame">职位设置</a>
 												</td>
 											</tr>
