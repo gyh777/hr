@@ -21,6 +21,12 @@ public class ConfigPublicCharServiceImpl implements ConfigPublicCharService{
 	}
 
 	@Override
+	public List<String> selectTheSameAttribute(String attribute_kind) {
+		// TODO Auto-generated method stub
+		return mapper.selectTheSameAttribute(attribute_kind);
+	}
+
+	@Override
 	public boolean deleteConfigPublicChar(String attribute_kind ,String attribute_name) {
 		// TODO Auto-generated method stub
 		return mapper.deleteConfigPublicChar(attribute_kind ,attribute_name);

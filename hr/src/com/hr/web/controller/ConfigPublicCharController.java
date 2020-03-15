@@ -23,23 +23,28 @@ public class ConfigPublicCharController {
 	
 	@RequestMapping(value="/toDelete")
 	@ResponseBody
-	public String toDelete(@RequestParam("delete_name")String delete_name){
+	public String toDelete(@RequestParam("delete_kind")String delete_kind,
+								@RequestParam("delete_name")String delete_name){
+		delete_kind = CharacterEncodingHelper.getChinese(delete_kind);
 		delete_name = CharacterEncodingHelper.getChinese(delete_name);
-		String[] str = delete_name.split("and");
-		String attribute_kind = str[0];
-		String attribute_name = str[1];
-		System.out.println(attribute_kind);
-		System.out.println(attribute_name);
-		boolean b = configPublicCharServiceImpl.deleteConfigPublicChar(attribute_kind,attribute_name);
+		boolean b = configPublicCharServiceImpl.deleteConfigPublicChar(delete_kind,delete_name);
 		return String.valueOf(b);
 	}
 	
 	@RequestMapping("/selectAll")
 	public ModelAndView selectAll() {
 		List<ConfigPublicChar> list = configPublicCharServiceImpl.selectAllConfigPublicChar();
-		System.out.println(list.size());
 		mav.setViewName("public_char");
 		mav.addObject("publicCharList",list);
+		return mav;
+	}
+	
+	@RequestMapping("/selectTheSameAttribute")
+	public ModelAndView selectTheSameAttribute(String attribute_kind) {
+		attribute_kind = CharacterEncodingHelper.getChinese(attribute_kind);
+		List<String> list = configPublicCharServiceImpl.selectTheSameAttribute(attribute_kind);
+		mav.setViewName("profession_design");
+		mav.addObject("AttributeList",list);
 		return mav;
 	}
 	

@@ -13,12 +13,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript">
-			function toDelete(one,two,business){
-				var delete_name = one+"and"+two;
-				console.log(delete_name);
+			function toDelete(delete_kind,delete_name,business){
+				delete_kind = encodeURI(encodeURI(delete_kind));
 				delete_name = encodeURI(encodeURI(delete_name));
 				business = encodeURI(encodeURI(business));
-				location.href="/hr/jsp/major_business_delete.jsp?delete_name="+delete_name+"&business="+business;
+				location.href="/hr/jsp/major_business_delete.jsp?delete_name="+delete_name+"&delete_kind="+delete_kind+"&business="+business;
 			};
 		</script>
 	</head>

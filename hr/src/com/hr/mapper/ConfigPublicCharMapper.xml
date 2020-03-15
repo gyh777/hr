@@ -6,6 +6,9 @@
 	<select id="selectAllConfigPublicChar" resultType="com.hr.pojo.ConfigPublicChar">
 		select * from config_public_char
 	</select>
+	<select id="selectTheSameAttribute" resultType="String" parameterType="String">
+		select attribute_name from config_public_char where attribute_kind=#{attribute_kind}
+	</select>
 	
 	<delete id="deleteConfigPublicChar">
 		delete from config_public_char 
