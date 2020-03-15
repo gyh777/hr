@@ -13,6 +13,14 @@ import com.hr.mapper.EngageSubjectsMapper;
 import com.hr.pojo.EngageSubjects;
 
 public class Test {
+	/**
+	 * 字符转码
+	 * 试题登记的两级联动
+	 * 试题查询的时间查询
+	 * 
+	 */
+	
+	
 	ApplicationContext applicationContext = 
 			new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 	

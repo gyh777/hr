@@ -20,6 +20,15 @@
     	correct_key,
     	changer)
     </sql>
+    <select id="selectAll" resultType="com.hr.pojo.EngageSubjects">
+    	select * from engage_subjects
+    </select>
+    <select id="selectBySubId" parameterType="String" resultType="com.hr.pojo.EngageSubjects">
+    	select *  from engage_subjects where sub_id=#{sub_id}
+    </select>
+    <delete id="delete" parameterType="String">
+    	delete from engage_subjects where sub_id=#{sub_id}
+    </delete>
 	<insert id="insert" parameterType="com.hr.pojo.EngageSubjects">
 		insert into engage_subjects <include refid="EngageSubjects"/> values
 		(#{sub_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},

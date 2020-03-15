@@ -19,6 +19,26 @@ public class EngageSubjectsController {
 	@Autowired
 	EngageSubjectsService engageSubjectsServiceImpl;
 	
+	@RequestMapping("/getAll")
+	public String getAll(HttpServletRequest request){
+		List<EngageSubjects> list = engageSubjectsServiceImpl.listAll();
+		request.setAttribute("engageSubjectsList", list);
+		return "question_query_list_all";
+	}
+	
+	@RequestMapping("/getBySubId")
+	public String getBySubId(String sub_id, HttpServletRequest request){
+		EngageSubjects engageSubjects = engageSubjectsServiceImpl.getBySubId(sub_id);
+		request.setAttribute("engageSubjects", engageSubjects);
+		return "question_update";
+	}
+	
+	@RequestMapping("/getBySubIdForDelete")
+	public String getBySubIdForDelete(String sub_id, HttpServletRequest request){
+		request.setAttribute("sub_id", sub_id);
+		return "question_delete";
+	}
+	
 	@RequestMapping("/save")
 	public String save(EngageSubjects engageSubjects){
 		engageSubjects.setSub_id(UUIDHelper.getUUID());
@@ -29,7 +49,7 @@ public class EngageSubjectsController {
 	@RequestMapping("/update")
 	public String update(EngageSubjects engageSubjects){
 		engageSubjectsServiceImpl.update(engageSubjects);
-		return "";
+		return "forward:/engageSubjects/getAll";
 	}
 	
 	@RequestMapping("/find")
@@ -38,6 +58,12 @@ public class EngageSubjectsController {
 		List<EngageSubjects> list = engageSubjectsServiceImpl.listEngageSubjects(firstKindName, keyWord, start, end);
 		request.setAttribute("engageSubjectsFindList", list);
 		return "question_query_list";
+	}
+	
+	@RequestMapping("/remove")
+	public String remove(String sub_id){
+		engageSubjectsServiceImpl.delete(sub_id);
+		return "forward:/engageSubjects/getAll";
 	}
 	
 }
