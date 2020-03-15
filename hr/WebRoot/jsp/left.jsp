@@ -778,7 +778,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engagesubjects.do?operate=locate&param=change" target="mainFrame">试题变更</a>
+													<a href="/hr/engageSubjects/getAll" target="mainFrame">试题变更</a>
 												</td>
 											</tr>
 										</table></span>
