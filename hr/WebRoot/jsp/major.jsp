@@ -13,23 +13,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript">
-			function toDelete(obj,major_name){
-			console.log(major_name);
-				$.ajax({
-					type : "post",
-					url : "/hr/configMajor/toDelete?major_name="+major_name,
-					dataType : "json",
-					success:function(result){
-						if(result==true){
-							$(obj).parents("tr").remove();
-						}else{
-							alert("删除失败！");
-						}
-					},
-					error:function(error){
-						alert("删除失败！");
-					}
-				});
+			function toDelete(delete_name,business){
+				delete_name = encodeURI(encodeURI(delete_name));
+				business = encodeURI(encodeURI(business));
+				location.href="/hr/jsp/major_business_delete.jsp?delete_name="+delete_name+"&business="+business;
 			};
 		</script>
 	</head>
@@ -67,7 +54,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <td class="TD_STYLE2">${list.major_id }</td>
                         <td class="TD_STYLE2">${list.major_name }</td>
 						<td class="TD_STYLE2">
-							<a href="javascript:void(0);" onclick="toDelete(this,'${list.major_name }')">删除</a>
+							<!-- <a href="javascript:void(0);" 
+								onclick="toDelete(this,'${list.major_name }')">删除</a> -->
+							<a href="javascript:void(0);" 
+								onclick="toDelete('${list.major_name }','职位设置')">删除</a>
 						</td>
                     </tr>
                 </c:forEach>

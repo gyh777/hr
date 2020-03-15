@@ -23,7 +23,7 @@ public class ConfigMajorKindController {
 	
 	@RequestMapping(value="/toDelete")
 	@ResponseBody
-	public String toDelete(@RequestParam("major_kind_name")String major_kind_name){
+	public String toDelete(@RequestParam("delete_name")String major_kind_name){
 		major_kind_name = CharacterEncodingHelper.getChinese(major_kind_name);
 		boolean b = configMajorKindServiceImpl.deleteConfigMajorKind(major_kind_name);
 		return String.valueOf(b);
