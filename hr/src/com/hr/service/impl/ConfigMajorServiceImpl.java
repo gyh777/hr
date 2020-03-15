@@ -20,8 +20,8 @@ public class ConfigMajorServiceImpl implements ConfigMajorService{
 	}
 
 	@Override
-	public boolean deleteConfigMajor(int makId) {
-		return mapper.deleteConfigMajor(makId);
+	public boolean deleteConfigMajor(String major_name) {
+		return mapper.deleteConfigMajor(major_name);
 	}
 
 	@Override

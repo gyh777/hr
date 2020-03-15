@@ -1,5 +1,6 @@
 package com.hr.web.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hr.pojo.ConfigMajor;
 import com.hr.service.ConfigMajorService;
+import com.hr.util.CharacterEncodingHelper;
 
 @Controller
 @RequestMapping("/configMajor")
@@ -28,8 +30,9 @@ public class ConfigMajorController {
 	
 	@RequestMapping(value="/toDelete")
 	@ResponseBody
-	public String toDelete(@RequestParam("mak_id")String mak_id) {
-		boolean b = configMajorServiceImpl.deleteConfigMajor(Integer.valueOf(mak_id));
+	public String toDelete(@RequestParam("major_name")String major_name){
+		major_name = CharacterEncodingHelper.getChinese(major_name);
+		boolean b = configMajorServiceImpl.deleteConfigMajor(major_name);
 		return String.valueOf(b);
 	}
 	
