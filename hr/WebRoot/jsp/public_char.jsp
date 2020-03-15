@@ -1,78 +1,26 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css">
+		<link rel="stylesheet" href="../jsp/table.css" type="text/css">
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript">
+			function toDelete(one,two,business){
+				var delete_name = one+"and"+two;
+				console.log(delete_name);
+				delete_name = encodeURI(encodeURI(delete_name));
+				business = encodeURI(encodeURI(business));
+				location.href="/hr/jsp/major_business_delete.jsp?delete_name="+delete_name+"&business="+business;
+			};
+		</script>
 	</head>
 
 	<body>
@@ -105,321 +53,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						删除
 					</td>
 				</tr>
-				
-					<tr>
+				<c:forEach items="${publicCharList}" var="list">
+                    <tr>
+                        <td class="TD_STYLE2">${list.attribute_kind }</td>
+                        <td class="TD_STYLE2">${list.attribute_name }</td>
 						<td class="TD_STYLE2">
-							爱好
-						</td>
-						<td class="TD_STYLE2">
-							篮球
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('17')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							爱好
-						</td>
-						<td class="TD_STYLE2">
-							舞蹈
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('18')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							国籍
-						</td>
-						<td class="TD_STYLE2">
-							中国
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('1')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							国籍
-						</td>
-						<td class="TD_STYLE2">
-							美国
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('2')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							奖励等级
-						</td>
-						<td class="TD_STYLE2">
-							A
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('25')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							奖励等级
-						</td>
-						<td class="TD_STYLE2">
-							B
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('26')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							奖励项目
-						</td>
-						<td class="TD_STYLE2">
-							技术攻关
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('23')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							奖励项目
-						</td>
-						<td class="TD_STYLE2">
-							销售绩效
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('24')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							教育年限
-						</td>
-						<td class="TD_STYLE2">
-							12
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('9')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							教育年限
-						</td>
-						<td class="TD_STYLE2">
-							16
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('10')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							民族
-						</td>
-						<td class="TD_STYLE2">
-							汉族
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('3')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							民族
-						</td>
-						<td class="TD_STYLE2">
-							回族
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('4')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							培训成绩
-						</td>
-						<td class="TD_STYLE2">
-							A
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('21')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							培训成绩
-						</td>
-						<td class="TD_STYLE2">
-							B
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('22')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							培训项目
-						</td>
-						<td class="TD_STYLE2">
-							英语
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('19')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							培训项目
-						</td>
-						<td class="TD_STYLE2">
-							管理
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('20')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							特长
-						</td>
-						<td class="TD_STYLE2">
-							数据库
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('15')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							特长
-						</td>
-						<td class="TD_STYLE2">
-							java
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('16')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							学历
-						</td>
-						<td class="TD_STYLE2">
-							本科
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('11')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							学历
-						</td>
-						<td class="TD_STYLE2">
-							大专
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('12')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							政治面貌
-						</td>
-						<td class="TD_STYLE2">
-							党员
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('7')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							政治面貌
-						</td>
-						<td class="TD_STYLE2">
-							群众
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('8')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							专业
-						</td>
-						<td class="TD_STYLE2">
-							生物工程
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('13')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							专业
-						</td>
-						<td class="TD_STYLE2">
-							计算机
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('14')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							宗教信仰
-						</td>
-						<td class="TD_STYLE2">
-							无
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('5')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							宗教信仰
-						</td>
-						<td class="TD_STYLE2">
-							佛教
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('6')">删除</a>
-						</td>
-					</tr>
-				
+							<a href="javascript:void(0);" 
+								onclick="toDelete('${list.attribute_kind }','${list.attribute_name }','公共属性设置')">删除</a>
+						</td>
+                    </tr>
+                </c:forEach>
 			</table>
-			<p>&nbsp;&nbsp;总数：26例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：26例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="../jsp/images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>

@@ -21,9 +21,9 @@ public class ConfigPublicCharServiceImpl implements ConfigPublicCharService{
 	}
 
 	@Override
-	public boolean deleteConfigPublicChar(int pbcId) {
+	public boolean deleteConfigPublicChar(String attribute_kind ,String attribute_name) {
 		// TODO Auto-generated method stub
-		return mapper.deleteConfigPublicChar(pbcId);
+		return mapper.deleteConfigPublicChar(attribute_kind ,attribute_name);
 	}
 
 	@Override

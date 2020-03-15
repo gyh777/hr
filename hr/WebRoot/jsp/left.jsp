@@ -139,7 +139,7 @@ a{ CURSOR: hand}
 													<img src="images/jt0.gif">
 												</td>
 												<td>
-													<a href="public_char.jsp"
+													<a href="/hr/configPublicChar/selectAll"
 														target="mainFrame">公共属性设置</a>
 												</td>
 											</tr>

@@ -14,9 +14,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 	var delete_names = decodeURI("${param.delete_name}","utf-8");
 	var businesss = decodeURI("${param.business}","utf-8");
+	var allDelete = delete_names.split("and");
 	function decode(){
 		$("#business").html("您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--"+businesss);
-		$("#delete_name").html(" 您确认删除 "+ delete_names +" 这条记录吗? ");
+		$("#delete_name").html(" 您确认删除 "+ allDelete[0]+ "中的"+ allDelete[1] +" 这条记录吗? ");
 	};
 	function toDelete(){
 		var controller = "";
@@ -24,6 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			controller = "configMajor";
 		}else if(businesss=="职位分类设置"){
 			controller = "configMajorKind";
+		}else if(businesss=="公共属性设置"){
+			controller = "configPublicChar";
 		}
 		$.ajax({
 			type : "post",
