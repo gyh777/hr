@@ -121,7 +121,7 @@ a{ CURSOR: hand}
 													<img src="images/jt0.gif">
 												</td>
 												<td>
-													<a href="major_kind.jsp"
+													<a href="/hr/configMajorKind/selectAll"
 														target="mainFrame">职位分类设置</a>
 												</td>
 											</tr>

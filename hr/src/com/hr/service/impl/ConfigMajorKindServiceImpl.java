@@ -21,9 +21,9 @@ public class ConfigMajorKindServiceImpl implements ConfigMajorKindService{
 	}
 
 	@Override
-	public boolean deleteConfigMajorKind(int mfkId) {
+	public boolean deleteConfigMajorKind(String major_kind_name) {
 		// TODO Auto-generated method stub
-		return mapper.deleteConfigMajorKind(mfkId);
+		return mapper.deleteConfigMajorKind(major_kind_name);
 	}
 
 	@Override
