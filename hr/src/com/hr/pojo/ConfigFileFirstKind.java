@@ -1,35 +1,58 @@
 package com.hr.pojo;
 
 public class ConfigFileFirstKind {
-    private Short ffkId;
+    private Short ffk_id;
 
-    private String firstKindId;
+    public Short getFfk_id() {
+		return ffk_id;
+	}
 
-    private String firstKindName;
+	public void setFfk_id(Short ffk_id) {
+		this.ffk_id = ffk_id;
+	}
 
-    public Short getFfkId() {
-        return ffkId;
-    }
+	public String getFirst_kind_id() {
+		return first_kind_id;
+	}
 
-    public void setFfkId(Short ffkId) {
-        this.ffkId = ffkId;
-    }
+	public void setFirst_kind_id(String first_kind_id) {
+		this.first_kind_id = first_kind_id;
+	}
 
-    public String getFirstKindId() {
-        return firstKindId;
-    }
+	public String getFirst_kind_name() {
+		return first_kind_name;
+	}
 
-    public void setFirstKindId(String firstKindId) {
-        this.firstKindId = firstKindId == null ? null : firstKindId.trim();
-    }
+	public void setFirst_kind_name(String first_kind_name) {
+		this.first_kind_name = first_kind_name;
+	}
 
-    public String getFirstKindName() {
-        return firstKindName;
-    }
+	public String getFirst_kind_salary_id() {
+		return first_kind_salary_id;
+	}
 
-    public void setFirstKindName(String firstKindName) {
-        this.firstKindName = firstKindName == null ? null : firstKindName.trim();
-    }
+	public void setFirst_kind_salary_id(String first_kind_salary_id) {
+		this.first_kind_salary_id = first_kind_salary_id;
+	}
+
+	public String getFirst_kind_sale_id() {
+		return first_kind_sale_id;
+	}
+
+	public void setFirst_kind_sale_id(String first_kind_sale_id) {
+		this.first_kind_sale_id = first_kind_sale_id;
+	}
+
+	private String first_kind_id;
+
+    private String first_kind_name;
+    
+    private String first_kind_salary_id;
+    
+    private String first_kind_sale_id;
+    
+
+  
 }
 
 	

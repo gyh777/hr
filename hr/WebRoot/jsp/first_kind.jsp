@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form method="post" action="configfilefirstkind.do">
+		<form method="post" id="First">
 			<table width="100%">
 				<tr>
 					<td>
@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				
 					<tr>
-						<td class="TD_STYLE2">
+						<td id="firstKindId" class="TD_STYLE2">
 							01
 						</td>
 						<td class="TD_STYLE2">
@@ -66,9 +66,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 						<td class="TD_STYLE2">
 							<a href="first_kind_change.jsp">变更</a>
+						     <input type="button" value="变更" class="BUTTON_STYLE1" onclick="changeFirstKind">
 						</td>
 						<td class="TD_STYLE2">
 							<a href="first_kind_delete.jsp">删除</a>
+							<input type="button" value="删除" class="BUTTON_STYLE1" onclick="deleteFirstKind">
 						</td>
 					</tr>
 				

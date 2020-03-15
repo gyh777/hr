@@ -6,8 +6,8 @@ import com.hr.pojo.ConfigFileFirstKind;
 
 public interface ConfigFileFirstKindService {
 	public boolean addConfigFileFirstKind(ConfigFileFirstKind ffk);
-    public boolean removeConfigFileFirstKind(int ffkId);
+    public boolean removeConfigFileFirstKind(String ffkId);
     public boolean updateConfigFileFirstKind(ConfigFileFirstKind ffk);
-    public ConfigFileFirstKind queryConfigFileFirstKindById(int ffkId);
+    public ConfigFileFirstKind queryConfigFileFirstKindById(String ffkId);
     public List<ConfigFileFirstKind> queryAllConfigFileFirstKind();
 }

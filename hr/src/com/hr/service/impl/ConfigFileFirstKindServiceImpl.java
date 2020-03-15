@@ -21,7 +21,7 @@ public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindServic
 	}
 
 	@Override
-	public boolean removeConfigFileFirstKind(int ffkId) {
+	public boolean removeConfigFileFirstKind(String ffkId) {
 		// TODO Auto-generated method stub
 		return mapper.removeConfigFileFirstKind(ffkId);
 	}
@@ -33,7 +33,7 @@ public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindServic
 	}
 
 	@Override
-	public ConfigFileFirstKind queryConfigFileFirstKindById(int ffkId) {
+	public ConfigFileFirstKind queryConfigFileFirstKindById(String ffkId) {
 		// TODO Auto-generated method stub
 		return mapper.queryConfigFileFirstKindById(ffkId);
 	}
