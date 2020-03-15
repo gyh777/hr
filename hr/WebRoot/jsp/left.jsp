@@ -762,7 +762,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engagesubjects.do?operate=toAdd" target="mainFrame">试题登记</a>
+													<a href="/hr/jsp/question_register.jsp" target="mainFrame">试题登记</a>
 												</td>
 											</tr>
 											<tr>
@@ -770,7 +770,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engagesubjects.do?operate=locate&param=query" target="mainFrame">试题查询</a>
+													<a href="/hr/configQuestionSecondKind/getAllForQuestionQuery" target="mainFrame">试题查询</a>
 												</td>
 											</tr>
 											<tr>

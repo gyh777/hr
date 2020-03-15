@@ -27,21 +27,21 @@ public class ConfigQuestionSecondKindController {
 	public String getAll(HttpServletRequest request){
 		List<ConfigQuestionSecondKind> list = configQuestionSecondKindServiceImpl.list();
 		request.setAttribute("configQuestionSecondKindList", list);
-		return "jsp/question_second_kind";
+		return "question_second_kind";
 	}
 	
 	@RequestMapping("/getByQfkIdForUpdate")
 	public String getByQfkId(String qskId, HttpServletRequest request){
 		ConfigQuestionSecondKind configQuestionSecondKind = configQuestionSecondKindServiceImpl.getByQfkId(qskId);
 		request.setAttribute("changeConfigQuestionSecondKind", configQuestionSecondKind);
-		return "jsp/question_second_kind_change";
+		return "question_second_kind_change";
 	}
 	
 	@RequestMapping("/getByQfkIdForRemove")
 	public String getByQfkIdForRemove(String qskId, HttpServletRequest request){
 		ConfigQuestionSecondKind configQuestionSecondKind = configQuestionSecondKindServiceImpl.getByQfkId(qskId);
 		request.setAttribute("deleteConfigQuestionSecondKind", configQuestionSecondKind);
-		return "jsp/question_second_kind_delete";
+		return "question_second_kind_delete";
 	}
 	
 	@RequestMapping("/save")
@@ -50,7 +50,7 @@ public class ConfigQuestionSecondKindController {
 		ConfigQuestionFirstKind configQuestionFirstKind = configQuestionFirstKindServiceImpl.getByFirstKindId(configQuestionSecondKind.getFirst_kind_id());
 		configQuestionSecondKind.setFirst_kind_name(configQuestionFirstKind.getFirst_kind_name());
 		configQuestionSecondKindServiceImpl.save(configQuestionSecondKind);
-		return "jsp/question_second_kind_rigister_success";
+		return "question_second_kind_rigister_success";
 	}
 	
 	@RequestMapping("/update")
@@ -64,5 +64,12 @@ public class ConfigQuestionSecondKindController {
 	public String remove(String qskId){
 		configQuestionSecondKindServiceImpl.remove(qskId);
 		return "forward:/configQuestionSecondKind/getAll";
+	}
+	
+	@RequestMapping("/getAllForQuestionQuery")
+	public String getAllForQuestionQuery(HttpServletRequest request){
+		List<ConfigQuestionSecondKind> list = configQuestionSecondKindServiceImpl.list();
+		request.setAttribute("configQuestionSecondKindList", list);
+		return "question_query_locate";
 	}
 }

@@ -4,169 +4,125 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class EngageSubjects {
-    private String subId;
-
-    private String firstKindId;
-
-    private String firstKindName;
-
-    private String secondKindId;
-
-    private String secondKindName;
-
+    private String sub_id;
+    private String first_kind_id;
+    private String first_kind_name;
+    private String second_kind_id;
+    private String second_kind_name;
     private String register;
-
-    private Timestamp registTime;
-
+    private Timestamp regist_time;
     private String derivation;
-
-    private String correctKey;
-
+    private String correct_key;
     private String content;
-	private String keyA;
-	private String keyB;
-	private String keyC;
-	private String keyD;
-	private String keyE;
-    
+	private String key_a;
+	private String key_b;
+	private String key_c;
+	private String key_d;
+	private String key_e; 
     private String changer;
-
-    private Timestamp  changeTime;
-
-	public String getSubId() {
-		return subId;
+    private Timestamp  change_time;
+    
+	public String getSub_id() {
+		return sub_id;
 	}
-
-	public void setSubId(String subId) {
-		this.subId = subId;
+	public void setSub_id(String sub_id) {
+		this.sub_id = sub_id;
 	}
-
-	public String getFirstKindId() {
-		return firstKindId;
+	public String getFirst_kind_id() {
+		return first_kind_id;
 	}
-
-	public void setFirstKindId(String firstKindId) {
-		this.firstKindId = firstKindId;
+	public void setFirst_kind_id(String first_kind_id) {
+		this.first_kind_id = first_kind_id;
 	}
-
-	public String getFirstKindName() {
-		return firstKindName;
+	public String getFirst_kind_name() {
+		return first_kind_name;
 	}
-
-	public void setFirstKindName(String firstKindName) {
-		this.firstKindName = firstKindName;
+	public void setFirst_kind_name(String first_kind_name) {
+		this.first_kind_name = first_kind_name;
 	}
-
-	public String getSecondKindId() {
-		return secondKindId;
+	public String getSecond_kind_id() {
+		return second_kind_id;
 	}
-
-	public void setSecondKindId(String secondKindId) {
-		this.secondKindId = secondKindId;
+	public void setSecond_kind_id(String second_kind_id) {
+		this.second_kind_id = second_kind_id;
 	}
-
-	public String getSecondKindName() {
-		return secondKindName;
+	public String getSecond_kind_name() {
+		return second_kind_name;
 	}
-
-	public void setSecondKindName(String secondKindName) {
-		this.secondKindName = secondKindName;
+	public void setSecond_kind_name(String second_kind_name) {
+		this.second_kind_name = second_kind_name;
 	}
-
 	public String getRegister() {
 		return register;
 	}
-
 	public void setRegister(String register) {
 		this.register = register;
 	}
-
-	public Timestamp getRegistTime() {
-		return registTime;
+	public Timestamp getRegist_time() {
+		return regist_time;
 	}
-
-	public void setRegistTime(Timestamp registTime) {
-		this.registTime = registTime;
+	public void setRegist_time(Timestamp regist_time) {
+		this.regist_time = regist_time;
 	}
-
 	public String getDerivation() {
 		return derivation;
 	}
-
 	public void setDerivation(String derivation) {
 		this.derivation = derivation;
 	}
-
-	public String getCorrectKey() {
-		return correctKey;
+	public String getCorrect_key() {
+		return correct_key;
 	}
-
-	public void setCorrectKey(String correctKey) {
-		this.correctKey = correctKey;
+	public void setCorrect_key(String correct_key) {
+		this.correct_key = correct_key;
 	}
-
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public String getKeyA() {
-		return keyA;
+	public String getKey_a() {
+		return key_a;
 	}
-
-	public void setKeyA(String keyA) {
-		this.keyA = keyA;
+	public void setKey_a(String key_a) {
+		this.key_a = key_a;
 	}
-
-	public String getKeyB() {
-		return keyB;
+	public String getKey_b() {
+		return key_b;
 	}
-
-	public void setKeyB(String keyB) {
-		this.keyB = keyB;
+	public void setKey_b(String key_b) {
+		this.key_b = key_b;
 	}
-
-	public String getKeyC() {
-		return keyC;
+	public String getKey_c() {
+		return key_c;
 	}
-
-	public void setKeyC(String keyC) {
-		this.keyC = keyC;
+	public void setKey_c(String key_c) {
+		this.key_c = key_c;
 	}
-
-	public String getKeyD() {
-		return keyD;
+	public String getKey_d() {
+		return key_d;
 	}
-
-	public void setKeyD(String keyD) {
-		this.keyD = keyD;
+	public void setKey_d(String key_d) {
+		this.key_d = key_d;
 	}
-
-	public String getKeyE() {
-		return keyE;
+	public String getKey_e() {
+		return key_e;
 	}
-
-	public void setKeyE(String keyE) {
-		this.keyE = keyE;
+	public void setKey_e(String key_e) {
+		this.key_e = key_e;
 	}
-
 	public String getChanger() {
 		return changer;
 	}
-
 	public void setChanger(String changer) {
 		this.changer = changer;
 	}
-
-	public Timestamp getChangeTime() {
-		return changeTime;
+	public Timestamp getChange_time() {
+		return change_time;
 	}
-
-	public void setChangeTime(Timestamp changeTime) {
-		this.changeTime = changeTime;
+	public void setChange_time(Timestamp change_time) {
+		this.change_time = change_time;
 	}
 
 }

@@ -23,35 +23,35 @@ public class ConfigQuestionFirstKindController {
 	public String getAll(HttpServletRequest request){
 		List<ConfigQuestionFirstKind> list = configQuestionFirstKindServiceImpl.listConfigQuestionFirstKind();
 		request.setAttribute("configQuestionFirstKindList", list);
-		return "jsp/question_first_kind";
+		return "question_first_kind";
 	}
 	
 	@RequestMapping("/getAllForTwo")
 	public String getAllForTwo(HttpServletRequest request){
 		List<ConfigQuestionFirstKind> list = configQuestionFirstKindServiceImpl.listConfigQuestionFirstKind();
 		request.setAttribute("configQuestionFirstKindList", list);
-		return "jsp/question_second_kind_rigister";
+		return "question_second_kind_rigister";
 	}
 	
 	@RequestMapping("/getByQfkIdForUpdate")
 	public String getByQfkId(String qfkId, HttpServletRequest request){
 		ConfigQuestionFirstKind configQuestionFirstKind = configQuestionFirstKindServiceImpl.getConfigQuestionFirstKind(qfkId);
 		request.setAttribute("changeConfigQuestionFirstKind", configQuestionFirstKind);
-		return "jsp/question_first_kind_change";
+		return "question_first_kind_change";
 	}
 	
 	@RequestMapping("/getByQfkIdForRemove")
 	public String getByQfkIdForRemove(String qfkId, HttpServletRequest request){
 		ConfigQuestionFirstKind configQuestionFirstKind = configQuestionFirstKindServiceImpl.getConfigQuestionFirstKind(qfkId);
 		request.setAttribute("deleteConfigQuestionFirstKind", configQuestionFirstKind);
-		return "jsp/question_first_kind_delete";
+		return "question_first_kind_delete";
 	}
 	
 	@RequestMapping("/save")
 	public String save(ConfigQuestionFirstKind configQuestionFirstKind){
 		configQuestionFirstKind.setQfk_id(UUIDHelper.getUUID());
 		configQuestionFirstKindServiceImpl.save(configQuestionFirstKind);
-		return "jsp/question_first_kind_rigister_success";
+		return "question_first_kind_rigister_success";
 	}
 	
 	@RequestMapping("/update")

@@ -27,10 +27,10 @@ public class Test {
 //		} catch (ParseException e) {
 //			e.printStackTrace();
 //		}
-		Date date = new Date();
-		engageSubjects.setSubId("aaa");
-		int res = engageSubjectsMapper.insert(engageSubjects);
-		System.out.println(res);
+//		Date date = new Date();
+//		engageSubjects.setSubId("aaa");
+//		int res = engageSubjectsMapper.insert(engageSubjects);
+//		System.out.println(res);
 		
 //		List<EngageSubjects> list = engageSubjectsMapper.select();
 //		System.out.println(list.size());
