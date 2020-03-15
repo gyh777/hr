@@ -13,10 +13,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript">
-			function toDelete(obj,mak_id){
+			function toDelete(obj,major_name){
+			console.log(major_name);
 				$.ajax({
 					type : "post",
-					url : "/hr/configMajor/toDelete?mak_id="+mak_id,
+					url : "/hr/configMajor/toDelete?major_name="+major_name,
 					dataType : "json",
 					success:function(result){
 						if(result==true){
@@ -66,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <td class="TD_STYLE2">${list.major_id }</td>
                         <td class="TD_STYLE2">${list.major_name }</td>
 						<td class="TD_STYLE2">
-							<a href="javascript:void(0);" onclick="toDelete(this,${list.mak_id })">删除</a>
+							<a href="javascript:void(0);" onclick="toDelete(this,'${list.major_name }')">删除</a>
 						</td>
                     </tr>
                 </c:forEach>
