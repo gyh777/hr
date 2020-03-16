@@ -683,7 +683,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.?operate=toAdd" target="mainFrame">简历登记</a>
+													<a href="/hr/jsp/engage_resume_register.jsp" target="mainFrame">简历登记</a>
 												</td>
 											</tr>
 											<tr>
