@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -7,11 +8,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<link rel="stylesheet" href="table.css" type="text/css">
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css">
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/comm.js"></script>
+	    <script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/first_kind.js"></script>
 	</head>
 
-	<body>
+	<body onload="getFirstKinds()">
 		<form method="post" id="First">
 			<table width="100%">
 				<tr>
@@ -23,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td align="right">
 						<input type="button" value="添加" class="BUTTON_STYLE1"
-							onclick="window.location.href='first_kind_register.jsp'" />
+							onclick="rigistFirstKind()" />
 					</td>
 				</tr>
 			</table>
@@ -50,30 +52,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						删除
 					</td>
 				</tr>
-				
+				<c:forEach items="${requestScope.map}" var="u">
 					<tr>
 						<td id="firstKindId" class="TD_STYLE2">
-							01
+							${u.first_kind_id}
 						</td>
 						<td class="TD_STYLE2">
-							集团
+							${u.first_kind_name }
 						</td>
 						<td class="TD_STYLE2">
-							1
+							${u.first_kind_salary_id }
 						</td>
 						<td class="TD_STYLE2">
-							1
+							${u.first_kind_sale_id }
 						</td>
 						<td class="TD_STYLE2">
-							<a href="first_kind_change.jsp">变更</a>
 						     <input type="button" value="变更" class="BUTTON_STYLE1" onclick="changeFirstKind">
 						</td>
 						<td class="TD_STYLE2">
-							<a href="first_kind_delete.jsp">删除</a>
 							<input type="button" value="删除" class="BUTTON_STYLE1" onclick="deleteFirstKind">
 						</td>
 					</tr>
-				
+				 </c:forEach>
 			</table>
 			<p>&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
 		</form>

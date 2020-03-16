@@ -87,7 +87,7 @@ a{ CURSOR: hand}
 													<img src="../jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="first_kind.jsp"
+													<a href="/hr/firstkindrigister/loadfirstkind"
 														target="mainFrame">I级机构设置</a>
 												</td>
 											</tr>
