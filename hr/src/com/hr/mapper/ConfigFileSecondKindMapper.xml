@@ -3,24 +3,24 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.ConfigFileSecondKindMapper">
-	  <insert  id="saveConfigFileSecondKind" parameterType="com.hr.pojo.ConfigFileSecondKind">
-		insert into config_file_second_kind(first_kind_id,first_kind_name,second_kind_id,second_kind_name,second_kind_salary_id,second_kind_sale_id) 
-			values(#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},#{second_kind_salary_id},#{second_kind_sale_id})
-	</insert>
-	<delete id="removeConfigFileSecondKind" parameterType="_int">
-		delete from config_file_second_kind where fsk_id=#{id}
+	  <insert  id="addConfigFileSecondKind" parameterType="com.hr.pojo.ConfigFileSecondKind">
+		insert into config_file_second_kind
+			values(#{fsk_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},#{second_kind_salary_id},#{second_kind_sale_id})
+	   </insert>
+	<delete id="removeConfigFileSecondKind" parameterType="String">
+		delete from config_file_second_kind where second_kind_id=#{second_kind_id}
 	</delete>
 	
 	
 	<update  id="updateConfigFileSecondKind" parameterType="com.hr.pojo.ConfigFileSecondKind">
 		update config_file_second_kind set first_kind_id=#{first_kind_id},first_kind_name=#{first_kind_name},second_kind_id=#{second_kind_id},
 			second_kind_name=#{second_kind_name},second_kind_salary_id=#{second_kind_salary_id},second_kind_sale_id=#{second_kind_sale_id}
-			where fsk_id=#{fsk_id}
+			where second_kind_id=#{second_kind_id}
 	</update>
 	
 	
-	<select id="queryConfigFileSecondKindByCid" parameterType="_int" resultType="com.hr.pojo.ConfigFileSecondKind">
-		select * from config_file_second_kind where fsk_id=#{id}
+	<select id="queryConfigFileSecondKindByid" parameterType="String" resultType="com.hr.pojo.ConfigFileSecondKind">
+		select * from config_file_second_kind where second_kind_id=#{second_kind_id}
 	</select>
 	
 	<select id="queryAllConfigFileSecondKind" resultType="com.hr.pojo.ConfigFileSecondKind">

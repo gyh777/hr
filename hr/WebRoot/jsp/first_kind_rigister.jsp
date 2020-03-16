@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 		<link rel="stylesheet" href="table.css" type="text/css">
 		
-		<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/first_kind_rigister.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/second_kind_rigister.js"></script>
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 </head>
 <body>
@@ -50,6 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </table>
   
 <table width="100%"  border="1" cellpadding=0 cellspacing=1 bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
+ 
   <tr>
     <td width="19%" class="TD_STYLE1">I级机构编号</td>
     <td width="81%" class="TD_STYLE2"><input type="text" name="firstKindId" value="" class="INPUT_STYLE1"></td>
@@ -58,6 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td class="TD_STYLE1">I级机构名称</td>
     <td class="TD_STYLE2"><input type="text" name="firstKindName" value="" class="INPUT_STYLE1"></td>
   </tr>
+  
   <tr>
     <td class="TD_STYLE1">薪酬发放责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）</td>
     <td class="TD_STYLE2"><textarea name="firstKindSalaryId" rows="4" class="TEXTAREA_STYLE1"></textarea></td>

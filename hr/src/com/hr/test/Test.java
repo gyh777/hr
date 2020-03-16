@@ -16,26 +16,31 @@ public class Test {
   public static void main(String[] args) {
 		ApplicationContext context = 
 				new ClassPathXmlApplicationContext("applicationContext.xml");
-//		ConfigFileSecondKindService service = (ConfigFileSecondKindService)context.getBean("configFileSecondKindServiceImpl");
+		ConfigFileSecondKindService service = (ConfigFileSecondKindService)context.getBean("configFileSecondKindServiceImpl");
 //		List<ConfigFileSecondKind> list = service.queryAllConfigFileSecondKind();
 //		System.out.println(list.size());
 		
 //		List<ConfigFileSecondKind> list = service.queryAllConfigFileSecondKind();
-//		System.out.println(list.size());
-		ConfigFileFirstKindService service = (ConfigFileFirstKindService)context.getBean("configFileFirstKindServiceImpl");
+//
+//				System.out.println(list.size());
+		
+//		ConfigFileFirstKindService service = (ConfigFileFirstKindService)context.getBean("configFileFirstKindServiceImpl");
 //		System.out.println(cffk);
 //		List<ConfigFileFirstKind> list = service.queryAllConfigFileFirstKind();
 //		System.out.println(list.size());
 //		ConfigFileFirstKind cffk = new ConfigFileFirstKind();
-		ConfigFileFirstKind cffk =   service.queryConfigFileFirstKindById("03");
+//		ConfigFileFirstKind cffk =   service.queryConfigFileFirstKindById("03");
 //		service.removeConfigFileFirstKind("03");
 //		System.out.println(cffk);
 //		short s = 1;
-//		cffk.setFfk_id(s);
-		cffk.setFirst_kind_id("03");
-		cffk.setFirst_kind_name("总部");
-		cffk.setFirst_kind_salary_id("002");
-		cffk.setFirst_kind_sale_id("045");
-		service.updateConfigFileFirstKind(cffk);
+		ConfigFileSecondKind cffk =   new ConfigFileSecondKind();
+//		cffk.setFsk_id(s);
+		cffk.setSecond_kind_id("02");
+		cffk.setSecond_kind_name("分部");
+		cffk.setFirst_kind_id("02");
+		cffk.setFirst_kind_name("集团");
+		cffk.setSecond_kind_salary_id("002");
+		cffk.setSecond_kind_sale_id("045");
+		service.addConfigFileSecondKind(cffk);
   }
 }

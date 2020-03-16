@@ -96,7 +96,7 @@ a{ CURSOR: hand}
 													<img src="images/jt0.gif">
 												</td>
 												<td>
-													<a href="configfilesecondkind.do?operate=list"
+													<a href="/hr/secondkindrigister/loadsecondkind"
 														target="mainFrame">II级机构设置</a>
 												</td>
 											</tr>
@@ -105,7 +105,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="configfilethirdkind.do?operate=list" target="mainFrame">III级机构设置</a>
+													<a href="configfilethirdkind.?operate=list" target="mainFrame">III级机构设置</a>
 												</td>
 											</tr>
 											<tr>
@@ -531,7 +531,7 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td width="98%">
-									<a href="training.do?operate=list" target="mainFrame">培训登记</a>
+									<a href="training.?operate=list" target="mainFrame">培训登记</a>
 								</td>
 							</tr>
 							<tr>
@@ -636,7 +636,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engagemajorrelease.do?operate=toAdd"
+													<a href="/hr/jsp/engagemajorrelease.?operate=toAdd"
 														target="mainFrame">职位发布登记</a>
 												</td>
 											</tr>
@@ -645,7 +645,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engagemajorrelease.do?operate=toEdit"
+													<a href="/hr/jsp/engagemajorrelease.?operate=toEdit"
 														target="mainFrame">职位发布变更</a>
 												</td>
 											</tr>
@@ -654,7 +654,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engagemajorrelease.do?operate=list"
+													<a href="/hr/jsp/engagemajorrelease.?operate=list"
 														target="mainFrame">职位发布查询</a>
 												</td>
 											</tr>
@@ -683,7 +683,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.do?operate=toAdd" target="mainFrame">简历登记</a>
+													<a href="/hr/jsp/engageresume.?operate=toAdd" target="mainFrame">简历登记</a>
 												</td>
 											</tr>
 											<tr>
@@ -691,7 +691,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engageresume.do?operate=locate&method=check" target="mainFrame">简历筛选</a>
+													<a href="/hr/jsp/engageresume.?operate=locate&method=check" target="mainFrame">简历筛选</a>
 												</td>
 											</tr>
 											<tr>
@@ -699,7 +699,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engageresume.do?operate=locate&method=query" target="mainFrame">有效简历查询</a>
+													<a href="/hr/jsp/engageresume.?operate=locate&method=query" target="mainFrame">有效简历查询</a>
 												</td>
 											</tr>
 										</table> </span>
@@ -727,7 +727,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.do?operate=locate&method=interview" target="mainFrame">面试结果登记</a>
+													<a href="/hr/jsp/engageresume.?operate=locate&method=interview" target="mainFrame">面试结果登记</a>
 												</td>
 											</tr>
 											<tr>
@@ -735,7 +735,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engageinterview.do?operate=list" target="mainFrame">面试筛选</a>
+													<a href="/hr/jsp/engageinterview.?operate=list" target="mainFrame">面试筛选</a>
 												</td>
 											</tr>
 										</table> </span>
@@ -859,7 +859,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.do?operate=passList&method=register&passStatus=0" target="mainFrame">录用申请</a>
+													<a href="/hr/jsp/engageresume.?operate=passList&method=register&passStatus=0" target="mainFrame">录用申请</a>
 												</td>
 											</tr>
 											<tr>
@@ -867,7 +867,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.do?operate=passList&method=check&passStatus=1" target="mainFrame">录用审批</a>
+													<a href="/hr/jsp/engageresume.?operate=passList&method=check&passStatus=1" target="mainFrame">录用审批</a>
 												</td>
 											</tr>
 											<tr>
@@ -875,7 +875,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.do?operate=passList&method=query&passStatus=2" target="mainFrame">录用查询</a>
+													<a href="/hr/jsp/engageresume.?operate=passList&method=query&passStatus=2" target="mainFrame">录用查询</a>
 												</td>
 											</tr>
 										</table> </span>
@@ -906,7 +906,7 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td width="98%">
-									<a href="exportfile.do?operate=toExport&method=excel" target="mainFrame">EXCEL标准数据报表</a>
+									<a href="exportfile.?operate=toExport&method=excel" target="mainFrame">EXCEL标准数据报表</a>
 								</td>
 							</tr>
 							<tr>
@@ -914,7 +914,7 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td>
-									<a href="exportfile.do?operate=toExport&method=pdf" target="mainFrame">pdf标准数据报表</a>
+									<a href="exportfile.?operate=toExport&method=pdf" target="mainFrame">pdf标准数据报表</a>
 								</td>
 							</tr>
 							<tr>
@@ -922,7 +922,7 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td>
-									<a href="exportfile.do?operate=toExport&method=xml" target="mainFrame">xml标准数据报表</a>
+									<a href="exportfile.?operate=toExport&method=xml" target="mainFrame">xml标准数据报表</a>
 								</td>
 							</tr>
 						</table> </span>

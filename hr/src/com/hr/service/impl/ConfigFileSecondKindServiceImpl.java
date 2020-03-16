@@ -21,7 +21,7 @@ public class ConfigFileSecondKindServiceImpl implements ConfigFileSecondKindServ
 	}
 
 	@Override
-	public boolean removeConfigFileSecondKind(int ffkId) {
+	public boolean removeConfigFileSecondKind(String ffkId) {
 		// TODO Auto-generated method stub
 		return mapper.removeConfigFileSecondKind(ffkId);
 	}
@@ -33,7 +33,7 @@ public class ConfigFileSecondKindServiceImpl implements ConfigFileSecondKindServ
 	}
 
 	@Override
-	public ConfigFileSecondKind queryConfigFileSecondKindById(int ffkId) {
+	public ConfigFileSecondKind queryConfigFileSecondKindById(String ffkId) {
 		// TODO Auto-generated method stub
 		return mapper.queryConfigFileSecondKindById(ffkId);
 	}

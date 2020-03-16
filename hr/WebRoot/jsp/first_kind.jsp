@@ -10,10 +10,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css">
 		<script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/comm.js"></script>
+		
 	    <script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/first_kind.js"></script>
+		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 	</head>
 
-	<body onload="getFirstKinds()">
+	<body >
 		<form method="post" id="First">
 			<table width="100%">
 				<tr>
@@ -58,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							${u.first_kind_id}
 						</td>
 						<td class="TD_STYLE2">
-							${u.first_kind_name }
+							${u.first_kind_name}
 						</td>
 						<td class="TD_STYLE2">
 							${u.first_kind_salary_id }
@@ -67,10 +69,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							${u.first_kind_sale_id }
 						</td>
 						<td class="TD_STYLE2">
-						     <input type="button" value="变更" class="BUTTON_STYLE1" onclick="changeFirstKind">
+						     <input type="button" value="变更" class="BUTTON_STYLE1" onclick="changeFirstKind(this)">
 						</td>
 						<td class="TD_STYLE2">
-							<input type="button" value="删除" class="BUTTON_STYLE1" onclick="deleteFirstKind">
+							<input type="button" value="删除" class="BUTTON_STYLE1" onclick="deleteFirstKind(this)">
 						</td>
 					</tr>
 				 </c:forEach>
