@@ -1,5 +1,6 @@
 package com.hr.web.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,7 +55,6 @@ public class EngageSubjectsController {
 	
 	@RequestMapping("/find")
 	public String find(String firstKindName, String keyWord, String start, String end, HttpServletRequest request){
-		System.out.println(firstKindName+"=="+keyWord+"=="+start+"=="+end);
 		List<EngageSubjects> list = engageSubjectsServiceImpl.listEngageSubjects(firstKindName, keyWord, start, end);
 		request.setAttribute("engageSubjectsFindList", list);
 		return "question_query_list";

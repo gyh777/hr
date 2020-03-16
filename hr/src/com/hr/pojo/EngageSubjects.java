@@ -10,7 +10,7 @@ public class EngageSubjects {
     private String second_kind_id;
     private String second_kind_name;
     private String register;
-    private Timestamp regist_time;
+    private Date regist_time;
     private String derivation;
     private String correct_key;
     private String content;
@@ -20,8 +20,7 @@ public class EngageSubjects {
 	private String key_d;
 	private String key_e; 
     private String changer;
-    private Timestamp  change_time;
-    
+    private Date change_time;
 	public String getSub_id() {
 		return sub_id;
 	}
@@ -58,10 +57,10 @@ public class EngageSubjects {
 	public void setRegister(String register) {
 		this.register = register;
 	}
-	public Timestamp getRegist_time() {
+	public Date getRegist_time() {
 		return regist_time;
 	}
-	public void setRegist_time(Timestamp regist_time) {
+	public void setRegist_time(Date regist_time) {
 		this.regist_time = regist_time;
 	}
 	public String getDerivation() {
@@ -118,10 +117,10 @@ public class EngageSubjects {
 	public void setChanger(String changer) {
 		this.changer = changer;
 	}
-	public Timestamp getChange_time() {
+	public Date getChange_time() {
 		return change_time;
 	}
-	public void setChange_time(Timestamp change_time) {
+	public void setChange_time(Date change_time) {
 		this.change_time = change_time;
 	}
 
