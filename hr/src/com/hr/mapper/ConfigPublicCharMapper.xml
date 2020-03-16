@@ -3,12 +3,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.ConfigPublicCharMapper">
-	<select id="selectConfigPublicChar" resultType="com.hr.pojo.ConfigPublicChar">
+	<select id="selectAllConfigPublicChar" resultType="com.hr.pojo.ConfigPublicChar">
 		select * from config_public_char
 	</select>
+	<select id="selectTheSameAttribute" resultType="String" parameterType="String">
+		select attribute_name from config_public_char where attribute_kind=#{attribute_kind}
+	</select>
 	
-	<delete id="deleteConfigPublicChar" parameterType="_int">
-		delete from config_public_char where pbcId=#{pbc_id}
+	<delete id="deleteConfigPublicChar">
+		delete from config_public_char 
+		where attribute_kind=#{attribute_kind} and attribute_name=#{attribute_name}
 	</delete>
 	
 	<insert  id="addConfigPublicChar" parameterType="com.hr.pojo.ConfigPublicChar">

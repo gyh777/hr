@@ -30,7 +30,7 @@ public class ConfigMajorController {
 	
 	@RequestMapping(value="/toDelete")
 	@ResponseBody
-	public String toDelete(@RequestParam("major_name")String major_name){
+	public String toDelete(@RequestParam("delete_name")String major_name){
 		major_name = CharacterEncodingHelper.getChinese(major_name);
 		boolean b = configMajorServiceImpl.deleteConfigMajor(major_name);
 		return String.valueOf(b);

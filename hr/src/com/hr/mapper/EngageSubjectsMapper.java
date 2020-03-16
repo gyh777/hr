@@ -8,6 +8,9 @@ import com.hr.pojo.Bonus;
 import com.hr.pojo.EngageSubjects;
 
 public interface EngageSubjectsMapper {
+	public List<EngageSubjects> selectAll();
+	public EngageSubjects selectBySubId(String sub_id);
+	public int delete(@Param("sub_id") String sub_id);
 	public int insert(EngageSubjects engageSubjects);
 	public int update(EngageSubjects engageSubjects);
 	public List<EngageSubjects> select(@Param("firstKindName") String firstKindName, @Param("keyWord") String keyWord, @Param("start") String start, @Param("end") String end);

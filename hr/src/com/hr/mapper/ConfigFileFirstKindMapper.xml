@@ -3,22 +3,22 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.ConfigFileFirstKindMapper">
-	  <insert  id="saveConfigFileFirstKind" parameterType="com.hr.pojo.ConfigFileFirstKind">
-		insert into config_file_first_kind(first_kind_id,first_kind_name,first_kind_salary_id,first_kind_sale_id) 
-			values(#{first_kind_id},#{first_kind_name},#{first_kind_salary_id},#{first_kind_sale_id})
+	  <insert  id="addConfigFileFirstKind" parameterType="com.hr.pojo.ConfigFileFirstKind">
+		insert into config_file_first_kind 
+			values(#{ffk_id},#{first_kind_id},#{first_kind_name},#{first_kind_salary_id},#{first_kind_sale_id})
 	</insert>
-	<delete id="removeConfigFileFirstKind" parameterType="_int">
-		delete from config_file_first_kind where ffk_id=#{id}
+	<delete id="removeConfigFileFirstKind" parameterType="String">
+		delete from config_file_first_kind where first_kind_id=#{first_kind_id}
 	</delete>
 	
 	<update  id="updateConfigFileFirstKind" parameterType="com.hr.pojo.ConfigFileFirstKind">
 		update config_file_first_kind set first_kind_id=#{first_kind_id},
 			first_kind_name=#{first_kind_name},first_kind_salary_id=#{first_kind_salary_id},first_kind_sale_id=#{first_kind_sale_id}
-			where ffk_id=#{ffk_id}
+			where first_kind_id=#{first_kind_id}
 	</update>
 	
-	<select id="queryConfigFileFirstKindByCid" parameterType="_int" resultType="com.hr.pojo.ConfigFileFirstKind">
-		select * from config_file_first_kind where ffk_id=#{id}
+	<select id="queryConfigFileFirstKindById" parameterType="String" resultType="com.hr.pojo.ConfigFileFirstKind">
+		select * from config_file_first_kind where first_kind_id=#{first_kind_id}
 	</select>
 	
 	<select id="queryAllConfigFileFirstKind" resultType="com.hr.pojo.ConfigFileFirstKind">

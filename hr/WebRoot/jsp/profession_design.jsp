@@ -1,73 +1,25 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css">
+		<link rel="stylesheet" href="../jsp/table.css" type="text/css">
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript">
+			function toDelete(delete_kind,delete_name,business){
+				delete_kind = encodeURI(encodeURI(delete_kind));
+				delete_name = encodeURI(encodeURI(delete_name));
+				business = encodeURI(encodeURI(business));
+				location.href="/hr/jsp/major_business_delete.jsp?delete_name="+delete_name+"&delete_kind="+delete_kind+"&business="+business;
+			};
+		</script>
 	</head>
 
 	<body>
@@ -97,63 +49,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						删除
 					</td>
 				</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							工程师
+				<c:forEach items="${AttributeList}" var="list">
+                    <tr>
+                        <td class="TD_STYLE2">${list }</td>
+                        <td class="TD_STYLE2">
+							<a href="javascript:void(0);" 
+								onclick="toDelete('职称','${list }','职称设置')">删除</a>
 						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('27')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							经理
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('28')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							助理
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('29')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							教授
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('30')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							讲师
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('31')">删除</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td class="TD_STYLE2">
-							技术支持
-						</td>
-						<td class="TD_STYLE2" align="center">
-							<a href="javascript:toDel('32')">删除</a>
-						</td>
-					</tr>
-				
+                    </tr>
+                </c:forEach>
 			</table>
-			<p>&nbsp;&nbsp;总数：6例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：6例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="../jsp/images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>

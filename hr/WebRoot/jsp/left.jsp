@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<title>无标题文档</title>
-		<link rel="stylesheet" href="table.css" type="text/css">
+		<link rel="stylesheet" href="../jsp/table.css" type="text/css">
 		<style>
 a{ CURSOR: hand}
 .TreePoint {
@@ -84,10 +84,10 @@ a{ CURSOR: hand}
 										<table width="100%" border="0">
 											<tr>
 												<td width="2%">
-													<img src="/jsp/images/jt0.gif">
+													<img src="../jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="first_kind.jsp"
+													<a href="/hr/firstkindrigister/loadfirstkind"
 														target="mainFrame">I级机构设置</a>
 												</td>
 											</tr>
@@ -113,7 +113,8 @@ a{ CURSOR: hand}
 													<img src="images/jt0.gif">
 												</td>
 												<td>
-													<a href="profession_design.jsp" target="mainFrame">职称设置</a>
+													<a href="/hr/configPublicChar/selectTheSameAttribute?attribute_kind=职称" 
+														target="mainFrame">职称设置</a>
 												</td>
 											</tr>
 											<tr>
@@ -121,7 +122,7 @@ a{ CURSOR: hand}
 													<img src="images/jt0.gif">
 												</td>
 												<td>
-													<a href="major_kind.jsp"
+													<a href="/hr/configMajorKind/selectAll"
 														target="mainFrame">职位分类设置</a>
 												</td>
 											</tr>
@@ -139,7 +140,7 @@ a{ CURSOR: hand}
 													<img src="images/jt0.gif">
 												</td>
 												<td>
-													<a href="public_char.jsp"
+													<a href="/hr/configPublicChar/selectAll"
 														target="mainFrame">公共属性设置</a>
 												</td>
 											</tr>
@@ -778,7 +779,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engagesubjects.do?operate=locate&param=change" target="mainFrame">试题变更</a>
+													<a href="/hr/engageSubjects/getAll" target="mainFrame">试题变更</a>
 												</td>
 											</tr>
 										</table></span>
