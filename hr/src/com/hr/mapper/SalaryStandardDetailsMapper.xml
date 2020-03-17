@@ -3,5 +3,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.SalaryStandardDetailsMapper">
-	
+	<sql id="SalaryStandardDetails">
+    	(sdt_id,
+    	standard_id,
+    	standard_name,
+    	item_id,
+    	item_name,
+    	salary)
+    </sql>
+    <insert id="insert" parameterType="com.hr.pojo.SalaryStandardDetails">
+		insert into salary_standard_details <include refid="SalaryStandardDetails"/> values
+		(#{sdtId},#{standardId},#{standardName},#{itemId},#{itemName},#{salary})
+	</insert>
 </mapper>
