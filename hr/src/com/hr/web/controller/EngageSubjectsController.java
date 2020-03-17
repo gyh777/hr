@@ -1,11 +1,16 @@
 package com.hr.web.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hr.pojo.EngageSubjects;
@@ -54,7 +59,6 @@ public class EngageSubjectsController {
 	
 	@RequestMapping("/find")
 	public String find(String firstKindName, String keyWord, String start, String end, HttpServletRequest request){
-		System.out.println(firstKindName+"=="+keyWord+"=="+start+"=="+end);
 		List<EngageSubjects> list = engageSubjectsServiceImpl.listEngageSubjects(firstKindName, keyWord, start, end);
 		request.setAttribute("engageSubjectsFindList", list);
 		return "question_query_list";
@@ -65,5 +69,4 @@ public class EngageSubjectsController {
 		engageSubjectsServiceImpl.delete(sub_id);
 		return "forward:/engageSubjects/getAll";
 	}
-	
 }

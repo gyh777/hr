@@ -360,4 +360,5 @@ public class EngageResume {
 	public void setPass_passComment(String pass_passComment) {
 		this.pass_passComment = pass_passComment;
 	}
+    
 }

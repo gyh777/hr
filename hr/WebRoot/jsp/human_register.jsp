@@ -43,13 +43,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" href="table.css" type="text/css">
 		<link rel="stylesheet" type="text/css" media="all"
 			href="javascript/calendar/calendar-win2k-cold-1.css">
 		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="javascript/comm/select.js"></script>
+		<script type="text/javascript" src="javascript/cy/human_register.js"></script>
 		<script type="text/javascript">
 		var subcat = new Array(2);
 subcat[0] = ["1", "01/软件公司","01/集团","01/集团/01/软件公司"];
@@ -71,7 +72,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 	</head>
 
 	<body>
-		<form name="humanfileForm" method="post" action="/hr/humanfile.do">
+		<form id="human" name="humanfileForm" method="post" >
 			<table width="100%">
 				<tr>
 					<td>
@@ -81,7 +82,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 				<tr>
 					<td align="right">
 						<input type="button" value="提交" class="BUTTON_STYLE1"
-							onclick="window.location.href='register_choose_picture.jsp'">
+							onclick="humanRig()">
 						<input type="reset" value="清除" class="BUTTON_STYLE1">
 					</td>
 				</tr>
@@ -94,7 +95,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						I级机构
 					</td>
 					<td width="14%" class="TD_STYLE2">
-						<select name="item.firstKindName" onchange="changelocation(document.forms[0].elements['item.secondKindName'],document.forms[0].elements['item.firstKindName'].options[document.forms[0].elements['item.firstKindName'].selectedIndex].value)" class="SELECT_STYLE1"><option value="">&nbsp;</option>
+						<select name="firstKindName" onchange="changelocation(document.forms[0].elements['secondKindName'],document.forms[0].elements['firstKindName'].options[document.forms[0].elements['firstKindName'].selectedIndex].value)" class="SELECT_STYLE1"><option value="">&nbsp;</option>
 							
 								<option value="01/集团">01/集团</option>
 							
@@ -104,16 +105,16 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						II级机构
 					</td>
 					<td width="14%" class="TD_STYLE2">
-						<select name="item.secondKindName" onchange="changelocation1(document.forms[0].elements['item.thirdKindName'],document.forms[0].elements['item.secondKindName'].options[document.forms[0].elements['item.secondKindName'].selectedIndex].value)" class="SELECT_STYLE1"><script language="javascript">
-								changelocation(document.forms[0].elements["item.secondKindName"],document.forms[0].elements["item.firstKindName"].value)
+						<select name="secondKindName" onchange="changelocation1(document.forms[0].elements['thirdKindName'],document.forms[0].elements['secondKindName'].options[document.forms[0].elements['secondKindName'].selectedIndex].value)" class="SELECT_STYLE1"><script language="javascript">
+								changelocation(document.forms[0].elements["secondKindName"],document.forms[0].elements["firstKindName"].value)
     						</script></select>
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						III级机构
 					</td>
 					<td class="TD_STYLE2" colspan="2">
-						<select name="item.thirdKindName" class="SELECT_STYLE1"><script language="javascript">
-							changelocation1(document.forms[0].elements["item.thirdKindName"],document.forms[0].elements["item.secondKindName"].value)
+						<select name="thirdKindName" class="SELECT_STYLE1"><script language="javascript">
+							changelocation1(document.forms[0].elements["thirdKindName"],document.forms[0].elements["secondKindName"].value)
 							</script></select>
 					</td>
 					<td rowspan="5">
@@ -125,7 +126,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						职位分类
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanMajorKindName" onchange="changelocation2(document.forms[0].elements['item.hunmaMajorName'],document.forms[0].elements['item.humanMajorKindName'].options[document.forms[0].elements['item.humanMajorKindName'].selectedIndex].value)" class="SELECT_STYLE1"><option value="">&nbsp;</option>
+						<select name="humanMajorKindName" onchange="changelocation2(document.forms[0].elements['humanMajorName'],document.forms[0].elements['humanMajorKindName'].options[document.forms[0].elements['humanMajorKindName'].selectedIndex].value)" class="SELECT_STYLE1"><option value="">&nbsp;</option>
 							
 								<option value="01/销售">01/销售</option>
 							
@@ -139,15 +140,15 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						职位名称
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.hunmaMajorName" class="SELECT_STYLE1"><script language="javascript">
-							changelocation2(document.forms[0].elements["item.hunmaMajorName"],document.forms[0].elements["item.humanMajorKindName"].value)
+						<select name="humanMajorName" class="SELECT_STYLE1"><script language="javascript">
+							changelocation2(document.forms[0].elements["humanMajorName"],document.forms[0].elements["humanMajorKindName"].value)
 							</script></select>
 					</td>
 					<td class="TD_STYLE1">
 						职称
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<select name="item.humanProDesignation" class="SELECT_STYLE1"><option value="工程师">工程师</option>
+						<select name="humanProDesignation" class="SELECT_STYLE1"><option value="工程师">工程师</option>
 							
 								<option value="经理">经理</option>
 							
@@ -165,20 +166,20 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						姓名
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.humanName" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanName" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						性别
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanSex" class="SELECT_STYLE1"><option value="男">男</option>
+						<select name="humanSex" class="SELECT_STYLE1"><option value="男">男</option>
 							<option value="女">女</option></select>
 					</td>
 					<td class="TD_STYLE1">
 						EMAIL
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="item.humanEmail" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanEmail" value="" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
@@ -186,19 +187,19 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						电话
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.humanTelephone" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanTelephone" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						QQ
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.humanQq" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanQq" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						手机
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="item.humanMobilephone" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanMobilephone" value="" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
@@ -206,13 +207,13 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						住址
 					</td>
 					<td colspan="3" class="TD_STYLE2">
-						<input type="text" name="item.humanAddress" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanAddress" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						邮编
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="item.humanPostcode" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanPostcode" value="" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
@@ -220,7 +221,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						国籍
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanNationality" class="SELECT_STYLE1"><option value="中国">中国</option>
+						<select name="humanNationality" class="SELECT_STYLE1"><option value="中国">中国</option>
 							
 								<option value="美国">美国</option></select>
 					</td>
@@ -228,19 +229,19 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						出生地
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.humanBirthplace" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanBirthplace" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						生日
 					</td>
 					<td width="13%" class="TD_STYLE2">
-						<input type="text" name="item.str_humanBirthday" value="" class="INPUT_STYLE2" id="date_start">
+						<input type="text" name="str_humanBirthday" value="" class="INPUT_STYLE2" id="date_start">
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						民族
 					</td>
 					<td class="TD_STYLE2" width="14%">
-						<select name="item.humanRace" class="SELECT_STYLE1"><option value="汉族">汉族</option>
+						<select name="humanRace" class="SELECT_STYLE1"><option value="汉族">汉族</option>
 							
 								<option value="回族">回族</option></select>
 					</td>
@@ -250,7 +251,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						宗教信仰
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanReligion" class="SELECT_STYLE1"><option value="无">无</option>
+						<select name="humanReligion" class="SELECT_STYLE1"><option value="无">无</option>
 							
 								<option value="佛教">佛教</option></select>
 					</td>
@@ -258,7 +259,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						政治面貌
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanParty" class="SELECT_STYLE1"><option value="党员">党员</option>
+						<select name="humanParty" class="SELECT_STYLE1"><option value="党员">党员</option>
 							
 								<option value="群众">群众</option></select>
 					</td>
@@ -266,13 +267,13 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						身份证号码
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.humanIdCard" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanIdCard" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						社会保障号码
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.humanSocietySecurityId" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanSocietySecurityId" value="" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
@@ -280,13 +281,13 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						年龄
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.humanAge" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanAge" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						学历
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanEducatedDegree" class="SELECT_STYLE1"><option value="本科">本科</option>
+						<select name="humanEducatedDegree" class="SELECT_STYLE1"><option value="本科">本科</option>
 							
 								<option value="大专">大专</option></select>
 					</td>
@@ -294,7 +295,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						教育年限
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanEducatedYears" class="SELECT_STYLE1"><option value="12">12</option>
+						<select name="humanEducatedYears" class="SELECT_STYLE1"><option value="12">12</option>
 							
 								<option value="16">16</option></select>
 					</td>
@@ -302,7 +303,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						学历专业
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanEducatedMajor" class="SELECT_STYLE1"><option value="生物工程">生物工程</option>
+						<select name="humanEducatedMajor" class="SELECT_STYLE1"><option value="生物工程">生物工程</option>
 							
 								<option value="计算机">计算机</option></select>
 					</td>
@@ -312,25 +313,25 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						薪酬标准
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.salaryStandardName" class="SELECT_STYLE1"><option value="0/未定义">0/未定义</option></select>
+						<select name="salaryStandardName" class="SELECT_STYLE1"><option value="0/未定义">0/未定义</option></select>
 					</td>
 					<td class="TD_STYLE1">
 						开户行
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.humanBank" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanBank" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						帐号
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.humanAccount" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanAccount" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						登记人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.register" value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="register" value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
@@ -338,13 +339,13 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						建档时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.str_registTime" value="2010-05-29 01:51:55" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="str_registTime" value="2010-05-29" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						特长
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanSpeciality" class="SELECT_STYLE1"><option value="数据库">数据库</option>
+						<select name="humanSpeciality" class="SELECT_STYLE1"><option value="数据库">数据库</option>
 							
 								<option value="java">java</option></select>
 					</td>
@@ -352,7 +353,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						爱好
 					</td>
 					<td class="TD_STYLE2">
-						<select name="item.humanHobby" class="SELECT_STYLE1"><option value="篮球">篮球</option>
+						<select name="humanHobby" class="SELECT_STYLE1"><option value="篮球">篮球</option>
 							
 								<option value="舞蹈">舞蹈</option></select>
 					</td>
@@ -368,7 +369,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						个人履历
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="item.humanHistroyRecords" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="humanHistroyRecords" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -376,7 +377,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						家庭关系信息
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="item.humanFamilyMembership" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="humanFamilyMembership" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -384,7 +385,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						备注
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="item.remark" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="remark" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
 			</table>

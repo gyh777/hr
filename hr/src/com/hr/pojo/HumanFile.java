@@ -3,103 +3,125 @@ package com.hr.pojo;
 import java.util.Date;
 
 public class HumanFile {
-    private Short hufId;
+    private Short huf_id;
 
-    private String humanId;
+    private String human_id;
 
-    private String firstKindId;
+    private String first_kind_id;
 
-    private String firstKindName;
+    private String first_kind_name;
 
-    private String secondKindId;
+    private String second_kind_id;
 
-    private String secondKindName;
+    private String second_kind_name;
 
-    private String thirdKindId;
+    private String third_kind_id;
 
-    private String thirdKindName;
+    private String third_kind_name;
 
-    private String humanName;
+    private String human_name;
 
-    private String humanAddress;
+    private String human_address;
 
-    private String humanPostcode;
+    private String human_postcode;
 
-    private String humanProDesignation;
+    private String human_pro_designation;
 
-    private String humanMajorKindId;
+    private String human_major_kind_id;
 
-    private String humanMajorKindName;
+    private String human_major_kind_name;
 
-    private String humanMajorId;
+    private String human_major_id;
 
-    private String hunmaMajorName;
+    private String human_major_name;
 
-    private String humanTelephone;
+    private String human_telephone;
 
-    private String humanMobilephone;
+    private String human_mobilephone;
 
-    private String humanBank;
+    private String human_bank;
 
-    private String humanAccount;
+    private String human_account;
 
-    private String humanQq;
+    private String human_qq;
 
-    private String humanEmail;
+    private String human_email;
 
-    private String humanHobby;
+    private String human_hobby;
 
-    private String humanSpeciality;
+    private String human_speciality;
 
-    private String humanSex;
+    private String human_sex;
 
-    private String humanReligion;
+    private String human_religion;
 
-    private String humanParty;
+    private String human_party;
 
-    private String humanNationality;
+    private String human_nationality;
 
-    private String humanRace;
+    private String human_race;
 
-    private Date humanBirthday;
+    private Date human_birthday;
 
-    private String humanBirthplace;
+    private String human_birthplace;
 
-    private Short humanAge;
+    private Short human_age;
 
-    private String humanEducatedDegree;
+    private String human_educated_degree;
 
-    private Short humanEducatedYears;
+    private Short human_educated_years;
 
-    private String humanEducatedMajor;
+    private String human_educated_major;
 
-    private String humanSocietySecurityId;
+    private String human_society_security_id;
 
-    private String humanIdCard;
+    private String human_id_card;
+    
+    private String remark;
 
-    private String salaryStandardId;
+    private String salary_standard_id;
 
-    private String salaryStandardName;
+    private String salary_standard_name;
 
-    private Double salarySum;
+    private Double salary_sum;
 
-    private Double demandSalaraySum;
+    private Double demand_salary_sum;
 
-    private Double paidSalarySum;
+    private Double paid_salary_sum;
 
-    private Short majorChangeAmount;
+    private Short major_change_amount;
 
-    private Short bonusAmount;
+    private Short bonus_amount;
 
-    private Short trainingAmount;
+    private Short training_amount;
 
-    private Short fileChangAmount;
+    private Short file_chang_amount;
+    
+    private String human_histroy_records;
+    
+    private String human_family_membership;
 
-    private String humanPicture;
+    public String getHuman_histroy_records() {
+		return human_histroy_records;
+	}
 
-    private String attachmentName;
+	public void setHuman_histroy_records(String human_histroy_records) {
+		this.human_histroy_records = human_histroy_records;
+	}
 
-    private Short checkStatus;
+	public String getHuman_family_membership() {
+		return human_family_membership;
+	}
+
+	public void setHuman_family_membership(String human_family_membership) {
+		this.human_family_membership = human_family_membership;
+	}
+
+	private String human_picture;
+
+    private String attachment_name;
+
+    private Short check_status;
 
     private String register;
 
@@ -107,489 +129,512 @@ public class HumanFile {
 
     private String changer;
 
-    private Date registTime;
+    private Date regist_time;
 
-    private Date checkTime;
+    private Date check_time;
 
-    private Date changeTime;
+    private Date change_time;
 
-    private Date lastlyChangeTime;
+    private Date lastly_change_time;
 
-    private Date deleteTime;
+    private Date delete_time;
+    
+    private Short human_file_status;
 
-    private Date recoveryTime;
+    public Short getHuf_id() {
+		return huf_id;
+	}
 
-    private Byte humanFileStatus;
+	public void setHuf_id(Short huf_id) {
+		this.huf_id = huf_id;
+	}
 
-    public Short getHufId() {
-        return hufId;
-    }
+	public String getHuman_id() {
+		return human_id;
+	}
 
-    public void setHufId(Short hufId) {
-        this.hufId = hufId;
-    }
+	public void setHuman_id(String human_id) {
+		this.human_id = human_id;
+	}
 
-    public String getHumanId() {
-        return humanId;
-    }
+	
 
-    public void setHumanId(String humanId) {
-        this.humanId = humanId == null ? null : humanId.trim();
-    }
+	public String getFirst_kind_name() {
+		return first_kind_name;
+	}
 
-    public String getFirstKindId() {
-        return firstKindId;
-    }
+	public void setFirst_kind_name(String first_kind_name) {
+		this.first_kind_name = first_kind_name;
+	}
 
-    public void setFirstKindId(String firstKindId) {
-        this.firstKindId = firstKindId == null ? null : firstKindId.trim();
-    }
+	public String getSecond_kind_id() {
+		return second_kind_id;
+	}
 
-    public String getFirstKindName() {
-        return firstKindName;
-    }
+	public void setSecond_kind_id(String second_kind_id) {
+		this.second_kind_id = second_kind_id;
+	}
 
-    public void setFirstKindName(String firstKindName) {
-        this.firstKindName = firstKindName == null ? null : firstKindName.trim();
-    }
+	public String getSecond_kind_name() {
+		return second_kind_name;
+	}
 
-    public String getSecondKindId() {
-        return secondKindId;
-    }
+	public void setSecond_kind_name(String second_kind_name) {
+		this.second_kind_name = second_kind_name;
+	}
 
-    public void setSecondKindId(String secondKindId) {
-        this.secondKindId = secondKindId == null ? null : secondKindId.trim();
-    }
+	public String getThird_kind_id() {
+		return third_kind_id;
+	}
 
-    public String getSecondKindName() {
-        return secondKindName;
-    }
+	public void setThird_kind_id(String third_kind_id) {
+		this.third_kind_id = third_kind_id;
+	}
 
-    public void setSecondKindName(String secondKindName) {
-        this.secondKindName = secondKindName == null ? null : secondKindName.trim();
-    }
+	public String getThird_kind_name() {
+		return third_kind_name;
+	}
 
-    public String getThirdKindId() {
-        return thirdKindId;
-    }
+	public void setThird_kind_name(String third_kind_name) {
+		this.third_kind_name = third_kind_name;
+	}
 
-    public void setThirdKindId(String thirdKindId) {
-        this.thirdKindId = thirdKindId == null ? null : thirdKindId.trim();
-    }
+	public String getHuman_name() {
+		return human_name;
+	}
 
-    public String getThirdKindName() {
-        return thirdKindName;
-    }
+	public void setHuman_name(String human_name) {
+		this.human_name = human_name;
+	}
 
-    public void setThirdKindName(String thirdKindName) {
-        this.thirdKindName = thirdKindName == null ? null : thirdKindName.trim();
-    }
+	public String getHuman_address() {
+		return human_address;
+	}
 
-    public String getHumanName() {
-        return humanName;
-    }
+	public void setHuman_address(String human_address) {
+		this.human_address = human_address;
+	}
 
-    public void setHumanName(String humanName) {
-        this.humanName = humanName == null ? null : humanName.trim();
-    }
+	public String getHuman_postcode() {
+		return human_postcode;
+	}
 
-    public String getHumanAddress() {
-        return humanAddress;
-    }
+	public void setHuman_postcode(String human_postcode) {
+		this.human_postcode = human_postcode;
+	}
 
-    public void setHumanAddress(String humanAddress) {
-        this.humanAddress = humanAddress == null ? null : humanAddress.trim();
-    }
+	public String getHuman_pro_designation() {
+		return human_pro_designation;
+	}
 
-    public String getHumanPostcode() {
-        return humanPostcode;
-    }
+	public void setHuman_pro_designation(String human_pro_designation) {
+		this.human_pro_designation = human_pro_designation;
+	}
 
-    public void setHumanPostcode(String humanPostcode) {
-        this.humanPostcode = humanPostcode == null ? null : humanPostcode.trim();
-    }
-
-    public String getHumanProDesignation() {
-        return humanProDesignation;
-    }
-
-    public void setHumanProDesignation(String humanProDesignation) {
-        this.humanProDesignation = humanProDesignation == null ? null : humanProDesignation.trim();
-    }
-
-    public String getHumanMajorKindId() {
-        return humanMajorKindId;
-    }
-
-    public void setHumanMajorKindId(String humanMajorKindId) {
-        this.humanMajorKindId = humanMajorKindId == null ? null : humanMajorKindId.trim();
-    }
-
-    public String getHumanMajorKindName() {
-        return humanMajorKindName;
-    }
-
-    public void setHumanMajorKindName(String humanMajorKindName) {
-        this.humanMajorKindName = humanMajorKindName == null ? null : humanMajorKindName.trim();
-    }
-
-    public String getHumanMajorId() {
-        return humanMajorId;
-    }
-
-    public void setHumanMajorId(String humanMajorId) {
-        this.humanMajorId = humanMajorId == null ? null : humanMajorId.trim();
-    }
-
-    public String getHunmaMajorName() {
-        return hunmaMajorName;
-    }
-
-    public void setHunmaMajorName(String hunmaMajorName) {
-        this.hunmaMajorName = hunmaMajorName == null ? null : hunmaMajorName.trim();
-    }
-
-    public String getHumanTelephone() {
-        return humanTelephone;
-    }
-
-    public void setHumanTelephone(String humanTelephone) {
-        this.humanTelephone = humanTelephone == null ? null : humanTelephone.trim();
-    }
-
-    public String getHumanMobilephone() {
-        return humanMobilephone;
-    }
-
-    public void setHumanMobilephone(String humanMobilephone) {
-        this.humanMobilephone = humanMobilephone == null ? null : humanMobilephone.trim();
-    }
-
-    public String getHumanBank() {
-        return humanBank;
-    }
-
-    public void setHumanBank(String humanBank) {
-        this.humanBank = humanBank == null ? null : humanBank.trim();
-    }
-
-    public String getHumanAccount() {
-        return humanAccount;
-    }
-
-    public void setHumanAccount(String humanAccount) {
-        this.humanAccount = humanAccount == null ? null : humanAccount.trim();
-    }
-
-    public String getHumanQq() {
-        return humanQq;
-    }
-
-    public void setHumanQq(String humanQq) {
-        this.humanQq = humanQq == null ? null : humanQq.trim();
-    }
-
-    public String getHumanEmail() {
-        return humanEmail;
-    }
-
-    public void setHumanEmail(String humanEmail) {
-        this.humanEmail = humanEmail == null ? null : humanEmail.trim();
-    }
-
-    public String getHumanHobby() {
-        return humanHobby;
-    }
-
-    public void setHumanHobby(String humanHobby) {
-        this.humanHobby = humanHobby == null ? null : humanHobby.trim();
-    }
-
-    public String getHumanSpeciality() {
-        return humanSpeciality;
-    }
-
-    public void setHumanSpeciality(String humanSpeciality) {
-        this.humanSpeciality = humanSpeciality == null ? null : humanSpeciality.trim();
-    }
-
-    public String getHumanSex() {
-        return humanSex;
-    }
-
-    public void setHumanSex(String humanSex) {
-        this.humanSex = humanSex == null ? null : humanSex.trim();
-    }
-
-    public String getHumanReligion() {
-        return humanReligion;
-    }
-
-    public void setHumanReligion(String humanReligion) {
-        this.humanReligion = humanReligion == null ? null : humanReligion.trim();
-    }
-
-    public String getHumanParty() {
-        return humanParty;
-    }
-
-    public void setHumanParty(String humanParty) {
-        this.humanParty = humanParty == null ? null : humanParty.trim();
-    }
-
-    public String getHumanNationality() {
-        return humanNationality;
-    }
-
-    public void setHumanNationality(String humanNationality) {
-        this.humanNationality = humanNationality == null ? null : humanNationality.trim();
-    }
-
-    public String getHumanRace() {
-        return humanRace;
-    }
-
-    public void setHumanRace(String humanRace) {
-        this.humanRace = humanRace == null ? null : humanRace.trim();
-    }
-
-    public Date getHumanBirthday() {
-        return humanBirthday;
-    }
-
-    public void setHumanBirthday(Date humanBirthday) {
-        this.humanBirthday = humanBirthday;
-    }
-
-    public String getHumanBirthplace() {
-        return humanBirthplace;
-    }
-
-    public void setHumanBirthplace(String humanBirthplace) {
-        this.humanBirthplace = humanBirthplace == null ? null : humanBirthplace.trim();
-    }
-
-    public Short getHumanAge() {
-        return humanAge;
-    }
-
-    public void setHumanAge(Short humanAge) {
-        this.humanAge = humanAge;
-    }
-
-    public String getHumanEducatedDegree() {
-        return humanEducatedDegree;
-    }
-
-    public void setHumanEducatedDegree(String humanEducatedDegree) {
-        this.humanEducatedDegree = humanEducatedDegree == null ? null : humanEducatedDegree.trim();
-    }
-
-    public Short getHumanEducatedYears() {
-        return humanEducatedYears;
-    }
-
-    public void setHumanEducatedYears(Short humanEducatedYears) {
-        this.humanEducatedYears = humanEducatedYears;
-    }
-
-    public String getHumanEducatedMajor() {
-        return humanEducatedMajor;
-    }
-
-    public void setHumanEducatedMajor(String humanEducatedMajor) {
-        this.humanEducatedMajor = humanEducatedMajor == null ? null : humanEducatedMajor.trim();
-    }
-
-    public String getHumanSocietySecurityId() {
-        return humanSocietySecurityId;
-    }
-
-    public void setHumanSocietySecurityId(String humanSocietySecurityId) {
-        this.humanSocietySecurityId = humanSocietySecurityId == null ? null : humanSocietySecurityId.trim();
-    }
-
-    public String getHumanIdCard() {
-        return humanIdCard;
-    }
-
-    public void setHumanIdCard(String humanIdCard) {
-        this.humanIdCard = humanIdCard == null ? null : humanIdCard.trim();
-    }
-
-    public String getSalaryStandardId() {
-        return salaryStandardId;
-    }
-
-    public void setSalaryStandardId(String salaryStandardId) {
-        this.salaryStandardId = salaryStandardId == null ? null : salaryStandardId.trim();
-    }
-
-    public String getSalaryStandardName() {
-        return salaryStandardName;
-    }
-
-    public void setSalaryStandardName(String salaryStandardName) {
-        this.salaryStandardName = salaryStandardName == null ? null : salaryStandardName.trim();
-    }
-
-    public Double getSalarySum() {
-        return salarySum;
-    }
-
-    public void setSalarySum(Double salarySum) {
-        this.salarySum = salarySum;
-    }
-
-    public Double getDemandSalaraySum() {
-        return demandSalaraySum;
-    }
-
-    public void setDemandSalaraySum(Double demandSalaraySum) {
-        this.demandSalaraySum = demandSalaraySum;
-    }
-
-    public Double getPaidSalarySum() {
-        return paidSalarySum;
-    }
-
-    public void setPaidSalarySum(Double paidSalarySum) {
-        this.paidSalarySum = paidSalarySum;
-    }
-
-    public Short getMajorChangeAmount() {
-        return majorChangeAmount;
-    }
-
-    public void setMajorChangeAmount(Short majorChangeAmount) {
-        this.majorChangeAmount = majorChangeAmount;
-    }
-
-    public Short getBonusAmount() {
-        return bonusAmount;
-    }
-
-    public void setBonusAmount(Short bonusAmount) {
-        this.bonusAmount = bonusAmount;
-    }
-
-    public Short getTrainingAmount() {
-        return trainingAmount;
-    }
-
-    public void setTrainingAmount(Short trainingAmount) {
-        this.trainingAmount = trainingAmount;
-    }
-
-    public Short getFileChangAmount() {
-        return fileChangAmount;
-    }
-
-    public void setFileChangAmount(Short fileChangAmount) {
-        this.fileChangAmount = fileChangAmount;
-    }
-
-    public String getHumanPicture() {
-        return humanPicture;
-    }
-
-    public void setHumanPicture(String humanPicture) {
-        this.humanPicture = humanPicture == null ? null : humanPicture.trim();
-    }
-
-    public String getAttachmentName() {
-        return attachmentName;
-    }
-
-    public void setAttachmentName(String attachmentName) {
-        this.attachmentName = attachmentName == null ? null : attachmentName.trim();
-    }
-
-    public Short getCheckStatus() {
-        return checkStatus;
-    }
-
-    public void setCheckStatus(Short checkStatus) {
-        this.checkStatus = checkStatus;
-    }
-
-    public String getRegister() {
-        return register;
-    }
-
-    public void setRegister(String register) {
-        this.register = register == null ? null : register.trim();
-    }
-
-    public String getChecker() {
-        return checker;
-    }
-
-    public void setChecker(String checker) {
-        this.checker = checker == null ? null : checker.trim();
-    }
-
-    public String getChanger() {
-        return changer;
-    }
-
-    public void setChanger(String changer) {
-        this.changer = changer == null ? null : changer.trim();
-    }
-
-    public Date getRegistTime() {
-        return registTime;
-    }
-
-    public void setRegistTime(Date registTime) {
-        this.registTime = registTime;
-    }
-
-    public Date getCheckTime() {
-        return checkTime;
-    }
-
-    public void setCheckTime(Date checkTime) {
-        this.checkTime = checkTime;
-    }
-
-    public Date getChangeTime() {
-        return changeTime;
-    }
-
-    public void setChangeTime(Date changeTime) {
-        this.changeTime = changeTime;
-    }
-
-    public Date getLastlyChangeTime() {
-        return lastlyChangeTime;
-    }
-
-    public void setLastlyChangeTime(Date lastlyChangeTime) {
-        this.lastlyChangeTime = lastlyChangeTime;
-    }
-
-    public Date getDeleteTime() {
-        return deleteTime;
-    }
-
-    public void setDeleteTime(Date deleteTime) {
-        this.deleteTime = deleteTime;
-    }
-
-    public Date getRecoveryTime() {
-        return recoveryTime;
-    }
-
-    public void setRecoveryTime(Date recoveryTime) {
-        this.recoveryTime = recoveryTime;
-    }
-
-    public Byte getHumanFileStatus() {
-        return humanFileStatus;
-    }
-
-    public void setHumanFileStatus(Byte humanFileStatus) {
-        this.humanFileStatus = humanFileStatus;
-    }
+	public String getHuman_major_kind_id() {
+		return human_major_kind_id;
+	}
+
+	public void setHuman_major_kind_id(String human_major_kind_id) {
+		this.human_major_kind_id = human_major_kind_id;
+	}
+
+	public String getHuman_major_kind_name() {
+		return human_major_kind_name;
+	}
+
+	public void setHuman_major_kind_name(String human_major_kind_name) {
+		this.human_major_kind_name = human_major_kind_name;
+	}
+
+	public String getHuman_major_id() {
+		return human_major_id;
+	}
+
+	public void setHuman_major_id(String human_major_id) {
+		this.human_major_id = human_major_id;
+	}
+
+
+	public String getHuman_telephone() {
+		return human_telephone;
+	}
+
+	public void setHuman_telephone(String human_telephone) {
+		this.human_telephone = human_telephone;
+	}
+
+	public String getHuman_mobilephone() {
+		return human_mobilephone;
+	}
+
+	public void setHuman_mobilephone(String human_mobilephone) {
+		this.human_mobilephone = human_mobilephone;
+	}
+
+	public String getHuman_bank() {
+		return human_bank;
+	}
+
+	public void setHuman_bank(String human_bank) {
+		this.human_bank = human_bank;
+	}
+
+	public String getHuman_account() {
+		return human_account;
+	}
+
+	public void setHuman_account(String human_account) {
+		this.human_account = human_account;
+	}
+
+	public String getHuman_qq() {
+		return human_qq;
+	}
+
+	public void setHuman_qq(String human_qq) {
+		this.human_qq = human_qq;
+	}
+
+	public String getHuman_email() {
+		return human_email;
+	}
+
+	public void setHuman_email(String human_email) {
+		this.human_email = human_email;
+	}
+
+	public String getHuman_hobby() {
+		return human_hobby;
+	}
+
+	public void setHuman_hobby(String human_hobby) {
+		this.human_hobby = human_hobby;
+	}
+
+	public String getHuman_speciality() {
+		return human_speciality;
+	}
+
+	public void setHuman_speciality(String human_speciality) {
+		this.human_speciality = human_speciality;
+	}
+
+	public String getHuman_sex() {
+		return human_sex;
+	}
+
+	public void setHuman_sex(String human_sex) {
+		this.human_sex = human_sex;
+	}
+
+	public String getHuman_religion() {
+		return human_religion;
+	}
+
+	public void setHuman_religion(String human_religion) {
+		this.human_religion = human_religion;
+	}
+
+	public String getHuman_party() {
+		return human_party;
+	}
+
+	public void setHuman_party(String human_party) {
+		this.human_party = human_party;
+	}
+
+	public String getHuman_nationality() {
+		return human_nationality;
+	}
+
+	public void setHuman_nationality(String human_nationality) {
+		this.human_nationality = human_nationality;
+	}
+
+	public String getHuman_race() {
+		return human_race;
+	}
+
+	public void setHuman_race(String human_race) {
+		this.human_race = human_race;
+	}
+
+	public Date getHuman_birthday() {
+		return human_birthday;
+	}
+
+	public void setHuman_birthday(Date human_birthday) {
+		this.human_birthday = human_birthday;
+	}
+
+	public String getHuman_birthplace() {
+		return human_birthplace;
+	}
+
+	public void setHuman_birthplace(String human_birthplace) {
+		this.human_birthplace = human_birthplace;
+	}
+
+	public Short getHuman_age() {
+		return human_age;
+	}
+
+	public void setHuman_age(Short human_age) {
+		this.human_age = human_age;
+	}
+
+	public String getHuman_educated_degree() {
+		return human_educated_degree;
+	}
+
+	public void setHuman_educated_degree(String human_educated_degree) {
+		this.human_educated_degree = human_educated_degree;
+	}
+
+	public Short getHuman_educated_years() {
+		return human_educated_years;
+	}
+
+	public void setHuman_educated_years(Short human_educated_years) {
+		this.human_educated_years = human_educated_years;
+	}
+
+	public String getHuman_educated_major() {
+		return human_educated_major;
+	}
+
+	public void setHuman_educated_major(String human_educated_major) {
+		this.human_educated_major = human_educated_major;
+	}
+
+	public String getHuman_id_card() {
+		return human_id_card;
+	}
+
+	public void setHuman_id_card(String human_id_card) {
+		this.human_id_card = human_id_card;
+	}
+
+	public String getSalary_standard_id() {
+		return salary_standard_id;
+	}
+
+	public void setSalary_standard_id(String salary_standard_id) {
+		this.salary_standard_id = salary_standard_id;
+	}
+
+	public String getSalary_standard_name() {
+		return salary_standard_name;
+	}
+
+	public void setSalary_standard_name(String salary_standard_name) {
+		this.salary_standard_name = salary_standard_name;
+	}
+
+	public Double getSalary_sum() {
+		return salary_sum;
+	}
+
+	public void setSalary_sum(Double salary_sum) {
+		this.salary_sum = salary_sum;
+	}
+
+	public Double getPaid_salary_sum() {
+		return paid_salary_sum;
+	}
+
+	public void setPaid_salary_sum(Double paid_salary_sum) {
+		this.paid_salary_sum = paid_salary_sum;
+	}
+
+	public Short getMajor_change_amount() {
+		return major_change_amount;
+	}
+
+	public void setMajor_change_amount(Short major_change_amount) {
+		this.major_change_amount = major_change_amount;
+	}
+
+	public Short getBonus_amount() {
+		return bonus_amount;
+	}
+
+	public void setBonus_amount(Short bonus_amount) {
+		this.bonus_amount = bonus_amount;
+	}
+
+	public Short getTraining_amount() {
+		return training_amount;
+	}
+
+	public void setTraining_amount(Short training_amount) {
+		this.training_amount = training_amount;
+	}
+
+	public Short getFile_chang_amount() {
+		return file_chang_amount;
+	}
+
+	public void setFile_chang_amount(Short file_chang_amount) {
+		this.file_chang_amount = file_chang_amount;
+	}
+
+	public String getHuman_picture() {
+		return human_picture;
+	}
+
+	public void setHuman_picture(String human_picture) {
+		this.human_picture = human_picture;
+	}
+
+	public String getAttachment_name() {
+		return attachment_name;
+	}
+
+	public void setAttachment_name(String attachment_name) {
+		this.attachment_name = attachment_name;
+	}
+
+	public Short getCheck_status() {
+		return check_status;
+	}
+
+	public void setCheck_status(Short check_status) {
+		this.check_status = check_status;
+	}
+
+	public String getRegister() {
+		return register;
+	}
+
+	public void setRegister(String register) {
+		this.register = register;
+	}
+
+	public String getChecker() {
+		return checker;
+	}
+
+	public void setChecker(String checker) {
+		this.checker = checker;
+	}
+
+	public String getChanger() {
+		return changer;
+	}
+
+	public void setChanger(String changer) {
+		this.changer = changer;
+	}
+
+	public Date getRegist_time() {
+		return regist_time;
+	}
+
+	public void setRegist_time(Date regist_time) {
+		this.regist_time = regist_time;
+	}
+
+	public Date getCheck_time() {
+		return check_time;
+	}
+
+	public void setCheck_time(Date check_time) {
+		this.check_time = check_time;
+	}
+
+	public Date getChange_time() {
+		return change_time;
+	}
+
+	public void setChange_time(Date change_time) {
+		this.change_time = change_time;
+	}
+
+	public Date getLastly_change_time() {
+		return lastly_change_time;
+	}
+
+	public void setLastly_change_time(Date lastly_change_time) {
+		this.lastly_change_time = lastly_change_time;
+	}
+
+	public Date getDelete_time() {
+		return delete_time;
+	}
+
+	public void setDelete_time(Date delete_time) {
+		this.delete_time = delete_time;
+	}
+
+	public Date getRecovery_time() {
+		return recovery_time;
+	}
+
+	public void setRecovery_time(Date recovery_time) {
+		this.recovery_time = recovery_time;
+	}
+
+	public Byte getHumanFile_status() {
+		return humanFile_status;
+	}
+
+	public void setHumanFile_status(Byte humanFile_status) {
+		this.humanFile_status = humanFile_status;
+	}
+
+	public String getFirst_kind_id() {
+		return first_kind_id;
+	}
+
+	public void setFirst_kind_id(String first_kind_id) {
+		this.first_kind_id = first_kind_id;
+	}
+
+	public String getHuman_society_security_id() {
+		return human_society_security_id;
+	}
+
+	public void setHuman_society_security_id(String human_society_security_id) {
+		this.human_society_security_id = human_society_security_id;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public Double getDemand_salary_sum() {
+		return demand_salary_sum;
+	}
+
+	public void setDemand_salary_sum(Double demand_salary_sum) {
+		this.demand_salary_sum = demand_salary_sum;
+	}
+
+	public Short getHuman_file_status() {
+		return human_file_status;
+	}
+
+	public void setHuman_file_status(Short human_file_status) {
+		this.human_file_status = human_file_status;
+	}
+
+	public String getHuman_major_name() {
+		return human_major_name;
+	}
+
+	public void setHuman_major_name(String human_major_name) {
+		this.human_major_name = human_major_name;
+	}
+
+	private Date recovery_time;
+
+    private Byte humanFile_status;
+
+   
 }

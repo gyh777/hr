@@ -6,8 +6,8 @@ import com.hr.pojo.HumanFile;
 
 public interface HumanFileMapper {
 	public boolean addHumanFile(HumanFile huf);
-    public boolean removeHumanFile(int hufId);
+    public boolean removeHumanFile(String name);
     public boolean updateHumanFile(HumanFile huf);
-    public HumanFile queryHumanFileById(int hufId);
+    public HumanFile queryHumanFileByName(String name);
     public List<HumanFile> queryAllHumanFile();
 }

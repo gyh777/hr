@@ -1,53 +1,73 @@
 package com.hr.pojo;
 
 public class ConfigFileSecondKind {
-    private Short fskId;
+    private Short fsk_id;
 
-    private String firstKindId;
+    private String first_kind_id;
 
-    private String firstKindName;
+    private String first_kind_name;
 
-    private String secondKindId;
+    private String second_kind_id;
 
-    private String secondKindName;
+    private String second_kind_name;
+    
+    private String second_kind_salary_id;
+    
+    private String second_kind_sale_id;
 
-    public Short getFskId() {
-        return fskId;
+    public Short getFsk_id() {
+        return fsk_id;
     }
 
-    public void setFskId(Short fskId) {
-        this.fskId = fskId;
+    public void setFsk_id(Short fsk_id) {
+        this.fsk_id = fsk_id;
     }
 
-    public String getFirstKindId() {
-        return firstKindId;
+    public String getFirst_kind_id() {
+        return first_kind_id;
     }
 
-    public void setFirstKindId(String firstKindId) {
-        this.firstKindId = firstKindId == null ? null : firstKindId.trim();
+    public void setFirst_kind_id(String first_kind_id) {
+        this.first_kind_id = first_kind_id == null ? null : first_kind_id.trim();
     }
 
-    public String getFirstKindName() {
-        return firstKindName;
+    public String getFirst_kind_name() {
+        return first_kind_name;
     }
 
-    public void setFirstKindName(String firstKindName) {
-        this.firstKindName = firstKindName == null ? null : firstKindName.trim();
+    public void setFirst_kind_name(String first_kind_name) {
+        this.first_kind_name = first_kind_name == null ? null : first_kind_name.trim();
     }
 
-    public String getSecondKindId() {
-        return secondKindId;
+    public String getSecond_kind_id() {
+        return second_kind_id;
     }
 
-    public void setSecondKindId(String secondKindId) {
-        this.secondKindId = secondKindId == null ? null : secondKindId.trim();
+    public void setSecond_kind_id(String second_kind_id) {
+        this.second_kind_id = second_kind_id == null ? null : second_kind_id.trim();
     }
 
-    public String getSecondKindName() {
-        return secondKindName;
+    public String getSecond_kind_name() {
+        return second_kind_name;
     }
 
-    public void setSecondKindName(String secondKindName) {
-        this.secondKindName = secondKindName == null ? null : secondKindName.trim();
+    public void setSecond_kind_name(String second_kind_name) {
+        this.second_kind_name = second_kind_name == null ? null : second_kind_name.trim();
     }
+
+	public String getSecond_kind_salary_id() {
+		return second_kind_salary_id;
+	}
+
+	public void setSecond_kind_salary_id(String second_kind_salary_id) {
+		this.second_kind_salary_id = second_kind_salary_id;
+	}
+
+	public String getSecond_kind_sale_id() {
+		return second_kind_sale_id;
+	}
+
+	public void setSecond_kind_sale_id(String second_kind_sale_id) {
+		this.second_kind_sale_id = second_kind_sale_id;
+	}
 }
