@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  			document.all.choice.value = "全选";
  			
  		 for(var i=0;i<obj.elements.length;i++){
- 			if(obj.elements[i].tagName.toLowerCase()=="input" &&　obj.elements[i].type=="checkbox"){
+ 			if(obj.elements[i].tagName.toLowerCase()=="input"&&obj.elements[i].type=="checkbox"){
  				if(cho == "全选")
  					obj.elements[i].checked=true;
  				else

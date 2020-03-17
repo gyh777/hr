@@ -3,6 +3,11 @@ package com.hr.pojo;
 import java.util.Date;
 
 public class SalaryStandard {
+	
+	public SalaryStandard(){
+		
+	}
+	
     private Short ssdId;
 
     private String standardId;
@@ -132,4 +137,16 @@ public class SalaryStandard {
     public void setChangeStatus(Short changeStatus) {
         this.changeStatus = changeStatus;
     }
+
+	@Override
+	public String toString() {
+		return "SalaryStandard [ssdId=" + ssdId + ", standardId=" + standardId
+				+ ", standardName=" + standardName + ", designer=" + designer
+				+ ", register=" + register + ", checker=" + checker
+				+ ", changer=" + changer + ", registTime=" + registTime
+				+ ", checkTime=" + checkTime + ", changeTime=" + changeTime
+				+ ", salarySum=" + salarySum + ", checkStatus=" + checkStatus
+				+ ", changeStatus=" + changeStatus + "]";
+	}
+    
 }
