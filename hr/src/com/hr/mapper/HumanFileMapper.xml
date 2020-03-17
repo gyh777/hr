@@ -24,11 +24,19 @@
 	</update>
 	
 	
-	<select id="queryHumanFileByCid" parameterType="String" resultType="com.hr.pojo.HumanFile">
+	<select id="queryHumanFileByName" parameterType="String" resultType="com.hr.pojo.HumanFile">
 		select * from human_file where human_name=#{human_name}
 	</select>
 	
 	<select id="queryAllHumanFile" resultType="com.hr.pojo.HumanFile">
 		select * from human_file
+	</select>
+	
+	<select id="queryAllHumanFileByStatus" parameterType="_int" resultType="com.hr.pojo.HumanFile">
+	   select * from human_file where human_file_status = #{human_file_status};
+	</select>
+	
+	<select id="queryHumanFileByHuf_id" parameterType="_int" resultType="com.hr.pojo.HumanFile">
+	   select * from human_file where huf_id = #{huf_id};
 	</select>
 </mapper>

@@ -24,15 +24,15 @@ public class SecondKindRigisterController {
 	ConfigFileSecondKindService configFileSecondKindServiceImpl;
 	
 	@RequestMapping("/addrigister")
-	public ModelAndView addRigister(@RequestParam String firstKindId,@RequestParam String firstKindName,@RequestParam String secondKindId,@RequestParam String secondKindName,@RequestParam String secondKindSalaryId
-			,@RequestParam String secondKindSaleId){
+	public ModelAndView addRigister(@RequestParam String firstKindId,@RequestParam String firstKindName,@RequestParam String secondKindId,@RequestParam String secondKindName,@RequestParam String secondSalaryId
+			,@RequestParam String secondSaleId){
 		ConfigFileSecondKind  configFileSecondKind = new ConfigFileSecondKind();
 		configFileSecondKind.setFirst_kind_id(firstKindId);
 		configFileSecondKind.setFirst_kind_name(firstKindName);
 		configFileSecondKind.setSecond_kind_id(secondKindId);
 		configFileSecondKind.setSecond_kind_name(secondKindName);
-		configFileSecondKind.setSecond_kind_salary_id(secondKindSalaryId);
-		configFileSecondKind.setSecond_kind_sale_id(secondKindSaleId);
+		configFileSecondKind.setSecond_salary_id(secondSalaryId);
+		configFileSecondKind.setSecond_sale_id(secondSaleId);
 		configFileSecondKindServiceImpl.addConfigFileSecondKind(configFileSecondKind);
 	    ModelAndView mav = new ModelAndView();
 	    mav.setViewName("second_kind_register_success");
@@ -40,7 +40,7 @@ public class SecondKindRigisterController {
 	}
 
 	@RequestMapping("/changerigister")
-	public ModelAndView changeRigister(@RequestParam String secondKindId,Model model){
+	public ModelAndView changeRigister(@RequestParam String secondKindId){
 		ConfigFileSecondKind  fileSecondKind = configFileSecondKindServiceImpl.queryConfigFileSecondKindById(secondKindId);
 		ModelAndView mav  = new ModelAndView();
 		mav.addObject("fileSecondKind",fileSecondKind);
@@ -49,12 +49,13 @@ public class SecondKindRigisterController {
 	}
 	
 	@RequestMapping("/changerigisterTwo")
-	public ModelAndView changeRigisterTwo(@RequestParam String secondKindId,@RequestParam String secondKindSaleId,@RequestParam String secondKindName,@RequestParam String secondKindSalaryId,Model model){
+	public ModelAndView changeRigisterTwo(@RequestParam String secondKindId,@RequestParam String secondKindName,@RequestParam String secondSalaryId,@RequestParam String secondSaleId){
+		
 		ConfigFileSecondKind  fileSecondKind = configFileSecondKindServiceImpl.queryConfigFileSecondKindById(secondKindId);
 		fileSecondKind.setSecond_kind_id(secondKindId);
 		fileSecondKind.setSecond_kind_name(secondKindName);
-		fileSecondKind.setSecond_kind_salary_id(secondKindSalaryId);
-		fileSecondKind.setSecond_kind_sale_id(secondKindSaleId);
+		fileSecondKind.setSecond_salary_id(secondSalaryId);
+		fileSecondKind.setSecond_sale_id(secondSaleId);
 		configFileSecondKindServiceImpl.updateConfigFileSecondKind(fileSecondKind);
 		ModelAndView mav  = new ModelAndView();
 

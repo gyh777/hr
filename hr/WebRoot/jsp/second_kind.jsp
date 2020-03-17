@@ -11,6 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css">
 		<script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/comm.js"></script>
 	    <script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/second_kind.js"></script>
+	    <script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 	</head>
 
 	<body >
@@ -76,10 +77,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							${u.second_kind_name }
 						</td>
 						<td class="TD_STYLE2">
-							${u.second_kind_salary_id }
+							${u.second_salary_id }
 						</td>
 						<td class="TD_STYLE2">
-							${u.second_kind_sale_id }
+							${u.second_sale_id }
 						</td>
 						<td class="TD_STYLE2">
 						     <input type="button" value="变更" class="BUTTON_STYLE1" onclick="changeSecondKind(this)">
