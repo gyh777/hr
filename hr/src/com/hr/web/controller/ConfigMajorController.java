@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,22 @@ public class ConfigMajorController {
 		mav.setViewName("major");
 		mav.addObject("majorList",list);
 		return mav;
+	}
+	
+	/**
+	 * 用于简历筛选功能
+	 */
+	@RequestMapping("/selectAllForEngage")
+	public String selectAllForEngage(String choose, HttpServletRequest request){
+		List<ConfigMajor> list = configMajorServiceImpl.selectAllConfigMajor();
+		request.setAttribute("engageResumeFindList", list);
+		if("1".equals(choose)){
+			return "engage_resume_query_locate";
+		}
+		if("2".equals(choose)){
+			return "engage_resume_query_effective_locate";
+		}
+		return "engage_resume_register";
 	}
 	
 }

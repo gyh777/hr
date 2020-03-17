@@ -2,7 +2,11 @@ package com.hr.web.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -25,10 +29,18 @@ public class EngageResumeController {
 		return null;
 	}
 	
-	@RequestMapping("getResId")
-	public String getResId(int res_id){
-		engageResumeServiceImpl.getByResId(res_id);
-		return null;
+	@RequestMapping("getByResIdFoeUpdate")
+	public String getByResIdFoeUpdate(int res_id, HttpServletRequest request){
+		EngageResume engageResume = engageResumeServiceImpl.getByResId(res_id);
+		request.setAttribute("engageResumeForUpdate", engageResume);
+		return "engage_resume_change";
+	}
+	
+	@RequestMapping("getByResIdForDelete")
+	public String getByResIdForDelete(int res_id, HttpServletRequest request){
+		EngageResume engageResume = engageResumeServiceImpl.getByResId(res_id);
+		request.setAttribute("engageResumeForDelete", engageResume);
+		return "engage_resume_update";
 	}
 	
 	@RequestMapping("save")
@@ -36,14 +48,18 @@ public class EngageResumeController {
 		engageResume.setRegist_time(new Date());
 		engageResume.setTest_check_time(new Date());
 		engageResume.setCheck_time(new Date());
+		engageResume.setPass_check_status(Short.valueOf((short) 0));
 		engageResumeServiceImpl.save(engageResume);
-		return null;
+		return "forward:configMajor/selectAllForEngage";
 	}
 	
 	@RequestMapping("update")
-	public String update(EngageResume engageResume){
+	public String update(EngageResume engageResume, HttpServletRequest request){
 		engageResumeServiceImpl.update(engageResume);
-		return null;
+		Short s = engageResume.getPass_check_status();
+		System.out.println(s);
+		request.setAttribute("choose", 1);
+		return "forward:configMajor/selectAllForEngage";
 	}
 	
 	@RequestMapping("remove")
@@ -52,6 +68,20 @@ public class EngageResumeController {
 		return null;
 	}
 	
+	@RequestMapping("find")
+	public String find(String human_major_kind_id, String human_major_id, String keyWord, String start, String end, HttpServletRequest request){	
+		System.out.println(human_major_kind_id+"==="+human_major_id);
+		List<EngageResume> list = engageResumeServiceImpl.listFind(human_major_kind_id, human_major_id, keyWord, start, end);
+		request.setAttribute("engageResumeFindList", list);
+		return "engage_resume_query_list";
+	}
+	
+	@RequestMapping("findForEffective")
+	public String findForEffective(String human_major_kind_id, String human_major_id, String keyWord, String start, String end, HttpServletRequest request){	
+		List<EngageResume> list = engageResumeServiceImpl.listFindForEffective(human_major_kind_id, human_major_id, keyWord, start, end);
+		request.setAttribute("engageResumeFindForEffectiveList", list);
+		return "engage_resume_query_effective_list";
+	}
 
 	@InitBinder
 	public void initBinder(ServletRequestDataBinder bin){
