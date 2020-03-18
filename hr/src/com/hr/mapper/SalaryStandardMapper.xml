@@ -35,8 +35,22 @@
     	check_comment=#{checkComment} where ssd_id=#{ssdId}
 	</update>
 	
+	<update id="changeUpdate" parameterType="SalaryStandardDetailsList">
+		update salary_standard set 
+    	standard_name=#{standardName},
+		changer=#{changer},change_time=#{changeTime},
+		salary_sum=#{salarySum},change_status=#{changeStatus},remark=#{remark} where ssd_id=#{ssdId}
+	</update>
+	
 	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard">
     	select * from salary_standard
+    </select>
+    <select id="selectCheckAll" resultType="com.hr.pojo.SalaryStandard">
+    	select * from salary_standard where check_status=0
+    </select>
+    
+    <select id="selectChangeAll" resultType="com.hr.pojo.SalaryStandard">
+    	select * from salary_standard where check_status=1
     </select>
     <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandard">
     	select *  from salary_standard where ssd_id=#{ssdId}

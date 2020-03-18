@@ -15,6 +15,12 @@
 		insert into salary_standard_details <include refid="SalaryStandardDetails"/> values
 		(#{sdtId},#{standardId},#{standardName},#{itemId},#{itemName},#{salary})
 	</insert>
+	
+	<update id="changeUpdate" parameterType="SalaryStandardDetails">
+		update salary_standard_details set 
+    	standard_id=#{standardId},standard_name=#{standardName},item_name=#{itemName},salary=#{salary}
+    	where sdt_id=#{sdtId}
+	</update>
 	 <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandardDetails">
     	select *  from salary_standard_details where standard_id=#{ssdId}
     </select>
