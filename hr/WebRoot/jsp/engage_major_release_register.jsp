@@ -12,15 +12,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="../jsp/table.css" type="text/css">
 		<link rel="stylesheet" type="text/css" media="all"
 			href="javascript/calendar/calendar-win2k-cold-1.css">
-		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
-		<script type="text/javascript" src="javascript/comm/select.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/calendar/cal.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/comm/comm.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/comm/select.js"></script>
+<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript">
-		//加载机构
-		function loadFirstKind(){
+		function loadKindIdAndName(){
+			//加载机构
 			$.ajax({
 				type : "post",
-				url : "../",
+				url : "../firstkindrigister/loadFirstKindIdAndName",
 				dataType : "json",
 				success:function(result){
 					
@@ -33,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  		</script>
 	</head>
 
-	<body>
+	<body onload="loadKindIdAndName()">
 		<form name="majorReleaseForm" method="post" action="/hr/majorRelease.do">
 			<table width="100%">
 				<tr>
@@ -57,8 +58,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="15%" class="TD_STYLE2">
 						<select name="firstKindName" class="SELECT_STYLE1" onchange="">
 							<option value="">&nbsp;</option>
-							<c:forEach items="${requestScope.firstMap}" var="firstKind">
-								<option value="">&nbsp;</option>
+							<c:forEach items="${idAndName }" var="firstKind">
+								<option value="">${firstKind.first }${firstKind.second }</option>
                 			</c:forEach>
 						</select>
 					</td>

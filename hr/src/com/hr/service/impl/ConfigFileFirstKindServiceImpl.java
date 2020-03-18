@@ -1,6 +1,7 @@
 package com.hr.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.hr.mapper.ConfigFileFirstKindMapper;
 import com.hr.pojo.ConfigFileFirstKind;
 import com.hr.service.ConfigFileFirstKindService;
+import com.hr.web.controller.requestparamtype.TwoStringValue;
 
 @Service
 public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindService{
@@ -42,6 +44,12 @@ public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindServic
 	public List<ConfigFileFirstKind> queryAllConfigFileFirstKind() {
 		// TODO Auto-generated method stub
 		return mapper.queryAllConfigFileFirstKind();
+	}
+
+	@Override
+	public List<TwoStringValue> queryConfigFileFirstKindIdAndName() {
+		// TODO Auto-generated method stub
+		return mapper.queryConfigFileFirstKindIdAndName();
 	}
 
 }

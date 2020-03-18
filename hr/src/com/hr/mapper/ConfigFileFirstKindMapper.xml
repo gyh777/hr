@@ -24,4 +24,8 @@
 	<select id="queryAllConfigFileFirstKind" resultType="com.hr.pojo.ConfigFileFirstKind">
 		select * from config_file_first_kind
 	</select>
+	
+	<select id="queryConfigFileFirstKindIdAndName" resultType="com.hr.web.controller.requestparamtype.TwoStringValue">
+		select first_kind_id as first,first_kind_name as second from config_file_first_kind
+	</select>
 </mapper>
