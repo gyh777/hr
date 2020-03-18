@@ -6,11 +6,12 @@
 	<select id="select" resultType="com.hr.pojo.EngageResume">
 		select * from engage_resume
 	</select>
-	<select id="selectByResId" parameterType="int">
+	<select id="selectByResId" parameterType="_int" resultType="com.hr.pojo.EngageResume">
 		select * from engage_resume where res_id = #{res_id}
 	</select>
 	<insert id="insert" parameterType="com.hr.pojo.EngageResume">
-		insert into engage_resume(human_name,engage_type,
+		insert into engage_resume
+		(human_name,engage_type,
 		human_address,human_postcode,
 		human_major_kind_id,human_major_kind_name,human_major_id,human_major_name,
 		human_telephone,human_homephone,human_mobilephone,human_email,
@@ -29,7 +30,7 @@
 		values 
 		(#{human_name},#{engage_type},
 		#{human_address},#{human_postcode},
-		#{human_major_kind_id=},{human_major_kind_name},
+		#{human_major_kind_id},{human_major_kind_name},
 		#{human_major_id},#{human_major_name},
 		#{human_major_kind_id},#{human_homephone},
 		#{human_mobilephone},#{human_email},
@@ -48,12 +49,12 @@
 		#{test_amount},#{test_checker},#{test_check_time},
 		#{pass_register},#{pass_regist_time},#{pass_checker},
 		#{pass_check_time},#{pass_check_status},
-		#{pass_checkComment},=#{pass_passComment})
+		#{pass_checkComment},#{pass_passComment}
 	</insert>
 	<update id="update" parameterType="com.hr.pojo.EngageResume">
 		update engage_resume set human_name=#{human_name},engage_type=#{engage_type},
 		human_address=#{human_address},human_postcode=#{human_postcode},
-		human_major_kind_id=#{human_major_kind_id=},human_major_kind_name=#{human_major_kind_name},
+		human_major_kind_id=#{human_major_kind_id},human_major_kind_name=#{human_major_kind_name},
 		human_major_id=#{human_major_id},human_major_name=#{human_major_name},
 		human_telephone=#{human_major_kind_id},human_homephone=#{human_homephone},
 		human_mobilephone=#{human_mobilephone},human_email=#{human_email},
@@ -78,4 +79,42 @@
 	<delete id="delete" parameterType="int">
 		delete from engage_resume where res_id = #{res_id}
 	</delete>
+	<select id="find" parameterType="String" resultType="com.hr.pojo.EngageResume">
+		select * from engage_resume where pass_check_status=0
+		<trim>
+			<if test="human_major_kind_id !=null and human_major_kind_id !=''">
+				and human_major_kind_id=#{human_major_kind_id}
+			</if>
+			<if test="human_major_id !=null and human_major_id !=''">
+				and human_major_id=#{human_major_id}
+			</if>
+			<if test="keyWord !=null and keyWord != ''">
+				<bind name="keyWordOne" value="'%'+keyWord+'%'"/>
+				and human_name like #{keyWordOne} or human_telephone like #{keyWordOne} or 
+				human_idcard like #{keyWordOne} or human_history_records like #{keyWordOne}
+			</if>
+			<if test="start !=null and end!= null and start !='' and end !=''">
+				and regist_time between #{start} and #{end}
+			</if>
+		</trim>
+	</select>
+	<select id="findForEffective" parameterType="String" resultType="com.hr.pojo.EngageResume">
+		select * from engage_resume where pass_check_status=1
+		<trim>
+			<if test="human_major_kind_id !=null and human_major_kind_id !=''">
+				and human_major_kind_id=#{human_major_kind_id}
+			</if>
+			<if test="human_major_id !=null and human_major_id !=''">
+				and human_major_id=#{human_major_id}
+			</if>
+			<if test="keyWord !=null and keyWord != ''">
+				<bind name="keyWordOne" value="'%'+keyWord+'%'"/>
+				and human_name like #{keyWordOne} or human_telephone like #{keyWordOne} or 
+				human_idcard like #{keyWordOne} or human_history_records like #{keyWordOne}
+			</if>
+			<if test="start !=null and end!= null and start !='' and end !=''">
+				and regist_time between #{start} and #{end}
+			</if>
+		</trim>
+	</select>
 </mapper>

@@ -683,7 +683,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engage_resume_register.jsp" target="mainFrame">简历登记</a>
+													<a href="/hr/configMajor/selectAllForEngage" target="mainFrame">简历登记</a>
 												</td>
 											</tr>
 											<tr>
@@ -691,7 +691,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engageresume.?operate=locate&method=check" target="mainFrame">简历筛选</a>
+													<a href="/hr/configMajor/selectAllForEngage?choose=1" target="mainFrame">简历筛选</a>
 												</td>
 											</tr>
 											<tr>
@@ -699,7 +699,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engageresume.?operate=locate&method=query" target="mainFrame">有效简历查询</a>
+													<a href="/hr/configMajor/selectAllForEngage?choose=2" target="mainFrame">有效简历查询</a>
 												</td>
 											</tr>
 										</table> </span>
