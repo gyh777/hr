@@ -28,6 +28,13 @@
 		#{salarySum},#{checkStatus},#{changeStatus},#{checkComment},#{remark})
 	</insert>
 	
+	<update id="ckeckUpdate" parameterType="String">
+		update salary_standard set 
+    	checker=#{checker},
+    	check_time=#{checkTime},check_status=#{checkStatus},
+    	check_comment=#{checkComment} where ssd_id=#{ssdId}
+	</update>
+	
 	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard">
     	select * from salary_standard
     </select>

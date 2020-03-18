@@ -27,9 +27,19 @@ public class SalarystandardController {
 	
 	@RequestMapping("/register")
 	public String register(@ModelAttribute SalaryStandardDetailsList salaryStandardDetails){
+		
 		Boolean bl = salaryStandardServiceImpl.save(salaryStandardDetails);
 		if(bl){
 			return "salarystandard_register_success";
+		}
+		return null;
+	}
+	
+	@RequestMapping("/checkAdopt")
+	public String checkAdopt(String checker,String checkTime,String checkComment){
+		Boolean bl = salaryStandardServiceImpl.checkChange(checker, checkTime, checkComment);
+		if(bl){
+			return "salarystandard_check_.success";
 		}
 		return null;
 	}

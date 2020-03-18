@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,11 +12,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<title>无标题文档</title>
+		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript">
-		function doEdit(id)
+		function doEdit(checker,checkTime,checkComment)
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=doEdit&method=check&id=" + id;
-			document.forms[0].action ="/hr/salarystandard/check";
+			var checker = document.getElementByName("checker");
+			var checkTime = document.getElementByName("checkTime");
+			var checkComment = document.getElementByName("checkComment");
+			document.forms[0].action ="/hr/salarystandard/checkAdopt?checker="+checker+"&checkTime="+checkTime+"&checkComment="+checkComment;
 			document.forms[0].submit();
 		}
 		</script>
@@ -32,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td>
 						<div align="right">
-							<input type="button" value="复核通过" class="BUTTON_STYLE1" onclick="doEdit(1);">
+							<input type="button" value="复核通过" class="BUTTON_STYLE1" onclick="doEdit();">
 							<input type="button" value="返回" onclick="history.back();" class="BUTTON_STYLE1">
 						</div>
 					</td>
@@ -42,23 +47,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
 				<tr>
+				
+				<input type="hidden" name="ssdId" value="${check.ssdId}" class="INPUT_STYLE2">
 					<td width="12%" class="TD_STYLE1">
 						薪酬编号
 					</td>
 					<td width="15%" class="TD_STYLE2">
-						1000001
+					<input type="text" name="standardId" value="${check.standardId}" readonly="readonly" class="INPUT_STYLE2">
+						
 					</td>
 					<td width="12%" class="TD_STYLE1">
 						薪酬标准名称
 					</td>
 					<td width="11%" class="TD_STYLE2">
-						<input type="text" name="item.standardName" value="" class="INPUT_STYLE2">
+						<input type="text" name="standardName" value="${check.standardName}" class="INPUT_STYLE2">
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						薪酬总额
 					</td>
 					<td width="17%" class="TD_STYLE2">
-						0.0
+						
+						<input type="text" name="salarySum" value="${check.salarySum}" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td width="12%" class="TD_STYLE1">
 						&nbsp;
@@ -72,19 +81,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						制定人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.designer" value="" class="INPUT_STYLE2">
+						<input type="text" name="designer" value="${check.designer}" class="INPUT_STYLE2" readonly="readonly">
 					</td>
 					<td class="TD_STYLE1">
 						复核人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.checker" value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="checker" value="better_wanghao" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						复核时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.str_checkTime" value="2010-05-29 03:27:14" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="checkTime" value="2010-05-29 03:27:14" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						&nbsp;
@@ -98,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						复核意见
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="item.checkComment" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="checkComment" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -112,114 +121,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						金额
 					</td>
 				</tr>
-				
+				<c:forEach items="${check.salaryStandardDetails}" var="one">
 				<tr class="TD_STYLE2">
 				    <input type="hidden" name="list[0].sdtId" value="1" class="INPUT_STYLE2">
 					<td align="center">
-						1
+						${one.itemId}
 						<input type="hidden" name="list[0].itemId" value="1" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
-						出差补助
+						${one.standardName}
 						<input type="hidden" name="list[0].itemName" value="出差补助" class="INPUT_STYLE2">
 					</td>
 					<td>
-						<input type="text" name="list[0].salary" value="0.0" class="INPUT_STYLE2">
+						<input type="text" name="list[0].salary" value="${one.salary}" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
 						&nbsp;
 					</td>
 				</tr>
+				</c:forEach>
 				
-				<tr class="TD_STYLE2">
-				    <input type="hidden" name="list[1].sdtId" value="2" class="INPUT_STYLE2">
-					<td align="center">
-						2
-						<input type="hidden" name="list[1].itemId" value="2" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						交通补贴
-						<input type="hidden" name="list[1].itemName" value="交通补贴" class="INPUT_STYLE2">
-					</td>
-					<td>
-						<input type="text" name="list[1].salary" value="0.0" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						&nbsp;
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-				    <input type="hidden" name="list[2].sdtId" value="3" class="INPUT_STYLE2">
-					<td align="center">
-						3
-						<input type="hidden" name="list[2].itemId" value="3" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						住房补贴
-						<input type="hidden" name="list[2].itemName" value="住房补贴" class="INPUT_STYLE2">
-					</td>
-					<td>
-						<input type="text" name="list[2].salary" value="0.0" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						&nbsp;
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-				    <input type="hidden" name="list[3].sdtId" value="4" class="INPUT_STYLE2">
-					<td align="center">
-						4
-						<input type="hidden" name="list[3].itemId" value="4" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						基本工资
-						<input type="hidden" name="list[3].itemName" value="基本工资" class="INPUT_STYLE2">
-					</td>
-					<td>
-						<input type="text" name="list[3].salary" value="0.0" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						&nbsp;
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-				    <input type="hidden" name="list[4].sdtId" value="5" class="INPUT_STYLE2">
-					<td align="center">
-						5
-						<input type="hidden" name="list[4].itemId" value="5" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						年终奖
-						<input type="hidden" name="list[4].itemName" value="年终奖" class="INPUT_STYLE2">
-					</td>
-					<td>
-						<input type="text" name="list[4].salary" value="0.0" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						&nbsp;
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-				    <input type="hidden" name="list[5].sdtId" value="6" class="INPUT_STYLE2">
-					<td align="center">
-						6
-						<input type="hidden" name="list[5].itemId" value="6" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						误餐补助
-						<input type="hidden" name="list[5].itemName" value="误餐补助" class="INPUT_STYLE2">
-					</td>
-					<td>
-						<input type="text" name="list[5].salary" value="0.0" class="INPUT_STYLE2">
-					</td>
-					<td colspan="3">
-						&nbsp;
-					</td>
-				</tr>
 				
 			
 				

@@ -50,7 +50,7 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 			for (SalaryStandardDetails salaryStandardDetails : array) {
 				salaryStandardDetails.setStandardName(ssdl.getStandardName());
 				salaryStandardDetails.setStandardId(ssdl.getStandardId());
-				salaryStandardDetails.setSalary(ssdl.getSalarySum());
+				
 				int result1 = salaryStandardDetailsMapper.insert(salaryStandardDetails);
 				if(result1<0){
 					return false;
@@ -65,6 +65,15 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		
 	}
 
+	public Boolean checkChange(String checker,String checkTime,String checkComment){
+		int a = salaryStandardMapper.ckeckUpdate("1",checker, checkTime, checkComment);
+			if(a>-1){
+				return true;
+			}
+		return false;
+		
+	}
+	
 	public List<SalaryStandard> queryAll(){
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardMapper.selectAll();
 		return list;
