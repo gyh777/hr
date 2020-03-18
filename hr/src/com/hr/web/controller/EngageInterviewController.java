@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hr.pojo.EngageInterview;
 import com.hr.pojo.EngageResume;
-import com.hr.service.EngageInterviewService;
 import com.hr.service.EngageResumeService;
+import com.hr.service.impl.EngageInterviewServiceImpl;
 
 @Controller
 @RequestMapping("/engageInterview")
 public class EngageInterviewController {
 	@Autowired
-	EngageInterviewService engageInterviewServiceImpl;
+	EngageInterviewServiceImpl engageInterviewServiceImpl;
 	@Autowired
 	EngageResumeService engageResumeServiceImpl;
 	
