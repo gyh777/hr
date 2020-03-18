@@ -124,6 +124,9 @@ public class HumanFileController {
 	public ModelAndView checkRigister(){
 		List<HumanFile> humans = humanFileServiceImpl.queryAllHumanFileByStatus(0);
 		ModelAndView mav = new ModelAndView();
+		for (HumanFile humanFile : humans) {
+			System.out.println(humanFile.getHuman_sex()+"==========");
+		}
 		mav.addObject("humans", humans);
 	    mav.setViewName("check_list");
 	    return mav;

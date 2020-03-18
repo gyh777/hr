@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -13,8 +14,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css">
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css">
+		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/check_list.js">
+		
 function toCheck(id)
 {
 	document.forms[0].action = document.forms[0].action + "?operate=toCheck&id=" + id;
@@ -69,28 +72,28 @@ function toCheck(id)
 						复核
 					</td>
 				</tr>
-				<c:forEach items="${requestScope.humans}" var="humans">
+				<c:forEach items="${requestScope.humans}" var="human">
 					<tr>
 						<td class="TD_STYLE2">
-							${humans.huf_id }
+							${human.huf_id }
 						</td>
 						<td class="TD_STYLE2">
-							${humans.human_name }
+							${human.human_name }
 						</td>
 						<td class="TD_STYLE2">
-							${humans.human_sex }
+						男
 						</td>
 						<td class="TD_STYLE2">
-							${humans.human_first_kind_name }
+							${human.first_kind_name}
 						</td>
 						<td class="TD_STYLE2">
-							${humans.human_second_kind_name }
+							${human.second_kind_name }
 						</td>
 						<td class="TD_STYLE2">
-							${humans.human_third_kind_name }
+							${human.third_kind_name }
 						</td>
 						<td class="TD_STYLE2">
-							${humans.human_major_name}
+							${human.human_major_kind_name }
 						</td>
 						<td class="TD_STYLE2">
 						    <input type="button" value="复核" class="BUTTON_STYLE1" onclick="checkHumanReg(this)">
