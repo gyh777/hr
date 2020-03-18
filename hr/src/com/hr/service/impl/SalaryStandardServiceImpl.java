@@ -67,17 +67,17 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 
 	public Boolean changeAdopt(SalaryStandardDetailsList ssdl) {
 		
-		int i = salaryStandardMapper.changeUpdate(ssdl);
+//		int i = salaryStandardMapper.changeUpdate(ssdl);
 		
 		ArrayList<SalaryStandardDetails> array = (ArrayList<SalaryStandardDetails>) ssdl.getSalaryStandardDetails();
 		for (SalaryStandardDetails salaryStandardDetails : array) {
 			salaryStandardDetails.setStandardName(ssdl.getStandardName());
 			salaryStandardDetails.setStandardId(ssdl.getStandardId());
 			
-			int result1 = salaryStandardDetailsMapper.changeUpdate(salaryStandardDetails);
-			if(result1<0){
-				return false;
-			}
+//			int result1 = salaryStandardDetailsMapper.changeUpdate(salaryStandardDetails);
+//			if(result1<0){
+//				return false;
+//			}
 		
 		}
 		return true;

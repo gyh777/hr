@@ -8,6 +8,6 @@ import com.hr.web.controller.requestparamtype.SalaryStandardDetailsList;
 
 public interface SalaryStandardDetailsMapper {
 	public int insert(SalaryStandardDetails ssd);
-	public int changeUpdate(SalaryStandardDetails ssd);
+//	public int changeUpdate(SalaryStandardDetails ssd);
 	public List<SalaryStandardDetails> selectBySsdId(String ssdId);
 }

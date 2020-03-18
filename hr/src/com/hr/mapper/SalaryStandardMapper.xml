@@ -34,13 +34,13 @@
     	check_time=#{checkTime},check_status=#{checkStatus},
     	check_comment=#{checkComment} where ssd_id=#{ssdId}
 	</update>
-	
+	<!-- 
 	<update id="changeUpdate" parameterType="SalaryStandardDetailsList">
 		update salary_standard set 
     	standard_name=#{standardName},
 		changer=#{changer},change_time=#{changeTime},
 		salary_sum=#{salarySum},change_status=#{changeStatus},remark=#{remark} where ssd_id=#{ssdId}
-	</update>
+	</update> -->
 	
 	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard">
     	select * from salary_standard

@@ -11,7 +11,7 @@ public interface SalaryStandardMapper {
 	
 	public int ckeckUpdate(String checkStatus,String checker,String checkTime,String checkComment);
 	
-	public int changeUpdate(SalaryStandardDetailsList salaryStandardDetailsList);
+//	public int changeUpdate(SalaryStandardDetailsList salaryStandardDetailsList);
 	
 	public List<SalaryStandard> selectAll();
 	
