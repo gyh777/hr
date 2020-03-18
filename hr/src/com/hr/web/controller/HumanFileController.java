@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hr.pojo.ConfigFileSecondKind;
 import com.hr.pojo.HumanFile;
+import com.hr.pojo.HumanFileDig;
 import com.hr.service.ConfigFileSecondKindService;
 import com.hr.service.ConfigFileSecondKindService;
 import com.hr.service.ConfigMajorService;
@@ -104,7 +105,7 @@ public class HumanFileController {
 		hf.setRemark(remark);
 		hf.setHuman_speciality(humanSpeciality);
 		hf.setHuman_hobby(humanHobby);
-		hf.setHuman_histroy_records(humanHistroyRecords);
+		hf.setHuman_history_records(humanHistroyRecords);
 		hf.setHuman_family_membership(humanFamilyMembership);
 		Short human_file_status = 0;
 		hf.setHuman_file_status(human_file_status);
@@ -138,6 +139,7 @@ public class HumanFileController {
 		int hufid = Integer.parseInt(huf_id);
 		HumanFile human = humanFileServiceImpl.queryHumanFileByHuf_id(hufid);
 		ModelAndView mav = new ModelAndView();
+		
 		mav.addObject("human", human);
 	    mav.setViewName("human_check");
 	    return mav;
@@ -148,7 +150,81 @@ public class HumanFileController {
 			,@RequestParam String humanProDesignation,@RequestParam String humanName,@RequestParam String humanSex,@RequestParam String humanEmail,@RequestParam String humanTelephone,@RequestParam String humanQq,@RequestParam String humanMobilephone,@RequestParam String humanAddress,
 			@RequestParam String humanPostcode,@RequestParam String humanNationality,@RequestParam String humanBirthplace,@RequestParam String str_humanBirthday,@RequestParam String humanRace,@RequestParam String humanReligion,@RequestParam String humanParty,
 			@RequestParam String humanIdCard,@RequestParam String humanSocietySecurityId,@RequestParam String humanAge,@RequestParam String humanEducatedDegree,@RequestParam String humanEducatedYears,@RequestParam String humanEducatedMajor,@RequestParam String salaryStandardName,@RequestParam String humanBank,
-			@RequestParam String humanAccount,@RequestParam String register,@RequestParam String remark,@RequestParam String str_registTime,@RequestParam String humanSpeciality,@RequestParam String humanHobby,@RequestParam String humanHistroyRecords,@RequestParam String humanFamilyMembership){
+			@RequestParam String humanAccount,@RequestParam String remark,@RequestParam String humanSpeciality,@RequestParam String humanHobby,@RequestParam String humanHistroyRecords,@RequestParam String humanFamilyMembership){
+		
+		    HumanFileDig hf = new HumanFileDig();
+		    //获得一级机构
+		    String[] first = splitStr(firstKindName);
+		    hf.setFirst_kind_id(first[0]);
+		    hf.setFirst_kind_name(firstKindName);
+		    //获得二级机构
+		    String[] second = splitStr(secondKindName);
+		    hf.setSecond_kind_id(second[0]);
+		    hf.setSecond_kind_name(secondKindName);
+		    //获得三级机构
+		    String[] third = splitStr(thirdKindName);
+		    hf.setThird_kind_id(third[0]);
+		    hf.setThird_kind_name(thirdKindName);
+		    
+		    //获得职位分类 humanMajorKindName
+		    String[] majorKind = splitStr(humanMajorKindName);
+		    hf.setHuman_major_kind_id(majorKind[0]);
+		    hf.setHuman_major_kind_name(majorKind[1]);
+		    
+		    //获得职位名称  hunmaMajorName
+		    String[] major = splitStr(humanMajorName);
+		    hf.setHuman_major_id(major[0]);
+		    hf.setHuman_major_name(major[1]);
+		    
+		    //获得标准薪酬  salaryStandardName
+		    String[] salary = splitStr(salaryStandardName);
+		    hf.setSalary_standard_id(salary[0]);
+		    hf.setSalary_standard_name(salary[1]);
+		    
+		   
+		    hf.setHuman_pro_designation(humanProDesignation);
+		    hf.setHuman_name(humanName);
+		    hf.setHuman_sex(humanSex);
+		    hf.setHuman_email(humanEmail);
+		    hf.setHuman_telephone(humanTelephone);
+		    hf.setHuman_qq(humanQq);
+		    hf.setHuman_mobilephone(humanMobilephone);
+		    hf.setHuman_address(humanAddress);
+		    hf.setHuman_postcode(humanPostcode);
+		    hf.setHuman_nationality(humanNationality);
+		    hf.setHuman_birthplace(humanBirthplace);
+		    Date date;
+		    Date regist_time;
+			try {
+				date = new SimpleDateFormat("yyyy-MM-dd").parse(str_humanBirthday);
+				hf.setHuman_birthday(date);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			hf.setHuman_race(humanRace);
+			hf.setHuman_religion(humanReligion);
+			hf.setHuman_party(humanParty);
+			hf.setHuman_id_card(humanIdCard);
+			int h_age = Integer.parseInt(humanAge);
+			Short age = (short) h_age;
+			hf.setHuman_age(age);
+			hf.setHuman_educated_degree(humanEducatedDegree);
+			int h_year = Integer.parseInt(humanEducatedYears);
+			Short year = (short) h_year;
+			hf.setHuman_educated_years(year);
+			hf.setHuman_educated_major(humanEducatedMajor);
+			hf.setHuman_bank(humanBank);
+			hf.setHuman_account(humanAccount);
+			hf.setRemark(remark);
+			hf.setHuman_speciality(humanSpeciality);
+			hf.setHuman_hobby(humanHobby);
+			hf.setHuman_history_records(humanHistroyRecords);
+			hf.setHuman_family_membership(humanFamilyMembership);
+			Short human_file_status = 1;
+			hf.setHuman_file_status(human_file_status);
+			System.out.println("档案审核中");
+		
 		ModelAndView mav = new ModelAndView();
 		return mav;
 	}

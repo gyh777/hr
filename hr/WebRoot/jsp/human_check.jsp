@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"  deferredSyntaxAllowedAsLiteral="true"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -41,16 +41,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css">
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css">
 		<link rel="stylesheet" type="text/css" media="all"
-			href="javascript/calendar/calendar-win2k-cold-1.css">
-		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
-		<script language="javascript" src="javascript/winopen/winopenm.js"></script>
-	    <script language="javascript" src="javascript/cy/human_check.js"></script>
+			href="<%=basePath%>jsp/javascript/calendar/calendar-win2k-cold-1.css">
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/calendar/cal.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/comm.js"></script>
+		<script language="javascript" src="<%=basePath%>jsp/javascript/winopen/winopenm.js"></script>
+	    <script language="javascript" src="<%=basePath%>jsp/javascript/cy/human_check.js"></script>
+	    <script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 	</head>
 
-	<body>
+	<body onload="selectPro()">
 	
 		<form id="humancheck" name="humanfileForm" method="post">
 			<table width="100%">
@@ -87,33 +88,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1" width="10%">
 						I级机构
 					</td>
-					<td width="13%" class="TD_STYLE2">
-						${human.first_kind_id}
+					<td id="first" width="13%" class="TD_STYLE2">
+						${human.first_kind_name}
 					</td>
 					<td width="10%" class="TD_STYLE1">
 						II级机构
 					</td>
-					<td width="13%" class="TD_STYLE2">
-						${human.second_kind_id}
+					<td id="second" width="13%" class="TD_STYLE2">
+						${human.second_kind_name}
 					</td>
 					<td width="10%" class="TD_STYLE1">
 						III级机构
 					</td>
-					<td class="TD_STYLE2" colspan="2" width="2%" >
-						${human.third_kind_id}
+					<td id="third" class="TD_STYLE2" colspan="2" width="2%" >
+						${human.third_kind_name}
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">
 						职位分类
 					</td>
-					<td class="TD_STYLE2">
+					<td id="majorKind" class="TD_STYLE2">
 						${human.human_major_kind_name }
 					</td>
 					<td class="TD_STYLE1">
 						职位名称
 					</td>
-					<td class="TD_STYLE2">
+					<td id="major" class="TD_STYLE2">
 						${human.human_major_name }
 					</td>
 					<td class="TD_STYLE1">
@@ -144,8 +145,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						性别
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanSex" class="SELECT_STYLE1"><option value="男">男</option>
-							<option value="女" selected="selected">#{human.human_sex}</option></select>
+					    <input type="hidden" id="sex" display="none" value="${human.human_sex}"></input>
+						<select name="humanSex" class="SELECT_STYLE1"><option id="man" value="男">男</option>
+							<option id="women" value="女"  >女</option></select>
 					</td>
 					<td class="TD_STYLE1">
 						EMAIL
