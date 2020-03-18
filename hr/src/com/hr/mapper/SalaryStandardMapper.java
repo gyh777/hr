@@ -10,6 +10,6 @@ public interface SalaryStandardMapper {
 	
 	public List<SalaryStandard> selectAll();
 	
-	public SalaryStandard selectBySsdId();
+	public SalaryStandard selectBySsdId(String ssdId);
 	
 }

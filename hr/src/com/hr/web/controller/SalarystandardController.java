@@ -44,8 +44,9 @@ public class SalarystandardController {
 	}
 	
 	@RequestMapping("/check")
-	public String check(@RequestParam String ssdId){
-		
-		return null;
+	public String check(@RequestParam String ssdId,Model m){
+		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
+		m.addAttribute("check", salaryStandardDetailsList);
+		return "salarystandard_check";
 	}
 }

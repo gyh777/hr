@@ -41,6 +41,16 @@ public class SalaryStandardDetailsList {
 	
 	private String changeTime;
 	
+	private String checkStatus;
+	
+
+	public String getCheckStatus() {
+		return checkStatus;
+	}
+
+	public void setCheckStatus(String checkStatus) {
+		this.checkStatus = checkStatus;
+	}
 
 	public String getCheckComment() {
 		return checkComment;

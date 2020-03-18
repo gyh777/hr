@@ -71,8 +71,22 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 	}
 
 	@Override
-	public SalaryStandard queryBySsdId() {
-		SalaryStandard salaryStandard = salaryStandardMapper.selectBySsdId();
-		return null;
+	public SalaryStandardDetailsList queryBySsdId(String ssdId) {
+		SalaryStandardDetailsList ssdl = new SalaryStandardDetailsList();
+		SalaryStandard salaryStandard = salaryStandardMapper.selectBySsdId(ssdId);
+		ssdl.setChangeStatus(salaryStandard.getChangeStatus().toString());
+		ssdl.setCheckStatus(salaryStandard.getCheckStatus().toString());
+		ssdl.setCheckTime(salaryStandard.getCheckTime());
+		ssdl.setDesigner(salaryStandard.getDesigner());
+		ssdl.setRegister(salaryStandard.getRegister());
+		ssdl.setRegistTime(salaryStandard.getRegistTime());
+		ssdl.setSalarySum(salaryStandard.getSalarySum());
+		ssdl.setSsdId(salaryStandard.getSsdId());
+		ssdl.setStandardId(salaryStandard.getStandardId());
+		ssdl.setStandardName(salaryStandard.getStandardName());
+		
+		ArrayList<SalaryStandardDetails> salaryStandardDetails = (ArrayList<SalaryStandardDetails>) salaryStandardDetailsMapper.selectBySsdId(ssdId);
+		ssdl.setSalaryStandardDetails(salaryStandardDetails);
+		return ssdl;
 	}
 }
