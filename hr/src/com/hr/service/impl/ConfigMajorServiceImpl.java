@@ -29,4 +29,16 @@ public class ConfigMajorServiceImpl implements ConfigMajorService{
 		return mapper.addConfigMajor(cm);
 	}
 
+	@Override
+	public List<String> selectAllConfigMajorName(String major_kind_name) {
+		// TODO Auto-generated method stub
+		return mapper.selectAllConfigMajorName(major_kind_name);
+	}
+
+	@Override
+	public String selectConfigMajorIdByName(String major_name) {
+		// TODO Auto-generated method stub
+		return mapper.selectConfigMajorIdByName(major_name);
+	}
+
 }

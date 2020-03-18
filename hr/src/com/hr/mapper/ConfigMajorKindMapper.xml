@@ -7,7 +7,15 @@
 		select * from config_major_kind
 	</select>
 	
-	<delete id="deleteConfigMajorKind" parameterType="String">
+	<select id="selectAllConfigMajorKindName" resultType="string">
+		select major_kind_name from config_major_kind
+	</select>
+	
+	<select id="selectConfigMajorKindIdByName" resultType="string" parameterType="string">
+		select major_kind_id from config_major_kind where major_kind_name=#{major_kind_name}
+	</select>
+	
+	<delete id="deleteConfigMajorKind" parameterType="string">
 		delete from config_major_kind where major_kind_name=#{major_kind_name}
 	</delete>
 	
