@@ -119,5 +119,42 @@ public class HumanFileController {
 		String[] strs = str.split("/");
 		return strs;
 	}
+	
+	@RequestMapping("checkList")
+	public ModelAndView checkRigister(){
+		List<HumanFile> humans = humanFileServiceImpl.queryAllHumanFileByStatus(0);
+		ModelAndView mav = new ModelAndView();
+		for (HumanFile humanFile : humans) {
+			System.out.println(humanFile.getHuman_sex()+"==========");
+		}
+		mav.addObject("humans", humans);
+	    mav.setViewName("check_list");
+	    return mav;
+	}
+	
+	
+	@RequestMapping("checkHuman")
+	public ModelAndView checkHuman(@RequestParam String huf_id){
+		int hufid = Integer.parseInt(huf_id);
+		HumanFile human = humanFileServiceImpl.queryHumanFileByHuf_id(hufid);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("human", human);
+	    mav.setViewName("human_check");
+	    return mav;
+	}
+	
+	@RequestMapping("checkagree")
+	public ModelAndView checkAgree(@RequestParam String firstKindName,@RequestParam String secondKindName,@RequestParam String thirdKindName,@RequestParam String humanMajorKindName,@RequestParam String humanMajorName
+			,@RequestParam String humanProDesignation,@RequestParam String humanName,@RequestParam String humanSex,@RequestParam String humanEmail,@RequestParam String humanTelephone,@RequestParam String humanQq,@RequestParam String humanMobilephone,@RequestParam String humanAddress,
+			@RequestParam String humanPostcode,@RequestParam String humanNationality,@RequestParam String humanBirthplace,@RequestParam String str_humanBirthday,@RequestParam String humanRace,@RequestParam String humanReligion,@RequestParam String humanParty,
+			@RequestParam String humanIdCard,@RequestParam String humanSocietySecurityId,@RequestParam String humanAge,@RequestParam String humanEducatedDegree,@RequestParam String humanEducatedYears,@RequestParam String humanEducatedMajor,@RequestParam String salaryStandardName,@RequestParam String humanBank,
+			@RequestParam String humanAccount,@RequestParam String register,@RequestParam String remark,@RequestParam String str_registTime,@RequestParam String humanSpeciality,@RequestParam String humanHobby,@RequestParam String humanHistroyRecords,@RequestParam String humanFamilyMembership){
+		ModelAndView mav = new ModelAndView();
+		return mav;
+	}
+	
+	
+	
+	
 
 }

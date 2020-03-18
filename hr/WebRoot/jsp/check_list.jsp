@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -13,8 +14,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css">
-		<script type="text/javascript">
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css">
+		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/check_list.js">
+		
 function toCheck(id)
 {
 	document.forms[0].action = document.forms[0].action + "?operate=toCheck&id=" + id;
@@ -24,7 +27,7 @@ function toCheck(id)
 	</head>
 
 	<body>
-		<form name="humanfileForm" method="post" action="/hr/humanfile.do">
+		<form id="check_human" name="humanfileForm" method="post" action="/hr/humanfile.do">
 			<table width="100%">
 				<tr>
 					<td>
@@ -42,6 +45,7 @@ function toCheck(id)
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
+				
 				<tr class="TR_STYLE1">
 					<td width="13%" class="TD_STYLE1">
 						档案编号
@@ -68,34 +72,34 @@ function toCheck(id)
 						复核
 					</td>
 				</tr>
-				
+				<c:forEach items="${requestScope.humans}" var="human">
 					<tr>
 						<td class="TD_STYLE2">
-							bt0101010001
+							${human.huf_id }
 						</td>
 						<td class="TD_STYLE2">
-							fantia
+							${human.human_name }
 						</td>
 						<td class="TD_STYLE2">
-							女
+						男
 						</td>
 						<td class="TD_STYLE2">
-							Better集团
+							${human.first_kind_name}
 						</td>
 						<td class="TD_STYLE2">
-							Better软件公司
+							${human.second_kind_name }
 						</td>
 						<td class="TD_STYLE2">
-							外包组
+							${human.third_kind_name }
 						</td>
 						<td class="TD_STYLE2">
-							经理
+							${human.human_major_kind_name }
 						</td>
 						<td class="TD_STYLE2">
-							<a href="human_check.jsp">复核</a>
+						    <input type="button" value="复核" class="BUTTON_STYLE1" onclick="checkHumanReg(this)">
 						</td>
 					</tr>
-				
+				   </c:forEach>
 			</table>
 			<p>&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
 		</form>

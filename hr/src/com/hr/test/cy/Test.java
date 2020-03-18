@@ -18,7 +18,7 @@ public class Test {
   public static void main(String[] args) {
 		ApplicationContext context = 
 				new ClassPathXmlApplicationContext("applicationContext.xml");
-//		ConfigFileSecondKindService service = (ConfigFileSecondKindService)context.getBean("configFileSecondKindServiceImpl");
+		ConfigFileSecondKindService service = (ConfigFileSecondKindService)context.getBean("configFileSecondKindServiceImpl");
 //		List<ConfigFileSecondKind> list = service.queryAllConfigFileSecondKind();
 //		System.out.println(list.size());
 		
@@ -34,7 +34,8 @@ public class Test {
 //		ConfigFileFirstKind cffk =   service.queryConfigFileFirstKindById("03");
 //		service.removeConfigFileFirstKind("03");
 //		System.out.println(cffk);
-		
+		ConfigFileSecondKind cf = service.queryConfigFileSecondKindById("06");
+		System.out.println(cf.getSecond_kind_name());
 		
 		
 		
@@ -50,12 +51,12 @@ public class Test {
 //		service.addConfigFileSecondKind(cffk);
 		
 		
-		HumanFileService service = (HumanFileService)context.getBean("humanFileServiceImpl");
-		HumanFile hf = new HumanFile();
-		hf.setHuman_name("sss");
-		Short age = 20;
-		hf.setHuman_age(age);
-		service.addHumanFile(hf);
+//		HumanFileService service = (HumanFileService)context.getBean("humanFileServiceImpl");
+//		HumanFile hf = new HumanFile();
+//		hf.setHuman_name("sss");
+//		Short age = 20;
+//		hf.setHuman_age(age);
+//		service.addHumanFile(hf);
 //		List<HumanFile> list= service.queryAllHumanFile();
 //		System.out.println(list.size());
   }

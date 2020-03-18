@@ -10,4 +10,6 @@ public interface HumanFileService {
     public boolean updateHumanFile(HumanFile huf);
     public HumanFile queryHumanFileByName(String name);
     public List<HumanFile> queryAllHumanFile();
+    public List<HumanFile> queryAllHumanFileByStatus(int status);
+    public HumanFile queryHumanFileByHuf_id(int huf_id);
 }

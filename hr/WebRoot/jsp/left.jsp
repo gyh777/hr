@@ -87,7 +87,7 @@ a{ CURSOR: hand}
 													<img src="../jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/firstkindrigister/loadfirstkind"
+  													<a href="/hr/firstkindrigister/loadfirstkind"
 														target="mainFrame">I级机构设置</a>
 												</td>
 											</tr>
@@ -299,7 +299,7 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td>
-									<a href="check_list.jsp" target="mainFrame">人力资源档案登记复核</a>
+									<a href="/hr/humanfile/checkList" target="mainFrame">人力资源档案登记复核</a>
 								</td>
 							</tr>
 							<tr>

@@ -11,9 +11,25 @@ public class ConfigFileSecondKind {
 
     private String second_kind_name;
     
-    private String second_kind_salary_id;
+    public String getSecond_salary_id() {
+		return second_salary_id;
+	}
+
+	public void setSecond_salary_id(String second_salary_id) {
+		this.second_salary_id = second_salary_id;
+	}
+
+	public String getSecond_sale_id() {
+		return second_sale_id;
+	}
+
+	public void setSecond_sale_id(String second_sale_id) {
+		this.second_sale_id = second_sale_id;
+	}
+
+	private String second_salary_id;
     
-    private String second_kind_sale_id;
+    private String second_sale_id;
 
     public Short getFsk_id() {
         return fsk_id;
@@ -55,19 +71,4 @@ public class ConfigFileSecondKind {
         this.second_kind_name = second_kind_name == null ? null : second_kind_name.trim();
     }
 
-	public String getSecond_kind_salary_id() {
-		return second_kind_salary_id;
-	}
-
-	public void setSecond_kind_salary_id(String second_kind_salary_id) {
-		this.second_kind_salary_id = second_kind_salary_id;
-	}
-
-	public String getSecond_kind_sale_id() {
-		return second_kind_sale_id;
-	}
-
-	public void setSecond_kind_sale_id(String second_kind_sale_id) {
-		this.second_kind_sale_id = second_kind_sale_id;
-	}
 }

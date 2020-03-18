@@ -44,4 +44,16 @@ public class HumanFileServiceImpl implements HumanFileService {
 		return humanFileMapper.queryAllHumanFile();
 	}
 
+	@Override
+	public List<HumanFile> queryAllHumanFileByStatus(int status) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.queryAllHumanFileByStatus(status);
+	}
+
+	@Override
+	public HumanFile queryHumanFileByHuf_id(int huf_id) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.queryHumanFileByHuf_id(huf_id);
+	}
+
 }
