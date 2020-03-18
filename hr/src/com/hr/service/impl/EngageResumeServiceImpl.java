@@ -44,5 +44,17 @@ public class EngageResumeServiceImpl implements EngageResumeService{
 			return true;
 		return false;
 	}
+
+	@Override
+	public List<EngageResume> listFind(String human_major_kind_id,
+			String human_major_id, String keyWord, String start, String end) {
+		return engageResumeMapper.find(human_major_kind_id, human_major_id, keyWord, start, end);
+	}
+
+	@Override
+	public List<EngageResume> listFindForEffective(String human_major_kind_id,
+			String human_major_id, String keyWord, String start, String end) {
+		return engageResumeMapper.findForEffective(human_major_kind_id, human_major_id, keyWord, start, end);
+	}
 	
 }

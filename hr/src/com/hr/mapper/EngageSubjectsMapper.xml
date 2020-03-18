@@ -44,15 +44,15 @@
 	<select id="select" parameterType="String" resultType="com.hr.pojo.EngageSubjects">
 		select * from engage_subjects
 		<trim prefix="where" suffixOverrides="and">
-			<if test="firstKindName != null &amp;&amp; firstKindName!=''">
+			<if test="firstKindName !=null and firstKindName!=''">
 				second_kind_id=#{firstKindName} and
 			</if>
-			<if test="keyWord!=null &amp;&amp; keyWord!=''">
+			<if test="keyWord!=null and keyWord!=''">
 				<bind name="keyWordOne" value="'%'+keyWord+'%'"/>
 				content like #{keyWordOne} or register like #{keyWordOne} or derivation like #{keyWordOne} and
 			</if>
-			<if test="start!= null &amp;&amp; end!=null &amp;&amp; start!='' &amp;&amp; end!=''">
-				regist_time between #{start} and #{end}
+			<if test="start!= null and end!=null and start!='' and end!=''">
+				regist_time between #{start} and #{end} and
 			</if>
 		</trim>
 	</select>
