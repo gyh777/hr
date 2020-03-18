@@ -29,7 +29,7 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		
 		SalaryStandard ss = new SalaryStandard();
 //		ss.setChanger();
-//		ss.setChangeStatus(0);
+		ss.setChangeStatus((short) 0);
 //		ss.setChangeTime(changeTime);
 //		ss.setChecker(checker);
 		ss.setChangeStatus((short) 0);
@@ -65,6 +65,24 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		
 	}
 
+	public Boolean changeAdopt(SalaryStandardDetailsList ssdl) {
+		
+		int i = salaryStandardMapper.changeUpdate(ssdl);
+		
+		ArrayList<SalaryStandardDetails> array = (ArrayList<SalaryStandardDetails>) ssdl.getSalaryStandardDetails();
+		for (SalaryStandardDetails salaryStandardDetails : array) {
+			salaryStandardDetails.setStandardName(ssdl.getStandardName());
+			salaryStandardDetails.setStandardId(ssdl.getStandardId());
+			
+			int result1 = salaryStandardDetailsMapper.changeUpdate(salaryStandardDetails);
+			if(result1<0){
+				return false;
+			}
+		
+		}
+		return true;
+	}
+	
 	public Boolean checkChange(String checker,String checkTime,String checkComment){
 		int a = salaryStandardMapper.ckeckUpdate("1",checker, checkTime, checkComment);
 			if(a>-1){
@@ -76,6 +94,17 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 	
 	public List<SalaryStandard> queryAll(){
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardMapper.selectAll();
+		return list;
+	}
+	
+	public List<SalaryStandard> queryCheckAll(){
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardMapper.selectCheckAll();
+		return list;
+	}
+	
+	
+	public List<SalaryStandard> queryChangeAll(){
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardMapper.selectChangeAll();
 		return list;
 	}
 
