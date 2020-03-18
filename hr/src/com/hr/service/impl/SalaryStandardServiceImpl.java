@@ -1,3 +1,4 @@
+
 package com.hr.service.impl;
 
 import java.util.ArrayList;
@@ -126,5 +127,11 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		ArrayList<SalaryStandardDetails> salaryStandardDetails = (ArrayList<SalaryStandardDetails>) salaryStandardDetailsMapper.selectBySsdId(ssdId);
 		ssdl.setSalaryStandardDetails(salaryStandardDetails);
 		return ssdl;
+	}
+
+	@Override
+	public String queryIdByName(String ssdId) {
+		String standardName = salaryStandardMapper.selectIdByName(ssdId);
+		return standardName;
 	}
 }

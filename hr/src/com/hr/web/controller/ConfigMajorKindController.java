@@ -37,4 +37,12 @@ public class ConfigMajorKindController {
 		return mav;
 	}
 	
+	@RequestMapping("/selectIdByName")
+	public ModelAndView selectIdByName(String major_kind_name) {
+		String major_kind_id = configMajorKindServiceImpl.selectConfigMajorKindIdByName(major_kind_name);
+		mav.setViewName("");
+		mav.addObject("majorId",major_kind_id);
+		return mav;
+	}
+	
 }

@@ -10,4 +10,5 @@ public interface SalaryStandardService {
 	public Boolean save(SalaryStandardDetailsList ssdl);
 	public List<SalaryStandard> queryAll();
 	public SalaryStandardDetailsList queryBySsdId(String ssdId);
+	public String queryIdByName(String ssdId);
 }

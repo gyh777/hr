@@ -28,33 +28,29 @@
 		#{salarySum},#{checkStatus},#{changeStatus},#{checkComment},#{remark})
 	</insert>
 	
-
 	<update id="ckeckUpdate" parameterType="String">
 		update salary_standard set 
     	checker=#{checker},
     	check_time=#{checkTime},check_status=#{checkStatus},
     	check_comment=#{checkComment} where ssd_id=#{ssdId}
 	</update>
-	<!-- -->
-	<update id="changeUpdate" parameterType="com.hr.web.controller.requestparamtype.SalaryStandardDetailsList">
+	
+	<update id="changeUpdate" parameterType="SalaryStandardDetailsList">
 		update salary_standard set 
     	standard_name=#{standardName},
 		changer=#{changer},change_time=#{changeTime},
 		salary_sum=#{salarySum},change_status=#{changeStatus},remark=#{remark} where ssd_id=#{ssdId}
-	</update> 
+	</update>
 	
-
-    <select id="selectIdByName" parameterType="String">
-    	select ssd_id from salary_standard where standard_name=#{standardName}
+	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard">
+    	select * from salary_standard
     </select>
-    
     <select id="selectCheckAll" resultType="com.hr.pojo.SalaryStandard">
     	select * from salary_standard where check_status=0
     </select>
     
     <select id="selectChangeAll" resultType="com.hr.pojo.SalaryStandard">
     	select * from salary_standard where check_status=1
->>>>>>> branch 'master' of https://github.com/zking-shopping/hr.git
     </select>
     <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandard">
     	select *  from salary_standard where ssd_id=#{ssdId}

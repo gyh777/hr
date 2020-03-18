@@ -46,6 +46,14 @@ public class ConfigMajorController {
 		return mav;
 	}
 	
+	@RequestMapping("/selectIdByName")
+	public ModelAndView selectIdByName(String major_name) {
+		String major_id = configMajorServiceImpl.selectConfigMajorIdByName(major_name);
+		mav.setViewName("");
+		mav.addObject("majorId",major_id);
+		return mav;
+	}
+	
 	/**
 	 * 用于简历筛选功能
 	 */
