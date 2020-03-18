@@ -727,7 +727,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.?operate=locate&method=interview" target="mainFrame">面试结果登记</a>
+													<a href="/hr/configMajor/selectAllForEngage?choose=3" target="mainFrame">面试结果登记</a>
 												</td>
 											</tr>
 											<tr>
