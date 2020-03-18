@@ -44,4 +44,10 @@ public class ConfigFileSecondKindServiceImpl implements ConfigFileSecondKindServ
 		return mapper.queryAllConfigFileSecondKind();
 	}
 
+	@Override
+	public String queryIdByName(String second_kind_name) {
+		// TODO Auto-generated method stub
+		return mapper.queryIdByName(second_kind_name);
+	}
+
 }

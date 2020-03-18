@@ -10,4 +10,5 @@ public interface ConfigFileSecondKindMapper {
     public boolean updateConfigFileSecondKind(ConfigFileSecondKind fsk);
     public ConfigFileSecondKind queryConfigFileSecondKindById(String fskId);
     public List<ConfigFileSecondKind> queryAllConfigFileSecondKind();
+    public String queryIdByName(String second_kind_name);
 }

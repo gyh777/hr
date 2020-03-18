@@ -10,4 +10,5 @@ public interface ConfigFileThirdKindMapper {
     public boolean updateConfigFileThirdKind(ConfigFileThirdKind ftk);
     public ConfigFileThirdKind queryConfigFileThirdKindById(int ftkId);
     public List<ConfigFileThirdKind> queryAllConfigFileThirdKind();
+    public String queryIdByName(String third_kind_name);
 }

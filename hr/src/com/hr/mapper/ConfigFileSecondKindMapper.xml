@@ -26,4 +26,8 @@
 	<select id="queryAllConfigFileSecondKind" resultType="com.hr.pojo.ConfigFileSecondKind">
 		select * from config_file_second_kind
 	</select>
+	
+	<select id="queryIdByName" parameterType="String" resultType="String">
+		select second_kind_id from config_file_second_kind where second_kind_name=#{second_kind_name};
+	</select>
 </mapper>

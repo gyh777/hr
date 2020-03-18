@@ -44,4 +44,10 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 		return mapper.queryAllConfigFileThirdKind();
 	}
 
+	@Override
+	public String queryIdByName(String third_kind_name) {
+		// TODO Auto-generated method stub
+		return mapper.queryIdByName(third_kind_name);
+	}
+
 }

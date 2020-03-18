@@ -13,4 +13,5 @@ public interface ConfigFileFirstKindService {
     public ConfigFileFirstKind queryConfigFileFirstKindById(String ffkId);
     public List<ConfigFileFirstKind> queryAllConfigFileFirstKind();
     public List<TwoStringValue> queryConfigFileFirstKindIdAndName();
+    public String queryIdByName(String three_kind_name);
 }

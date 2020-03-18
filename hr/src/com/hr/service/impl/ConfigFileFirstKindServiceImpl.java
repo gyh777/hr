@@ -52,4 +52,10 @@ public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindServic
 		return mapper.queryConfigFileFirstKindIdAndName();
 	}
 
+	@Override
+	public String queryIdByName(String first_kind_name) {
+		// TODO Auto-generated method stub
+		return mapper.queryIdByName(first_kind_name);
+	}
+
 }

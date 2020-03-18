@@ -39,4 +39,6 @@
 	<select id="queryHumanFileByHuf_id" parameterType="_int" resultType="com.hr.pojo.HumanFile">
 	   select * from human_file where huf_id = #{huf_id};
 	</select>
+	
+	
 </mapper>

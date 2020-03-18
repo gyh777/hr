@@ -18,16 +18,39 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hr.pojo.ConfigFileSecondKind;
 import com.hr.pojo.HumanFile;
 import com.hr.pojo.HumanFileDig;
+import com.hr.service.ConfigFileFirstKindService;
 import com.hr.service.ConfigFileSecondKindService;
 import com.hr.service.ConfigFileSecondKindService;
+import com.hr.service.ConfigFileThirdKindService;
+import com.hr.service.ConfigMajorKindService;
 import com.hr.service.ConfigMajorService;
 import com.hr.service.HumanFileService;
+import com.hr.service.SalaryStandardService;
 
 @Controller
 @RequestMapping("/humanfile")
 public class HumanFileController {
 	@Autowired
     HumanFileService humanFileServiceImpl;
+	
+	@Autowired
+	ConfigFileFirstKindService configFileFirstKindServiceImpl;
+	
+	@Autowired
+	ConfigFileSecondKindService configFileSecondKindServiceImpl;
+	
+	@Autowired
+	ConfigFileThirdKindService configFileThirdKindServiceImpl;
+	
+	@Autowired
+	ConfigMajorKindService configMajorKindServiceImpl;
+	
+	@Autowired
+	ConfigMajorService configMajorServicesImpl;
+	
+	@Autowired
+	SalaryStandardService salaryStandardServiceImpl;
+	
 	
 	@RequestMapping("/humanRigister")
 	public ModelAndView addHumanRigister(@RequestParam String firstKindName,@RequestParam String secondKindName,@RequestParam String thirdKindName,@RequestParam String humanMajorKindName,@RequestParam String humanMajorName
@@ -154,32 +177,26 @@ public class HumanFileController {
 		
 		    HumanFileDig hf = new HumanFileDig();
 		    //获得一级机构
-		    String[] first = splitStr(firstKindName);
-		    hf.setFirst_kind_id(first[0]);
+		    hf.setFirst_kind_id(configFileFirstKindServiceImpl.queryIdByName(firstKindName));
 		    hf.setFirst_kind_name(firstKindName);
 		    //获得二级机构
-		    String[] second = splitStr(secondKindName);
-		    hf.setSecond_kind_id(second[0]);
+		    hf.setSecond_kind_id(configFileSecondKindServiceImpl.queryIdByName(secondKindName));
 		    hf.setSecond_kind_name(secondKindName);
 		    //获得三级机构
-		    String[] third = splitStr(thirdKindName);
-		    hf.setThird_kind_id(third[0]);
+		    hf.setThird_kind_id(configFileThirdKindServiceImpl.queryIdByName(thirdKindName));
 		    hf.setThird_kind_name(thirdKindName);
 		    
 		    //获得职位分类 humanMajorKindName
-		    String[] majorKind = splitStr(humanMajorKindName);
-		    hf.setHuman_major_kind_id(majorKind[0]);
-		    hf.setHuman_major_kind_name(majorKind[1]);
+		    hf.setHuman_major_kind_id(configMajorKindServiceImpl.selectConfigMajorKindIdByName(humanMajorKindName));
+		    hf.setHuman_major_kind_name(humanMajorKindName);
 		    
 		    //获得职位名称  hunmaMajorName
-		    String[] major = splitStr(humanMajorName);
-		    hf.setHuman_major_id(major[0]);
-		    hf.setHuman_major_name(major[1]);
+		    hf.setHuman_major_id(configMajorServicesImpl.selectConfigMajorIdByName(humanMajorName));
+		    hf.setHuman_major_name(humanMajorName);
 		    
 		    //获得标准薪酬  salaryStandardName
-		    String[] salary = splitStr(salaryStandardName);
-		    hf.setSalary_standard_id(salary[0]);
-		    hf.setSalary_standard_name(salary[1]);
+		    hf.setSalary_standard_id(salaryStandardServiceImpl.queryIdByName(salaryStandardName));
+		    hf.setSalary_standard_name(salaryStandardName);
 		    
 		   
 		    hf.setHuman_pro_designation(humanProDesignation);
@@ -223,9 +240,10 @@ public class HumanFileController {
 			hf.setHuman_family_membership(humanFamilyMembership);
 			Short human_file_status = 1;
 			hf.setHuman_file_status(human_file_status);
-			System.out.println("档案审核中");
+			System.out.println("档案复核成功");
 		
 		ModelAndView mav = new ModelAndView();
+		mav.setViewName("human_check_success");
 		return mav;
 	}
 	
