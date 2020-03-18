@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hr.mapper.ConfigFileThirdKindMapper;
 import com.hr.pojo.ConfigFileThirdKind;
 import com.hr.service.ConfigFileThirdKindService;
+import com.hr.web.controller.requestparamtype.TwoStringValue;
 
 @Service
 public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindService{
@@ -48,6 +49,12 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 	public String queryIdByName(String third_kind_name) {
 		// TODO Auto-generated method stub
 		return mapper.queryIdByName(third_kind_name);
+	}
+
+	@Override
+	public List<TwoStringValue> queryConfigFileThirdKindIdAndName() {
+		// TODO Auto-generated method stub
+		return mapper.queryConfigFileThirdKindIdAndName();
 	}
 
 }

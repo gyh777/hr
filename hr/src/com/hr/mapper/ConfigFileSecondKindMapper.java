@@ -3,6 +3,7 @@ package com.hr.mapper;
 import java.util.List;
 
 import com.hr.pojo.ConfigFileSecondKind;
+import com.hr.web.controller.requestparamtype.TwoStringValue;
 
 public interface ConfigFileSecondKindMapper {
 	public boolean addConfigFileSecondKind(ConfigFileSecondKind fsk);

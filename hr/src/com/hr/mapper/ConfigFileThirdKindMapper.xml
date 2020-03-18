@@ -30,4 +30,8 @@
 	<select id="queryIdByName" parameterType="String" resultType="String">
 		select third_kind_id from config_file_third where third_kind_name=#{third_kind_name};
 	</select>
+	
+	<select id="queryConfigFileThirdKindIdAndName" resultType="com.hr.web.controller.requestparamtype.TwoStringValue">
+		select third_kind_id as first, third_kind_name as second from config_file_third_kind
+	</select>
 </mapper>
