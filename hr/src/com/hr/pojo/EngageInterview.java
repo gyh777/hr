@@ -3,223 +3,221 @@ package com.hr.pojo;
 import java.util.Date;
 
 public class EngageInterview {
-    private Short einId;
+    private int ein_id;	//主键id
+    private String human_name;	//姓名
+    private int interview_amount;	//面试次数
+    private String human_major_kind_id;	//职位分类id
+    private String human_major_kind_name;	//职位分类
+    private String human_major_id;	//职位名称id
+    private String human_major_name;	//职位名称
+    private String image_degree;	//形象评价
+    private String native_language_degree;	//口才评价
+    private String foreign_language_degree;	//外语口语评价
+    private String response_speed_degree;	//应变能力
+    private String eq_degree;	//EQ
+    private String iq_degree;	//IQ
+    private String multi_quality_degree;	//综合素质
+    private String register;	//登记人姓名
+    private String checker;	//审核人姓名
+    private Date registe_time;	//登记时间
+    private Date check_time;	//审核时间
+    private Short resume_id;	//
+    private String result;   	//面试结果
+    private String interview_comment;   //面试意见
+    private String check_comment;	//审核意见
+    private Short interview_status;	//面试状态
+    private Short check_status;	//审核状态
+
+	public int getEinId() {
+		return ein_id;
+	}
+
+	public void setEinId(int ein_id) {
+		this.ein_id = ein_id;
+	}
+
+	public String getHuman_name() {
+		return human_name;
+	}
+
+	public void setHuman_name(String human_name) {
+		this.human_name = human_name;
+	}
+
+	public int getInterview_amount() {
+		return interview_amount;
+	}
+
+	public void setInterview_amount(int interview_amount) {
+		this.interview_amount = interview_amount;
+	}
+
+	public String getHuman_major_kind_id() {
+		return human_major_kind_id;
+	}
+
+	public void setHuman_major_kind_id(String human_major_kind_id) {
+		this.human_major_kind_id = human_major_kind_id;
+	}
+
+	public String getHuman_major_kind_name() {
+		return human_major_kind_name;
+	}
+
+	public void setHuman_major_kind_name(String human_major_kind_name) {
+		this.human_major_kind_name = human_major_kind_name;
+	}
+
+	public String getHuman_major_id() {
+		return human_major_id;
+	}
+
+	public void setHuman_major_id(String human_major_id) {
+		this.human_major_id = human_major_id;
+	}
+
+	public String getHuman_major_name() {
+		return human_major_name;
+	}
+
+	public void setHuman_major_name(String human_major_name) {
+		this.human_major_name = human_major_name;
+	}
+
+	public String getImage_degree() {
+		return image_degree;
+	}
+
+	public void setImage_degree(String image_degree) {
+		this.image_degree = image_degree;
+	}
+
+	public String getNative_language_degree() {
+		return native_language_degree;
+	}
+
+	public void setNative_language_degree(String native_language_degree) {
+		this.native_language_degree = native_language_degree;
+	}
+
+	public String getForeign_language_degree() {
+		return foreign_language_degree;
+	}
+
+	public void setForeign_language_degree(String foreign_language_degree) {
+		this.foreign_language_degree = foreign_language_degree;
+	}
 
-    private String humanName;
+	public String getResponse_speed_degree() {
+		return response_speed_degree;
+	}
 
-    private Short interviewAmount;
+	public void setResponse_speed_degree(String response_speed_degree) {
+		this.response_speed_degree = response_speed_degree;
+	}
 
-    private String humanMajorKindId;
+	public String getEq_degree() {
+		return eq_degree;
+	}
 
-    private String humanMajorKindName;
+	public void setEq_degree(String eq_degree) {
+		this.eq_degree = eq_degree;
+	}
 
-    private String humanMajorId;
+	public String getIq_degree() {
+		return iq_degree;
+	}
 
-    private String humanMajorName;
+	public void setIq_degree(String iq_degree) {
+		this.iq_degree = iq_degree;
+	}
 
-    private String imageDegree;
+	public String getMulti_quality_degree() {
+		return multi_quality_degree;
+	}
 
-    private String nativeLanguageDegree;
+	public void setMulti_quality_degree(String multi_quality_degree) {
+		this.multi_quality_degree = multi_quality_degree;
+	}
 
-    private String foreignLanguageDegree;
+	public String getRegister() {
+		return register;
+	}
 
-    private String responseSpeedDegree;
+	public void setRegister(String register) {
+		this.register = register;
+	}
 
-    private String eqDegree;
+	public String getChecker() {
+		return checker;
+	}
 
-    private String iqDegree;
+	public void setChecker(String checker) {
+		this.checker = checker;
+	}
 
-    private String multiQualityDegree;
+	public Date getRegiste_time() {
+		return registe_time;
+	}
 
-    private String register;
+	public void setRegiste_time(Date registe_time) {
+		this.registe_time = registe_time;
+	}
 
-    private String checker;
+	public Date getCheck_time() {
+		return check_time;
+	}
 
-    private Date registeTime;
+	public void setCheck_time(Date check_time) {
+		this.check_time = check_time;
+	}
 
-    private Date checkTime;
+	public Short getResume_id() {
+		return resume_id;
+	}
 
-    private Short resumeId;
+	public void setResume_id(Short resume_id) {
+		this.resume_id = resume_id;
+	}
 
-    private String result;
+	public String getResult() {
+		return result;
+	}
 
-    private Short interviewStatus;
+	public void setResult(String result) {
+		this.result = result;
+	}
 
-    private Short checkStatus;
+	public String getInterview_comment() {
+		return interview_comment;
+	}
 
-    public Short getEinId() {
-        return einId;
-    }
+	public void setInterview_comment(String interview_comment) {
+		this.interview_comment = interview_comment;
+	}
 
-    public void setEinId(Short einId) {
-        this.einId = einId;
-    }
+	public String getCheck_comment() {
+		return check_comment;
+	}
 
-    public String getHumanName() {
-        return humanName;
-    }
+	public void setCheck_comment(String check_comment) {
+		this.check_comment = check_comment;
+	}
 
-    public void setHumanName(String humanName) {
-        this.humanName = humanName == null ? null : humanName.trim();
-    }
+	public Short getInterview_status() {
+		return interview_status;
+	}
 
-    public Short getInterviewAmount() {
-        return interviewAmount;
-    }
+	public void setInterview_status(Short interview_status) {
+		this.interview_status = interview_status;
+	}
 
-    public void setInterviewAmount(Short interviewAmount) {
-        this.interviewAmount = interviewAmount;
-    }
+	public Short getCheck_status() {
+		return check_status;
+	}
 
-    public String getHumanMajorKindId() {
-        return humanMajorKindId;
-    }
+	public void setCheck_status(Short check_status) {
+		this.check_status = check_status;
+	}
 
-    public void setHumanMajorKindId(String humanMajorKindId) {
-        this.humanMajorKindId = humanMajorKindId == null ? null : humanMajorKindId.trim();
-    }
-
-    public String getHumanMajorKindName() {
-        return humanMajorKindName;
-    }
-
-    public void setHumanMajorKindName(String humanMajorKindName) {
-        this.humanMajorKindName = humanMajorKindName == null ? null : humanMajorKindName.trim();
-    }
-
-    public String getHumanMajorId() {
-        return humanMajorId;
-    }
-
-    public void setHumanMajorId(String humanMajorId) {
-        this.humanMajorId = humanMajorId == null ? null : humanMajorId.trim();
-    }
-
-    public String getHumanMajorName() {
-        return humanMajorName;
-    }
-
-    public void setHumanMajorName(String humanMajorName) {
-        this.humanMajorName = humanMajorName == null ? null : humanMajorName.trim();
-    }
-
-    public String getImageDegree() {
-        return imageDegree;
-    }
-
-    public void setImageDegree(String imageDegree) {
-        this.imageDegree = imageDegree == null ? null : imageDegree.trim();
-    }
-
-    public String getNativeLanguageDegree() {
-        return nativeLanguageDegree;
-    }
-
-    public void setNativeLanguageDegree(String nativeLanguageDegree) {
-        this.nativeLanguageDegree = nativeLanguageDegree == null ? null : nativeLanguageDegree.trim();
-    }
-
-    public String getForeignLanguageDegree() {
-        return foreignLanguageDegree;
-    }
-
-    public void setForeignLanguageDegree(String foreignLanguageDegree) {
-        this.foreignLanguageDegree = foreignLanguageDegree == null ? null : foreignLanguageDegree.trim();
-    }
-
-    public String getResponseSpeedDegree() {
-        return responseSpeedDegree;
-    }
-
-    public void setResponseSpeedDegree(String responseSpeedDegree) {
-        this.responseSpeedDegree = responseSpeedDegree == null ? null : responseSpeedDegree.trim();
-    }
-
-    public String getEqDegree() {
-        return eqDegree;
-    }
-
-    public void setEqDegree(String eqDegree) {
-        this.eqDegree = eqDegree == null ? null : eqDegree.trim();
-    }
-
-    public String getIqDegree() {
-        return iqDegree;
-    }
-
-    public void setIqDegree(String iqDegree) {
-        this.iqDegree = iqDegree == null ? null : iqDegree.trim();
-    }
-
-    public String getMultiQualityDegree() {
-        return multiQualityDegree;
-    }
-
-    public void setMultiQualityDegree(String multiQualityDegree) {
-        this.multiQualityDegree = multiQualityDegree == null ? null : multiQualityDegree.trim();
-    }
-
-    public String getRegister() {
-        return register;
-    }
-
-    public void setRegister(String register) {
-        this.register = register == null ? null : register.trim();
-    }
-
-    public String getChecker() {
-        return checker;
-    }
-
-    public void setChecker(String checker) {
-        this.checker = checker == null ? null : checker.trim();
-    }
-
-    public Date getRegisteTime() {
-        return registeTime;
-    }
-
-    public void setRegisteTime(Date registeTime) {
-        this.registeTime = registeTime;
-    }
-
-    public Date getCheckTime() {
-        return checkTime;
-    }
-
-    public void setCheckTime(Date checkTime) {
-        this.checkTime = checkTime;
-    }
-
-    public Short getResumeId() {
-        return resumeId;
-    }
-
-    public void setResumeId(Short resumeId) {
-        this.resumeId = resumeId;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result == null ? null : result.trim();
-    }
-
-    public Short getInterviewStatus() {
-        return interviewStatus;
-    }
-
-    public void setInterviewStatus(Short interviewStatus) {
-        this.interviewStatus = interviewStatus;
-    }
-
-    public Short getCheckStatus() {
-        return checkStatus;
-    }
-
-    public void setCheckStatus(Short checkStatus) {
-        this.checkStatus = checkStatus;
-    }
 }

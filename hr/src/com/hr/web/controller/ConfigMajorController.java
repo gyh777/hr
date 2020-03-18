@@ -59,6 +59,9 @@ public class ConfigMajorController {
 		if("2".equals(choose)){
 			return "engage_resume_query_effective_locate";
 		}
+		if("3".equals(choose)){
+			return "engage_interview_query_locate";
+		}
 		return "engage_resume_register";
 	}
 	
