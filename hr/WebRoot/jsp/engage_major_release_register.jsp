@@ -11,30 +11,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<link rel="stylesheet" href="../jsp/table.css" type="text/css">
 		<link rel="stylesheet" type="text/css" media="all"
-			href="javascript/calendar/calendar-win2k-cold-1.css">
+			href="../jsp/javascript/calendar/calendar-win2k-cold-1.css">
 		<script type="text/javascript" src="../jsp/javascript/calendar/cal.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/comm/select.js"></script>
-<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript">
-		function loadKindIdAndName(){
-			//加载机构
-			$.ajax({
-				type : "post",
-				url : "../firstkindrigister/loadFirstKindIdAndName",
-				dataType : "json",
-				success:function(result){
-					
-				},
-				error:function(error){
-					alert("删除失败！");
-				}
-			});
-		};
+			function firstKindNameChange(obj){
+				var firstKind = $(obj).find("option:selected").val();
+				var firstId = firstKind.substring(0,firstKind.indexOf("/"));
+				var firstName = firstKind.substring(firstKind.indexOf("/")+1);
+				$.ajax({
+					type : "post",
+					url : "/hr/engageMajorRelease/selectSecondKindIdAndName?firstName="+firstName,
+					dataType : "json",
+					success:function(result){
+						
+					}
+				});
+			};
  		</script>
 	</head>
 
-	<body onload="loadKindIdAndName()">
+	<body>
 		<form name="majorReleaseForm" method="post" action="/hr/majorRelease.do">
 			<table width="100%">
 				<tr>
@@ -56,10 +55,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td class="TD_STYLE1" width="10%">I级机构</td>
 					<td width="15%" class="TD_STYLE2">
-						<select name="firstKindName" class="SELECT_STYLE1" onchange="">
+						<select name="firstKindName" class="SELECT_STYLE1" 
+								onchange="firstKindNameChange(this)">
 							<option value="">&nbsp;</option>
-							<c:forEach items="${idAndName }" var="firstKind">
-								<option value="">${firstKind.first }${firstKind.second }</option>
+							<c:forEach items="${firstKindAndMajorKind }" var="map">
+								<c:if test="${map.key == 'firstValue' }">
+									<c:forEach items="${map.value }" var="val">
+										<option value="${val.first }/${val.second }">
+											${val.first }/${val.second }
+										</option>
+                					</c:forEach>
+								</c:if>
                 			</c:forEach>
 						</select>
 					</td>
@@ -87,6 +93,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="15%" class="TD_STYLE2">
 						<select name="majorKindName" onchange="" class="SELECT_STYLE1">
 							<option value="">&nbsp;</option>
+							<c:forEach items="${firstKindAndMajorKind }" var="map">
+								<c:if test="${map.key == 'majorKindValue' }">
+									<c:forEach items="${map.value }" var="val">
+										<option value="${val.first }/${val.second }">${val.first }/${val.second }</option>
+                					</c:forEach>
+								</c:if>
+                			</c:forEach>
 						</select>
 					</td>
 					<td width="10%" class="TD_STYLE1">职位名称</td>
@@ -107,9 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td width="10%" class="TD_STYLE1">登记人</td>
 					<td width="15%" class="TD_STYLE2">
-						<select name="register" onchange="" class="SELECT_STYLE1">
-							<option value="">&nbsp;</option>
-						</select>
+						<input type="text" name="register" value="" class="INPUT_STYLE2">
 					</td>
 					<td width="10%" class="TD_STYLE1">登记时间</td>
 					<td class="TD_STYLE2">

@@ -31,7 +31,8 @@
 		select second_kind_id from config_file_second_kind where second_kind_name=#{second_kind_name};
 	</select>
 	
-	<select id="queryConfigFileSecondKindIdAndName" resultType="com.hr.web.controller.requestparamtype.TwoStringValue">
-		select second_kind_id as first, second_kind_name as second from config_file_second_kind
+	<select id="queryIdAndNameByFirstKindName" resultType="com.hr.web.controller.requestparamtype.TwoStringValue">
+		select second_kind_id as first, second_kind_name as second 
+		from config_file_second_kind where first_kind_name=#{first_kind_name}
 	</select>
 </mapper>

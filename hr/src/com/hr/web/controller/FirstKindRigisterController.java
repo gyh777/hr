@@ -72,25 +72,6 @@ public class FirstKindRigisterController {
 		return mav;
 	}
 	
-	
-	//查一级机构的名称和id
-	@RequestMapping("/loadFirstKindIdAndName")
-	public ModelAndView loadFirstKindIdAndName(){
-		List<TwoStringValue> list = configFileFirstKindServiceImpl.queryConfigFileFirstKindIdAndName();
-		ModelAndView mav  = new ModelAndView();
-		Iterator<TwoStringValue> iterator = list.iterator();
-		while(iterator.hasNext()){
-			TwoStringValue stringValue = iterator.next();
-			System.out.println(stringValue.getFirst()+stringValue.getSecond());
-		}
-		System.out.println("loadFirstKindIdAndName");
-        mav.addObject("idAndName", list);
-		return mav;
-	}
-	
-	
-	
-	
 	@RequestMapping("/deleterigister")
 	public String deleteRigister(@RequestParam String firstKindId){
 		configFileFirstKindServiceImpl.removeConfigFileFirstKind(firstKindId);

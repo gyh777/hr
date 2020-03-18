@@ -7,8 +7,9 @@
 		select * from config_major
 	</select>
 	
-	<select id="selectAllConfigMajorName" resultType="string">
-		select major_name from config_major where major_kind_name=#{major_kind_name}
+	<select id="selectAllConfigMajorIdAndNameByKindName" resultType="com.hr.web.controller.requestparamtype.TwoStringValue">
+		select major_id as first,major_name as second from config_major 
+		where major_kind_name=#{major_kind_name}
 	</select>
 	
 	<select id="selectConfigMajorIdByName" resultType="string" parameterType="String">

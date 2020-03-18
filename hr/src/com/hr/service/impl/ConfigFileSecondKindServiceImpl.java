@@ -52,9 +52,9 @@ public class ConfigFileSecondKindServiceImpl implements ConfigFileSecondKindServ
 	}
 
 	@Override
-	public List<TwoStringValue> queryConfigFileSecondKindIdAndName() {
+	public List<TwoStringValue> queryIdAndNameByFirstKindName(String first_kind_name) {
 		// TODO Auto-generated method stub
-		return mapper.queryConfigFileSecondKindIdAndName();
+		return mapper.queryIdAndNameByFirstKindName(first_kind_name);
 	}
 
 }
