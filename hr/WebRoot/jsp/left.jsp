@@ -735,7 +735,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engageinterview.?operate=list" target="mainFrame">面试筛选</a>
+													<a href="/hr/engageInterview/getForResult" target="mainFrame">面试筛选</a>
 												</td>
 											</tr>
 										</table> </span>

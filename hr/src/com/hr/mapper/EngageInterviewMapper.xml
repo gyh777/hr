@@ -25,6 +25,9 @@
 	<select id="select" resultType="com.hr.pojo.EngageInterview">
 		select * from engage_interview
 	</select>
+	<select id="selectForResult" resultType="com.hr.pojo.EngageInterview">
+		select * from engage_interview where result=0
+	</select>
 	<select id="selectByEinId" parameterType="_int" resultType="com.hr.pojo.EngageInterview">
 		select * from engage_interview where ein_id=#{ein_id}
 	</select>
@@ -51,6 +54,9 @@
 		update engage_interview set 
 		<include refid="interviewForUpdate"></include>
 		where ein_id=#{ein_id}
+	</update>
+	<update id="updateForResult" parameterType="String">
+		update engage_interview set result=#{result} where ein_id=#{ein_id}
 	</update>
 	<delete id="delete" parameterType="_int">
 		delete from engage_interview where ein_id=#{ein_id}

@@ -1,5 +1,6 @@
 package com.hr.web.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +39,8 @@ public class EngageInterviewController {
 			request.setAttribute("engageInterview", engageInterview);
 		}else{
 			EngageInterview engageInterview2 = new EngageInterview();
+			engageInterview2.setInterview_amount(1);
+			engageInterview2.setRegiste_time(new Date());
 			request.setAttribute("engageInterview", engageInterview2);
 		}
 		return "engage_interview_change";
@@ -47,26 +50,42 @@ public class EngageInterviewController {
 	public String getAll(HttpServletRequest request){
 		List<EngageInterview> list = engageInterviewServiceImpl.listAll();
 		request.setAttribute("engageInterviewList", list);
-		return "";
+		return "engage_interview_query_screen_list";
+	}
+	
+	@RequestMapping("/getForResult")
+	public String getForResult(HttpServletRequest request){
+		List<EngageInterview> list = engageInterviewServiceImpl.listForResult();
+		request.setAttribute("engageInterviewList", list);
+		return "engage_interview_query_screen_list";
 	}
 	
 	@RequestMapping("/getByEinId")
 	public String get(int ein_id,HttpServletRequest request){
 		EngageInterview engageInterview = engageInterviewServiceImpl.getByEinId(ein_id);
 		request.setAttribute("engageInterview", engageInterview);
-		return "";
+		EngageResume engageResume = engageResumeServiceImpl.getByResId(engageInterview.getResume_id());
+		request.setAttribute("getByResIdForInterview", engageResume);
+		return "engage_interview_screen_change";
 	}
 	
 	@RequestMapping("/save")
-	public String save(EngageInterview engageInterview){
+	public String save(EngageInterview engageInterview, HttpServletRequest request){
 		engageInterviewServiceImpl.save(engageInterview);
-		return "";
+		request.setAttribute("choose", "3");
+		return "forward:configMajor/selectAllForEngage";
 	}
 	
 	@RequestMapping("/update")
 	public String update(EngageInterview engageInterview){
 		engageInterviewServiceImpl.update(engageInterview);
 		return "";
+	}
+	
+	@RequestMapping("/updateForResult")
+	public String updateForRecomandation(String result, int ein_id){
+		engageInterviewServiceImpl.updateForResult(result, String.valueOf(ein_id));
+		return "forward:engageInterview/getForResult";
 	}
 	
 	@RequestMapping("/remove")

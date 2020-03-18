@@ -50,4 +50,16 @@ public class EngageInterviewServiceImpl implements EngageInterviewService{
 		return engageInterviewMapper.selectByResumeId(resume_id);
 	}
 
+	@Override
+	public List<EngageInterview> listForResult() {
+		return engageInterviewMapper.selectForResult();
+	}
+
+	@Override
+	public Boolean updateForResult(String result, String ein_id) {
+		if(engageInterviewMapper.updateForResult(result, ein_id) > 0)
+			return true;
+		return false;
+	}
+
 }

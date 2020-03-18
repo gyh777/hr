@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form name="salarystandardForm" method="post" action="/hr/engageInterview/save">
+		<form name="salarystandardForm" method="post" action="/hr/engageInterview/updateForResult">
 			<table width="100%">
 				<tr>
 					<td>
@@ -24,6 +24,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td align="right">
+						<input type="hidden" name="ein_id" value="${engageInterview.ein_id }">
+						<span><input type="radio" name="result" value="1">建议面试</span>
+						<span><input type="radio" name="result" value="2">建议笔试</span>
+						<span><input type="radio" name="result" value="3">建议录用</span>
+						<span><input type="radio" name="result" value="4">删除简历</span>
+						
 						<input type="submit" value="提交" class="BUTTON_STYLE1">
 						<input type="reset" value="清除" class="BUTTON_STYLE1" >
 					</td>
@@ -32,11 +38,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
-				<input type="hidden" value="${getByResIdForInterview.res_id }" name="resume_id">
-				<input type="hidden" value="${getByResIdForInterview.human_major_kind_id }" name="human_major_kind_id">
-				<input type="hidden" value="${getByResIdForInterview.human_major_kind_name }" name="human_major_kind_name">
-				<input type="hidden" value="${getByResIdForInterview.human_major_id }" name="human_major_id">
-				<input type="hidden" value="${getByResIdForInterview.human_major_name }" name="human_major_name">
+				<tr>
+					<td width="74" class="TD_STYLE1">
+						职位分类
+					</td>
+					<td width="168" class="TD_STYLE2">}
+						${getByResIdForInterview.human_major_kind_name }
+					</td>
+					<td width="83" class="TD_STYLE1">
+						职位名称
+					</td>
+					<td width="171" class="TD_STYLE2">
+						${getByResIdForInterview.human_major_name }
+					</td>
+					<td width="170" class="TD_STYLE1">
+						招聘类型
+					</td>
+					<td width="138" class="TD_STYLE2">
+						${getByResIdForInterview.engage_type }
+					</td>
+				</tr>
 				<tr>
 					<td width="74" class="TD_STYLE1">
 						姓名
@@ -182,108 +203,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td colspan="7" class="TD_STYLE2">
 						${engageResumeForUpdate.recomandation }
-					</td>
-				</tr>
-				<tr>
-					<td class="TD_STYLE1">
-						面试次数
-					</td>
-					<td class="TD_STYLE2">
-						第${engageInterview.interview_amount }次面试
-					</td>
-					<td class="TD_STYLE1">
-						形象评价
-					</td>
-					<td class="TD_STYLE2">
-						<select name="image_degree">
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-						</select>
-					</td>
-					<td class="TD_STYLE1">
-						口才评价
-					</td>
-					<td class="TD_STYLE2">
-						<select name="native_language_degree">
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-						</select>
-					</td>
-					<td class="TD_STYLE1">
-						外语口语能力
-					</td>
-					<td class="TD_STYLE2">
-						<select name="foreign_language_degree">
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td class="TD_STYLE1">
-						应变能力
-					</td>
-					<td class="TD_STYLE2">
-						<select name="response_speed_degree">
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-						</select>
-					</td>
-					<td class="TD_STYLE1">
-						EQ
-					</td>
-					<td class="TD_STYLE2">
-						<select name="eq_degree">
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-						</select>
-					</td>
-					<td class="TD_STYLE1">
-						IQ
-					</td>
-					<td class="TD_STYLE2">
-						<select name="iq_degree">
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-						</select>
-					</td>
-					<td class="TD_STYLE1">
-						综合素质
-					</td>
-					<td class="TD_STYLE2">
-						<select name="multi_quality_degree">
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td class="TD_STYLE1">
-						面试人
-					</td>
-					<td class="TD_STYLE2">
-						<input type="text" name="register"/>
-					</td>
-					<td class="TD_STYLE1">
-						面试时间
-					</td>
-					<td class="TD_STYLE2">
-						${engageInterview.registe_time }
-					</td>
-				</tr>
-				<tr>
-					<td class="TD_STYLE1">
-						面试评价
-					</td>
-					<td colspan="7" class="TD_STYLE2">
-						<textarea name="interview_comment" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
 			</table>
