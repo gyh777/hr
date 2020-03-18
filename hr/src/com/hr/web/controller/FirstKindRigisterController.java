@@ -64,7 +64,7 @@ public class FirstKindRigisterController {
 	public ModelAndView loadFirstKind(){
 		List<ConfigFileFirstKind> map = configFileFirstKindServiceImpl.queryAllConfigFileFirstKind();
 		ModelAndView mav  = new ModelAndView();
-        mav.addObject("map", map);
+        mav.addObject("firstMap", map);
 		mav.setViewName("first_kind");
 		return mav;
 	}

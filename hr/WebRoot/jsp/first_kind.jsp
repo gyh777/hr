@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						删除
 					</td>
 				</tr>
-				<c:forEach items="${requestScope.map}" var="u">
+				<c:forEach items="${requestScope.firstMap}" var="u">
 					<tr>
 						<td id="firstKindId" class="TD_STYLE2">
 							${u.first_kind_id}
