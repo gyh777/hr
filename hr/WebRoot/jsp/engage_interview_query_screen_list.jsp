@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：招聘管理--面试管理--面试结果登记</font>
+						<font color="#0000CC">您正在做的业务是：招聘管理--面试管理--面试筛选</font>
 					</td>
 				</tr>
 				<tr>
@@ -74,11 +74,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								${list.human_major_name }
 							</td>
 							<td>
-								<a href="/hr/engageInterview/getByResIdForInterview?ein_id=${list.ein_id }">登记</a>
+								<a href="/hr/engageInterview/getByEinId?ein_id=${list.ein_id }">登记</a>
 							</td>
 						</tr>
 					</c:forEach>
-				
 			</table>
 			<p>&nbsp;&nbsp;总数：${engageInterviewList.size() }例 &nbsp;&nbsp;&nbsp;当前第  页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
 		</form>

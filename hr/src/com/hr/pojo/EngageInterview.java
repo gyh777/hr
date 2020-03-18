@@ -27,12 +27,12 @@ public class EngageInterview {
     private String check_comment;	//审核意见
     private Short interview_status;	//面试状态
     private Short check_status;	//审核状态
-
-	public int getEinId() {
+    
+	public int getEin_id() {
 		return ein_id;
 	}
 
-	public void setEinId(int ein_id) {
+	public void setEin_id(int ein_id) {
 		this.ein_id = ein_id;
 	}
 

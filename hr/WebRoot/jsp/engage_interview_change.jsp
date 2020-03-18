@@ -32,6 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
+				<input type="hidden" value="${getByResIdForInterview.human_name }" name="human_name">
 				<input type="hidden" value="${getByResIdForInterview.res_id }" name="resume_id">
 				<input type="hidden" value="${getByResIdForInterview.human_major_kind_id }" name="human_major_kind_id">
 				<input type="hidden" value="${getByResIdForInterview.human_major_kind_name }" name="human_major_kind_name">

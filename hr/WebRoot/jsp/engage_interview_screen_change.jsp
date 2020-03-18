@@ -205,6 +205,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						${engageResumeForUpdate.recomandation }
 					</td>
 				</tr>
+				<tr>
+					<td class="TD_STYLE1">
+						筛选人
+					</td>
+					<td class="TD_STYLE2">
+						<input type="text" name="pass_checker" />
+					</td>
+				</tr>
+				<tr>
+					<td class="TD_STYLE1">
+						录用申请审核意见
+					</td>
+					<td colspan="7" class="TD_STYLE2">
+						<input type="text" name="pass_checkComment" />
+					</td>
+				</tr>
 			</table>
 			<p>
 				&nbsp;
