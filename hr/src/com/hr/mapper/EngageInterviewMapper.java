@@ -2,10 +2,7 @@ package com.hr.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 import com.hr.pojo.Bonus;
-import com.hr.pojo.EngageInterview;
 
 public interface EngageInterviewMapper {
 	public List<EngageInterview> select();

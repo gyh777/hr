@@ -32,4 +32,16 @@ public class ConfigMajorKindServiceImpl implements ConfigMajorKindService{
 		return mapper.addConfigMajorKind(cmk);
 	}
 
+	@Override
+	public List<String> selectAllConfigMajorKindName() {
+		// TODO Auto-generated method stub
+		return mapper.selectAllConfigMajorKindName();
+	}
+
+	@Override
+	public String selectConfigMajorKindIdByName(String major_kind_name) {
+		// TODO Auto-generated method stub
+		return mapper.selectConfigMajorKindIdByName(major_kind_name);
+	}
+
 }

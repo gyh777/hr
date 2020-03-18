@@ -3,8 +3,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.ConfigMajorMapper">
-	<select id="selectAllConfigMajor" resultType="com.hr.pojo.ConfigMajor">
+	<select id="selectAllConfigMajor" resultType="com.hr.pojo.ConfigMajor" parameterType="String">
 		select * from config_major
+	</select>
+	
+	<select id="selectAllConfigMajorName" resultType="string">
+		select major_name from config_major where major_kind_name=#{major_kind_name}
+	</select>
+	
+	<select id="selectConfigMajorIdByName" resultType="string" parameterType="String">
+		select major_id from config_major where major_name=#{major_name}
 	</select>
 	
 	<delete id="deleteConfigMajor" parameterType="String">
