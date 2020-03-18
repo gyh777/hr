@@ -69,7 +69,7 @@ public class SecondKindRigisterController {
 	public ModelAndView loadSecondKind(){
 		List<ConfigFileSecondKind> map = configFileSecondKindServiceImpl.queryAllConfigFileSecondKind();
 		ModelAndView mav  = new ModelAndView();
-        mav.addObject("map", map);
+        mav.addObject("secondMap", map);
 		mav.setViewName("second_kind");
 		return mav;
 	}

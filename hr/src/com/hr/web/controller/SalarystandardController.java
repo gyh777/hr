@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,6 +28,7 @@ public class SalarystandardController {
 	
 	@RequestMapping("/register")
 	public String register(@ModelAttribute SalaryStandardDetailsList salaryStandardDetails){
+		
 		Boolean bl = salaryStandardServiceImpl.save(salaryStandardDetails);
 		if(bl){
 			return "salarystandard_register_success";
@@ -34,11 +36,39 @@ public class SalarystandardController {
 		return null;
 	}
 	
+	@RequestMapping("/checkAdopt")
+	public String checkAdopt(String checker,String checkTime,String checkComment){
+		Boolean bl = salaryStandardServiceImpl.checkChange(checker, checkTime, checkComment);
+		if(bl){
+			return "salarystandard_check_.success";
+		}
+		return null;
+	}
+	
+	
+	@RequestMapping("/changeAdopt")
+	public String changeAdopt(@ModelAttribute SalaryStandardDetailsList salaryStandardDetails){
+		Boolean bl = salaryStandardServiceImpl.changeAdopt(salaryStandardDetails);
+		if(bl){
+			return "salarystandard_check_.success";
+		}
+		return null;
+	}
+	
 	@ResponseBody
-	@RequestMapping("/checkList")
+	@RequestMapping("/changeList")
+	public List<SalaryStandard> changeList(){
+		
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryChangeAll();
+//		JSONArray ja = JSONArray.fromObject(list);
+		return list;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/checkList")
 	public List<SalaryStandard> checkList(){
 		System.out.println(111);
-		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryAll();
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryCheckAll();
 //		JSONArray ja = JSONArray.fromObject(list);
 		return list;
 	}
@@ -48,5 +78,12 @@ public class SalarystandardController {
 		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
 		m.addAttribute("check", salaryStandardDetailsList);
 		return "salarystandard_check";
+	}
+	
+	@RequestMapping("/change")
+	public String change(@RequestParam String ssdId,Model m){
+		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
+		m.addAttribute("change", salaryStandardDetailsList);
+		return "salarystandard_change";
 	}
 }

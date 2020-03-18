@@ -1,7 +1,9 @@
 package com.hr.web.controller;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hr.pojo.ConfigFileFirstKind;
 import com.hr.service.ConfigFileFirstKindService;
 import com.hr.service.ConfigMajorService;
+import com.hr.web.controller.requestparamtype.TwoStringValue;
 
 @Controller
 @RequestMapping("/firstkindrigister")
@@ -64,8 +67,24 @@ public class FirstKindRigisterController {
 	public ModelAndView loadFirstKind(){
 		List<ConfigFileFirstKind> map = configFileFirstKindServiceImpl.queryAllConfigFileFirstKind();
 		ModelAndView mav  = new ModelAndView();
-        mav.addObject("map", map);
+        mav.addObject("firstMap", map);
 		mav.setViewName("first_kind");
+		return mav;
+	}
+	
+	
+	//查一级机构的名称和id
+	@RequestMapping("/loadFirstKindIdAndName")
+	public ModelAndView loadFirstKindIdAndName(){
+		List<TwoStringValue> list = configFileFirstKindServiceImpl.queryConfigFileFirstKindIdAndName();
+		ModelAndView mav  = new ModelAndView();
+		Iterator<TwoStringValue> iterator = list.iterator();
+		while(iterator.hasNext()){
+			TwoStringValue stringValue = iterator.next();
+			System.out.println(stringValue.getFirst()+stringValue.getSecond());
+		}
+		System.out.println("loadFirstKindIdAndName");
+        mav.addObject("idAndName", list);
 		return mav;
 	}
 	

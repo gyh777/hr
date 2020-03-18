@@ -636,7 +636,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engagemajorrelease.?operate=toAdd"
+													<a href="../jsp/engage_major_release_register.jsp"
 														target="mainFrame">职位发布登记</a>
 												</td>
 											</tr>
@@ -645,7 +645,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engagemajorrelease.?operate=toEdit"
+													<a href="../jsp/engage_major_release_change.jsp"
 														target="mainFrame">职位发布变更</a>
 												</td>
 											</tr>
@@ -654,7 +654,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engagemajorrelease.?operate=list"
+													<a href="../jsp/engage_major_release_select.jsp"
 														target="mainFrame">职位发布查询</a>
 												</td>
 											</tr>
@@ -727,7 +727,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.?operate=locate&method=interview" target="mainFrame">面试结果登记</a>
+													<a href="/hr/configMajor/selectAllForEngage?choose=3" target="mainFrame">面试结果登记</a>
 												</td>
 											</tr>
 											<tr>
@@ -735,7 +735,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="/hr/jsp/engageinterview.?operate=list" target="mainFrame">面试筛选</a>
+													<a href="/hr/engageInterview/getForResult" target="mainFrame">面试筛选</a>
 												</td>
 											</tr>
 										</table> </span>

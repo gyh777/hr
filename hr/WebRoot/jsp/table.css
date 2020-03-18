@@ -140,6 +140,9 @@ width:30%;
 }
 .TEXTAREA_STYLE1{
 width:100%;
+resize:none;
+overflow:scroll;
+overflow-x:hidden;
 }
 .DIV_STYLE1{
 

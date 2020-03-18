@@ -3,54 +3,62 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.EngageInterviewMapper">
-	<select id="select">
+	<sql id="interview">
+		human_name,interview_amount,
+		human_major_kind_id,human_major_kind_name,human_major_id,
+		human_major_name,image_degree,native_language_degree,
+		foreign_language_degree,response_speed_degree,eq_degree,iq_degree,
+		multi_quality_degree,register,checker,
+		resume_id,result,interview_comment,
+		check_comment,interview_status,check_status
+	</sql>
+	<sql id="interviewForUpdate">
+		human_name=#{human_name},interview_amount=#{interview_amount},
+		human_major_kind_id=#{human_major_kind_id},human_major_kind_nam=#{human_major_kind_nam},human_major_id=#{human_major_id},
+		human_major_name=#{human_major_name},image_degree=#{image_degree},native_language_degree=#{native_language_degree},
+		foreign_language_degree=#{foreign_language_degree},response_speed_degree=#{response_speed_degree},eq_degree=#{eq_degree},iq_degree=#{iq_degree},
+		multi_quality_degree=#{multi_quality_degree},register=#{register},checker=#{checker},
+		registe_time=#{registe_time},check_time=#{check_time},
+		resume_id=#{resume_id},result=#{result},interview_comment=#{interview_comment},
+		check_comment=#{check_comment},interview_status=#{interview_status},check_status=#{check_status}
+	</sql>
+	<select id="select" resultType="com.hr.pojo.EngageInterview">
 		select * from engage_interview
 	</select>
-	<sql id="s">
-		ein_id,human_name,interview_amount,human_major_kind_id,
-			human_major_kind_name,human_major_id,human_major_name,image_degree,native_language_degree,
-			foreign_language_degree,response_speed_degree,EQ_degree,IQ_degree,multi_quality_degree,
-			register,checker,resume_id,result,interview_comment,check_comment,
-			interview_status,check_status
-	</sql>
-	<sql id="ss">
-		ein_id=#{einId},human_name=#{humanName},
-			interview_amount=#{interviewAmount},human_major_kind_id=#{humanMajorKindId},
-			human_major_kind_nam=#{humanMajorKindNam},human_major_id=#{humanMajorId},
-			human_major_name=#{humanMajorName},image_degree=#{imageDegree},
-			native_language_degree=#{nativeLanguageDegree},foreign_language_degree=#{foreignLanguageDegree},
-			response_speed_degree=#{responseSpeedDegree},EQ_degree=#{ewDegree},IQ_degree=#{iqDegree},
-			multi_quality_degree=#{multiQualityDegree},register=#{register},checker=#{checker},
-			registe_time=#{registeTime},check_time=#{checkTime},resume_id=#{resumeId},
-			result=#{result},interview_comment=#{interviewComment},check_comment=#{checkComment},
-			interview_status=#{interviewStatus},check_status=#{check_status}
-	</sql>
+	<select id="selectForResult" resultType="com.hr.pojo.EngageInterview">
+		select * from engage_interview where result=0
+	</select>
+	<select id="selectByEinId" parameterType="_int" resultType="com.hr.pojo.EngageInterview">
+		select * from engage_interview where ein_id=#{ein_id}
+	</select>
+	<select id="selectByResumeId" parameterType="_int" resultType="com.hr.pojo.EngageInterview">
+		select * from engage_interview where resume_id=#{resume_id}
+	</select>
 	<insert id="insert" parameterType="com.hr.pojo.EngageInterview">
-		insert into engage_interview values (#{einId},#{humanName},
-			#{interviewAmount},#{humanMajorKindId},
-			#{humanMajorKindNam},#{humanMajorId},
-			#{humanMajorName},#{imageDegree},
-			#{nativeLanguageDegree},#{foreignLanguageDegree},
-			#{responseSpeedDegree},#{ewDegree},#{iqDegree},
-			#{multiQualityDegree},#{register},#{checker},
-			#{resumeId},
-			#{result},#{interviewComment},#{checkComment},
-			#{interviewStatus},#{check_status}
+		insert into engage_interview
+		(
+			<include refid="interview"></include>
+		)
+		values 
+		(
+			#{human_name},#{interview_amount},
+			#{human_major_kind_id},#{human_major_kind_name},#{human_major_id},
+			#{human_major_name},#{image_degree},#{native_language_degree},
+			#{foreign_language_degree},#{response_speed_degree},#{eq_degree},#{iq_degree},
+			#{multi_quality_degree},#{register},#{checker},
+			#{resume_id},#{result},#{interview_comment},
+			#{check_comment},#{interview_status},#{check_status}
 		)
 	</insert>
-	<update id="update">
-		update engage_interview set human_name=#{humanName},
-			interview_amount=#{interviewAmount},human_major_kind_id=#{humanMajorKindId},
-			human_major_kind_nam=#{humanMajorKindNam},human_major_id=#{humanMajorId},
-			human_major_name=#{humanMajorName},image_degree=#{imageDegree},
-			native_language_degree=#{nativeLanguageDegree},foreign_language_degree=#{foreignLanguageDegree},
-			response_speed_degree=#{responseSpeedDegree},EQ_degree=#{ewDegree},IQ_degree=#{iqDegree},
-			multi_quality_degree=#{multiQualityDegree},register=#{register},checker=#{checker},
-			resume_id=#{resumeId},
-			result=#{result},interview_comment=#{interviewComment},check_comment=#{checkComment},
-			interview_status=#{interviewStatus},check_status=#{check_status} where ein_id=#{einId}
+	<update id="update" parameterType="com.hr.pojo.EngageInterview">
+		update engage_interview set 
+		<include refid="interviewForUpdate"></include>
+		where ein_id=#{ein_id}
 	</update>
-	<delete id="delete">
-		delete from engage_interview where ein_id=#{einId}
+	<update id="updateForResult" parameterType="String">
+		update engage_interview set result=#{result} where ein_id=#{ein_id}
+	</update>
+	<delete id="delete" parameterType="_int">
+		delete from engage_interview where ein_id=#{ein_id}
 	</delete>
 </mapper>

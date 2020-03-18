@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .style3 {color: #0000CC}
 -->
 </style>
-	</head>
+
 <script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
 window.onload=function(){
@@ -35,6 +35,8 @@ error:function(){alert(23)}
 
 };
 </script>
+	</head>
+
 	<body>
 		<form method="post" action="salarystandard.do">
 			<table width="100%">
@@ -101,7 +103,7 @@ error:function(){alert(23)}
 						</td>
 						<td>
 							<a
-								href="salarystandard_check.jsp?ssdId=${one.ssdId}">复核</a>
+								href="/hr/salarystandard/check?ssdId=${one.ssdId}">复核</a>
 						</td>
 					</tr>
 				

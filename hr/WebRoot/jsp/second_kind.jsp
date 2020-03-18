@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						删除
 					</td>
 				</tr>
-				<c:forEach items="${requestScope.map}" var="u">
+				<c:forEach items="${requestScope.secondMap}" var="u">
 					<tr>
 						<td id="secondKindId" class="TD_STYLE2">
 							${u.second_kind_id}
