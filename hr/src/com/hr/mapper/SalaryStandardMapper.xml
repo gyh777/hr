@@ -45,6 +45,10 @@
 	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard">
     	select * from salary_standard
     </select>
+    <select id="selectIdByName" parameterType="String">
+    	select ssd_id from salary_standard where standard_name=#{standardName}
+    </select>
+    
     <select id="selectCheckAll" resultType="com.hr.pojo.SalaryStandard">
     	select * from salary_standard where check_status=0
     </select>

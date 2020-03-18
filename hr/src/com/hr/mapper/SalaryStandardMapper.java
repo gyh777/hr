@@ -21,4 +21,6 @@ public interface SalaryStandardMapper {
 	
 	public SalaryStandard selectBySsdId(String ssdId);
 	
+	public String selectIdByName(String name);
+	
 }

@@ -127,4 +127,10 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		ssdl.setSalaryStandardDetails(salaryStandardDetails);
 		return ssdl;
 	}
+
+	@Override
+	public String queryIdByName(String ssdId) {
+		String standardName = salaryStandardMapper.selectIdByName(ssdId);
+		return standardName;
+	}
 }
