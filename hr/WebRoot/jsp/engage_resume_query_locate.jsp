@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						请输入关键字
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="keyWord" class="INPUT_STYLE1">
+						<input type="text" value="" name="keyWord" class="INPUT_STYLE1">
 					</td>
 				</tr>
 				<tr>
