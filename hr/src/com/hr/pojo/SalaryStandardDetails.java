@@ -11,7 +11,7 @@ public class SalaryStandardDetails {
 
     private String itemName;
 
-    private Double salary;
+    private String salary;
 
     public Short getSdtId() {
         return sdtId;
@@ -53,11 +53,11 @@ public class SalaryStandardDetails {
         this.itemName = itemName == null ? null : itemName.trim();
     }
 
-    public Double getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(Double salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 }

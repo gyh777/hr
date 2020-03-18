@@ -20,17 +20,11 @@
     	check_comment,
     	remark)
     </sql>
-    <sql id="SalaryStandardDetails">
-    	(sdt_id,
-    	standard_id,
-    	standard_name,
-    	item_id,
-    	item_name,
-    	salary)
-    </sql>
+    
     <insert id="insert" parameterType="com.hr.pojo.SalaryStandard">
 		insert into salary_standard <include refid="SalaryStandard"/> values
 		(#{ssdId},#{standardId},#{standardName},#{designer},#{register},
-		#{checker},#{changer},#{registTime},#{checkTime},#{changeTime},#{salarySum},#{checkStatus},#{changeStatus},#{correct_key},#{changer})
+		#{checker},#{changer},#{registTime},#{checkTime},#{changeTime},
+		#{salarySum},#{checkStatus},#{changeStatus},#{checkComment},#{remark})
 	</insert>
 </mapper>

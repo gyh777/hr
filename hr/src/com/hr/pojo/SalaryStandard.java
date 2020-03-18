@@ -4,9 +4,6 @@ import java.util.Date;
 
 public class SalaryStandard {
 	
-	public SalaryStandard(){
-		
-	}
 	
     private Short ssdId;
 
@@ -22,19 +19,39 @@ public class SalaryStandard {
 
     private String changer;
 
-    private Date registTime;
+    private String registTime;
 
-    private Date checkTime;
+    private String checkTime;
 
-    private Date changeTime;
+    private String changeTime;
 
-    private Double salarySum;
+    private String salarySum;
 
     private Short checkStatus;
 
     private Short changeStatus;
+    
+    private String checkComment;
+    
+    private String remark;
 
-    public Short getSsdId() {
+    public String getCheckComment() {
+		return checkComment;
+	}
+
+	public void setCheckComment(String checkComment) {
+		this.checkComment = checkComment;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public Short getSsdId() {
         return ssdId;
     }
 
@@ -90,35 +107,35 @@ public class SalaryStandard {
         this.changer = changer == null ? null : changer.trim();
     }
 
-    public Date getRegistTime() {
+    public String getRegistTime() {
         return registTime;
     }
 
-    public void setRegistTime(Date registTime) {
+    public void setRegistTime(String registTime) {
         this.registTime = registTime;
     }
 
-    public Date getCheckTime() {
+    public String getCheckTime() {
         return checkTime;
     }
 
-    public void setCheckTime(Date checkTime) {
+    public void setCheckTime(String checkTime) {
         this.checkTime = checkTime;
     }
 
-    public Date getChangeTime() {
+    public String getChangeTime() {
         return changeTime;
     }
 
-    public void setChangeTime(Date changeTime) {
+    public void setChangeTime(String changeTime) {
         this.changeTime = changeTime;
     }
 
-    public Double getSalarySum() {
+    public String getSalarySum() {
         return salarySum;
     }
 
-    public void setSalarySum(Double salarySum) {
+    public void setSalarySum(String salarySum) {
         this.salarySum = salarySum;
     }
 
