@@ -1,111 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <html>
 	<head>
@@ -118,7 +18,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 -->
 </style>
 	</head>
+<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+$.ajax({
+dataType:"json",
+url:'/hr/salarystandard/checkList',
+type:'POST',
+contentType : 'application/json;charset=utf-8',
+async: true,
+success:function(date){
+alert(1);
+},
+error:function(){alert(23)}
+});
 
+};
+</script>
 	<body>
 		<form method="post" action="salarystandard.do">
 			<table width="100%">
@@ -164,71 +80,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 				
+				<c:forEach items="${requestScope.list}" var="one">
 					<tr class="TD_STYLE2">
 						<td>
-							1000001
+							${one.standardId}
 						</td>
 						<td>
 							
 						</td>
+						${one.standardName}
 						<td>
 							
 						</td>
+						${one.designer}
 						<td>
-							2010-05-29 00:00:00.0
+							${one.registTime}
 						</td>
 						<td>
-							0.0
+							${one.salarySum}
 						</td>
 						<td>
 							<a
-								href="salarystandard_check.jsp">复核</a>
+								href="salarystandard_check.jsp?ssdId=${one.ssdId}">复核</a>
 						</td>
 					</tr>
 				
-					<tr class="TD_STYLE2">
-						<td>
-							1000001
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							2010-05-29 00:00:00.0
-						</td>
-						<td>
-							0.0
-						</td>
-						<td>
-							<a
-								href="salarystandard_check.jsp">复核</a>
-						</td>
-					</tr>
-				
-					<tr class="TD_STYLE2">
-						<td>
-							1000001
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							
-						</td>
-						<td>
-							2010-05-29 00:00:00.0
-						</td>
-						<td>
-							0.0
-						</td>
-						<td>
-							<a
-								href="salarystandard.do?operate=toEdit&id=3&method=check">复核</a>
-						</td>
-					</tr>
+					</c:forEach>
 				
 			</table>
 			<p>&nbsp;&nbsp;总数：3例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>

@@ -1,6 +1,7 @@
 package com.hr.service.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,4 +65,14 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		
 	}
 
+	public List<SalaryStandard> queryAll(){
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardMapper.selectAll();
+		return list;
+	}
+
+	@Override
+	public SalaryStandard queryBySsdId() {
+		SalaryStandard salaryStandard = salaryStandardMapper.selectBySsdId();
+		return null;
+	}
 }

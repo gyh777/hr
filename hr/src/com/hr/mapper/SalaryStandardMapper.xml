@@ -27,4 +27,11 @@
 		#{checker},#{changer},#{registTime},#{checkTime},#{changeTime},
 		#{salarySum},#{checkStatus},#{changeStatus},#{checkComment},#{remark})
 	</insert>
+	
+	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard">
+    	select * from salary_standard
+    </select>
+    <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandard">
+    	select *  from salary_standard where ssd_id=#{ssdId}
+    </select>
 </mapper>
