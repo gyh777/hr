@@ -64,13 +64,12 @@ public class Test {
 		
 		HumanFileDigService service = (HumanFileDigService)context.getBean("humanFileDigServiceImpl");
 //		HumanFileDig hf = service.queryHumanFileDigByHfd_id(0)  ;
-//		System.out.println(hf);
 		HumanFileDig hf = new HumanFileDig();
 		hf.setHuman_name("sss");
 		Short age = 20;
 		hf.setHuman_age(age);
 		service.addHumanFileDig(hf);
-		List<HumanFileDig> list= service.queryAllHumanFileDig();
-		System.out.println(list.size());
+//		List<HumanFileDig> list= service.queryAllHumanFileDig();
+//		System.out.println(list.size());
   }
 }

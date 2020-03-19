@@ -62,18 +62,8 @@
 	</update> 
 	
 
-<<<<<<< HEAD
     <select id="selectIdByName" parameterType="String" resultType="String">
     	select standard_id from salary_standard where standard_name=#{standardName}
-=======
-	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
-    	select * from salary_standard
-    </select>
-
-
-    <select id="selectIdByName" parameterType="String">
-    	select ssd_id from salary_standard where standard_name=#{standardName}
->>>>>>> branch 'master' of https://github.com/zking-shopping/hr.git
     </select>
     
     <select id="selectCheckAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
@@ -82,10 +72,7 @@
     
     <select id="selectChangeAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
     	select * from salary_standard where check_status=1
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/zking-shopping/hr.git
     </select>
     <!-- 
     <select id="selectQueryAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
