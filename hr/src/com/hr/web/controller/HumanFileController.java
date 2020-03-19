@@ -3,6 +3,7 @@ package com.hr.web.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -257,6 +258,8 @@ public class HumanFileController {
 			hf.setCheck_status((short)1);
 			hf.setChecker(checker);
 			hf.setChanger(checker);
+			hf.setRegist_time(human.getRegist_time());
+			hf.setRegister(human.getRegister());
 			humanFileDigServiceImpl.addHumanFileDig(hf);
 			
 			System.out.println("档案复核成功");
@@ -264,6 +267,22 @@ public class HumanFileController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("human_check_success");
 		return mav;
+	}
+	
+	@RequestMapping("locatePage")
+	public ModelAndView selectByLocatePage(@RequestParam String firstKindName,@RequestParam String secondKindName,@RequestParam String thirdKindName,
+			@RequestParam String humanMajorKindName,@RequestParam String humanMajorName,@RequestParam String str_startTime,@RequestParam String str_endTime){
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("firstKindName", firstKindName);
+		map.put("secondKindName", secondKindName);
+		map.put("thirdKindName", thirdKindName);
+		map.put("humanMajorName", humanMajorName);
+		map.put("humanMajorKindName",humanMajorKindName);
+		map.put("str_startTime",str_startTime);
+		map.put("str_endTime",str_endTime);
+		
+		
+		return null;
 	}
 	
 	

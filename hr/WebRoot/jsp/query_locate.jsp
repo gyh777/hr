@@ -85,6 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="javascript/comm/list.js"></script>
+		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript">
 		var subcat = new Array(2);
 subcat[0] = ["1", "集团/软件公司","集团","集团/软件公司"];
@@ -102,10 +103,10 @@ subcat2[5] = ["6", "专员", "人力资源/专员", "人力资源"];
 subcat2[6] = ["7", "主任", "生产部/主任", "生产部"];
 subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 
- 		function list()
+ 		function getlist()
 		{
-			//document.forms[0].action = document.forms[0].action + "?operate=list&method=query&delete_status=1";
-			document.forms[0].action ="query_list.jsp";
+		   
+			document.forms[0].action ="/hr/humanfile/locatePage";
 			document.forms[0].submit();
 		}
 		function search()
@@ -124,7 +125,7 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 	</head>
 
 	<body>
-		<form name="humanfileForm" method="post" action="/hr/humanfile.do">
+		<form id="locate" name="humanfileForm" method="post" >
 			<table width="100%">
 				<tr>
 					<td>
@@ -136,7 +137,7 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 						<input type="button" value="EXCEL列表"
 							class="BUTTON_STYLE1" onclick="javascript:doExport('excel');">
 						<input type="button" value="查询"
-							class="BUTTON_STYLE1" onclick="javascript:list();">
+							class="BUTTON_STYLE1" onclick="javascript:getlist();">
 						<input type="button" value="搜索"
 							class="BUTTON_STYLE1" onclick="search();">
 					</td>
@@ -150,7 +151,7 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 						请选择员工所在I级机构
 					</td>
 					<td width="84%" class="TD_STYLE2">
-						<select name="item.firstKindName" size="5" onchange="changelocation(document.forms[0].elements['item.secondKindName'],document.forms[0].elements['item.firstKindName'].options[document.forms[0].elements['item.firstKindName'].selectedIndex].value)" class="SELECT_STYLE2"><option value="">&nbsp;</option>
+						<select name="firstKindName" size="5" onchange="changelocation(document.forms[0].elements['secondKindName'],document.forms[0].elements['firstKindName'].options[document.forms[0].elements['firstKindName'].selectedIndex].value)" class="SELECT_STYLE2"><option value="">&nbsp;</option>
 							
 								<option value="集团">集团</option>
 							
@@ -162,8 +163,8 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 						请选择员工所在II级机构
 					</td>
 					<td width="84%" class="TD_STYLE2">
-						<select name="item.secondKindName" size="5" onchange="changelocation1(document.forms[0].elements['item.thirdKindName'],document.forms[0].elements['item.secondKindName'].options[document.forms[0].elements['item.secondKindName'].selectedIndex].value)" class="SELECT_STYLE2"><script language="javascript">
-								changelocation(document.forms[0].elements["item.secondKindName"],document.forms[0].elements["item.firstKindName"].value)
+						<select name="secondKindName" size="5" onchange="changelocation1(document.forms[0].elements['thirdKindName'],document.forms[0].elements['secondKindName'].options[document.forms[0].elements['secondKindName'].selectedIndex].value)" class="SELECT_STYLE2"><script language="javascript">
+								changelocation(document.forms[0].elements["secondKindName"],document.forms[0].elements["firstKindName"].value)
     						</script></select>
 					</td>
 				</tr>
@@ -172,8 +173,8 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 						请选择员工所在III级机构
 					</td>
 					<td width="84%" class="TD_STYLE2">
-						<select name="item.thirdKindName" size="5" class="SELECT_STYLE2"><script language="javascript">
-							changelocation1(document.forms[0].elements["item.thirdKindName"],document.forms[0].elements["item.secondKindName"].value)
+						<select name="thirdKindName" size="5" class="SELECT_STYLE2"><script language="javascript">
+							changelocation1(document.forms[0].elements["thirdKindName"],document.forms[0].elements["secondKindName"].value)
 							</script></select>
 					</td>
 				</tr>
@@ -182,7 +183,7 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 						请选择职位分类
 					</td>
 					<td width="84%" class="TD_STYLE2">
-						<select name="item.humanMajorKindName" size="5" onchange="changelocation2(document.forms[0].elements['item.hunmaMajorName'],document.forms[0].elements['item.humanMajorKindName'].options[document.forms[0].elements['item.humanMajorKindName'].selectedIndex].value)" class="SELECT_STYLE2"><option value="">&nbsp;</option>
+						<select name="humanMajorKindName" size="5" onchange="changelocation2(document.forms[0].elements['humanMajorName'],document.forms[0].elements['humanMajorKindName'].options[document.forms[0].elements['humanMajorKindName'].selectedIndex].value)" class="SELECT_STYLE2"><option value="">&nbsp;</option>
 							
 								<option value="销售">销售</option>
 							
@@ -198,8 +199,8 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 						请选择职位名称
 					</td>
 					<td width="84%" class="TD_STYLE2">
-						<select name="item.hunmaMajorName" size="5" class="SELECT_STYLE2"><script language="javascript">
-							changelocation2(document.forms[0].elements["item.hunmaMajorName"],document.forms[0].elements["item.humanMajorKindName"].value)
+						<select name="humanMajorName" size="5" class="SELECT_STYLE2"><script language="javascript">
+							changelocation2(document.forms[0].elements["humanMajorName"],document.forms[0].elements["humanMajorKindName"].value)
 							</script></select>
 					</td>
 				</tr>
@@ -208,7 +209,7 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 						请输入建档时间
 					</td>
 					<td width="84%" class="TD_STYLE2">
-						<input type="text" name="item.str_startTime" value="" style="width:14% " class="INPUT_STYLE2" id="date_start">至<input type="text" name="item.str_endTime" value="" style="width:14% " class="INPUT_STYLE2" id="date_end">
+						<input type="text" name="str_startTime" value="" style="width:14% " class="INPUT_STYLE2" id="date_start">至<input type="text" name="str_endTime" value="" style="width:14% " class="INPUT_STYLE2" id="date_end">
 						（YYYY-MM-DD）
 					</td>
 				</tr>

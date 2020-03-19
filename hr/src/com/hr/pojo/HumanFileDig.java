@@ -109,6 +109,8 @@ public class HumanFileDig {
 
 
     private String checker;
+    
+    private String register;
 
     private String changer;
 
@@ -128,8 +130,26 @@ public class HumanFileDig {
 	}
 
 	private Date delete_time;
+	
+	private Date regist_time;
 
-    private Date recovery_time;
+    public String getRegister() {
+		return register;
+	}
+
+	public void setRegister(String register) {
+		this.register = register;
+	}
+
+	public Date getRegist_time() {
+		return regist_time;
+	}
+
+	public void setRegist_time(Date regist_time) {
+		this.regist_time = regist_time;
+	}
+
+	private Date recovery_time;
 
     private Short human_file_status;
 
