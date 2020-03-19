@@ -56,12 +56,34 @@ public class EngageMajorReleaseController {
 	@RequestMapping("/selectSecondKindIdAndName")
 	@ResponseBody
 	public List<TwoStringValue> selectConfigMajorIdAndName(
-			@RequestParam("firstName") String first_kind_name) {
-		first_kind_name = CharacterEncodingHelper.getChinese(first_kind_name);
+			@RequestParam("firstName") String firstName) {
+		firstName = CharacterEncodingHelper.getChinese(firstName);
 		List<TwoStringValue> list = 
-				configFileSecondKindServiceImpl.queryIdAndNameByFirstKindName(first_kind_name);
-		Map<String ,List<TwoStringValue>> map = new HashMap<>();
-		map.put("secondKindIdAndName", list);
+				configFileSecondKindServiceImpl.queryIdAndNameByFirstKindName(firstName);
+		
+		return list;
+	}
+	
+	@RequestMapping("/selectThirdKindIdAndName")
+	@ResponseBody
+	public List<TwoStringValue> selectThirdKindIdAndName(
+			@RequestParam("firstName") String firstName,
+			@RequestParam("secondName") String secondName) {
+		firstName = CharacterEncodingHelper.getChinese(firstName);
+		secondName = CharacterEncodingHelper.getChinese(secondName);
+		List<TwoStringValue> list = 
+				configFileThirdKindServiceImpl.queryKindIdAndName(firstName, secondName);
+		
+		return list;
+	}
+	
+	@RequestMapping("/selectAllMajorIdAndName")
+	@ResponseBody
+	public List<TwoStringValue> selectAllMajorIdAndName(
+			@RequestParam("firstName") String firstName) {
+		firstName = CharacterEncodingHelper.getChinese(firstName);
+		List<TwoStringValue> list = 
+				configMajorServiceImpl.selectAllConfigMajorIdAndName(firstName);
 		
 		return list;
 	}

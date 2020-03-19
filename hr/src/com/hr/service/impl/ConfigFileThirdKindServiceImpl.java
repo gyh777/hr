@@ -52,9 +52,10 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 	}
 
 	@Override
-	public List<TwoStringValue> queryConfigFileThirdKindIdAndName() {
+	public List<TwoStringValue> queryKindIdAndName(
+			String first_kind_name,String second_kind_name) {
 		// TODO Auto-generated method stub
-		return mapper.queryConfigFileThirdKindIdAndName();
+		return mapper.queryKindIdAndName(first_kind_name, second_kind_name);
 	}
 
 }

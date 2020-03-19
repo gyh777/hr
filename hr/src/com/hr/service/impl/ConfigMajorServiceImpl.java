@@ -31,9 +31,9 @@ public class ConfigMajorServiceImpl implements ConfigMajorService{
 	}
 
 	@Override
-	public List<TwoStringValue> selectAllConfigMajorName(String major_kind_name) {
+	public List<TwoStringValue> selectAllConfigMajorIdAndName(String major_kind_name) {
 		// TODO Auto-generated method stub
-		return mapper.selectAllConfigMajorIdAndNameByKindName(major_kind_name);
+		return mapper.selectAllConfigMajorIdAndName(major_kind_name);
 	}
 
 	@Override

@@ -17,16 +17,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="../jsp/javascript/comm/select.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript">
-			function firstKindNameChange(obj){
-				var firstKind = $(obj).find("option:selected").val();
-				var firstId = firstKind.substring(0,firstKind.indexOf("/"));
-				var firstName = firstKind.substring(firstKind.indexOf("/")+1);
+			function kindNameChange(obj){
+				//获得当前元素的name
+				var name = $(obj).attr("name");
+				var kind = $(obj).find("option:selected").val();
+				var firstName = kind.substring(kind.indexOf("/")+1);
+				//初始化要跳转的url和要传的数据data以及要添加子元素的父元素的name
+				var url = "/hr/engageMajorRelease/";
+				var data = {"firstName" : firstName};
+				var addName = "";
+				
+				if(name == "firstKindName"){
+					url = url + "selectSecondKindIdAndName";
+					addName = "secondKindName";
+					$("select[name='thirdKindName']").empty();
+					$("select[name='thirdKindName']")
+						.append("<option value=''>&nbsp;</option>");
+				}else if(name == "secondKindName"){
+					var secondName = firstName;
+					var kinds = $("select[name='firstKindName']").val();
+					firstName = kinds.substring(kind.indexOf("/")+1);
+					url = url + "selectThirdKindIdAndName";
+					data = {"firstName" : firstName, "secondName" : secondName};
+					addName = "thirdKindName";
+				}else if(name == "majorKindName"){
+					url = url + "selectAllMajorIdAndName";
+					addName = "majorName";
+				};
+				//清空所有下级元素的内容
+				$("select[name='"+ addName +"']").empty();
+				$("select[name='"+ addName +"']")
+					.append("<option value=''>&nbsp;</option>");
 				$.ajax({
 					type : "post",
-					url : "/hr/engageMajorRelease/selectSecondKindIdAndName?firstName="+firstName,
+					url : url,
 					dataType : "json",
+					data: data,
 					success:function(result){
-						
+						$.each(result, function (i, value) {
+							var values = value.first +"/"+ value.second;
+							var content = "<option value='"+values+"'>"+ values +"</option>";
+                        	$("select[name='"+ addName +"']").append(content);
+                    	});
 					}
 				});
 			};
@@ -56,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1" width="10%">I级机构</td>
 					<td width="15%" class="TD_STYLE2">
 						<select name="firstKindName" class="SELECT_STYLE1" 
-								onchange="firstKindNameChange(this)">
+								onchange="kindNameChange(this)">
 							<option value="">&nbsp;</option>
 							<c:forEach items="${firstKindAndMajorKind }" var="map">
 								<c:if test="${map.key == 'firstValue' }">
@@ -71,7 +103,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="10%" class="TD_STYLE1">II级机构</td>
 					<td width="15%" class="TD_STYLE2">
-						<select name="secondKindName" class="SELECT_STYLE1" onchange="">
+						<select name="secondKindName" class="SELECT_STYLE1" 
+								onchange="kindNameChange(this)">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
@@ -85,13 +118,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="15%" class="TD_STYLE2">
 						<select name="engageType" class="SELECT_STYLE1">
 							<option value="">&nbsp;</option>
+							<option value="校园招聘">校园招聘</option>
+							<option value="社会招聘">社会招聘</option>
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<td width="10%" class="TD_STYLE1">职位分类</td>
 					<td width="15%" class="TD_STYLE2">
-						<select name="majorKindName" onchange="" class="SELECT_STYLE1">
+						<select name="majorKindName" class="SELECT_STYLE1" 
+								onchange="kindNameChange(this)">
 							<option value="">&nbsp;</option>
 							<c:forEach items="${firstKindAndMajorKind }" var="map">
 								<c:if test="${map.key == 'majorKindValue' }">

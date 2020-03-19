@@ -9,7 +9,7 @@ import com.hr.web.controller.requestparamtype.TwoStringValue;
 
 public interface ConfigMajorMapper {
     public List<ConfigMajor> selectAllConfigMajor();
-	public List<TwoStringValue> selectAllConfigMajorIdAndNameByKindName(
+	public List<TwoStringValue> selectAllConfigMajorIdAndName(
 			@Param("major_kind_name")String major_kind_name);
     public String selectConfigMajorIdByName(@Param("major_name")String major_name);
     public boolean deleteConfigMajor(@Param("major_name")String major_name);
