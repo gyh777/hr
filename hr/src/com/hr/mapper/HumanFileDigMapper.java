@@ -1,5 +1,6 @@
 package com.hr.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.hr.pojo.Bonus;
@@ -13,4 +14,5 @@ public interface HumanFileDigMapper {
     public HumanFileDig queryHumanFileDigByName(String name);
     public List<HumanFileDig> queryAllHumanFileDig();
     public HumanFileDig queryHumanFileDigByHfd_id(int hfd_id);
+    public List<HumanFileDig> selectByMapCondition(HashMap<String, Object> map);
 }
