@@ -37,14 +37,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					valueId = "first_kind_id";
 					valueName = "first_kind_name";
 				}else if(name == "secondKindName"){
-					var secondName = firstName;
 					var kinds = $("select[name='firstKindName']").val();
-					firstName = kinds.substring(kind.indexOf("/")+1);
+					var secondName = kinds.substring(kind.indexOf("/")+1);
 					url = url + "selectThirdKindIdAndName";
-					data = {"firstName" : firstName, "secondName" : secondName};
+					data = {"firstName" : secondName, "secondName" : firstName};
 					addName = "thirdKindName";
 					valueId = "second_kind_id";
 					valueName = "second_kind_name";
+					console.log(firstName);
 				}else if(name == "thirdKindName"){
 					url = "";
 					valueId = "third_kind_id";
@@ -121,9 +121,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					success:function(result){
 						console.log(result);
 						if(result==true){
-							
+							window.location="../jsp/engage_major_release_select.jsp";
 						}else{
-							
+							alert("添加失败！请刷新重试！");
 						};
 					}
 				});

@@ -120,6 +120,8 @@ public class EngageMajorReleaseController {
 		emr.setMajor_id(majorId);
 		emr.setMajor_name(majorName);
 		emr.setHuman_amount(Short.parseShort(humanAmount));
+		emr.setChanger("");
+		emr.setChange_time(null);
 		try {
 			emr.setDeadline(sdf.parse(deadline));
 			emr.setRegist_time(sdfs.parse(registTime));
@@ -132,7 +134,6 @@ public class EngageMajorReleaseController {
 		
 		//插入
 		boolean b = engageMajorReleaseServiceImpl.addEngageMajorRelease(emr);
-		
 		return b;
 	}
 	
