@@ -85,7 +85,7 @@ public class HumanFileDig {
 
     private Double salary_sum;
 
-    private Double demand_salaray_sum;
+    private Double demand_salary_sum;
 
     private Double paid_salary_sum;
 
@@ -107,13 +107,11 @@ public class HumanFileDig {
 
     private Short check_status;
 
-    private String register;
 
     private String checker;
 
     private String changer;
 
-    private Date regist_time;
 
     private Date check_time;
 
@@ -459,13 +457,6 @@ public class HumanFileDig {
 		this.salary_sum = salary_sum;
 	}
 
-	public Double getDemand_salaray_sum() {
-		return demand_salaray_sum;
-	}
-
-	public void setDemand_salaray_sum(Double demand_salaray_sum) {
-		this.demand_salaray_sum = demand_salaray_sum;
-	}
 
 	public Double getPaid_salary_sum() {
 		return paid_salary_sum;
@@ -531,13 +522,6 @@ public class HumanFileDig {
 		this.check_status = check_status;
 	}
 
-	public String getRegister() {
-		return register;
-	}
-
-	public void setRegister(String register) {
-		this.register = register;
-	}
 
 	public String getChecker() {
 		return checker;
@@ -555,13 +539,6 @@ public class HumanFileDig {
 		this.changer = changer;
 	}
 
-	public Date getRegist_time() {
-		return regist_time;
-	}
-
-	public void setRegist_time(Date regist_time) {
-		this.regist_time = regist_time;
-	}
 
 	public Date getCheck_time() {
 		return check_time;
@@ -627,6 +604,14 @@ public class HumanFileDig {
 
 	public void setHuman_file_status(Short human_file_status) {
 		this.human_file_status = human_file_status;
+	}
+
+	public Double getDemand_salary_sum() {
+		return demand_salary_sum;
+	}
+
+	public void setDemand_salary_sum(Double demand_salary_sum) {
+		this.demand_salary_sum = demand_salary_sum;
 	}
 
     

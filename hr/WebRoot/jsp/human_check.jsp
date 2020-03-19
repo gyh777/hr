@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 				<tr>
-					<td class="TD_STYLE1">
+					<td  class="TD_STYLE1">
 						职位分类
 					</td>
 					<td id="majorKind" class="TD_STYLE2">
