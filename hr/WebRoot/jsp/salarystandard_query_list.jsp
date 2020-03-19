@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,6 +17,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .style3 {color: #0000CC}
 -->
 </style>
+
+<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+
 	</head>
 
 	<body>
@@ -59,25 +63,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						薪酬总额
 					</td>
 				</tr>
-				
+				<c:forEach items="${requestScope.list}" var="one">
 					<tr class="TD_STYLE2">
 						<td>
-							<a href="salarystandard_query.jsp">1000001</a>
+							<a href="/hr/salarystandard/query?ssdId=${one.ssdId}">${one.standardId}</a>
 						</td>
 						<td>
-							
+							${one.standardName}
 						</td>
 						<td>
-							
+							${one.designer}
 						</td>
 						<td>
-							2010-05-29 00:00:00.0
+							${one.registTime}
 						</td>
 						<td>
-							0.0
+							${one.salarySum}
 						</td>
 					</tr>
-				
+				</c:forEach>
 			</table>
 			<p>&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
 		</form>

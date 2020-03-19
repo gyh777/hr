@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -6,127 +7,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<title>无标题文档</title>
+		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 	</head>
 
 	<body>
@@ -154,19 +40,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						薪酬编号
 					</td>
 					<td width="15%" class="TD_STYLE2">
-						1000001
+						${query.standardId}
 					</td>
 					<td width="12%" class="TD_STYLE1">
 						薪酬标准名称
 					</td>
 					<td width="11%" class="TD_STYLE2">
-						
+						${query.standardName}
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						薪酬总额
 					</td>
 					<td width="17%" class="TD_STYLE2">
-						0.0
+						${query.salarySum}
 					</td>
 					<td class="TD_STYLE1" width="12%" >
 						&nbsp;
@@ -180,19 +66,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						制定人
 					</td>
 					<td class="TD_STYLE2">
-						
+						${query.designer}
 					</td>
 					<td class="TD_STYLE1">
 						复核人
 					</td>
 					<td class="TD_STYLE2">
-						better_wanghao
+						${query.checker}
 					</td>
 					<td class="TD_STYLE1">
 						复核时间
 					</td>
 					<td class="TD_STYLE2">
-						2010-05-29 00:00:00.0
+						${query.checkTime}
 					</td>
 					<td class="TD_STYLE1">
 						&nbsp;
@@ -221,222 +107,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 				
+				<c:forEach items="${query.salaryStandardDetails}" var="one">
 				<tr class="TD_STYLE2">
+					
 					<td>
-						1
+						${one.itemId}
 					</td>
 					<td colspan="3">
-						出差补助
+						${one.itemName}
 					</td>
 					<td colspan="4">
-						0.0
+						${one.salary}
 					</td>
 				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						2
-					</td>
-					<td colspan="3">
-						交通补贴
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						3
-					</td>
-					<td colspan="3">
-						住房补贴
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						4
-					</td>
-					<td colspan="3">
-						基本工资
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						5
-					</td>
-					<td colspan="3">
-						年终奖
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						6
-					</td>
-					<td colspan="3">
-						误餐补助
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						1
-					</td>
-					<td colspan="3">
-						出差补助
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						2
-					</td>
-					<td colspan="3">
-						交通补贴
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						3
-					</td>
-					<td colspan="3">
-						住房补贴
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						4
-					</td>
-					<td colspan="3">
-						基本工资
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						5
-					</td>
-					<td colspan="3">
-						年终奖
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						6
-					</td>
-					<td colspan="3">
-						误餐补助
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						1
-					</td>
-					<td colspan="3">
-						出差补助
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						2
-					</td>
-					<td colspan="3">
-						交通补贴
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						3
-					</td>
-					<td colspan="3">
-						住房补贴
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						4
-					</td>
-					<td colspan="3">
-						基本工资
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						5
-					</td>
-					<td colspan="3">
-						年终奖
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
-				<tr class="TD_STYLE2">
-					<td>
-						6
-					</td>
-					<td colspan="3">
-						误餐补助
-					</td>
-					<td colspan="4">
-						0.0
-					</td>
-				</tr>
-				
+				</c:forEach>
 			</table>
 		</form>
 	</body>

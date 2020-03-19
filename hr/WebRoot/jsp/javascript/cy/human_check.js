@@ -13,7 +13,7 @@ function checkAgree(){
 	var third = $("#third").text();
 	var majorKind = $("#majorKind").text();
 	var major =  $("#major").text();
-         frm.action = "/hr/humanfile/checkagree?firstKindName="+first+"&secondKindName="+second+"&thirdKindName="+third+"&humanMajorKindName="+majorKind+"&humanMajorName"+major;
+         frm.action = "/hr/humanfile/checkagree?firstKindName="+first+"&secondKindName="+second+"&thirdKindName="+third+"&humanMajorKindName="+majorKind+"&humanMajorName="+major;
          frm.method = "post";
         	 frm.submit();
 }

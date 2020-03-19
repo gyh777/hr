@@ -5,7 +5,8 @@
 <mapper namespace="com.hr.mapper.ConfigFileFirstKindMapper">
 	  <insert  id="addConfigFileFirstKind" parameterType="com.hr.pojo.ConfigFileFirstKind">
 		insert into config_file_first_kind 
-			values(#{ffk_id},#{first_kind_id},#{first_kind_name},#{first_kind_salary_id},#{first_kind_sale_id})
+			values(#{ffk_id},#{first_kind_id},#{first_kind_name},
+			#{first_kind_salary_id},#{first_kind_sale_id})
 	</insert>
 	<delete id="removeConfigFileFirstKind" parameterType="String">
 		delete from config_file_first_kind where first_kind_id=#{first_kind_id}

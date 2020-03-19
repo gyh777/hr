@@ -1,15 +1,13 @@
-package com.hr.mapper;
+package com.hr.service;
 
 import java.util.List;
 
-import com.hr.pojo.Bonus;
-import com.hr.pojo.HumanFileDig;
 import com.hr.pojo.HumanFileDig;
 
-public interface HumanFileDigMapper {
-	public boolean addHumanFileDig(HumanFileDig hfd);
+public interface HumanFileDigService {
+	public boolean addHumanFileDig(HumanFileDig huf);
     public boolean removeHumanFileDig(String name);
-    public boolean updateHumanFileDig(HumanFileDig hfd);
+    public boolean updateHumanFileDig(HumanFileDig huf);
     public HumanFileDig queryHumanFileDigByName(String name);
     public List<HumanFileDig> queryAllHumanFileDig();
     public HumanFileDig queryHumanFileDigByHfd_id(int hfd_id);

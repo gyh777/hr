@@ -17,3 +17,4 @@ public interface ConfigFileFirstKindMapper {
     public List<TwoStringValue> queryConfigFileFirstKindIdAndName();
     public String queryIdByName(String first_kind_name);
 }
+

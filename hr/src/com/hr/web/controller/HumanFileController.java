@@ -24,6 +24,7 @@ import com.hr.service.ConfigFileSecondKindService;
 import com.hr.service.ConfigFileThirdKindService;
 import com.hr.service.ConfigMajorKindService;
 import com.hr.service.ConfigMajorService;
+import com.hr.service.HumanFileDigService;
 import com.hr.service.HumanFileService;
 import com.hr.service.SalaryStandardService;
 
@@ -32,6 +33,9 @@ import com.hr.service.SalaryStandardService;
 public class HumanFileController {
 	@Autowired
     HumanFileService humanFileServiceImpl;
+	
+	@Autowired
+    HumanFileDigService humanFileDigServiceImpl;
 	
 	@Autowired
 	ConfigFileFirstKindService configFileFirstKindServiceImpl;
@@ -173,9 +177,10 @@ public class HumanFileController {
 			,@RequestParam String humanProDesignation,@RequestParam String humanName,@RequestParam String humanSex,@RequestParam String humanEmail,@RequestParam String humanTelephone,@RequestParam String humanQq,@RequestParam String humanMobilephone,@RequestParam String humanAddress,
 			@RequestParam String humanPostcode,@RequestParam String humanNationality,@RequestParam String humanBirthplace,@RequestParam String str_humanBirthday,@RequestParam String humanRace,@RequestParam String humanReligion,@RequestParam String humanParty,
 			@RequestParam String humanIdCard,@RequestParam String humanSocietySecurityId,@RequestParam String humanAge,@RequestParam String humanEducatedDegree,@RequestParam String humanEducatedYears,@RequestParam String humanEducatedMajor,@RequestParam String salaryStandardName,@RequestParam String humanBank,
-			@RequestParam String humanAccount,@RequestParam String remark,@RequestParam String humanSpeciality,@RequestParam String humanHobby,@RequestParam String humanHistroyRecords,@RequestParam String humanFamilyMembership){
+			@RequestParam String humanAccount,@RequestParam String remark,@RequestParam String humanSpeciality,@RequestParam String humanHobby,@RequestParam String humanHistroyRecords,@RequestParam String humanFamilyMembership,@RequestParam String checker){
 		
 		    HumanFileDig hf = new HumanFileDig();
+		    HumanFile human = humanFileServiceImpl.queryHumanFileByName(humanName);
 		    //获得一级机构
 		    hf.setFirst_kind_id(configFileFirstKindServiceImpl.queryIdByName(firstKindName));
 		    hf.setFirst_kind_name(firstKindName);
@@ -211,9 +216,8 @@ public class HumanFileController {
 		    hf.setHuman_nationality(humanNationality);
 		    hf.setHuman_birthplace(humanBirthplace);
 		    Date date;
-		    Date regist_time;
 			try {
-				date = new SimpleDateFormat("yyyy-MM-dd").parse(str_humanBirthday);
+				date = new SimpleDateFormat("yyyy-MM-dd").parse("2000-06-03");
 				hf.setHuman_birthday(date);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
@@ -240,6 +244,21 @@ public class HumanFileController {
 			hf.setHuman_family_membership(humanFamilyMembership);
 			Short human_file_status = 1;
 			hf.setHuman_file_status(human_file_status);
+			hf.setDemand_salary_sum(2000.00);
+			hf.setFile_chang_amount(human.getFile_chang_amount());
+			hf.setBonus_amount(human.getBonus_amount());
+			hf.setSalary_sum(human.getSalary_sum());
+			hf.setPaid_salary_sum(human.getPaid_salary_sum());
+			hf.setTraining_amount(human.getTraining_amount());
+			hf.setAttachment_name(human.getAttachment_name());
+			Date time = new Date();
+			hf.setChange_time(time);
+			hf.setCheck_time(time);
+			hf.setCheck_status((short)1);
+			hf.setChecker(checker);
+			hf.setChanger(checker);
+			humanFileDigServiceImpl.addHumanFileDig(hf);
+			
 			System.out.println("档案复核成功");
 		
 		ModelAndView mav = new ModelAndView();

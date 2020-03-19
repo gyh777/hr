@@ -123,14 +123,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<c:forEach items="${check.salaryStandardDetails}" var="one">
 				<tr class="TD_STYLE2">
-				    <input type="hidden" name="sdtId" value="1" class="INPUT_STYLE2">
+				    <input type="hidden" name="sdtId" value="${one.ssdId}" class="INPUT_STYLE2">
 					<td align="center">
-						${one.itemId}
-						<input type="hidden" name="itemId" value="1" class="INPUT_STYLE2">
+						
+						<input type="hidden" name="itemId" value="${one.itemId}" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
-						${one.standardName}
-						<input type="hidden" name="itemName" value="出差补助" class="INPUT_STYLE2">
+						
+						<input type="hidden" name="itemName" value="${one.itemName}" class="INPUT_STYLE2">
 					</td>
 					<td>
 						<input type="text" name="salary" value="${one.salary}" class="INPUT_STYLE2">
