@@ -12,6 +12,7 @@ import com.hr.pojo.SalaryStandard;
 import com.hr.pojo.SalaryStandardDetails;
 import com.hr.service.SalaryStandardService;
 import com.hr.web.controller.requestparamtype.SalaryStandardDetailsList;
+import com.hr.web.controller.requestparamtype.SalaryStandardIdAndName;
 
 @Service
 public class SalaryStandardServiceImpl implements SalaryStandardService{
@@ -139,5 +140,11 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 	public String queryIdByName(String ssdId) {
 		String standardName = salaryStandardMapper.selectIdByName(ssdId);
 		return standardName;
+	}
+	
+	
+	public List<SalaryStandardIdAndName> selectIdAndName() {
+		List<SalaryStandardIdAndName> standardIdAndName = salaryStandardMapper.selectIdAndName();
+		return standardIdAndName;
 	}
 }

@@ -66,6 +66,10 @@
     	select standard_id from salary_standard where standard_name=#{standardName}
     </select>
     
+    <select id="selectIdAndName" resultType="com.hr.web.controller.requestparamtype.SalaryStandardIdAndName">
+    	select standard_id as standardId,standard_name as standardName from salary_standard
+    </select>
+    
     <select id="selectCheckAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
     	select * from salary_standard where check_status=0
     </select>

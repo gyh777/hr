@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.hr.pojo.SalaryStandard;
 import com.hr.web.controller.requestparamtype.SalaryStandardDetailsList;
+import com.hr.web.controller.requestparamtype.SalaryStandardIdAndName;
 
 public interface SalaryStandardMapper {
 	
@@ -20,6 +21,8 @@ public interface SalaryStandardMapper {
 	public List<SalaryStandard> selectChangeAll();
 	
 	public List<SalaryStandard> selectQueryAll();
+	
+	public List<SalaryStandardIdAndName> selectIdAndName();
 	
 	public SalaryStandard selectBySsdId(String ssdId);
 	

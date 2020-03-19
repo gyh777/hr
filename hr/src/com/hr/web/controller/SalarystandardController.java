@@ -62,7 +62,7 @@ public class SalarystandardController {
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryChangeAll();
 //		JSONArray ja = JSONArray.fromObject(list);
 		request.setAttribute("list", list);
-		System.out.println(list.get(1).getStandardName()+"--");
+		
 		return "salarystandard_change_list";
 	}
 	
