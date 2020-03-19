@@ -21,6 +21,24 @@
     	remark)
     </sql>
     
+    <resultMap type="com.hr.pojo.SalaryStandard" id="SalaryStandardMap">
+	    <id column="ssd_id" property="ssdId"/>
+	    <result column="standard_id" property="standardId"/>
+	    <result column="standard_name" property="standardName"/>
+	    <result column="designer" property="designer"/>
+	    <result column="register" property="register"/>
+	    <result column="checker" property="checker"/>
+	    <result column="changer" property="changer"/>
+	    <result column="regist_time" property="registTime"/>
+	    <result column="check_time" property="checkTime"/>
+	    <result column="change_time" property="changeTime"/>
+	    <result column="salary_sum" property="salarySum"/>
+	    <result column="check_status" property="checkStatus"/>
+	    <result column="change_status" property="changeStatus"/>
+	    <result column="check_comment" property="checkComment"/>
+	    <result column="remark" property="remark"/>
+    
+    </resultMap>
     <insert id="insert" parameterType="com.hr.pojo.SalaryStandard">
 		insert into salary_standard <include refid="SalaryStandard"/> values
 		(#{ssdId},#{standardId},#{standardName},#{designer},#{register},
@@ -42,21 +60,22 @@
 		salary_sum=#{salarySum},change_status=#{changeStatus},remark=#{remark} where ssd_id=#{ssdId}
 	</update> 
 	
-	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard">
+	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
     	select * from salary_standard
     </select>
     <select id="selectIdByName" parameterType="String">
     	select ssd_id from salary_standard where standard_name=#{standardName}
     </select>
     
-    <select id="selectCheckAll" resultType="com.hr.pojo.SalaryStandard">
+    <select id="selectCheckAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
     	select * from salary_standard where check_status=0
     </select>
     
-    <select id="selectChangeAll" resultType="com.hr.pojo.SalaryStandard">
+    <select id="selectChangeAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
     	select * from salary_standard where check_status=1
     </select>
-    <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandard">
+    
+    <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
     	select *  from salary_standard where ssd_id=#{ssdId}
     </select>
 </mapper>

@@ -81,6 +81,30 @@ error:function(){alert(23)}
 						变更
 					</td>
 				</tr>
+				
+				
+				<tr class="TD_STYLE2">
+						<td>
+							<a href="salarystandard.do?operate=query&id=1">1</a>
+						</td>
+						
+						<td>
+							1
+						</td>
+						<td>
+							1
+						</td>
+						<td>
+							1
+						</td>
+						<td>
+							1
+						</td>
+						<td>
+							<a
+								href="/hr/salarystandard/change?ssdId=1">变更</a>
+						</td>
+					</tr>
 				<c:forEach items="${requestScope.list}" var="one">
 					<tr class="TD_STYLE2">
 						<td>

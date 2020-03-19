@@ -73,6 +73,15 @@ public class SalarystandardController {
 		return list;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/queryList")
+	public List<SalaryStandard> queryList(){
+		
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryChangeAll();
+//		JSONArray ja = JSONArray.fromObject(list);
+		return list;
+	}
+	
 	@RequestMapping("/check")
 	public String check(@RequestParam String ssdId,Model m){
 		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
@@ -81,9 +90,11 @@ public class SalarystandardController {
 	}
 	
 	@RequestMapping("/change")
-	public String change(@RequestParam String ssdId,Model m){
+	public String change(@RequestParam String ssdId,HttpServletRequest request){
 		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
-		m.addAttribute("change", salaryStandardDetailsList);
+//		m.addAttribute("change", salaryStandardDetailsList);
+		request.setAttribute("change", salaryStandardDetailsList);
+		System.out.println(salaryStandardDetailsList.getStandardName());
 		return "salarystandard_change";
 	}
 }

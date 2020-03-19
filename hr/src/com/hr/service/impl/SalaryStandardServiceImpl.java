@@ -107,12 +107,17 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardMapper.selectChangeAll();
 		return list;
 	}
+	
+	public List<SalaryStandard> queryQueryAll(){
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardMapper.selectChangeAll();
+		return list;
+	}
 
 	@Override
 	public SalaryStandardDetailsList queryBySsdId(String ssdId) {
 		SalaryStandardDetailsList ssdl = new SalaryStandardDetailsList();
 		SalaryStandard salaryStandard = salaryStandardMapper.selectBySsdId(ssdId);
-		ssdl.setChangeStatus(salaryStandard.getChangeStatus().toString());
+//		ssdl.setChangeStatus(salaryStandard.getChangeStatus().toString());
 		ssdl.setCheckStatus(salaryStandard.getCheckStatus().toString());
 		ssdl.setCheckTime(salaryStandard.getCheckTime());
 		ssdl.setDesigner(salaryStandard.getDesigner());

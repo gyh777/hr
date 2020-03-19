@@ -49,19 +49,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="15%" class="TD_STYLE2">
 						
-						<input type="text" name="standardName" value="${check.standardId}" class="INPUT_STYLE2">
+						<input type="text" name="standardName" value="${change.standardId}" class="INPUT_STYLE2">
 					</td>
 					<td width="12%" class="TD_STYLE1">
 						薪酬标准名称
 					</td>
 					<td width="11%" class="TD_STYLE2">
-						<input type="text" name="standardName" value="${check.standardName}" class="INPUT_STYLE2">
+						<input type="text" name="standardName" value="${change.standardName}" class="INPUT_STYLE2">
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						薪酬总额
 					</td>
 					<td width="17%" class="TD_STYLE2">
-						${check.salarySum}
+						${change.salarySum}
 					</td>
 					<td width="12%" class="TD_STYLE1">
 						&nbsp;
@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						制定人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="designer" value="${check.designer}" class="INPUT_STYLE2">
+						<input type="text" name="designer" value="${change.designer}" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						变更人

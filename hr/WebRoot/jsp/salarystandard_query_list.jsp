@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,6 +17,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .style3 {color: #0000CC}
 -->
 </style>
+
+<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+$.ajax({
+dataType:"json", 
+url:'/hr/salarystandard/queryList',
+type:'POST',
+contentType : 'application/json;charset=utf-8',
+async: true,
+success:function(date){
+alert(1);
+},
+error:function(){alert(23)}
+});
+
+};
+</script>
 	</head>
 
 	<body>
@@ -59,10 +78,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						薪酬总额
 					</td>
 				</tr>
-				
+				<c:forEach items="${requestScope.list}" var="one">
 					<tr class="TD_STYLE2">
 						<td>
-							<a href="salarystandard_query.jsp">1000001</a>
+							<a href="salarystandard_query.jsp">${one.standardId}</a>
 						</td>
 						<td>
 							
@@ -77,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							0.0
 						</td>
 					</tr>
-				
+				</c:forEach>
 			</table>
 			<p>&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
 		</form>
