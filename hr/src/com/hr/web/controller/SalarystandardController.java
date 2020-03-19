@@ -55,22 +55,35 @@ public class SalarystandardController {
 		return null;
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping("/changeList")
-	public List<SalaryStandard> changeList(){
+	public String changeList(HttpServletRequest request){
 		
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryChangeAll();
 //		JSONArray ja = JSONArray.fromObject(list);
-		return list;
+		request.setAttribute("list", list);
+		System.out.println(list.get(1).getStandardName()+"--");
+		return "salarystandard_change_list";
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping(value="/checkList")
-	public List<SalaryStandard> checkList(){
+	public String checkList(HttpServletRequest request){
 		System.out.println(111);
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryCheckAll();
 //		JSONArray ja = JSONArray.fromObject(list);
-		return list;
+		request.setAttribute("list", list);
+		return "salarystandard_check_list";
+	}
+	
+	
+	@RequestMapping(value="/queryList")
+	public String queryList(HttpServletRequest request){
+		
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryChangeAll();
+//		JSONArray ja = JSONArray.fromObject(list);
+		request.setAttribute("list", list);
+		return "salarystandard_query_list";
 	}
 	
 	@RequestMapping("/check")
@@ -80,10 +93,19 @@ public class SalarystandardController {
 		return "salarystandard_check";
 	}
 	
-	@RequestMapping("/change")
-	public String change(@RequestParam String ssdId,Model m){
+	@RequestMapping("/query")
+	public String query(@RequestParam String ssdId,Model m){
 		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
-		m.addAttribute("change", salaryStandardDetailsList);
+		m.addAttribute("query", salaryStandardDetailsList);
+		return "salarystandard_query";
+	}
+	
+	@RequestMapping("/change")
+	public String change(@RequestParam String ssdId,HttpServletRequest request){
+		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
+//		m.addAttribute("change", salaryStandardDetailsList);
+		request.setAttribute("change", salaryStandardDetailsList);
+		System.out.println(salaryStandardDetailsList.getStandardName());
 		return "salarystandard_change";
 	}
 }

@@ -3,57 +3,57 @@ package com.hr.pojo;
 import java.util.Date;
 
 public class EngageResume {
-    private int res_id;
-    private String human_name;
-    private String engage_type;
-    private String human_address;
-    private String human_postcode;
-    private String human_major_kind_id;
-    private String human_major_kind_name;
-    private String human_major_id;
-    private String human_major_name;
-    private String human_telephone;
-    private String human_homephone;
-    private String human_mobilephone;
-    private String human_email;
-    private String human_hobby;
-    private String human_specility;
-    private String human_sex;
-    private String human_religion;
-    private String human_party;
-    private String human_nationality;
-    private String human_race;
-    private Date human_birthday;
-    private Short human_age;
-    private String human_educated_degree;
-    private Short human_educated_years;
-    private String human_educated_major;
-    private String human_college;
-    private String human_idcard;
-    private String human_birthplace;
-    private Double demand_salary_standard;
-    private String human_history_records;
-    private String remark;
-    private String recomandation;
-    private String human_picture;
-    private String attachment_name;
-    private Short check_status;
-    private String register;
-    private Date regist_time;
-    private String checker;
-    private Date check_time;
-    private Short interview_status;
-    private Double total_points;
-    private Short test_amount;
-    private String test_checker;
-    private Date test_check_time;
-    private String pass_register;
-    private Date pass_regist_time;
-    private String pass_checker;
-    private Date pass_check_time;
-    private Short pass_check_status;
-    private String pass_checkComment;
-    private String pass_passComment;
+	private int res_id;		//主键id
+    private String human_name;	//姓名
+    private String engage_type;	//招聘类型
+    private String human_address;	//地址
+    private String human_postcode;	//邮编
+    private String human_major_kind_id;	//职位分类id
+    private String human_major_kind_name;	//职位分类
+    private String human_major_id;	//职位名称id
+    private String human_major_name;	//职位名称
+    private String human_telephone;	//电话
+    private String human_homephone;	//家庭电话
+    private String human_mobilephone;	//手机
+    private String human_email;	//email
+    private String human_hobby;	//兴趣爱好
+    private String human_specility;	//特长
+    private String human_sex;	//性别
+    private String human_religion;	//宗教信仰
+    private String human_party;	//政治面貌
+    private String human_nationality;	//国籍
+    private String human_race;	//民族
+    private Date human_birthday;	//生日
+    private Short human_age;	//年龄
+    private String human_educated_degree;	//教育程度
+    private Short human_educated_years;	//教育年限
+    private String human_educated_major;	//专业
+    private String human_college;	//毕业院校
+    private String human_idcard;	//身份证号
+    private String human_birthplace;	//出生地
+    private Double demand_salary_standard;	//薪酬标准
+    private String human_history_records;	//个人履历
+    private String remark;	//备注
+    private String recomandation;	//推荐意见
+    private String human_picture;	//照片
+    private String attachment_name;	//档案附件
+    private Short check_status;	//复核状态
+    private String register;	//登记人
+    private Date regist_time;	//登记时间
+    private String checker;	//复核人姓名
+    private Date check_time;	//复核时间
+    private Short interview_status;	//面试状态
+    private Double total_points;	//总分
+    private Short test_amount;	//考试次数
+    private String test_checker;	//测试复核人
+    private Date test_check_time;	//测试复核时间
+    private String pass_register;	//通过登记人姓名
+    private Date pass_regist_time;	//通过登记时间
+    private String pass_checker;	//通过复核人姓名
+    private Date pass_check_time;	//通过复核时间
+    private Short pass_check_status;	//通过的复核状态
+    private String pass_checkComment;	//录用申请审核意见
+    private String pass_passComment;	//录用申请审批意见
 	public int getRes_id() {
 		return res_id;
 	}

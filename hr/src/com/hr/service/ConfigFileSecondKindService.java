@@ -2,7 +2,10 @@ package com.hr.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hr.pojo.ConfigFileSecondKind;
+import com.hr.web.controller.requestparamtype.TwoStringValue;
 
 public interface ConfigFileSecondKindService {
 	public boolean addConfigFileSecondKind(ConfigFileSecondKind fsk);
@@ -11,4 +14,5 @@ public interface ConfigFileSecondKindService {
     public ConfigFileSecondKind queryConfigFileSecondKindById(String fskId);
     public List<ConfigFileSecondKind> queryAllConfigFileSecondKind();
     public String queryIdByName(String second_kind_name);
+    public List<TwoStringValue> queryIdAndNameByFirstKindName(String first_kind_name);
 }

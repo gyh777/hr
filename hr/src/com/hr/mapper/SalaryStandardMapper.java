@@ -19,6 +19,8 @@ public interface SalaryStandardMapper {
 	
 	public List<SalaryStandard> selectChangeAll();
 	
+	public List<SalaryStandard> selectQueryAll();
+	
 	public SalaryStandard selectBySsdId(String ssdId);
 	
 	public String selectIdByName(String name);

@@ -1,4 +1,3 @@
-
 package com.hr.service.impl;
 
 import java.util.ArrayList;
@@ -108,12 +107,18 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardMapper.selectChangeAll();
 		return list;
 	}
+	
+//	public List<SalaryStandard> queryQueryAll(){
+//		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardMapper.selectQueryAll();
+//		return list;
+//	}
 
 	@Override
 	public SalaryStandardDetailsList queryBySsdId(String ssdId) {
 		SalaryStandardDetailsList ssdl = new SalaryStandardDetailsList();
 		SalaryStandard salaryStandard = salaryStandardMapper.selectBySsdId(ssdId);
-		ssdl.setChangeStatus(salaryStandard.getChangeStatus().toString());
+//		ssdl.setChangeStatus(salaryStandard.getChangeStatus().toString());
+		String standardId = salaryStandard.getStandardId();
 		ssdl.setCheckStatus(salaryStandard.getCheckStatus().toString());
 		ssdl.setCheckTime(salaryStandard.getCheckTime());
 		ssdl.setDesigner(salaryStandard.getDesigner());
@@ -121,10 +126,11 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		ssdl.setRegistTime(salaryStandard.getRegistTime());
 		ssdl.setSalarySum(salaryStandard.getSalarySum());
 		ssdl.setSsdId(salaryStandard.getSsdId());
-		ssdl.setStandardId(salaryStandard.getStandardId());
+		ssdl.setStandardId(standardId);
 		ssdl.setStandardName(salaryStandard.getStandardName());
 		
-		ArrayList<SalaryStandardDetails> salaryStandardDetails = (ArrayList<SalaryStandardDetails>) salaryStandardDetailsMapper.selectBySsdId(ssdId);
+		ArrayList<SalaryStandardDetails> salaryStandardDetails = (ArrayList<SalaryStandardDetails>) salaryStandardDetailsMapper.selectByStandardId(standardId);
+		
 		ssdl.setSalaryStandardDetails(salaryStandardDetails);
 		return ssdl;
 	}

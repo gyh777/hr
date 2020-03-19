@@ -1,8 +1,9 @@
 package com.hr.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SalaryStandard {
+public class SalaryStandard  implements Serializable{
 	
 	
     private Short ssdId;

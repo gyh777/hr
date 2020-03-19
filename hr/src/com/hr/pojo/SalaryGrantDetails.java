@@ -1,6 +1,8 @@
 package com.hr.pojo;
 
-public class SalaryGrantDetails {
+import java.io.Serializable;
+
+public class SalaryGrantDetails  implements Serializable{
     private Short grdId;
 
     private String salaryGrantId;
