@@ -48,7 +48,7 @@ public class EngageResumeController {
 		engageResume.setRegist_time(new Date());
 		engageResume.setTest_check_time(new Date());
 		engageResume.setCheck_time(new Date());
-		engageResume.setPass_check_status(Short.valueOf((short) 0));
+		engageResume.setInterview_status((short) 0);
 		engageResumeServiceImpl.save(engageResume);
 		return "forward:configMajor/selectAllForEngage";
 	}
