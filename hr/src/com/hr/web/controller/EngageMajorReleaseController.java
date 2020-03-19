@@ -57,7 +57,6 @@ public class EngageMajorReleaseController {
 	@ResponseBody
 	public List<TwoStringValue> selectConfigMajorIdAndName(
 			@RequestParam("firstName") String firstName) {
-		firstName = CharacterEncodingHelper.getChinese(firstName);
 		List<TwoStringValue> list = 
 				configFileSecondKindServiceImpl.queryIdAndNameByFirstKindName(firstName);
 		
@@ -69,8 +68,6 @@ public class EngageMajorReleaseController {
 	public List<TwoStringValue> selectThirdKindIdAndName(
 			@RequestParam("firstName") String firstName,
 			@RequestParam("secondName") String secondName) {
-		firstName = CharacterEncodingHelper.getChinese(firstName);
-		secondName = CharacterEncodingHelper.getChinese(secondName);
 		List<TwoStringValue> list = 
 				configFileThirdKindServiceImpl.queryKindIdAndName(firstName, secondName);
 		
@@ -81,7 +78,6 @@ public class EngageMajorReleaseController {
 	@ResponseBody
 	public List<TwoStringValue> selectAllMajorIdAndName(
 			@RequestParam("firstName") String firstName) {
-		firstName = CharacterEncodingHelper.getChinese(firstName);
 		List<TwoStringValue> list = 
 				configMajorServiceImpl.selectAllConfigMajorIdAndName(firstName);
 		

@@ -12,27 +12,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="../jsp/table.css" type="text/css">
 		<link rel="stylesheet" type="text/css" media="all"
 			href="../jsp/javascript/calendar/calendar-win2k-cold-1.css">
-		<script type="text/javascript" src="../jsp/javascript/calendar/cal.js"></script>
-		<script type="text/javascript" src="../jsp/javascript/comm/comm.js"></script>
-		<script type="text/javascript" src="../jsp/javascript/comm/select.js"></script>
-		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
-		<script type="text/javascript">
+		<script type="text/javascript" src="../jsp/javascript/calendar/cal.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="../jsp/javascript/comm/comm.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="../jsp/javascript/comm/select.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js" charset="UTF-8"></script>
+		<script type="text/javascript" charset="UTF-8">
 			function kindNameChange(obj){
 				//获得当前元素的name
 				var name = $(obj).attr("name");
 				var kind = $(obj).find("option:selected").val();
+				var firstId = kind.substring(0,kind.indexOf("/"));
 				var firstName = kind.substring(kind.indexOf("/")+1);
 				//初始化要跳转的url和要传的数据data以及要添加子元素的父元素的name
 				var url = "/hr/engageMajorRelease/";
 				var data = {"firstName" : firstName};
 				var addName = "";
+				var valueId = "";
+				var valueName = "";
 				
 				if(name == "firstKindName"){
+					$("select[name='thirdKindName']").children("option").not(":eq(0)").remove();
 					url = url + "selectSecondKindIdAndName";
 					addName = "secondKindName";
-					$("select[name='thirdKindName']").empty();
-					$("select[name='thirdKindName']")
-						.append("<option value=''>&nbsp;</option>");
+					valueId = "first_kind_id";
+					valueName = "first_kind_name";
 				}else if(name == "secondKindName"){
 					var secondName = firstName;
 					var kinds = $("select[name='firstKindName']").val();
@@ -40,20 +43,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					url = url + "selectThirdKindIdAndName";
 					data = {"firstName" : firstName, "secondName" : secondName};
 					addName = "thirdKindName";
+					valueId = "second_kind_id";
+					valueName = "second_kind_name";
+				}else if(name == "thirdKindName"){
+					url = "";
+					valueId = "third_kind_id";
+					valueName = "third_kind_name";
 				}else if(name == "majorKindName"){
 					url = url + "selectAllMajorIdAndName";
 					addName = "majorName";
+					valueId = "major_kind_id";
+					valueName = "major_kind_name";
+				}else if(name == "majorName"){
+					url = "";
+					valueId = "major_id";
+					valueName = "major_name";
+				}else if(name == "engageType"){
+					url = "";
+					valueId = "engage_id";
+					valueName = "engage_type";
+					firstName = kind;
+					firstId = "0";
 				};
 				//清空所有下级元素的内容
-				$("select[name='"+ addName +"']").empty();
-				$("select[name='"+ addName +"']")
-					.append("<option value=''>&nbsp;</option>");
+				$("select[name='"+ addName +"']").children("option").not(":eq(0)").remove();
+				$("input[name='"+ valueId +"']").val(firstId);
+				$("input[name='"+ valueName +"']").val(firstName);
 				$.ajax({
 					type : "post",
 					url : url,
 					dataType : "json",
 					data: data,
 					success:function(result){
+						console.log(result);
 						$.each(result, function (i, value) {
 							var values = value.first +"/"+ value.second;
 							var content = "<option value='"+values+"'>"+ values +"</option>";
@@ -87,6 +109,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td class="TD_STYLE1" width="10%">I级机构</td>
 					<td width="15%" class="TD_STYLE2">
+						<input type="hidden" name="first_kind_id" value="">
+						<input type="hidden" name="first_kind_name" value="">
 						<select name="firstKindName" class="SELECT_STYLE1" 
 								onchange="kindNameChange(this)">
 							<option value="">&nbsp;</option>
@@ -103,6 +127,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="10%" class="TD_STYLE1">II级机构</td>
 					<td width="15%" class="TD_STYLE2">
+						<input type="hidden" name="second_kind_id" value="">
+						<input type="hidden" name="second_kind_name" value="">
 						<select name="secondKindName" class="SELECT_STYLE1" 
 								onchange="kindNameChange(this)">
 							<option value="">&nbsp;</option>
@@ -110,13 +136,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="10%" class="TD_STYLE1">III级机构</td>
 					<td width="15%" class="TD_STYLE2">
-						<select name="thirdKindName" class="SELECT_STYLE1">
+						<input type="hidden" name="third_kind_id" value="">
+						<input type="hidden" name="third_kind_name" value="">
+						<select name="thirdKindName" class="SELECT_STYLE1" 
+								onchange="kindNameChange(this)">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
 					<td width="10%" class="TD_STYLE1">招聘类型</td>
 					<td width="15%" class="TD_STYLE2">
-						<select name="engageType" class="SELECT_STYLE1">
+						<input type="hidden" name="engage_id" value="">
+						<input type="hidden" name="engage_type" value="">
+						<select name="engageType" class="SELECT_STYLE1" 
+								onchange="kindNameChange(this)">
 							<option value="">&nbsp;</option>
 							<option value="校园招聘">校园招聘</option>
 							<option value="社会招聘">社会招聘</option>
@@ -126,6 +158,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td width="10%" class="TD_STYLE1">职位分类</td>
 					<td width="15%" class="TD_STYLE2">
+						<input type="hidden" name="major_kind_id" value="">
+						<input type="hidden" name="major_kind_name" value="">
 						<select name="majorKindName" class="SELECT_STYLE1" 
 								onchange="kindNameChange(this)">
 							<option value="">&nbsp;</option>
@@ -140,7 +174,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="10%" class="TD_STYLE1">职位名称</td>
 					<td class="TD_STYLE2">
-						<select name="majorName" class="SELECT_STYLE1">
+						<input type="hidden" name="major_id" value="">
+						<input type="hidden" name="major_name" value="">
+						<select name="majorName" class="SELECT_STYLE1" 
+								onchange="kindNameChange(this)">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
@@ -182,13 +219,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 		</form>
 	</body>
-	<script type="text/javascript">
-	Calendar.setup ({
-		inputField : "date_end",
-		ifFormat : "%Y-%m-%d", 
-		showsTime : false, 
-		button : "date_end", 
-		singleClick : true, 
-		step : 1});
+	<script type="text/javascript" charset="UTF-8">
+		Calendar.setup ({
+			inputField : "date_end",
+			ifFormat : "%Y-%m-%d", 
+			showsTime : false, 
+			button : "date_end", 
+			singleClick : true, 
+			step : 1});
+		Calendar.setup ({
+			inputField : "date_start",
+			ifFormat : "%Y-%m-%d %H:%M:%S", 
+			showsTime : false, 
+			button : "date_start", 
+			singleClick : true, 
+			step : 1});
 	</script>
 </html>
