@@ -14,4 +14,6 @@ public interface ConfigMajorMapper {
     public String selectConfigMajorIdByName(@Param("major_name")String major_name);
     public boolean deleteConfigMajor(@Param("major_name")String major_name);
 	public boolean addConfigMajor(ConfigMajor cm);
+	
+	public ConfigMajor selectByMajorName(@Param("major_name") String major_name);
 }

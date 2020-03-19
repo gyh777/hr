@@ -14,7 +14,7 @@
 	</sql>
 	<sql id="interviewForUpdate">
 		human_name=#{human_name},interview_amount=#{interview_amount},
-		human_major_kind_id=#{human_major_kind_id},human_major_kind_nam=#{human_major_kind_nam},human_major_id=#{human_major_id},
+		human_major_kind_id=#{human_major_kind_id},human_major_kind_name=#{human_major_kind_name},human_major_id=#{human_major_id},
 		human_major_name=#{human_major_name},image_degree=#{image_degree},native_language_degree=#{native_language_degree},
 		foreign_language_degree=#{foreign_language_degree},response_speed_degree=#{response_speed_degree},eq_degree=#{eq_degree},iq_degree=#{iq_degree},
 		multi_quality_degree=#{multi_quality_degree},register=#{register},checker=#{checker},

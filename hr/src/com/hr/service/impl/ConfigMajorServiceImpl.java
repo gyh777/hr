@@ -42,4 +42,9 @@ public class ConfigMajorServiceImpl implements ConfigMajorService{
 		return mapper.selectConfigMajorIdByName(major_name);
 	}
 
+	@Override
+	public ConfigMajor getByMajorName(String major_name) {
+		return mapper.selectByMajorName(major_name);
+	}
+
 }

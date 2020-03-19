@@ -14,7 +14,9 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.hr.pojo.ConfigMajor;
 import com.hr.pojo.EngageResume;
+import com.hr.service.ConfigMajorService;
 import com.hr.service.EngageResumeService;
 
 @Controller
@@ -22,6 +24,8 @@ import com.hr.service.EngageResumeService;
 public class EngageResumeController {
 	@Autowired
 	EngageResumeService engageResumeServiceImpl;
+	@Autowired
+	ConfigMajorService configMajorServiceImpl;
 	
 	@RequestMapping("/getAll")
 	public String getAll(){
@@ -45,19 +49,37 @@ public class EngageResumeController {
 	
 	@RequestMapping("/save")
 	public String save(EngageResume engageResume){
+		ConfigMajor configMajor = configMajorServiceImpl.getByMajorName(engageResume.getHuman_major_name());
+		if(configMajor != null){
+			engageResume.setHuman_major_kind_id(configMajor.getMajor_kind_id());;
+			engageResume.setHuman_major_kind_name(configMajor.getMajor_kind_name());
+			engageResume.setHuman_major_id(configMajor.getMajor_id());
+			engageResume.setHuman_major_name(configMajor.getMajor_name());	
+		}
+		
 		engageResume.setRegist_time(new Date());
-		engageResume.setTest_check_time(new Date());
 		engageResume.setCheck_time(new Date());
-		engageResume.setInterview_status((short) 0);
+		engageResume.setTest_check_time(new Date());
+		engageResume.setPass_regist_time(new Date());
+		engageResume.setPass_check_time(new Date());
+		
+		engageResume.setRegister("register");
+		engageResume.setInterview_status(0);
 		engageResumeServiceImpl.save(engageResume);
-		return "forward:configMajor/selectAllForEngage";
+		return "forward:/configMajor/selectAllForEngage";
 	}
 	
 	@RequestMapping("/update")
 	public String update(EngageResume engageResume, HttpServletRequest request){
+		engageResume.setChecker("checker");
+		engageResume.setCheck_time(new Date());
+		
+		int status = engageResume.getInterview_status();
+		if(status == 0){
+			engageResume.setInterview_status(1);
+		}
+		
 		engageResumeServiceImpl.update(engageResume);
-		Short s = engageResume.getPass_check_status();
-		System.out.println(s);
 		return "forward:/configMajor/selectAllForEngage?choose=1";
 	}
 	

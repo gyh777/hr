@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hr.pojo.ConfigQuestionFirstKind;
 import com.hr.pojo.ConfigQuestionSecondKind;
+import com.hr.pojo.EngageSubjects;
 import com.hr.service.ConfigQuestionFirstKindService;
 import com.hr.service.ConfigQuestionSecondKindService;
 import com.hr.util.UUIDHelper;
@@ -71,5 +72,12 @@ public class ConfigQuestionSecondKindController {
 		List<ConfigQuestionSecondKind> list = configQuestionSecondKindServiceImpl.list();
 		request.setAttribute("configQuestionSecondKindList", list);
 		return "question_query_locate";
+	}
+	
+	@RequestMapping("/getAllForQuestion")
+	public String getAllForQuestion(HttpServletRequest request){
+		List<ConfigQuestionSecondKind> list = configQuestionSecondKindServiceImpl.list();
+		request.setAttribute("configQuestionSecondKindList", list);
+		return "forward:/engageSubjects/getAll";
 	}
 }

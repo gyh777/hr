@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="74" class="TD_STYLE1">
 						职位分类
 					</td>
-					<td width="168" class="TD_STYLE2">}
+					<td width="168" class="TD_STYLE2">
 						<select name="human_major_kind_name">
 							<option value="${engageResumeForUpdate.human_major_kind_name }" selected="selected">${engageResumeForUpdate.human_major_kind_name }</option>
 							<c:forEach var="list" items="${engageResumeFindList }">
@@ -60,7 +60,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						招聘类型
 					</td>
 					<td width="138" class="TD_STYLE2">
-						${engageResumeForUpdate.engage_type }
+						<select name="engage_type">
+							<option value="${engageResumeForUpdate.engage_type }" selected="selected">${engageResumeForUpdate.engage_type }</option>
+							<option value="社会招聘">社会招聘</option>
+							<option value="校园招聘">校园招聘</option>
+						</select>
 					</td>
 				</tr>
 				<tr>
@@ -74,7 +78,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						性别
 					</td>
 					<td width="95" height="26" class="TD_STYLE2">
-						${engageResumeForUpdate.human_sex }
+						<select name="human_sex">
+							<option value="${engageResumeForUpdate.human_sex }" selected="selected">${engageResumeForUpdate.human_sex }</option>
+							<option value="男">男</option>
+							<option value="女">女</option>
+						</select>
 					</td>
 					<td class="TD_STYLE1">
 						EMAIL
@@ -146,7 +154,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						民族
 					</td>
 					<td width="95" height="26" class="TD_STYLE2">
-						${engageResumeForUpdate.human_race }
 						<select name="human_race">
 							<option value="${engageResumeForUpdate.human_race }" selected="selected">${engageResumeForUpdate.human_race }</option>
 							<option value="汉族">汉族</option>
@@ -230,13 +237,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						薪酬要求
 					</td>
 					<td width="95" height="26" class="TD_STYLE2">
-						<input type="text" name="test_amount" value="${engageResumeForUpdate.demand_salary_standard }">
+						<input type="text" name="demand_salary_standard" value="${engageResumeForUpdate.demand_salary_standard }">
 					</td>
 					<td class="TD_STYLE1">
 						注册时间
 					</td>
 					<td width="95" height="26" class="TD_STYLE2">
-						<input type="text" name="regist_time" value="${engageResumeForUpdate.regist_time }">
+						${engageResumeForUpdate.regist_time }">
 					</td>
 				</tr>
 				<tr>
@@ -274,7 +281,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						备注
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="recomandation" rows="4" class="TEXTAREA_STYLE1">${engageResumeForUpdate.recomandation }</textarea>
+						<textarea name="remark" rows="4" class="TEXTAREA_STYLE1">${engageResumeForUpdate.remark }</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -282,7 +289,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						推荐意见
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="remark" rows="4" class="TEXTAREA_STYLE1">${engageResumeForUpdate.recomandation }</textarea>
+						<textarea name="recomandation" rows="4" class="TEXTAREA_STYLE1">${engageResumeForUpdate.recomandation }</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -290,7 +297,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						是否推荐面试
 					</td>
 					<td class="TD_STYLE2">
-						<input type="radio" name="pass_check_status" value="1">
+						<input type="radio" name="interview_status" value="2">
 					</td>
 				</tr>
 			</table>

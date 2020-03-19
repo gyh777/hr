@@ -13,4 +13,6 @@ public interface ConfigMajorService {
     public String selectConfigMajorIdByName(String major_name);
     public boolean deleteConfigMajor(String major_name);
 	public boolean addConfigMajor(ConfigMajor cm);
+	
+	public ConfigMajor getByMajorName(String major_name);
 }

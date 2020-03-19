@@ -763,7 +763,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/question_register.jsp" target="mainFrame">试题登记</a>
+													<a href="/hr/configQuestionSecondKind/getAllForQuestion" target="mainFrame">试题登记</a>
 												</td>
 											</tr>
 											<tr>

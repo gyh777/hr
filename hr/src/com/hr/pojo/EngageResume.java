@@ -23,10 +23,10 @@ public class EngageResume {
     private String human_party;	//政治面貌
     private String human_nationality;	//国籍
     private String human_race;	//民族
-    private Date human_birthday;	//生日
-    private Short human_age;	//年龄
+    private String human_birthday;	//生日
+    private int human_age;	//年龄
     private String human_educated_degree;	//教育程度
-    private Short human_educated_years;	//教育年限
+    private int human_educated_years;	//教育年限
     private String human_educated_major;	//专业
     private String human_college;	//毕业院校
     private String human_idcard;	//身份证号
@@ -37,21 +37,21 @@ public class EngageResume {
     private String recomandation;	//推荐意见
     private String human_picture;	//照片
     private String attachment_name;	//档案附件
-    private Short check_status;	//复核状态
+    private int check_status;	//复核状态
     private String register;	//登记人
     private Date regist_time;	//登记时间
     private String checker;	//复核人姓名
     private Date check_time;	//复核时间
-    private Short interview_status;	//面试状态
+    private int interview_status;	//面试状态
     private Double total_points;	//总分
-    private Short test_amount;	//考试次数
+    private int test_amount;	//考试次数
     private String test_checker;	//测试复核人
     private Date test_check_time;	//测试复核时间
     private String pass_register;	//通过登记人姓名
     private Date pass_regist_time;	//通过登记时间
     private String pass_checker;	//通过复核人姓名
     private Date pass_check_time;	//通过复核时间
-    private Short pass_check_status;	//通过的复核状态
+    private int pass_check_status;	//通过的复核状态
     private String pass_checkComment;	//录用申请审核意见
     private String pass_passComment;	//录用申请审批意见
 	public int getRes_id() {
@@ -174,16 +174,16 @@ public class EngageResume {
 	public void setHuman_race(String human_race) {
 		this.human_race = human_race;
 	}
-	public Date getHuman_birthday() {
+	public String getHuman_birthday() {
 		return human_birthday;
 	}
-	public void setHuman_birthday(Date human_birthday) {
+	public void setHuman_birthday(String human_birthday) {
 		this.human_birthday = human_birthday;
 	}
-	public Short getHuman_age() {
+	public int getHuman_age() {
 		return human_age;
 	}
-	public void setHuman_age(Short human_age) {
+	public void setHuman_age(int human_age) {
 		this.human_age = human_age;
 	}
 	public String getHuman_educated_degree() {
@@ -192,10 +192,10 @@ public class EngageResume {
 	public void setHuman_educated_degree(String human_educated_degree) {
 		this.human_educated_degree = human_educated_degree;
 	}
-	public Short getHuman_educated_years() {
+	public int getHuman_educated_years() {
 		return human_educated_years;
 	}
-	public void setHuman_educated_years(Short human_educated_years) {
+	public void setHuman_educated_years(int human_educated_years) {
 		this.human_educated_years = human_educated_years;
 	}
 	public String getHuman_educated_major() {
@@ -258,10 +258,10 @@ public class EngageResume {
 	public void setAttachment_name(String attachment_name) {
 		this.attachment_name = attachment_name;
 	}
-	public Short getCheck_status() {
+	public int getCheck_status() {
 		return check_status;
 	}
-	public void setCheck_status(Short check_status) {
+	public void setCheck_status(int check_status) {
 		this.check_status = check_status;
 	}
 	public String getRegister() {
@@ -288,10 +288,10 @@ public class EngageResume {
 	public void setCheck_time(Date check_time) {
 		this.check_time = check_time;
 	}
-	public Short getInterview_status() {
+	public int getInterview_status() {
 		return interview_status;
 	}
-	public void setInterview_status(Short interview_status) {
+	public void setInterview_status(int interview_status) {
 		this.interview_status = interview_status;
 	}
 	public Double getTotal_points() {
@@ -300,10 +300,10 @@ public class EngageResume {
 	public void setTotal_points(Double total_points) {
 		this.total_points = total_points;
 	}
-	public Short getTest_amount() {
+	public int getTest_amount() {
 		return test_amount;
 	}
-	public void setTest_amount(Short test_amount) {
+	public void setTest_amount(int test_amount) {
 		this.test_amount = test_amount;
 	}
 	public String getTest_checker() {
@@ -342,10 +342,10 @@ public class EngageResume {
 	public void setPass_check_time(Date pass_check_time) {
 		this.pass_check_time = pass_check_time;
 	}
-	public Short getPass_check_status() {
+	public int getPass_check_status() {
 		return pass_check_status;
 	}
-	public void setPass_check_status(Short pass_check_status) {
+	public void setPass_check_status(int pass_check_status) {
 		this.pass_check_status = pass_check_status;
 	}
 	public String getPass_checkComment() {
@@ -360,5 +360,5 @@ public class EngageResume {
 	public void setPass_passComment(String pass_passComment) {
 		this.pass_passComment = pass_passComment;
 	}
-    
+	
 }

@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -32,6 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
+				<input type="hidden" value="${getByResIdForInterview.res_id }" name="res_id">
 				<input type="hidden" value="${getByResIdForInterview.human_name }" name="human_name">
 				<input type="hidden" value="${getByResIdForInterview.res_id }" name="resume_id">
 				<input type="hidden" value="${getByResIdForInterview.human_major_kind_id }" name="human_major_kind_id">
@@ -42,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="74" class="TD_STYLE1">
 						姓名
 					</td>
-					<td width="168" class="TD_STYLE2">}
+					<td width="168" class="TD_STYLE2">
 						${getByResIdForInterview.human_name }
 					</td>
 					<td width="83" class="TD_STYLE1">
@@ -166,7 +169,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						个人信息
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						${engageResumeForUpdate.human_history_records }
+						${getByResIdForInterview.human_history_records }
 					</td>
 				</tr>
 				<tr>
@@ -174,7 +177,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						备注
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						${engageResumeForUpdate.remark }
+						${getByResIdForInterview.remark }
 					</td>
 				</tr>
 				<tr>
@@ -182,20 +185,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						推荐意见
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						${engageResumeForUpdate.recomandation }
+						${getByResIdForInterview.recomandation }
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">
 						面试次数
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
+						<input type="hidden" value="${engageInterview.interview_amount }" name="interview_amount">
 						第${engageInterview.interview_amount }次面试
 					</td>
 					<td class="TD_STYLE1">
 						形象评价
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<select name="image_degree">
 							<option value="A">A</option>
 							<option value="B">B</option>
@@ -205,7 +209,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						口才评价
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<select name="native_language_degree">
 							<option value="A">A</option>
 							<option value="B">B</option>
@@ -215,7 +219,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						外语口语能力
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<select name="foreign_language_degree">
 							<option value="A">A</option>
 							<option value="B">B</option>
@@ -227,7 +231,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						应变能力
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<select name="response_speed_degree">
 							<option value="A">A</option>
 							<option value="B">B</option>
@@ -237,7 +241,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						EQ
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<select name="eq_degree">
 							<option value="A">A</option>
 							<option value="B">B</option>
@@ -247,7 +251,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						IQ
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<select name="iq_degree">
 							<option value="A">A</option>
 							<option value="B">B</option>
@@ -257,7 +261,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						综合素质
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<select name="multi_quality_degree">
 							<option value="A">A</option>
 							<option value="B">B</option>
@@ -269,14 +273,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						面试人
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<input type="text" name="register"/>
 					</td>
 					<td class="TD_STYLE1">
 						面试时间
 					</td>
-					<td class="TD_STYLE2">
-						${engageInterview.registe_time }
+					<td class="TD_STYLE1">
+						<jsp:useBean id="now" class="java.util.Date" scope="page"/>
+						<fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh-mm-ss" />
 					</td>
 				</tr>
 				<tr>

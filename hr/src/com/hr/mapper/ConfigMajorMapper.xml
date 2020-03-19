@@ -24,4 +24,8 @@
 		insert into config_major(major_kind_id,major_kind_name,major_id,major_name,test_amount) 
 			values(#{major_kind_id},#{major_kind_name},#{major_id},#{major_name},#{test_amount})
 	</insert>
+	
+	<select id="selectByMajorName" parameterType="String" resultType="com.hr.pojo.ConfigMajor">
+		select * from config_major where major_name=#{major_name}
+	</select>
 </mapper>

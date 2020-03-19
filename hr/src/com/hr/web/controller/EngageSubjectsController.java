@@ -13,8 +13,10 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.hr.pojo.ConfigQuestionSecondKind;
 import com.hr.pojo.EngageSubjects;
 import com.hr.service.EngageSubjectsService;
+import com.hr.service.impl.ConfigQuestionSecondKindServiceImpl;
 import com.hr.util.UUIDHelper;
 
 
@@ -23,6 +25,8 @@ import com.hr.util.UUIDHelper;
 public class EngageSubjectsController {
 	@Autowired
 	EngageSubjectsService engageSubjectsServiceImpl;
+	@Autowired
+	ConfigQuestionSecondKindServiceImpl configQuestionSecondKindServiceImpl;
 	
 	@RequestMapping("/getAll")
 	public String getAll(HttpServletRequest request){
@@ -45,7 +49,14 @@ public class EngageSubjectsController {
 	}
 	
 	@RequestMapping("/save")
-	public String save(EngageSubjects engageSubjects){
+	public String save(String qfkId, EngageSubjects engageSubjects){
+		ConfigQuestionSecondKind c = configQuestionSecondKindServiceImpl.getByQfkId(qfkId);
+		if(c == null){
+			engageSubjects.setFirst_kind_id(c.getFirst_kind_id());
+			engageSubjects.setFirst_kind_name(c.getFirst_kind_name());
+			engageSubjects.setSecond_kind_id(c.getSecond_kind_id());
+			engageSubjects.setSecond_kind_name(c.getSecond_kind_name());
+		}
 		engageSubjects.setSub_id(UUIDHelper.getUUID());
 		engageSubjectsServiceImpl.save(engageSubjects);
 		return "question_register_success";

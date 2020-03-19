@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,16 +39,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						试题I级分类
 					</td>
 					<td width="168" class="TD_STYLE2">
-						<select name="first_kind_id">
-							
+						<select>
+							<c:forEach var="list" items="${configQuestionSecondKindList }">
+								<option value="${list.first_kind_name }">${list.first_kind_name }</option>
+							</c:forEach>
 						</select>
 					</td>
 					<td width="83" class="TD_STYLE1">
 						试题II级分类
 					</td>
 					<td width="171" class="TD_STYLE2">
-						<select name="second_kind_id">
-							
+						<select name="second_kind_name">
+							<c:forEach var="list" items="${configQuestionSecondKindList }">
+								<option value="${list.qsk_id }">${list.second_kind_name }</option>
+							</c:forEach>
 						</select>
 					</td>
 					<td width="170" class="TD_STYLE1">
@@ -59,7 +65,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						登记时间
 					</td>
 					<td width="95" height="26" class="TD_STYLE2">
-						
+						<jsp:useBean id="now" class="java.util.Date" scope="page"/>
+						<fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh-mm-ss" />
 					</td>
 				</tr>
 				<tr>

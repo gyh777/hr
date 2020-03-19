@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：招聘管理--面试管理--面试结果登记
+						<font color="#0000CC">您正在做的业务是：招聘管理--面试管理--面试筛选
 						</font>
 					</td>
 				</tr>
@@ -39,19 +39,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
 				<tr>
-					<td width="74" class="TD_STYLE1">
+					<td width="74" class="TD_STYLE2">
 						职位分类
 					</td>
-					<td width="168" class="TD_STYLE2">}
+					<td width="168" class="TD_STYLE2">
 						${getByResIdForInterview.human_major_kind_name }
 					</td>
-					<td width="83" class="TD_STYLE1">
+					<td width="83" class="TD_STYLE2">
 						职位名称
 					</td>
 					<td width="171" class="TD_STYLE2">
 						${getByResIdForInterview.human_major_name }
 					</td>
-					<td width="170" class="TD_STYLE1">
+					<td width="170" class="TD_STYLE2">
 						招聘类型
 					</td>
 					<td width="138" class="TD_STYLE2">
@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="74" class="TD_STYLE1">
 						姓名
 					</td>
-					<td width="168" class="TD_STYLE2">}
+					<td width="168" class="TD_STYLE2">
 						${getByResIdForInterview.human_name }
 					</td>
 					<td width="83" class="TD_STYLE1">
@@ -186,7 +186,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						个人信息
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						${engageResumeForUpdate.human_history_records }
+						${getByResIdForInterview.human_history_records }
 					</td>
 				</tr>
 				<tr>
@@ -194,7 +194,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						备注
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						${engageResumeForUpdate.remark }
+						${getByResIdForInterview.remark }
 					</td>
 				</tr>
 				<tr>
@@ -202,7 +202,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						推荐意见
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						${engageResumeForUpdate.recomandation }
+						${getByResIdForInterview.recomandation }
 					</td>
 				</tr>
 				<tr>
@@ -210,7 +210,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						筛选人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="pass_checker" />
+						<input type="text" name="checker" />
 					</td>
 				</tr>
 				<tr>
@@ -218,7 +218,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						录用申请审核意见
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<input type="text" name="pass_checkComment" />
+						<input type="text" name="check_comment" />
 					</td>
 				</tr>
 			</table>

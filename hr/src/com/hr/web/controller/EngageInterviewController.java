@@ -40,7 +40,6 @@ public class EngageInterviewController {
 		}else{
 			EngageInterview engageInterview2 = new EngageInterview();
 			engageInterview2.setInterview_amount(1);
-			engageInterview2.setRegiste_time(new Date());
 			request.setAttribute("engageInterview", engageInterview2);
 		}
 		return "engage_interview_change";
@@ -70,11 +69,20 @@ public class EngageInterviewController {
 	}
 	
 	@RequestMapping("/save")
-	public String save(EngageInterview engageInterview, HttpServletRequest request){
+	public String save(int res_id, EngageInterview engageInterview, HttpServletRequest request){
 		engageInterview.setRegiste_time(new Date());
 		engageInterview.setCheck_time(new Date());
 		engageInterview.setResult("0");
+		
+		//键简历表状态改为3
+		EngageResume engageResume = engageResumeServiceImpl.getByResId(res_id);
+		engageResume.setInterview_status(3);
+		
+		engageInterview.setInterview_status(engageResume.getInterview_status());
+		
 		engageInterviewServiceImpl.save(engageInterview);
+		engageResumeServiceImpl.update(engageResume);
+		
 		return "forward:/configMajor/selectAllForEngage?choose=3";
 	}
 	
@@ -85,16 +93,27 @@ public class EngageInterviewController {
 	}
 	
 	@RequestMapping("/updateForResult")
-	public String updateForRecomandation(String result, String pass_checker, String pass_checkComment, int ein_id){
+	public String updateForRecomandation(String result, String checker, String check_comment, int ein_id){
 		EngageInterview engageInterview = engageInterviewServiceImpl.getByEinId(ein_id);
 		engageInterview.setResult(result);
-		int amount = engageInterview.getInterview_amount() + 1;
-		engageInterview.setInterview_amount(amount);
+		engageInterview.setChecker(checker);
+		engageInterview.setCheck_time(new Date());
+		engageInterview.setCheck_comment(check_comment);
 		engageInterviewServiceImpl.update(engageInterview);
 		
-		EngageResume engageResume = engageResumeServiceImpl.getByResId(engageInterview.getResume_id());
-		engageResume.setPass_checker(pass_checker);
-		engageResume.setPass_checkComment(pass_checkComment);
+		EngageResume engageResume = engageResumeServiceImpl.getByResId(engageInterview.getResume_id());	
+		//建议面试处理
+		if("1".equals(result)){
+			engageResume.setInterview_status(2);
+		}
+		//建议笔试
+		if("2".equals(result)){
+			engageResume.setInterview_status(4);
+		}
+		//建议录用
+		
+		//删除简历
+		
 		engageResumeServiceImpl.update(engageResume);
 		return "forward:/engageInterview/getForResult";
 	}

@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td>
 						符合条件的薪酬标准总数:
-						${engageSubjectsFindList.size() }
+						${engageSubjectsList.size() }
 						例
 					</td>
 				</tr>
