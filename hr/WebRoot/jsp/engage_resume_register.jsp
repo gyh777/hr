@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -59,7 +60,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="138" class="TD_STYLE2">
 						<select name="engage_type">
-							<option value="" selected="selected"></option>
+							<option value="社会招聘" selected="selected">社会招聘</option>
+							<option value="校园招聘">校园招聘</option>
 						</select>
 					</td>
 				</tr>
@@ -231,7 +233,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						注册时间
 					</td>
 					<td width="95" height="26" class="TD_STYLE2">
-						<input type="text" name="regist_time">
+						<jsp:useBean id="now" class="java.util.Date" scope="page"/>
+						<fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh-mm-ss" />
 					</td>
 				</tr>
 				<tr>
@@ -256,7 +259,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">
-						个人信息
+						个人履历
 					</td>
 					<td colspan="7" class="TD_STYLE2">
 						<textarea name="human_history_records" rows="4" class="TEXTAREA_STYLE1"></textarea>

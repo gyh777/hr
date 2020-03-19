@@ -49,13 +49,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td class="TD_STYLE2">
 						<select name="human_major_kind_id">
-							<option selected="selected">请选择</option>
+							<option value="" selected="selected">请选择</option>
 							<c:forEach var="list" items="${configMajorList }">
 								<option value="${list.major_kind_id }">${list.major_kind_name }</option>
 							</c:forEach>
 						</select>
 						<select name="human_major_id">
-							<option selected="selected">请选择</option>
+							<option value="" selected="selected">请选择</option>
 							<c:forEach var="list" items="${configMajorList }">
 								<option value="${list.major_id }">${list.major_name }</option>
 							</c:forEach>
@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						请输入关键字
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="keyWord" class="INPUT_STYLE1">
+						<input type="text" value="" name="keyWord" class="INPUT_STYLE1">
 					</td>
 				</tr>
 				<tr>

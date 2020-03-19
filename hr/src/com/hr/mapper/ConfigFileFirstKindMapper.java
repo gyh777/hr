@@ -15,4 +15,5 @@ public interface ConfigFileFirstKindMapper {
     public ConfigFileFirstKind queryConfigFileFirstKindById(@Param("first_kind_id") String ffkId);
     public List<ConfigFileFirstKind> queryAllConfigFileFirstKind();
     public List<TwoStringValue> queryConfigFileFirstKindIdAndName();
+    public String queryIdByName(String first_kind_name);
 }

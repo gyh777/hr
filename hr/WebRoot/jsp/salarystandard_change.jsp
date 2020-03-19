@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -7,12 +7,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<title>无标题文档</title>
-		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript">
 		function doEdit(id)
 		{
@@ -49,19 +49,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="15%" class="TD_STYLE2">
 						
-						<input type="text" name="standardName" value="${change.standardId}" class="INPUT_STYLE2">
+						<input type="text" name="standardId" value="${change.standardId}" class="INPUT_STYLE2">
+
 					</td>
 					<td width="12%" class="TD_STYLE1">
 						薪酬标准名称
 					</td>
 					<td width="11%" class="TD_STYLE2">
+
 						<input type="text" name="standardName" value="${change.standardName}" class="INPUT_STYLE2">
+
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						薪酬总额
 					</td>
 					<td width="17%" class="TD_STYLE2">
 						${change.salarySum}
+						<input type="text" name="salarySum" value="${change.standardName}" class="INPUT_STYLE2" readonly="readonly" >
+
 					</td>
 					<td width="12%" class="TD_STYLE1">
 						&nbsp;
@@ -75,13 +80,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						制定人
 					</td>
 					<td class="TD_STYLE2">
+
 						<input type="text" name="designer" value="${change.designer}" class="INPUT_STYLE2">
+
 					</td>
 					<td class="TD_STYLE1">
 						变更人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="changer" value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="item.changer" value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						变更时间
@@ -116,21 +123,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 				<c:forEach items="${change.salaryStandardDetails}" var="one">
-				<input type="hidden" name="sdtId" value="1" class="INPUT_STYLE2">
+				<input type="hidden" name="sdtId" value="${one.ssdId}" class="INPUT_STYLE2">
 				<tr class="TD_STYLE2">
 					<td>
 						${one.itemId}
 						<input type="hidden" name="itemId" value="1" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
-						${one.standardName}
-						<input type="hidden" name="itemName" value="出差补助" class="INPUT_STYLE2">
+						出差补助
+						<input type="hidden" name="itemName" value="${one.itemName}" class="INPUT_STYLE2">
 					</td>
 					<td colspan="4">
 						<input type="text" name="salary" value="${one.salary}" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				</c:forEach>
+				
 				
 			</table>
 		</form>

@@ -89,6 +89,13 @@ public class SalarystandardController {
 		return "salarystandard_check";
 	}
 	
+	@RequestMapping("/query")
+	public String query(@RequestParam String ssdId,Model m){
+		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
+		m.addAttribute("query", salaryStandardDetailsList);
+		return "salarystandard_query";
+	}
+	
 	@RequestMapping("/change")
 	public String change(@RequestParam String ssdId,HttpServletRequest request){
 		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);

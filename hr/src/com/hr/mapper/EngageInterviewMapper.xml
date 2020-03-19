@@ -8,7 +8,7 @@
 		human_major_kind_id,human_major_kind_name,human_major_id,
 		human_major_name,image_degree,native_language_degree,
 		foreign_language_degree,response_speed_degree,eq_degree,iq_degree,
-		multi_quality_degree,register,checker,
+		multi_quality_degree,register,checker,registe_time,check_time,
 		resume_id,result,interview_comment,
 		check_comment,interview_status,check_status
 	</sql>
@@ -45,7 +45,7 @@
 			#{human_major_kind_id},#{human_major_kind_name},#{human_major_id},
 			#{human_major_name},#{image_degree},#{native_language_degree},
 			#{foreign_language_degree},#{response_speed_degree},#{eq_degree},#{iq_degree},
-			#{multi_quality_degree},#{register},#{checker},
+			#{multi_quality_degree},#{register},#{checker},#{registe_time},#{check_time},
 			#{resume_id},#{result},#{interview_comment},
 			#{check_comment},#{interview_status},#{check_status}
 		)

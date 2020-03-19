@@ -46,6 +46,7 @@
 		#{salarySum},#{checkStatus},#{changeStatus},#{checkComment},#{remark})
 	</insert>
 	
+
 	<update id="ckeckUpdate" parameterType="String">
 		update salary_standard set 
     	checker=#{checker},
@@ -60,9 +61,12 @@
 		salary_sum=#{salarySum},change_status=#{changeStatus},remark=#{remark} where ssd_id=#{ssdId}
 	</update> 
 	
+
 	<select id="selectAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
     	select * from salary_standard
     </select>
+
+
     <select id="selectIdByName" parameterType="String">
     	select ssd_id from salary_standard where standard_name=#{standardName}
     </select>
@@ -73,6 +77,7 @@
     
     <select id="selectChangeAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
     	select * from salary_standard where check_status=1
+
     </select>
     
     <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">

@@ -17,12 +17,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .style3 {color: #0000CC}
 -->
 </style>
-
 <script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
 window.onload=function(){
 $.ajax({
-dataType:"json", 
+dataType:"json",
 url:'/hr/salarystandard/changeList',
 type:'POST',
 contentType : 'application/json;charset=utf-8',
@@ -106,11 +105,11 @@ error:function(){alert(23)}
 						</td>
 					</tr>
 				<c:forEach items="${requestScope.list}" var="one">
+
 					<tr class="TD_STYLE2">
 						<td>
 							<a href="salarystandard.do?operate=query&id=1">${one.standardId}</a>
 						</td>
-						
 						<td>
 							${one.standardName}
 						</td>

@@ -97,17 +97,11 @@ public class HumanFile {
 
     private Short file_chang_amount;
     
-    private String human_histroy_records;
+    private String human_history_records;
     
     private String human_family_membership;
 
-    public String getHuman_histroy_records() {
-		return human_histroy_records;
-	}
-
-	public void setHuman_histroy_records(String human_histroy_records) {
-		this.human_histroy_records = human_histroy_records;
-	}
+    
 
 	public String getHuman_family_membership() {
 		return human_family_membership;
@@ -630,6 +624,14 @@ public class HumanFile {
 
 	public void setHuman_major_name(String human_major_name) {
 		this.human_major_name = human_major_name;
+	}
+
+	public String getHuman_history_records() {
+		return human_history_records;
+	}
+
+	public void setHuman_history_records(String human_history_records) {
+		this.human_history_records = human_history_records;
 	}
 
 	private Date recovery_time;

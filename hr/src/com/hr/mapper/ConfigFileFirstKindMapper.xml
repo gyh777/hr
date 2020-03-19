@@ -28,4 +28,9 @@
 	<select id="queryConfigFileFirstKindIdAndName" resultType="com.hr.web.controller.requestparamtype.TwoStringValue">
 		select first_kind_id as first,first_kind_name as second from config_file_first_kind
 	</select>
+	
+	<select id="queryIdByName" parameterType="String" resultType="String">
+		select first_kind_id from config_file_first_kind where first_kind_name=#{first_kind_name};
+	</select>
+	
 </mapper>

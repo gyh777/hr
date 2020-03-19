@@ -3,7 +3,7 @@ package com.hr.pojo;
 import java.util.Date;
 
 public class EngageResume {
-    private int res_id;		//主键id
+	private int res_id;		//主键id
     private String human_name;	//姓名
     private String engage_type;	//招聘类型
     private String human_address;	//地址

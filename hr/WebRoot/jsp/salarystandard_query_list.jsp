@@ -81,19 +81,19 @@ error:function(){alert(23)}
 				<c:forEach items="${requestScope.list}" var="one">
 					<tr class="TD_STYLE2">
 						<td>
-							<a href="salarystandard_query.jsp">${one.standardId}</a>
+							<a href="/hr/salarystandard/query?ssdId=${one.ssdId}">${one.standardId}</a>
 						</td>
 						<td>
-							
+							${one.standardName}
 						</td>
 						<td>
-							
+							${one.designer}
 						</td>
 						<td>
-							2010-05-29 00:00:00.0
+							${one.registTime}
 						</td>
 						<td>
-							0.0
+							${one.salarySum}
 						</td>
 					</tr>
 				</c:forEach>

@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hr.pojo.EngageInterview;
 import com.hr.pojo.EngageResume;
-import com.hr.service.EngageInterviewService;
 import com.hr.service.EngageResumeService;
+import com.hr.service.impl.EngageInterviewServiceImpl;
 
 @Controller
 @RequestMapping("/engageInterview")
 public class EngageInterviewController {
 	@Autowired
-	EngageInterviewService engageInterviewServiceImpl;
+	EngageInterviewServiceImpl engageInterviewServiceImpl;
 	@Autowired
 	EngageResumeService engageResumeServiceImpl;
 	
@@ -35,7 +35,7 @@ public class EngageInterviewController {
 		EngageResume engageResume = engageResumeServiceImpl.getByResId(res_id);
 		request.setAttribute("getByResIdForInterview", engageResume);
 		EngageInterview engageInterview = engageInterviewServiceImpl.getByResumeId(engageResume.getRes_id());
-		if(engageInterview != null && engageInterview.getEinId() != 0){
+		if(engageInterview != null && engageInterview.getEin_id() != 0){
 			request.setAttribute("engageInterview", engageInterview);
 		}else{
 			EngageInterview engageInterview2 = new EngageInterview();
@@ -71,9 +71,11 @@ public class EngageInterviewController {
 	
 	@RequestMapping("/save")
 	public String save(EngageInterview engageInterview, HttpServletRequest request){
+		engageInterview.setRegiste_time(new Date());
+		engageInterview.setCheck_time(new Date());
+		engageInterview.setResult("0");
 		engageInterviewServiceImpl.save(engageInterview);
-		request.setAttribute("choose", "3");
-		return "forward:configMajor/selectAllForEngage";
+		return "forward:/configMajor/selectAllForEngage?choose=3";
 	}
 	
 	@RequestMapping("/update")
@@ -83,9 +85,18 @@ public class EngageInterviewController {
 	}
 	
 	@RequestMapping("/updateForResult")
-	public String updateForRecomandation(String result, int ein_id){
-		engageInterviewServiceImpl.updateForResult(result, String.valueOf(ein_id));
-		return "forward:engageInterview/getForResult";
+	public String updateForRecomandation(String result, String pass_checker, String pass_checkComment, int ein_id){
+		EngageInterview engageInterview = engageInterviewServiceImpl.getByEinId(ein_id);
+		engageInterview.setResult(result);
+		int amount = engageInterview.getInterview_amount() + 1;
+		engageInterview.setInterview_amount(amount);
+		engageInterviewServiceImpl.update(engageInterview);
+		
+		EngageResume engageResume = engageResumeServiceImpl.getByResId(engageInterview.getResume_id());
+		engageResume.setPass_checker(pass_checker);
+		engageResume.setPass_checkComment(pass_checkComment);
+		engageResumeServiceImpl.update(engageResume);
+		return "forward:/engageInterview/getForResult";
 	}
 	
 	@RequestMapping("/remove")

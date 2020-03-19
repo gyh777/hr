@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hr.mapper.ConfigMajorKindMapper;
 import com.hr.pojo.ConfigMajorKind;
 import com.hr.service.ConfigMajorKindService;
+import com.hr.web.controller.requestparamtype.TwoStringValue;
 
 @Service
 public class ConfigMajorKindServiceImpl implements ConfigMajorKindService{
@@ -30,6 +31,18 @@ public class ConfigMajorKindServiceImpl implements ConfigMajorKindService{
 	public boolean addConfigMajorKind(ConfigMajorKind cmk) {
 		// TODO Auto-generated method stub
 		return mapper.addConfigMajorKind(cmk);
+	}
+
+	@Override
+	public List<TwoStringValue> selectAllConfigMajorKindIdAndName() {
+		// TODO Auto-generated method stub
+		return mapper.selectAllConfigMajorKindIdAndName();
+	}
+
+	@Override
+	public String selectConfigMajorKindIdByName(String major_kind_name) {
+		// TODO Auto-generated method stub
+		return mapper.selectConfigMajorKindIdByName(major_kind_name);
 	}
 
 }

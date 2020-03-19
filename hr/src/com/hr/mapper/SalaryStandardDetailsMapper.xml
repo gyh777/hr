@@ -24,6 +24,7 @@
 		insert into salary_standard_details <include refid="SalaryStandardDetails"/> values
 		(#{sdtId},#{standardId},#{standardName},#{itemId},#{itemName},#{salary})
 	</insert>
+
 	<!--  -->
 	<update id="changeUpdate" parameterType="com.hr.pojo.SalaryStandardDetails">
 		update salary_standard_details set 
@@ -31,6 +32,7 @@
     	where sdt_id=#{sdtId}
 	</update>
 	 <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandardDetails" resultMap="SalaryStandardDetailsMap">
+
     	select *  from salary_standard_details where standard_id=#{ssdId}
     </select>
 </mapper>
