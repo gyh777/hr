@@ -55,31 +55,35 @@ public class SalarystandardController {
 		return null;
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping("/changeList")
-	public List<SalaryStandard> changeList(){
+	public String changeList(HttpServletRequest request){
 		
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryChangeAll();
 //		JSONArray ja = JSONArray.fromObject(list);
-		return list;
+		request.setAttribute("list", list);
+		System.out.println(list.get(1).getStandardName()+"--");
+		return "salarystandard_change_list";
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping(value="/checkList")
-	public List<SalaryStandard> checkList(){
+	public String checkList(HttpServletRequest request){
 		System.out.println(111);
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryCheckAll();
 //		JSONArray ja = JSONArray.fromObject(list);
-		return list;
+		request.setAttribute("list", list);
+		return "salarystandard_check_list";
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping(value="/queryList")
-	public List<SalaryStandard> queryList(){
+	public String queryList(HttpServletRequest request){
 		
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryChangeAll();
 //		JSONArray ja = JSONArray.fromObject(list);
-		return list;
+		request.setAttribute("list", list);
+		return "salarystandard_query_list";
 	}
 	
 	@RequestMapping("/check")

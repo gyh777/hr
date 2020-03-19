@@ -18,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 -->
 </style>
 <script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+<!-- 
 <script type="text/javascript">
 window.onload=function(){
 $.ajax({
@@ -27,13 +28,14 @@ type:'POST',
 contentType : 'application/json;charset=utf-8',
 async: true,
 success:function(date){
-alert(1);
+alert(date);
+request.setAttribute("list",date);
 },
 error:function(){alert(23)}
 });
 
 };
-</script>
+</script> -->
 	</head>
 
 	<body>
