@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hr.pojo.ConfigQuestionSecondKind;
 import com.hr.pojo.EngageSubjects;
+import com.hr.service.ConfigQuestionSecondKindService;
 import com.hr.service.EngageSubjectsService;
 import com.hr.service.impl.ConfigQuestionSecondKindServiceImpl;
 import com.hr.util.UUIDHelper;
@@ -26,7 +27,7 @@ public class EngageSubjectsController {
 	@Autowired
 	EngageSubjectsService engageSubjectsServiceImpl;
 	@Autowired
-	ConfigQuestionSecondKindServiceImpl configQuestionSecondKindServiceImpl;
+	ConfigQuestionSecondKindService configQuestionSecondKindServiceImpl;
 	
 	@RequestMapping("/getAll")
 	public String getAll(HttpServletRequest request){

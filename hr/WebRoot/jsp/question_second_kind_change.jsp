@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
 </head>
 <body>
-<form name="configfilefirstkindForm" method="get" action="/hr/configQuestionSecondKind/update">
+<form name="configfilefirstkindForm" method="post" action="/hr/configQuestionSecondKind/update">
 <table width="100%" >
   <tr>
     <td> 

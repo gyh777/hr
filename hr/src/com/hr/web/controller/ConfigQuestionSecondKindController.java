@@ -80,4 +80,12 @@ public class ConfigQuestionSecondKindController {
 		request.setAttribute("configQuestionSecondKindList", list);
 		return "forward:/engageSubjects/getAll";
 	}
+	
+	@RequestMapping("/getAllForTest")
+	public String getAllForTest(HttpServletRequest request){
+		List<ConfigQuestionSecondKind> list = configQuestionSecondKindServiceImpl.list();
+		request.setAttribute("configQuestionSecondKindList", list);
+//		return "question_test_list";
+		return "";
+	}
 }
