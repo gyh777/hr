@@ -9,8 +9,7 @@
 		thirdKindName as third_kind_name,
 		humanMajorName as human_major_name,
 		humanMajorKindName as human_major_kind_name,
-		str_startTime as str_startTime,
-		str_endTime as str_endTime
+		
 	  </sql>
 	  
 	  <insert  id="addHumanFileDig" parameterType="com.hr.pojo.HumanFileDig">
@@ -88,54 +87,35 @@
 		</trim>
 	</select>
 	
-	<select id="selectByKeyCondition" resultType="com.hr.pojo.HumanFileDig" parameterType="com.hr.pojo.HumanFileDig">
-		select 
-		<include refid="allDigColumn"/>
-		from human_file_dig
+	<select id="selectByKeyCondition" resultType="com.hr.pojo.HumanFileDig" parameterType="hashmap">
+		select from human_file_dig
 		<trim prefix="where" prefixOverrides="and|or">
-			<!--<choose>
-				<when test="sname!=null">
-					and sname like #{sname}
-				</when>
-				<when test="sex!=null">
-					and sex=#{sex}
-				</when>
-				<when test="score!=0">
-					and score=#{score}
-				</when>
-				</choose>
-				-->
-			<if test="sname!=null">
-				<bind name="usrName" value="'%' + sname + '%'"/>
-				and sname like #{usrName}
+			
+			<if test="keywords!=null">
+				<bind name="kw" value="'%' + keywords + '%'"/>
+				and first_kind_name like #{kw}
 			</if>
-			<if test="sex!=null">
-				and sex=#{sex}
+			<if test="keywords!=null">
+				<bind name="kw" value="'%' + keywords + '%'"/>
+				and first_kind_name like #{kw}
 			</if>
-			<if test="score!=0">
-				and score=#{score}
+			<if test="keywords!=null">
+				<bind name="kw" value="'%' + keywords + '%'"/>
+				or second_kind_name like #{kw}
 			</if>
-			<!--  
-			<if test="ids!=null">
-				and sid in 
-				<foreach collection="ids" item="myid" open="(" close=")" separator=",">
-					#{myid}
-				</foreach>
+			<if test="keywords!=null">
+				<bind name="kw" value="'%' + keywords + '%'"/>
+				or third_kind_name like #{kw}
 			</if>
-			-->
+			
+			<if test="keywords!=null">
+				<bind name="kw" value="'%' + keywords + '%'"/>
+				or human_major_kind_name like #{kw}
+			</if>
+			<if test="keywords!=null">
+				<bind name="kw" value="'%' + keywords + '%'"/>
+				or human_major_name like #{kw}
+			</if>
 		</trim>
-		<!--  
-		<where>
-			<if test="sname!=null">
-				and sname like #{sname}
-			</if>
-			<if test="sex!=null">
-				and sex=#{sex}
-			</if>
-			<if test="score!=0">
-				and score=#{score}
-			</if>
-		</where>
-		-->
 	</select>
 </mapper>

@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	{
 		//document.forms[0].action = document.forms[0].action + "?operate=doSearch&method=query&delete_status=1";
 		
-		document.forms[0].action ="/hr/humanfile/keywardsPage";
+		document.forms[0].action ="/hr/humanfile/keywordsPage";
 			document.forms[0].submit();
 	}
 </script>

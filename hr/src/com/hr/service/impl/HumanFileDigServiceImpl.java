@@ -62,9 +62,9 @@ public class HumanFileDigServiceImpl implements HumanFileDigService {
 	}
 
 	@Override
-	public List<HumanFileDig> queryByKeyCondition(String key) {
+	public List<HumanFileDig> queryByKeyCondition(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
-		return humanFileDigMapper.queryByKeyCondition(key);
+		return humanFileDigMapper.queryByKeyCondition(map);
 	}
 	
 

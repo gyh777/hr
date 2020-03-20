@@ -285,6 +285,14 @@ public class HumanFileController {
 		return null;
 	}
 	
+	@RequestMapping("keywordsPage")
+	public ModelAndView selectByKeywordsPage(@RequestParam String keywords){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("keywords", keywords);
+        humanFileDigServiceImpl.queryByMapCondition(map);
+		return null;
+	}
+	
 	
 	
 	
