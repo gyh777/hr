@@ -30,4 +30,18 @@ function dateToStr(datetime,dateformat){
 	};
 	
 	return time;
-}
+};
+Calendar.setup ({
+	inputField : "date_end",
+	ifFormat : "%Y-%m-%d", 
+	showsTime : false, 
+	button : "date_end", 
+	singleClick : true, 
+	step : 1});
+Calendar.setup ({
+	inputField : "date",
+	ifFormat : "%Y-%m-%d %H:%M:%S", 
+	showsTime : false, 
+	button : "date", 
+	singleClick : true, 
+	step : 1});

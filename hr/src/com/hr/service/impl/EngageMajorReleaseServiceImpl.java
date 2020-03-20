@@ -26,4 +26,10 @@ public class EngageMajorReleaseServiceImpl implements EngageMajorReleaseService{
 		return mapper.selectAllEngageMajorRelease();
 	}
 
+	@Override
+	public boolean deleteEngageMajorReleaseById(int mre_id) {
+		// TODO Auto-generated method stub
+		return mapper.deleteEngageMajorReleaseById(mre_id);
+	}
+
 }

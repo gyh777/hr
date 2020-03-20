@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
@@ -48,7 +49,8 @@ public class EngageMajorReleaseController {
 	EngageMajorReleaseService engageMajorReleaseServiceImpl;
 	
 	@RequestMapping("/loadFirstKindAndMajorKind")
-	public ModelAndView selectIdByName(String major_name) {
+	@ResponseBody
+	public Map<String, List<TwoStringValue>> selectFirstKindAndMajorKind(HttpServletRequest request) {
 		//获得所有的初始值
 		List<TwoStringValue> firstValue = 
 				configFileFirstKindServiceImpl.queryConfigFileFirstKindIdAndName();
@@ -58,10 +60,7 @@ public class EngageMajorReleaseController {
 		Map<String, List<TwoStringValue>> map = new HashMap<>();
 		map.put("firstValue", firstValue);
 		map.put("majorKindValue", majorKindValue);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("engage_major_release_register");
-		mav.addObject("firstKindAndMajorKind", map);
-		return mav;
+		return map;
 	}
 	
 	@RequestMapping("/selectSecondKindIdAndName")
@@ -148,6 +147,16 @@ public class EngageMajorReleaseController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(jumpPage);
 		mav.addObject("releaseList", json);
+		
 		return mav;
+	}
+	
+	@RequestMapping("/toDelete")
+	@ResponseBody
+	public boolean deleteEngageMajorReleaseById(String mreId){
+		int mre_id = Integer.parseInt(mreId);
+		boolean b = engageMajorReleaseServiceImpl.deleteEngageMajorReleaseById(mre_id);
+		
+		return b;
 	}
 }

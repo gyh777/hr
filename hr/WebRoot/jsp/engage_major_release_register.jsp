@@ -16,122 +16,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="../jsp/javascript/comm/comm.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="../jsp/javascript/comm/select.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js" charset="UTF-8"></script>
-		<script type="text/javascript" charset="UTF-8">
-			function kindNameChange(obj){
-				//获得当前元素的name
-				var name = $(obj).attr("name");
-				var kind = $(obj).find("option:selected").val();
-				var firstId = kind.substring(0,kind.indexOf("/"));
-				var firstName = kind.substring(kind.indexOf("/")+1);
-				//初始化要跳转的url和要传的数据data以及要添加子元素的父元素的name
-				var url = "/hr/engageMajorRelease/";
-				var data = {"firstName" : firstName};
-				var addName = "";
-				var valueId = "";
-				var valueName = "";
-				
-				if(name == "firstKindName"){
-					$("select[name='thirdKindName']").children("option").not(":eq(0)").remove();
-					url = url + "selectSecondKindIdAndName";
-					addName = "secondKindName";
-					valueId = "first_kind_id";
-					valueName = "first_kind_name";
-				}else if(name == "secondKindName"){
-					var kinds = $("select[name='firstKindName']").val();
-					var secondName = kinds.substring(kind.indexOf("/")+1);
-					url = url + "selectThirdKindIdAndName";
-					data = {"firstName" : secondName, "secondName" : firstName};
-					addName = "thirdKindName";
-					valueId = "second_kind_id";
-					valueName = "second_kind_name";
-					console.log(firstName);
-				}else if(name == "thirdKindName"){
-					url = "";
-					valueId = "third_kind_id";
-					valueName = "third_kind_name";
-				}else if(name == "majorKindName"){
-					url = url + "selectAllMajorIdAndName";
-					addName = "majorName";
-					valueId = "major_kind_id";
-					valueName = "major_kind_name";
-				}else if(name == "majorName"){
-					url = "";
-					valueId = "major_id";
-					valueName = "major_name";
-				}else if(name == "engageType"){
-					url = "";
-					valueId = "engage_id";
-					valueName = "engage_type";
-					firstName = kind;
-					firstId = "0";
-				};
-				//清空所有下级元素的内容
-				$("select[name='"+ addName +"']").children("option").not(":eq(0)").remove();
-				$("input[name='"+ valueId +"']").val(firstId);
-				$("input[name='"+ valueName +"']").val(firstName);
-				$.ajax({
-					type : "post",
-					url : url,
-					dataType : "json",
-					data: data,
-					success:function(result){
-						$.each(result, function (i, value) {
-							var values = value.first +"/"+ value.second;
-							var content = "<option value='"+values+"'>"+ values +"</option>";
-                        	$("select[name='"+ addName +"']").append(content);
-                    	});
-					}
-				});
-			};
-			function insertEngageRelease(){
-				var firstKindId = $("input[name='first_kind_id']").val();
-				var firstKindName = $("input[name='first_kind_name']").val();
-				var secondKindId = $("input[name='second_kind_id']").val();
-				var secondKindName = $("input[name='second_kind_name']").val();
-				var thirdKindId = $("input[name='third_kind_id']").val();
-				var thirdKindName = $("input[name='third_kind_name']").val();
-				var engageType = $("input[name='engage_type']").val();
-				var majorKindId = $("input[name='major_kind_id']").val();
-				var majorKindName = $("input[name='major_kind_name']").val();
-				var majorId = $("input[name='major_id']").val();
-				var majorName = $("input[name='major_name']").val();
-				var humanAmount = $("input[name='human_amount']").val();
-				var deadline = $("input[name='deadline']").val();
-				var register = $("input[name='register']").val();
-				var registTime = $("input[name='regist_time']").val();
-				var majorDescribe = $("textarea[name='major_describe']").val();
-				var engageRequired = $("textarea[name='engage_required']").val();
-				
-				var data = {
-					"firstKindId" : firstKindId,"firstKindName" : firstKindName,
-					"secondKindId" : secondKindId,"secondKindName" : secondKindName,
-					"thirdKindId" : thirdKindId,"thirdKindName" : thirdKindName,
-					"majorKindId" : majorKindId,"majorKindName" : majorKindName,
-					"majorId" : majorId,"majorName" : majorName,"engageType" : engageType,
-					"humanAmount" : humanAmount, "deadline" : deadline,
-					"register" : register,"registTime" : registTime,
-					"majorDescribe" : majorDescribe,"engageRequired" : engageRequired
-				};
-				
-				$.ajax({
-					type : "post",
-					url : "../engageMajorRelease/addEngageMajorRelease",
-					dataType : "json",
-					data: data,
-					success:function(result){
-						console.log(result);
-						if(result==true){
-							window.location="../jsp/engage_major_release_select.jsp";
-						}else{
-							alert("添加失败！请刷新重试！");
-						};
-					}
-				});
-			};
- 		</script>
+		<script type="text/javascript" src="../jsp/javascript/yhy/util.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="../jsp/javascript/yhy/insertAndUpdate.js" charset="UTF-8"></script>
 	</head>
 
-	<body>
+	<body onload="loadFirstAndKindName()">
 		<table width="100%">
 			<tr>
 				<td>
@@ -141,8 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<td align="right">
 					<input type="submit" value="提交" class="BUTTON_STYLE1"
-							onclick="insertEngageRelease()">
-					<input type="button" value="清除" class="BUTTON_STYLE1">
+							onclick="insertOrUpdateEngageRelease(insert)">
+					<input type="reset" value="清除" class="BUTTON_STYLE1" name="clean">
 				</td>
 			</tr>
 		</table>
@@ -157,15 +46,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<select name="firstKindName" class="SELECT_STYLE1" 
 							onchange="kindNameChange(this)">
 						<option value="">&nbsp;</option>
-						<c:forEach items="${firstKindAndMajorKind }" var="map">
-							<c:if test="${map.key == 'firstValue' }">
-								<c:forEach items="${map.value }" var="val">
-									<option value="${val.first }/${val.second }">
-										${val.first }/${val.second }
-									</option>
-                				</c:forEach>
-							</c:if>
-                		</c:forEach>
 					</select>
 				</td>
 				<td width="10%" class="TD_STYLE1">II级机构</td>
@@ -206,13 +86,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<select name="majorKindName" class="SELECT_STYLE1" 
 							onchange="kindNameChange(this)">
 						<option value="">&nbsp;</option>
-						<c:forEach items="${firstKindAndMajorKind }" var="map">
-							<c:if test="${map.key == 'majorKindValue' }">
-								<c:forEach items="${map.value }" var="val">
-									<option value="${val.first }/${val.second }">${val.first }/${val.second }</option>
-                				</c:forEach>
-							</c:if>
-                		</c:forEach>
 					</select>
 				</td>
 				<td width="10%" class="TD_STYLE1">职位名称</td>
@@ -270,10 +143,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			singleClick : true, 
 			step : 1});
 		Calendar.setup ({
-			inputField : "date",
+			inputField : "date_start",
 			ifFormat : "%Y-%m-%d %H:%M:%S", 
 			showsTime : false, 
-			button : "date", 
+			button : "date_start", 
 			singleClick : true, 
 			step : 1});
 	</script>
