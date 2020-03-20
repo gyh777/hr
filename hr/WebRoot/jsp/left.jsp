@@ -807,7 +807,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													考试出题
+													<a href="/hr/engageExam/selectAllForQuestionTest" target="mainFrame">考试出题</a>
 												</td>
 											</tr>
 											<tr>
@@ -815,7 +815,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													考试答题
+													<a href="" target="mainFrame">考试答题</a>
 												</td>
 											</tr>
 											<tr>
@@ -823,7 +823,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													考试阅卷
+													<a href="" target="mainFrame">考试阅卷</a>
 												</td>
 											</tr>
 											<tr>
@@ -831,7 +831,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													成绩查询筛选
+													<a href="" target="mainFrame">成绩查询筛选</a>
 												</td>
 											</tr>
 										</table> </span>

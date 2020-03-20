@@ -3,93 +3,69 @@ package com.hr.pojo;
 import java.util.Date;
 
 public class EngageExam {
-    private Short exaId;
-
-    private String examNumber;
-
-    private String majorKindId;
-
-    private String majorKindName;
-
-    private String majorId;
-
-    private String majorName;
-
-    private String register;
-
-    private Date registTime;
-
-    private Short limiteTime;
-
-    public Short getExaId() {
-        return exaId;
-    }
-
-    public void setExaId(Short exaId) {
-        this.exaId = exaId;
-    }
-
-    public String getExamNumber() {
-        return examNumber;
-    }
-
-    public void setExamNumber(String examNumber) {
-        this.examNumber = examNumber == null ? null : examNumber.trim();
-    }
-
-    public String getMajorKindId() {
-        return majorKindId;
-    }
-
-    public void setMajorKindId(String majorKindId) {
-        this.majorKindId = majorKindId == null ? null : majorKindId.trim();
-    }
-
-    public String getMajorKindName() {
-        return majorKindName;
-    }
-
-    public void setMajorKindName(String majorKindName) {
-        this.majorKindName = majorKindName == null ? null : majorKindName.trim();
-    }
-
-    public String getMajorId() {
-        return majorId;
-    }
-
-    public void setMajorId(String majorId) {
-        this.majorId = majorId == null ? null : majorId.trim();
-    }
-
-    public String getMajorName() {
-        return majorName;
-    }
-
-    public void setMajorName(String majorName) {
-        this.majorName = majorName == null ? null : majorName.trim();
-    }
-
-    public String getRegister() {
-        return register;
-    }
-
-    public void setRegister(String register) {
-        this.register = register == null ? null : register.trim();
-    }
-
-    public Date getRegistTime() {
-        return registTime;
-    }
-
-    public void setRegistTime(Date registTime) {
-        this.registTime = registTime;
-    }
-
-    public Short getLimiteTime() {
-        return limiteTime;
-    }
-
-    public void setLimiteTime(Short limiteTime) {
-        this.limiteTime = limiteTime;
-    }
+    private int exa_id;	//试卷登记表主键
+    private String exam_number;	//试卷编号
+    private String major_kind_id;	//职位分类编号
+    private String major_kind_name;	//职位分类名称
+    private String major_id;	//职位编号
+    private String major_name;	//职位名称
+    private String register;	//登记人
+    private Date regist_time;	//登记时间
+    private int limite_time;	//答题总时长
+    
+	public int getExa_id() {
+		return exa_id;
+	}
+	public void setExa_id(int exa_id) {
+		this.exa_id = exa_id;
+	}
+	public String getExam_number() {
+		return exam_number;
+	}
+	public void setExam_number(String exam_number) {
+		this.exam_number = exam_number;
+	}
+	public String getMajor_kind_id() {
+		return major_kind_id;
+	}
+	public void setMajor_kind_id(String major_kind_id) {
+		this.major_kind_id = major_kind_id;
+	}
+	public String getMajor_kind_name() {
+		return major_kind_name;
+	}
+	public void setMajor_kind_name(String major_kind_name) {
+		this.major_kind_name = major_kind_name;
+	}
+	public String getMajor_id() {
+		return major_id;
+	}
+	public void setMajor_id(String major_id) {
+		this.major_id = major_id;
+	}
+	public String getMajor_name() {
+		return major_name;
+	}
+	public void setMajor_name(String major_name) {
+		this.major_name = major_name;
+	}
+	public String getRegister() {
+		return register;
+	}
+	public void setRegister(String register) {
+		this.register = register;
+	}
+	public Date getRegist_time() {
+		return regist_time;
+	}
+	public void setRegist_time(Date regist_time) {
+		this.regist_time = regist_time;
+	}
+	public int getLimite_time() {
+		return limite_time;
+	}
+	public void setLimite_time(int limite_time) {
+		this.limite_time = limite_time;
+	}
+    
 }

@@ -20,19 +20,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form name="humanfileForm" method="post" action="/hr/humanfile.do">
+		<form method="post" action="">
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：人力资源--招聘管理--职位发布管理--职位发布变更 </font>
+						<font color="#0000CC">您正在做的业务是：人力资源--招聘管理--职位发布管理--职位发布查询
+						</font>
 					</td>
-				</tr>
+				</tr>>
 				<tr>
-					<td align="right">
-						<input type="button" value="重新提交" class="BUTTON_STYLE1"
-							onclick="window.location.href='register_choose_picture.jsp'">
-						<input type="button" value="返回" class="BUTTON_STYLE1"
-								onclick="history.back();">
+					<td>
+						<p>当前职位发布总数：1例</p>
 					</td>
 				</tr>
 			</table>
@@ -40,86 +38,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
 				<tr>
-					<td class="TD_STYLE1" width="10%">I级机构</td>
-					<td width="15%" class="TD_STYLE2">
-						<select name="firstKindName" class="SELECT_STYLE1" onchange="">
-							<option value="">&nbsp;</option>
-						</select>
-					</td>
-					<td width="10%" class="TD_STYLE1">II级机构</td>
-					<td width="15%" class="TD_STYLE2">
-						<select name="secondKindName" class="SELECT_STYLE1" onchange="">
-							<option value="">&nbsp;</option>
-						</select>
-					</td>
-					<td width="10%" class="TD_STYLE1">III级机构</td>
-					<td width="15%" class="TD_STYLE2">
-						<select name="thirdKindName" class="SELECT_STYLE1">
-							<option value="">&nbsp;</option>
-						</select>
-					</td>
-					<td width="10%" class="TD_STYLE1">招聘类型</td>
-					<td width="15%" class="TD_STYLE2">
-						<select name="engageType" class="SELECT_STYLE1">
-							<option value="">&nbsp;</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td width="10%" class="TD_STYLE1">职位分类</td>
-					<td width="15%" class="TD_STYLE2">
-						<select name="majorKindName" onchange="" class="SELECT_STYLE1">
-							<option value="">&nbsp;</option>
-						</select>
-					</td>
-					<td width="10%" class="TD_STYLE1">职位名称</td>
-					<td class="TD_STYLE2">
-						<select name="majorName" class="SELECT_STYLE1">
-							<option value="">&nbsp;</option>
-						</select>
-					</td>
-					<td width="10%" class="TD_STYLE1">招聘人数</td>
-					<td width="15%" class="TD_STYLE2">
-						<input type="text" name="humanAmount" value="" class="INPUT_STYLE2">
-					</td>
-					<td width="10%" class="TD_STYLE1">截止日期</td>
-					<td width="15%" class="TD_STYLE2">
-						<input type="text" name="deadline" value="" class="INPUT_STYLE2" id="date_start">
-					</td>
-				</tr>
-				<tr>
-					<td width="10%" class="TD_STYLE1">登记人</td>
-					<td width="15%" class="TD_STYLE2">
-						<select name="register" onchange="" class="SELECT_STYLE1">
-							<option value="">&nbsp;</option>
-						</select>
-					</td>
-					<td width="10%" class="TD_STYLE1">登记时间</td>
-					<td class="TD_STYLE2">
-						<input type="text" name="registTime" value="" class="INPUT_STYLE2" id="date_start">
-					</td>
-					<td width="10%" class="TD_STYLE1"></td>
-					<td width="15%" class="TD_STYLE2"></td>
-					<td width="10%" class="TD_STYLE1"></td>
-					<td width="15%" class="TD_STYLE2"></td>
-				</tr>
-				<tr>
-					<td class="TD_STYLE1">职位描述</td>
-					<td colspan="7" class="TD_STYLE2">
-						<textarea name="majorDescribe" rows="4" class="TEXTAREA_STYLE1"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td class="TD_STYLE1">招聘要求</td>
-					<td colspan="7" class="TD_STYLE2">
-						<textarea name="engageRequired" rows="4" class="TEXTAREA_STYLE1"></textarea>
-					</td>
+					<td width="15%" class="TD_STYLE1">职位名称</td>
+					<td width="15%" class="TD_STYLE1">机构名称</td>
+					<td width="15%" class="TD_STYLE1">招聘人数</td>
+					<td width="30%" class="TD_STYLE1">发布时间</td>
+					<td width="15%" class="TD_STYLE1">截止时间</td>
+					<td width="10%" class="TD_STYLE1">申请职位</td>
 				</tr>
 			</table>
+			<p>&nbsp;&nbsp;总数：8例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="../jsp/images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
-<script type="text/javascript">
-Calendar.setup ({inputField : "date_start", ifFormat : "%Y-%m-%d", showsTime : false, button : "date_start", singleClick : true, step : 1});
-Calendar.setup ({inputField : "date_end", ifFormat : "%Y-%m-%d", showsTime : false, button : "date_end", singleClick : true, step : 1});
-</script>
 </html>
