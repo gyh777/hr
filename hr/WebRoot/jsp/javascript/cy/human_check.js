@@ -25,3 +25,12 @@ function selectPro(){
 		$(".SELECT_STYLE1 option[value='"+sex+"']").attr("selected",true)
 	
 }
+
+function deleteHuman(){
+	var frm = document.getElementById("humancheck");
+	var humanName = $("humanName").text();
+	  frm.action = "/hr/humanfile/deleteHuman";
+	  frm.submit();
+}
+
+

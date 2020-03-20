@@ -123,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<c:forEach items="${requestScope.humans}" var="human">
 					<tr>
 						<td  class="TD_STYLE2">
-							${human.huf_id }
+							${human.hfd_id }
 						</td>
 						<td class="TD_STYLE2">
 							${human.human_name }
@@ -144,7 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							${human.human_major_kind_name }
 						</td>
 						<td class="TD_STYLE2">
-						    <input type="button" value="删除" class="BUTTON_STYLE1" onclick="deleteHuman(this)">
+							${human.human_major_name }
 						</td>
 					</tr>
 				   </c:forEach>

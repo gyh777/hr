@@ -2,7 +2,7 @@ package com.hr.web.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,8 +107,8 @@ public class HumanFileController {
 	    Date date;
 	    Date regist_time;
 		try {
-			regist_time = new SimpleDateFormat("yyyy-MM-dd").parse(str_registTime);
-			date = new SimpleDateFormat("yyyy-MM-dd").parse(str_humanBirthday);
+			regist_time = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(str_registTime).getTime());
+			date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(str_humanBirthday).getTime());
 			hf.setHuman_birthday(date);
 			hf.setRegist_time(regist_time);
 		} catch (ParseException e) {
@@ -137,10 +137,11 @@ public class HumanFileController {
 		hf.setHuman_family_membership(humanFamilyMembership);
 		Short human_file_status = 0;
 		hf.setHuman_file_status(human_file_status);
+		
 		System.out.println("档案审核中");
 	    ModelAndView mav = new ModelAndView();
 	    mav.setViewName("human_registing");
-	    
+	    humanFileServiceImpl.addHumanFile(hf);
 	    return mav;
 	}
 	
@@ -218,7 +219,7 @@ public class HumanFileController {
 		    hf.setHuman_birthplace(humanBirthplace);
 		    Date date;
 			try {
-				date = new SimpleDateFormat("yyyy-MM-dd").parse("2000-06-03");
+				date =new Date( new SimpleDateFormat("yyyy-MM-dd").parse("2000-06-03").getTime());
 				hf.setHuman_birthday(date);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
@@ -252,7 +253,7 @@ public class HumanFileController {
 			hf.setPaid_salary_sum(human.getPaid_salary_sum());
 			hf.setTraining_amount(human.getTraining_amount());
 			hf.setAttachment_name(human.getAttachment_name());
-			Date time = new Date();
+			Date time = new Date(new java.util.Date().getTime());
 			hf.setChange_time(time);
 			hf.setCheck_time(time);
 			hf.setCheck_status((short)1);
@@ -261,7 +262,9 @@ public class HumanFileController {
 			hf.setRegist_time(human.getRegist_time());
 			hf.setRegister(human.getRegister());
 			humanFileDigServiceImpl.addHumanFileDig(hf);
-			
+			HumanFile huf  = new HumanFile();
+			huf.setHuman_file_status((short)1);
+			humanFileServiceImpl.updateHumanFile(huf);
 			System.out.println("档案复核成功");
 		
 		ModelAndView mav = new ModelAndView();
@@ -282,6 +285,7 @@ public class HumanFileController {
 		map.put("str_endTime",str_endTime);
 		ModelAndView mav = new ModelAndView();
 		List<HumanFileDig> humans = humanFileDigServiceImpl.queryByMapCondition(map);
+		System.out.println(humans.size());
 		mav.addObject("humans", humans);
 		mav.setViewName("query_list");
 		return mav;
@@ -299,13 +303,10 @@ public class HumanFileController {
 	}
 	
 	@RequestMapping("deleteHuman")
-	public ModelAndView deleteHuman(@RequestParam String hufId){
-		System.out.println("=========");
-		int hid = Integer.parseInt(hufId);
-		Short id = (short)hid;
-		humanFileDigServiceImpl.removeHumanFileDigById(id);
+	public ModelAndView deleteHuman(@RequestParam String humanName){
+		humanFileServiceImpl.removeHumanFile(humanName);
 		ModelAndView mav = new ModelAndView();
-        mav.setViewName("human_delete_success");
+        mav.setViewName("delete_human_success");
         return mav;
 	}
 	

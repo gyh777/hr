@@ -1,6 +1,6 @@
 package com.hr.pojo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class HumanFile {
     private Short huf_id;

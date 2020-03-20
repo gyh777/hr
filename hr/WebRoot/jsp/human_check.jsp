@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td align="right">
 						<input type="button" value="复核通过" class="BUTTON_STYLE1" onclick="checkAgree()">
-						<input type="reset" value="清除" class="BUTTON_STYLE1">
+						<input type="reset" value="清除" class="BUTTON_STYLE1" onclick="deleteHuman()">
 						<input type="button" value="返回" class="BUTTON_STYLE1"
 							onclick="history.back()">
 					</td>
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1" width="10%">
 						档案编号
 					</td>
-					<td  colspan="6" class="TD_STYLE2">
+					<td id="hufid"  colspan="6" class="TD_STYLE2">
 						${human.huf_id}
 					</td>
 					<td rowspan="6" width="13%">
