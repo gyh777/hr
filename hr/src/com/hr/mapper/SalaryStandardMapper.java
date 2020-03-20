@@ -10,7 +10,7 @@ public interface SalaryStandardMapper {
 	
 	public int insert(SalaryStandard ss);
 	
-	public int ckeckUpdate(String checkStatus,String checker,String checkTime,String checkComment);
+	public int ckeckUpdate(String ssdId,String checkStatus,String checker,String checkTime,String checkComment);
 	
 	public int changeUpdate(SalaryStandardDetailsList salaryStandardDetailsList);
 	
@@ -23,6 +23,8 @@ public interface SalaryStandardMapper {
 	public List<SalaryStandard> selectQueryAll();
 	
 	public List<SalaryStandardIdAndName> selectIdAndName();
+	
+	public SalaryStandardIdAndName selectIdAndNameOne(String ssdId);
 	
 	public SalaryStandard selectBySsdId(String ssdId);
 	

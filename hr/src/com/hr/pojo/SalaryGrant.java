@@ -1,7 +1,7 @@
 package com.hr.pojo;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 public class SalaryGrant  implements Serializable{
     private Short sgrId;
@@ -24,17 +24,17 @@ public class SalaryGrant  implements Serializable{
 
     private Short humanAmount;
 
-    private Double salaryStandardSum;
+    private String salaryStandardSum;
 
-    private Double salaryPaidSum;
+    private String salaryPaidSum;
 
     private String register;
 
-    private Date registTime;
+    private String registTime;
 
     private String checker;
 
-    private Date checkTime;
+    private String checkTime;
 
     private Short checkStatus;
 
@@ -118,19 +118,19 @@ public class SalaryGrant  implements Serializable{
         this.humanAmount = humanAmount;
     }
 
-    public Double getSalaryStandardSum() {
+    public String getSalaryStandardSum() {
         return salaryStandardSum;
     }
 
-    public void setSalaryStandardSum(Double salaryStandardSum) {
+    public void setSalaryStandardSum(String salaryStandardSum) {
         this.salaryStandardSum = salaryStandardSum;
     }
 
-    public Double getSalaryPaidSum() {
+    public String getSalaryPaidSum() {
         return salaryPaidSum;
     }
 
-    public void setSalaryPaidSum(Double salaryPaidSum) {
+    public void setSalaryPaidSum(String salaryPaidSum) {
         this.salaryPaidSum = salaryPaidSum;
     }
 
@@ -142,11 +142,11 @@ public class SalaryGrant  implements Serializable{
         this.register = register == null ? null : register.trim();
     }
 
-    public Date getRegistTime() {
+    public String getRegistTime() {
         return registTime;
     }
 
-    public void setRegistTime(Date registTime) {
+    public void setRegistTime(String registTime) {
         this.registTime = registTime;
     }
 
@@ -158,11 +158,11 @@ public class SalaryGrant  implements Serializable{
         this.checker = checker == null ? null : checker.trim();
     }
 
-    public Date getCheckTime() {
+    public String getCheckTime() {
         return checkTime;
     }
 
-    public void setCheckTime(Date checkTime) {
+    public void setCheckTime(String checkTime) {
         this.checkTime = checkTime;
     }
 

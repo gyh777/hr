@@ -84,8 +84,8 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		return true;
 	}
 	
-	public Boolean checkChange(String checker,String checkTime,String checkComment){
-		int a = salaryStandardMapper.ckeckUpdate("1",checker, checkTime, checkComment);
+	public Boolean checkChange(String ssdId,String checker,String checkTime,String checkComment){
+		int a = salaryStandardMapper.ckeckUpdate(ssdId,"1",checker, checkTime, checkComment);
 			if(a>-1){
 				return true;
 			}
@@ -143,8 +143,13 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 	}
 	
 	
-	public List<SalaryStandardIdAndName> selectIdAndName() {
+	public List<SalaryStandardIdAndName> queryIdAndName() {
 		List<SalaryStandardIdAndName> standardIdAndName = salaryStandardMapper.selectIdAndName();
+		return standardIdAndName;
+	}
+	
+	public SalaryStandardIdAndName queryIdAndNameOne(String ssdId) {
+		SalaryStandardIdAndName standardIdAndName = salaryStandardMapper.selectIdAndNameOne(ssdId);
 		return standardIdAndName;
 	}
 }

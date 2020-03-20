@@ -47,22 +47,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
 				<tr>
-					<td width="18%" class="TD_STYLE1">
+					<td width="10%" class="TD_STYLE1">
+						<span>一级机构</span>
+					</td>
+					<td width="10%" class="TD_STYLE1">
+						<span>二级机构</span>
+					</td>
+					<td width="10%" class="TD_STYLE1">
+						<span>三级机构</span>
+					</td>
+					<td width="8%" class="TD_STYLE1">
+						<span>人员总数</span>
+					</td>
+					<td width="10%" class="TD_STYLE1">
 						<span>薪酬标准编号</span>
 					</td>
-					<td width="19%" class="TD_STYLE1">
-						<span>薪酬标准名称</span>
+					
+					<td width="10%" class="TD_STYLE1">
+						<span>薪酬标准金额</span>
 					</td>
-					<td width="16%" class="TD_STYLE1">
+					<td width="10%" class="TD_STYLE1">
+						<span>总金额</span>
+					</td>
+					<td width="10%" class="TD_STYLE1">
 						<span>制定人</span>
 					</td>
-					<td width="30%" class="TD_STYLE1">
+					<td width="12%" class="TD_STYLE1">
 						<span>登记时间</span>
 					</td>
-					<td width="13%" class="TD_STYLE1">
-						薪酬总额
-					</td>
-					<td width="4%" class="TD_STYLE1">
+					
+					<td width="8%" class="TD_STYLE1">
 						复核
 					</td>
 				</tr>
@@ -70,25 +84,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<c:forEach items="${requestScope.list}" var="one">
 					<tr class="TD_STYLE2">
 						<td>
-							${one.standardId}
+							${one.firstKindName}
 						</td>
 						<td>
-							${one.standardName}
+							${one.secondKindName}
 						</td>
 						
 						<td>
-							${one.designer}
+							${one.thirdKindName}
+						</td>
+						
+						<td>
+							${one.humanAmount}
+						</td>
+						<td>
+							${one.salaryStandardId}
+						</td>
+						<td>
+							${one.salaryStandardSum}
+						</td>
+						<td>
+							${one.salaryPaidSum}
+						</td>
+						
+						<td>
+							${one.register}
 						</td>
 						
 						<td>
 							${one.registTime}
 						</td>
 						<td>
-							${one.salarySum}
-						</td>
-						<td>
 							<a
-								href="/hr/salarystandard/check?ssdId=${one.ssdId}">复核</a>
+								href="/hr/salarygrant/check?sgrId=${one.sgrId}&ssdId=${one.salaryStandardId}">复核</a>
 						</td>
 					</tr>
 				

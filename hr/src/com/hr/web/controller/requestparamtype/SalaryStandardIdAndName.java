@@ -4,6 +4,14 @@ public class SalaryStandardIdAndName {
 
 	String standardId;
 	String standardName;
+	String salarySum;
+	
+	public String getSalarySum() {
+		return salarySum;
+	}
+	public void setSalarySum(String salarySum) {
+		this.salarySum = salarySum;
+	}
 	public String getStandardId() {
 		return standardId;
 	}
