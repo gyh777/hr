@@ -10,8 +10,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<link rel="stylesheet" href="../jsp/table.css" type="text/css" />
+		<script type="text/javascript" src="../jsp/javascript/comm/comm.js"></script>
 		<title>无标题文档</title>
 	</head>
 

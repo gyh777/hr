@@ -9,6 +9,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import net.sf.json.JSONArray;
+
 import org.aspectj.weaver.ltw.LTWWorld;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -138,13 +140,14 @@ public class EngageMajorReleaseController {
 	}
 	
 	@RequestMapping("/selectAllEngageMajorRelease")
-	public ModelAndView selectAllEngageMajorRelease() {
+	public ModelAndView selectAllEngageMajorRelease(String jumpPage) {
 		//获得所有的初始值
 		List<EngageMajorRelease> list = 
 				engageMajorReleaseServiceImpl.selectAllEngageMajorRelease();
+		JSONArray json = JSONArray.fromObject(list);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("engage_major_release_select");
-		mav.addObject("releaseList", list);
+		mav.setViewName(jumpPage);
+		mav.addObject("releaseList", json);
 		return mav;
 	}
 }

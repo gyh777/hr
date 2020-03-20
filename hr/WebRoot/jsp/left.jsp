@@ -645,7 +645,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="../jsp/engage_major_release_change.jsp"
+													<a href="../engageMajorRelease/selectAllEngageMajorRelease?jumpPage=engage_major_release_change"
 														target="mainFrame">职位发布变更</a>
 												</td>
 											</tr>
@@ -654,7 +654,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="../engageMajorRelease/selectAllEngageMajorRelease"
+													<a href="../engageMajorRelease/selectAllEngageMajorRelease?jumpPage=engage_major_release_select"
 														target="mainFrame">职位发布查询</a>
 												</td>
 											</tr>
