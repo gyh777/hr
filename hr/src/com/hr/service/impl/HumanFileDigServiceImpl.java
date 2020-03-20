@@ -66,6 +66,12 @@ public class HumanFileDigServiceImpl implements HumanFileDigService {
 		// TODO Auto-generated method stub
 		return humanFileDigMapper.queryByKeyCondition(map);
 	}
+
+	@Override
+	public boolean removeHumanFileDigById(Short id) {
+		// TODO Auto-generated method stub
+		return humanFileDigMapper.removeHumanFileDigById(id);
+	}
 	
 
 	

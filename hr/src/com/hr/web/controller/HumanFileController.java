@@ -280,17 +280,33 @@ public class HumanFileController {
 		map.put("humanMajorKindName",humanMajorKindName);
 		map.put("str_startTime",str_startTime);
 		map.put("str_endTime",str_endTime);
-		
-		humanFileDigServiceImpl.queryByMapCondition(map);
-		return null;
+		ModelAndView mav = new ModelAndView();
+		List<HumanFileDig> humans = humanFileDigServiceImpl.queryByMapCondition(map);
+		mav.addObject("humans", humans);
+		mav.setViewName("query_list");
+		return mav;
 	}
 	
 	@RequestMapping("keywordsPage")
 	public ModelAndView selectByKeywordsPage(@RequestParam String keywords){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("keywords", keywords);
-        humanFileDigServiceImpl.queryByMapCondition(map);
-		return null;
+        List<HumanFileDig> humans =  humanFileDigServiceImpl.queryByMapCondition(map);
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("humans", humans);
+        mav.setViewName("query_list");
+        return mav;
+	}
+	
+	@RequestMapping("deleteHuman")
+	public ModelAndView deleteHuman(@RequestParam String hufId){
+		System.out.println("=========");
+		int hid = Integer.parseInt(hufId);
+		Short id = (short)hid;
+		humanFileDigServiceImpl.removeHumanFileDigById(id);
+		ModelAndView mav = new ModelAndView();
+        mav.setViewName("human_delete_success");
+        return mav;
 	}
 	
 	

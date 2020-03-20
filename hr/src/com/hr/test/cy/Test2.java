@@ -16,28 +16,28 @@ public class Test2 {
 		
 		
 		//测试倒数第二个方法
-//		HashMap<String, String> map = new HashMap<String, String>();
-//		map.put("firstKindName", "sss");
-//		map.put("secondKindName", "sss");
-//		map.put("thirdKindName", "sss");
-//		map.put("humanMajorName", "sss");
-//		map.put("humanMajorKindName","sss");
-//		map.put("str_startTime","2000-09-02");
-//		map.put("str_endTime","2010-02-06");
-//		ApplicationContext context = 
-//				new ClassPathXmlApplicationContext("applicationContext.xml");
-//		HumanFileDigService service = (HumanFileDigService)context.getBean("humanFileDigServiceImpl");
-//         List<HumanFileDig> list =       service.queryByMapCondition(map);
-	
-	
-	//测试倒数第二个方法
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("keywords", "sss");
-	
+		map.put("firstKindName", "sss");
+		map.put("secondKindName", "sss");
+		map.put("thirdKindName", "sss");
+		map.put("humanMajorName", "sss");
+		map.put("humanMajorKindName","sss");
+		map.put("str_startTime","2000-09-02");
+		map.put("str_endTime","2010-02-06");
 		ApplicationContext context = 
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 		HumanFileDigService service = (HumanFileDigService)context.getBean("humanFileDigServiceImpl");
-         List<HumanFileDig> list =       service.queryByKeyCondition(map);
+         List<HumanFileDig> list =       service.queryByMapCondition(map);
+	
+	
+	//测试倒数第一个方法
+//		HashMap<String, String> map = new HashMap<String, String>();
+//		map.put("keywords", "sss");
+//	
+//		ApplicationContext context = 
+//				new ClassPathXmlApplicationContext("applicationContext.xml");
+//		HumanFileDigService service = (HumanFileDigService)context.getBean("humanFileDigServiceImpl");
+//         List<HumanFileDig> list =       service.queryByKeyCondition(map);
 	
 	}
 
