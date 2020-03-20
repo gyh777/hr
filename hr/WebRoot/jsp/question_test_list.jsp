@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<style type="text/css">
@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：招聘管理--简历管理--有效简历查询</font>
+						<font color="#0000CC">您正在做的业务是：招聘管理--招聘考试管理--考试出题</font>
 					</td>
 				</tr>
 				<tr>
@@ -60,31 +60,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<span>出题</span>
 					</td>
 				</tr>
-					<c:forEach var="list" items="${engageResumeFindList }">
+					<c:forEach var="list" items="${engageExamDtoList }">
 						<tr class="TD_STYLE2">
 							<td>
-								${list.major_kind_id }
+								${list.configMajor.major_kind_id }
 							</td>
 							<td>
-								${list.major_kind_name }
+								${list.configMajor.major_kind_name }
 							</td>
 							<td>
-								${list.major_id }
+								${list.configMajor.major_id }
 							</td>
 							<td>
-								${list.major_name }
+								${list.configMajor.major_name }
 							</td>
 							<td>
-								1
+								${list.count}
 							</td>
 							<td>
-								<a href="">出题</a>
+								<a href="/hr/engageExam/createExam?major_name=${list.configMajor.major_name }">出题</a>
 							</td>
 						</tr>
 					</c:forEach>
 				
 			</table>
-			<p>&nbsp;&nbsp;总数：${engageResumeFindList.size() }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：${engageExamDtoList.size() }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>

@@ -3,5 +3,21 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.EngageExamDetailsMapper">
+	<select id="select" resultType="com.hr.pojo.EngageExamDetails">
+		select * from engage_exam_details
+	</select>
+	<insert id="insert" parameterType="com.hr.pojo.EngageExamDetails">
+		insert into engage_exam_details (exam_number,first_kind_id,first_kind_name,second_kind_id,second_kind_name,question_amount)
+		values
+		(#{exam_number},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},#{question_amount})
+	</insert>
+	<update id="update" parameterType="com.hr.pojo.EngageExamDetails">
+		update engage_exam_details set exam_number=#{exam_number},first_kind_id=#{first_kind_id},
+		first_kind_name=#{first_kind_name},second_kind_id=#{second_kind_id},
+		second_kind_name=#{second_kind_name},question_amount=#{question_amount} where exd_id=#{exd_id}
+	</update>
+	<delete id="delete" parameterType="_int">
+		delete from engage_exam_details where exd_id=#{exd_id}
+	</delete>
 	
 </mapper>

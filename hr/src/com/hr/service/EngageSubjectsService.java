@@ -14,4 +14,5 @@ public interface EngageSubjectsService {
 	public Boolean save(EngageSubjects engageSubjects);
 	public Boolean update(EngageSubjects engageSubjects);
 	public List<EngageSubjects> listEngageSubjects(String firstKindName, String keyWord, String start, String end);
+	public int getCount(String first_kind_id, String second_kind_id);
 }

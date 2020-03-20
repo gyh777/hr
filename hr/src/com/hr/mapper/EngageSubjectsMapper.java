@@ -15,4 +15,5 @@ public interface EngageSubjectsMapper {
 	public int insert(EngageSubjects engageSubjects);
 	public int update(EngageSubjects engageSubjects);
 	public List<EngageSubjects> select(@Param("firstKindName") String firstKindName, @Param("keyWord") String keyWord, @Param("start") String start, @Param("end") String end);
+	public int selectCount(@Param("first_kind_id") String first_kind_id,@Param("second_kind_id") String second_kind_id);
 }

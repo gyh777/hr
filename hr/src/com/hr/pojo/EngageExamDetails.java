@@ -7,7 +7,7 @@ public class EngageExamDetails {
     private String first_kind_name;	//试卷一级分类
     private String second_kind_id;	//试卷二级分类编号
     private String second_kind_name;	//试卷二级分类
-    private int question_Amount;	//出题数量
+    private int question_amount;	//出题数量
     
 	public int getExd_id() {
 		return exd_id;
@@ -45,11 +45,11 @@ public class EngageExamDetails {
 	public void setSecond_kind_name(String second_kind_name) {
 		this.second_kind_name = second_kind_name;
 	}
-	public int getQuestion_Amount() {
-		return question_Amount;
+	public int getQuestion_amount() {
+		return question_amount;
 	}
-	public void setQuestion_Amount(int question_Amount) {
-		this.question_Amount = question_Amount;
+	public void setQuestion_amount(int question_amount) {
+		this.question_amount = question_amount;
 	}
     
 }

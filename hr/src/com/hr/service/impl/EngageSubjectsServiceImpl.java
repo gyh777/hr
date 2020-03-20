@@ -47,4 +47,9 @@ public class EngageSubjectsServiceImpl implements EngageSubjectsService{
 			return true;
 		return false;
 	}
+
+	@Override
+	public int getCount(String first_kind_id, String second_kind_id) {
+		return engageSubjectsMapper.selectCount(first_kind_id, second_kind_id);
+	}
 }
