@@ -1,5 +1,6 @@
 package com.hr.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class HumanFileDigServiceImpl implements HumanFileDigService {
 	@Override
 	public HumanFileDig queryHumanFileDigByName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		return humanFileDigMapper.queryHumanFileDigByName(name);
 	}
 
 	@Override
@@ -53,6 +54,19 @@ public class HumanFileDigServiceImpl implements HumanFileDigService {
 		// TODO Auto-generated method stub
 		return humanFileDigMapper.queryHumanFileDigByHfd_id(hfd_id);
 	}
+
+	@Override
+	public List<HumanFileDig> queryByMapCondition(HashMap<String, String> map) {
+		// TODO Auto-generated method stub
+		return humanFileDigMapper.queryByMapCondition(map);
+	}
+
+	@Override
+	public List<HumanFileDig> queryByKeyCondition(String key) {
+		// TODO Auto-generated method stub
+		return humanFileDigMapper.queryByKeyCondition(key);
+	}
+	
 
 	
 }

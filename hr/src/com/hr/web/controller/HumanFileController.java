@@ -272,7 +272,7 @@ public class HumanFileController {
 	@RequestMapping("locatePage")
 	public ModelAndView selectByLocatePage(@RequestParam String firstKindName,@RequestParam String secondKindName,@RequestParam String thirdKindName,
 			@RequestParam String humanMajorKindName,@RequestParam String humanMajorName,@RequestParam String str_startTime,@RequestParam String str_endTime){
-		HashMap<String, Object> map = new HashMap<String, Object>();
+		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("firstKindName", firstKindName);
 		map.put("secondKindName", secondKindName);
 		map.put("thirdKindName", thirdKindName);
@@ -281,7 +281,7 @@ public class HumanFileController {
 		map.put("str_startTime",str_startTime);
 		map.put("str_endTime",str_endTime);
 		
-		
+		humanFileDigServiceImpl.queryByMapCondition(map);
 		return null;
 	}
 	
