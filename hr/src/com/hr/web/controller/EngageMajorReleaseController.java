@@ -137,4 +137,14 @@ public class EngageMajorReleaseController {
 		return b;
 	}
 	
+	@RequestMapping("/selectAllEngageMajorRelease")
+	public ModelAndView selectAllEngageMajorRelease() {
+		//获得所有的初始值
+		List<EngageMajorRelease> list = 
+				engageMajorReleaseServiceImpl.selectAllEngageMajorRelease();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("engage_major_release_select");
+		mav.addObject("releaseList", list);
+		return mav;
+	}
 }
