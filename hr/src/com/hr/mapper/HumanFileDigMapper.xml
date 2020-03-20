@@ -87,35 +87,33 @@
 		</trim>
 	</select>
 	
-	<select id="selectByKeyCondition" resultType="com.hr.pojo.HumanFileDig" parameterType="hashmap">
+	<select id="queryByKeyCondition" resultType="com.hr.pojo.HumanFileDig" parameterType="hashmap">
 		select from human_file_dig
 		<trim prefix="where" prefixOverrides="and|or">
-			
-			<if test="keywords!=null">
+		<choose>
+			<when test="keywords!=null">
 				<bind name="kw" value="'%' + keywords + '%'"/>
 				and first_kind_name like #{kw}
-			</if>
-			<if test="keywords!=null">
+			</when>
+			<when test="keywords!=null">
 				<bind name="kw" value="'%' + keywords + '%'"/>
-				and first_kind_name like #{kw}
-			</if>
-			<if test="keywords!=null">
+				and second_kind_name like #{kw}
+			</when>
+			<when test="keywords!=null">
 				<bind name="kw" value="'%' + keywords + '%'"/>
-				or second_kind_name like #{kw}
-			</if>
-			<if test="keywords!=null">
-				<bind name="kw" value="'%' + keywords + '%'"/>
-				or third_kind_name like #{kw}
-			</if>
+				and third_kind_name like #{kw}
+			</when>
 			
-			<if test="keywords!=null">
+			
+			<when test="keywords!=null">
 				<bind name="kw" value="'%' + keywords + '%'"/>
-				or human_major_kind_name like #{kw}
-			</if>
-			<if test="keywords!=null">
+				and human_major_kind_name like #{kw}
+			</when>
+			<when test="keywords!=null">
 				<bind name="kw" value="'%' + keywords + '%'"/>
-				or human_major_name like #{kw}
-			</if>
+				and human_major_name like #{kw}
+			</when>
+		</choose>
 		</trim>
 	</select>
 </mapper>
