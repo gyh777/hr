@@ -74,15 +74,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css">
-		
-		
-		
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css">
 		
 	</head>
 
 	<body>
-	<form action="humanfile.do" method="post">
+	<form id="Query"  method="post">
 		<table width="100%">
 			<tr>
 				<td>
@@ -123,7 +120,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					职位名称
 				</td>
 			</tr>
-			
+			<c:forEach items="${requestScope.humans}" var="human">
+					<tr>
+						<td  class="TD_STYLE2">
+							${human.huf_id }
+						</td>
+						<td class="TD_STYLE2">
+							${human.human_name }
+						</td>
+						<td class="TD_STYLE2">
+						    ${human.human_sex }
+						</td>
+						<td class="TD_STYLE2">
+							${human.first_kind_name}
+						</td>
+						<td class="TD_STYLE2">
+							${human.second_kind_name }
+						</td>
+						<td class="TD_STYLE2">
+							${human.third_kind_name }
+						</td>
+						<td class="TD_STYLE2">
+							${human.human_major_kind_name }
+						</td>
+						<td class="TD_STYLE2">
+						    <input type="button" value="删除" class="BUTTON_STYLE1" onclick="deleteHuman(this)">
+						</td>
+					</tr>
+				   </c:forEach>
 		</table>
 		<p>&nbsp;&nbsp;总数：0例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
 	</form>

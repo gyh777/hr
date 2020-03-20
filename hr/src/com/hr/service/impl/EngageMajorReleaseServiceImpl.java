@@ -1,5 +1,7 @@
 package com.hr.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,12 +12,18 @@ import com.hr.service.EngageMajorReleaseService;
 @Service
 public class EngageMajorReleaseServiceImpl implements EngageMajorReleaseService{
 	@Autowired
-	EngageMajorReleaseMapper engageMajorReleaseMapper;
+	EngageMajorReleaseMapper mapper;
 
 	@Override
 	public boolean addEngageMajorRelease(EngageMajorRelease emr) {
 		// TODO Auto-generated method stub
-		return engageMajorReleaseMapper.addEngageMajorRelease(emr);
+		return mapper.addEngageMajorRelease(emr);
+	}
+
+	@Override
+	public List<EngageMajorRelease> selectAllEngageMajorRelease() {
+		// TODO Auto-generated method stub
+		return mapper.selectAllEngageMajorRelease();
 	}
 
 }

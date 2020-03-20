@@ -270,10 +270,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			singleClick : true, 
 			step : 1});
 		Calendar.setup ({
-			inputField : "date_start",
+			inputField : "date",
 			ifFormat : "%Y-%m-%d %H:%M:%S", 
 			showsTime : false, 
-			button : "date_start", 
+			button : "date", 
 			singleClick : true, 
 			step : 1});
 	</script>

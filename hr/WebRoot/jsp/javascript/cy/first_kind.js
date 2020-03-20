@@ -21,7 +21,3 @@ function deleteFirstKind(obj){
 	frm.action = "/hr/firstkindrigister/deleterigister?firstKindId="+id;
     frm.submit();
 }
-
-function getFirstKind(){
-	
-}

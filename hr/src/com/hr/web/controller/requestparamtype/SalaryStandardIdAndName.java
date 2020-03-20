@@ -1,8 +1,9 @@
 package com.hr.web.controller.requestparamtype;
 
 public class SalaryStandardIdAndName {
-	private String standardId;
-	private String standardName;
+
+	String standardId;
+	String standardName;
 	public String getStandardId() {
 		return standardId;
 	}

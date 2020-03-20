@@ -11,4 +11,9 @@
 				,#{register},#{changer},#{regist_time},#{change_time}
 				,#{major_describe},#{engage_required})
 	</insert>
+	
+	<select id="selectAllEngageMajorRelease" resultType="com.hr.pojo.EngageMajorRelease">
+		select * from engage_major_release
+	</select>
+	
 </mapper>
