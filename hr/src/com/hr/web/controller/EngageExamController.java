@@ -98,4 +98,11 @@ public class EngageExamController {
 		//跳答题页面
 		return "forward:/engageExam/selectAllForQuestionTest";
 	}
+	
+	@RequestMapping("/answerQuestion")
+	public String answerQuestion(HttpServletRequest request){
+		List<ConfigMajor> list = configMajorServiceImpl.selectAllConfigMajor();
+		request.setAttribute("configMajorList", list);
+		return "question_test_locate";
+	}
 }

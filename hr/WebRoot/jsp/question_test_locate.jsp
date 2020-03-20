@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
 		<link rel="stylesheet" type="text/css" media="all"
 			href="javascript/calendar/calendar-win2k-cold-1.css">
 		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
@@ -25,11 +25,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form method="post" action="/hr/engageInterview/findForEffective">
+		<form method="post" action="/hr/">
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：招聘管理--简历管理--面试结果登记 </font>
+						<font color="#0000CC">您正在做的业务是：招聘管理--招聘考试管理--考试答题 </font>
 					</td>
 				</tr>
 				<tr>
@@ -45,29 +45,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				class="TABLE_STYLE1">
 				<tr>
 					<td width="20%" class="TD_STYLE1">
-						请选择职位分类
+						姓名
 					</td>
-					<td class="TD_STYLE2">
-						<select name="human_major_kind_id">
-							<option value="" selected="selected">请选择</option>
-							<c:forEach var="list" items="${configMajorList }">
-								<option value="${list.major_kind_id }">${list.major_kind_name }</option>
-							</c:forEach>
+					<td class="TD_STYLE1">
+						<input type="text" name="human_name" value="">
 						</select>
-						<select name="human_major_id">
-							<option value="" selected="selected">请选择</option>
-							<c:forEach var="list" items="${configMajorList }">
-								<option value="${list.major_id }">${list.major_name }</option>
-							</c:forEach>
-						</select>
+					</td>
+					<td>
+						身份证号码
+					</td>
+					<td>
+						<input type="text" name="human_idcard" value="">
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">
-						请输入关键字
+						职位分类
 					</td>
-					<td class="TD_STYLE2">
-						<input type="text" value="" name="keyWord" class="INPUT_STYLE1">
+					<td class="TD_STYLE1">
+						<select name="">
+							<option value="" selected="selected"></option>
+							<c:forEach var="list" items="${configMajorList }">
+								<option value="${list.major_kind_name }">${list.major_kind_name }</option>
+							</c:forEach>
+						</select>
+					</td>
+					<td class="TD_STYLE1">
+						职位名称
+					</td>
+					<td class="TD_STYLE1">
+						<select name="major_name">
+							<option value="" selected="selected"></option>
+							<c:forEach var="list" items="${configMajorList }">
+								<option value="${list.major_name }">${list.major_name }</option>
+							</c:forEach>
+						</select>
 					</td>
 				</tr>
 				<tr>
@@ -75,10 +87,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						请输入登记时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="start" value="" class="INPUT_STYLE1" id="date_start">
-						至
-						<input type="text" name="end" value="" class="INPUT_STYLE1" id="date_end">
-						(YYYY-MM-DD)
+						<select name="">
+							<c:forEach var="list" items="${configMajorList }">
+								<option value="${list.first_kind_name }">${list.first_kind_name }</option>
+							</c:forEach>
+						</select>
+					</td>
+					<td class="TD_STYLE1">
+						请输入登记时间
+					</td>
+					<td class="TD_STYLE2">
+						<select name="">
+							<c:forEach var="list" items="${configMajorList }">
+								<option value="${list.first_kind_name }">${list.first_kind_name }</option>
+							</c:forEach>
+						</select>
 					</td>
 				</tr>
 			</table>
