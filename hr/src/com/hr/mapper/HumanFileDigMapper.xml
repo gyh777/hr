@@ -90,7 +90,7 @@
 	
 	<select id="selectByKeyCondition" resultType="com.hr.pojo.HumanFileDig" parameterType="com.hr.pojo.HumanFileDig">
 		select 
-		<include refid="allStudentColumn"/>
+		<include refid="allDigColumn"/>
 		from human_file_dig
 		<trim prefix="where" prefixOverrides="and|or">
 			<!--<choose>
