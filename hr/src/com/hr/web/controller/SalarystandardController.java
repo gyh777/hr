@@ -37,8 +37,8 @@ public class SalarystandardController {
 	}
 	
 	@RequestMapping("/checkAdopt")
-	public String checkAdopt(String checker,String checkTime,String checkComment){
-		Boolean bl = salaryStandardServiceImpl.checkChange(checker, checkTime, checkComment);
+	public String checkAdopt(String ssdId,String checker,String checkTime,String checkComment){
+		Boolean bl = salaryStandardServiceImpl.checkChange(ssdId,checker, checkTime, checkComment);
 		if(bl){
 			return "salarystandard_check_.success";
 		}

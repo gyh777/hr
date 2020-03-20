@@ -67,7 +67,11 @@
     </select>
     
     <select id="selectIdAndName" resultType="com.hr.web.controller.requestparamtype.SalaryStandardIdAndName">
-    	select standard_id as standardId,standard_name as standardName from salary_standard
+    	select standard_id as standardId,standard_name as standardName,salary_sum as salarySum from salary_standard
+    </select>
+    
+    <select id="selectIdAndNameOne" parameterType="String" resultType="com.hr.web.controller.requestparamtype.SalaryStandardIdAndName">
+    	select standard_id as standardId,standard_name as standardName,salary_sum as salarySum from salary_standard where ssd_id=#{ssdId}
     </select>
     
     <select id="selectCheckAll" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">

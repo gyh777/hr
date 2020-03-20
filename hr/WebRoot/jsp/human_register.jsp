@@ -313,7 +313,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						薪酬标准
 					</td>
 					<td class="TD_STYLE2">
-						<select name="salaryStandardName" class="SELECT_STYLE1"><option value="0/未定义">0/未定义</option></select>
+						<select name="salaryStandardName" class="SELECT_STYLE1"><option value="0/未定义">2/two</option></select>
 					</td>
 					<td class="TD_STYLE1">
 						开户行

@@ -73,13 +73,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							${one.standardId}
 						</td>
 						<td>
-							${one.standardName}
+							
 						</td>
-						
+						${one.standardName}
 						<td>
-							${one.designer}
+							
 						</td>
-						
+						${one.designer}
 						<td>
 							${one.registTime}
 						</td>

@@ -19,6 +19,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 <script type="text/javascript">
+function myoption1(){
+var options=$("#standardId option:selected");
+$("#standardName").val(options.attr("myvalue"));
+$("#salaryStandardSum").val(options.attr("mysalarysum"));
+
+}
+
+function myoption2(){
+var options=$("#standardName option:selected");
+$("#standardId").val(options.attr("myvalue"));
+$("#salaryStandardSum").val(options.attr("mysalarysum")); 
+}
 
 window.onload=function(){
 $.ajax({
@@ -30,12 +42,12 @@ async: true,
 success:function(date){
 alert(date);
 $.each(date,function(index,item){
-							$('#standardName').append("<option name='"+item.standardId+"'>"+item.standardName+"</option>");
-                             $('#standardId').append("<option name='"+item.standardName+"'>"+item.standardId+"</option>");//往下拉菜单里添加元素
+							$('#standardName').append("<option myvalue='"+item.standardId+"' mysalarysum='"+item.salarySum+"'>"+item.standardName+"</option>");
+                             $('#standardId').append("<option myvalue='"+item.standardName+"' mysalarysum='"+item.salarySum+"'>"+item.standardId+"</option>");//往下拉菜单里添加元素
                          })
 
 },
-error:function(){alert(23)}
+error:function(){alert("error")}
 });
 };
 
@@ -79,7 +91,7 @@ form.submit();
 						薪酬标准编号
 					</td>
 					<td width="168" class="TD_STYLE2"><!-- 应该从数据库薪酬表取最大主键+1 -->
-						<select name="standardId" id="standardId" class="SELECT_STYLE1" onchange="">
+						<select name="standardId" id="standardId" class="SELECT_STYLE1" onchange="myoption1()">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
@@ -87,7 +99,7 @@ form.submit();
 						薪酬标准名称
 					</td>
 					<td width="171" class="TD_STYLE2">
-					<select name="standardName" id="standardName" class="SELECT_STYLE1" onchange="">
+					<select name="standardName" id="standardName" class="SELECT_STYLE1" onchange="myoption2()">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
@@ -95,7 +107,7 @@ form.submit();
 						薪酬总额
 					</td>
 					<td width="138" class="TD_STYLE2">
-						<input type="text" name="salaryStandardSum" value="0" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="salaryStandardSum" id="salaryStandardSum" value="0" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<!-- <td width="103" class="TD_STYLE1">
 						制定人
@@ -157,6 +169,62 @@ form.submit();
 					
 				</tr>
 				
+				<tr>
+					<td width="14%" class="TD_STYLE1">
+						职工id
+					</td>
+					<td width="15%" class="TD_STYLE1">
+						职工姓名
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						奖金
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						销售绩效金额
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						应扣金额
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						薪酬
+					</td>
+					<td width="15%" class="TD_STYLE1">
+						应付职工薪酬
+					</td>
+				</tr>
+				
+				<!-- 
+				$.each(date,function(index,item){
+							$('#standardName').append("<option myvalue='"+item.standardId+"' mysalarysum='"+item.salarySum+"'>"+item.standardName+"</option>");
+                             $('#standardId').append("<option myvalue='"+item.standardName+"' mysalarysum='"+item.salarySum+"'>"+item.standardId+"</option>");//往下拉菜单里添加元素
+                         })
+
+				}
+				 -->
+				<tr>
+				
+					<td width="14%" class="TD_STYLE1">
+						<input type="text" class="INPUT_STYLE2" name="humanId" value="item.human_id" readonly="readonly"/>
+					</td>
+					<td width="15%" class="TD_STYLE1">
+						<input type="text" class="INPUT_STYLE2" name="humanName" value="item.human_name" readonly="readonly"/>
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						<input type="text" class="INPUT_STYLE2" name="bounsSum"/>
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						<input type="text" class="INPUT_STYLE2" name="saleSum"/>
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						<input type="text" class="INPUT_STYLE2" name="deductSum"/>
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						<input type="text" class="INPUT_STYLE2" name="salaryStandardSum"/>
+					</td>
+					<td width="15%" class="TD_STYLE1">
+						<input type="text" class="INPUT_STYLE2" name="salaryPaidSum"/>
+					</td>
+				</tr>
 				
 			</table>
 			<p>

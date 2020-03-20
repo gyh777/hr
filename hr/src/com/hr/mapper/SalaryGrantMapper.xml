@@ -50,4 +50,20 @@
 		#{secondKindId},#{secondKindName},#{thirdKindId},#{thirdKindName},#{humanAmount},
 		#{salaryStandardSum},#{salaryPaidSum},#{register},#{registTime},#{checker},#{checkTime},#{checkStatus})
 	</insert>
+	
+	 <select id="selectCheckAll" resultType="com.hr.pojo.SalaryGrant" resultMap="SalaryGrant">
+    	select * from salary_grant where check_status=0
+    </select>
+    
+    
+     <select id="selectBySgrId" parameterType="String" resultType="com.hr.pojo.SalaryGrant" resultMap="SalaryGrant">
+    	select *  from salary_grant where sgr_id=#{sgrId}
+    </select>
+    
+    <update id="ckeckUpdate" parameterType="String">
+		update salary_grant set 
+    	checker=#{checker},
+    	check_time=#{checkTime},check_status=#{checkStatus},
+    	where sgr_id=#{sgrId}
+	</update>
 </mapper>

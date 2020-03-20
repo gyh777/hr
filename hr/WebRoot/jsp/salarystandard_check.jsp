@@ -20,8 +20,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var checker = document.getElementByName("checker");
 			var checkTime = document.getElementByName("checkTime");
 			var checkComment = document.getElementByName("checkComment");
-			document.forms[0].action ="/hr/salarystandard/checkAdopt?checker="+checker+"&checkTime="+checkTime+"&checkComment="+checkComment;
-			document.forms[0].submit();
+			var ssdId = document.getElementByName("ssdId");
+			window.href ="/hr/salarystandard/checkAdopt?checker="+checker+"&checkTime="+checkTime+"&checkComment="+checkComment+"&ssdId="+ssdId;
+			
 		}
 		</script>
 	</head>

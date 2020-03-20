@@ -8,11 +8,13 @@ import org.springframework.stereotype.Service;
 import com.hr.mapper.HumanFileMapper;
 import com.hr.pojo.HumanFile;
 import com.hr.service.HumanFileService;
+import com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName;
 
 @Service
 public class HumanFileServiceImpl implements HumanFileService {
     @Autowired
     HumanFileMapper humanFileMapper;
+    List<HunanFileHumanIdAndName> queryHumanFileByKindId_list = null;
 	
 	@Override
 	public boolean addHumanFile(HumanFile huf) {
@@ -54,6 +56,24 @@ public class HumanFileServiceImpl implements HumanFileService {
 	public HumanFile queryHumanFileByHuf_id(int huf_id) {
 		// TODO Auto-generated method stub
 		return humanFileMapper.queryHumanFileByHuf_id(huf_id);
+	}
+	
+	//向宇加的--通过所属机构查询部门人员id和name
+	public List<HunanFileHumanIdAndName> queryHumanFileByKindId(String first_kind_id,String second_kind_id,String third_kind_id){
+		if(second_kind_id==null){
+			//说明只有一级机构
+			queryHumanFileByKindId_list = humanFileMapper.queryHumanFileByKindIdOne(first_kind_id);
+		}else if(third_kind_id==null){
+			//说明只有一二级机构
+			queryHumanFileByKindId_list = humanFileMapper.queryHumanFileByKindIdtwo(first_kind_id,second_kind_id);
+		}else if(third_kind_id!=null){
+			//说明一二三级机构
+			queryHumanFileByKindId_list = humanFileMapper.queryHumanFileByKindIdThree(first_kind_id,second_kind_id,third_kind_id);
+		}else{
+			queryHumanFileByKindId_list=null;
+			}
+		return queryHumanFileByKindId_list;
+		
 	}
 
 }
