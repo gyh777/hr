@@ -56,5 +56,11 @@ public class EngageResumeServiceImpl implements EngageResumeService{
 			String human_major_id, String keyWord, String start, String end) {
 		return engageResumeMapper.findForEffective(human_major_kind_id, human_major_id, keyWord, start, end);
 	}
+
+	@Override
+	public List<EngageResume> listForQuestion(String human_major_kind_id,
+			String human_major_id, String human_name, String human_idcard) {
+		return engageResumeMapper.findForQuestion(human_major_kind_id, human_major_id, human_name, human_idcard);
+	}
 	
 }

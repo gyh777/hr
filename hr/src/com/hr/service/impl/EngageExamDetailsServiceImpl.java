@@ -40,4 +40,9 @@ public class EngageExamDetailsServiceImpl implements EngageExamDetailsService{
 		return false;
 	}
 
+	@Override
+	public List<EngageExamDetails> listByExamNumber(String exam_number) {
+		return engageExamDetailsMapper.selectByExamNumber(exam_number);
+	}
+
 }

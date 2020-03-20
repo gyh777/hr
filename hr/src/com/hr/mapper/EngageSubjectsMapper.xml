@@ -59,4 +59,7 @@
 	<select id="selectCount" parameterType="String" resultType="_int" >
 		select count(*) from engage_subjects where first_kind_id=#{first_kind_id} and second_kind_id=#{second_kind_id}
 	</select>
+	<select id="selectByKindId" parameterType="String" resultType="com.hr.pojo.EngageSubjects">
+		select * from engage_subjects where first_kind_id=#{first_kind_id} and second_kind_id=#{second_kind_id}
+	</select>
 </mapper>

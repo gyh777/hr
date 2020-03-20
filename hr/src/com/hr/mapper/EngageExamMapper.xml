@@ -24,4 +24,7 @@
 	<delete id="delete" parameterType="_int">
 		delete from engage_exam where exa_id=#{exa_id}
 	</delete>
+	<select id="selectByMajorId" parameterType="String" resultType="com.hr.pojo.EngageExam">
+		select * from engage_exam where major_kind_id=#{major_kind_id} and major_id=#{major_id}
+	</select>
 </mapper>

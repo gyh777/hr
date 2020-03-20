@@ -119,4 +119,21 @@
 			</if>
 		</trim>
 	</select>
+	<select id="findForQuestion" parameterType="String" resultType="com.hr.pojo.EngageResume">
+		select * from engage_resume where interview_status=4
+		<trim>
+			<if test="human_major_kind_id !=null and human_major_kind_id !=''">
+				and human_major_kind_id=#{human_major_kind_id}
+			</if>
+			<if test="human_major_id !=null and human_major_id !=''">
+				and human_major_id=#{human_major_id}
+			</if>
+			<if test="human_name !=null and human_name != ''">
+				and human_name = #{human_name} 
+			</if>
+			<if test="human_idcard !=null and human_idcard !=''">
+				and human_idcard = #{human_idcard}
+			</if>
+		</trim>
+	</select>
 </mapper>

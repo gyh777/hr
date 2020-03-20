@@ -12,4 +12,5 @@ public interface EngageExamDetailsMapper {
 	public int insert(EngageExamDetails engageExamDetails);
 	public int update(EngageExamDetails engageExamDetails);
 	public int delete(@Param("exd_id") int exd_id);
+	public List<EngageExamDetails> selectByExamNumber(@Param("exam_number") String exam_number);
 }

@@ -13,4 +13,5 @@ public interface EngageExamMapper {
 	public int insert(EngageExam engageExam);
 	public int update(EngageExam engageExam);
 	public int delete(int exa_id);
+	public List<EngageExam> selectByMajorId(@Param("major_kind_id") String major_kind_id, @Param("major_id") String major_id);
 }

@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -41,5 +42,10 @@ public class Test {
 		
 //		List<EngageSubjects> list = engageSubjectsMapper.select();
 //		System.out.println(list.size());
+	}
+	
+	public static void main(String[] args) {
+		Random r = new Random();
+		System.out.println(r.nextInt(10)+1);
 	}
 }

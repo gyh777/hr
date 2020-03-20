@@ -44,5 +44,10 @@ public class EngageExamServiceImpl implements EngageExamService{
 			return true;
 		return false;
 	}
+
+	@Override
+	public List<EngageExam> listByMajorId(String major_kind_id, String major_id) {
+		return engageExamMapper.selectByMajorId(major_kind_id, major_id);
+	}
 	
 }

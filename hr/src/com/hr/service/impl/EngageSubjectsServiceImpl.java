@@ -52,4 +52,9 @@ public class EngageSubjectsServiceImpl implements EngageSubjectsService{
 	public int getCount(String first_kind_id, String second_kind_id) {
 		return engageSubjectsMapper.selectCount(first_kind_id, second_kind_id);
 	}
+
+	@Override
+	public List<EngageSubjects> listByKindId(String first_kind_id, String second_kind_id) {
+		return engageSubjectsMapper.selectByKindId(first_kind_id, second_kind_id);
+	}
 }

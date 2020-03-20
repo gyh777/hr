@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
 		<link rel="stylesheet" type="text/css" media="all"
 			href="javascript/calendar/calendar-win2k-cold-1.css">
@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form method="post" action="/hr/">
+		<form method="post" action="/hr/engageExam/find">
 			<table width="100%">
 				<tr>
 					<td>
@@ -49,7 +49,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td class="TD_STYLE1">
 						<input type="text" name="human_name" value="">
-						</select>
 					</td>
 					<td>
 						身份证号码
@@ -63,10 +62,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						职位分类
 					</td>
 					<td class="TD_STYLE1">
-						<select name="">
+						<select name="human_major_kind_id">
 							<option value="" selected="selected"></option>
 							<c:forEach var="list" items="${configMajorList }">
-								<option value="${list.major_kind_name }">${list.major_kind_name }</option>
+								<option value="${list.major_kind_id }">${list.major_kind_name }</option>
 							</c:forEach>
 						</select>
 					</td>
@@ -74,32 +73,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						职位名称
 					</td>
 					<td class="TD_STYLE1">
-						<select name="major_name">
+						<select name="human_major_id">
 							<option value="" selected="selected"></option>
 							<c:forEach var="list" items="${configMajorList }">
-								<option value="${list.major_name }">${list.major_name }</option>
-							</c:forEach>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td class="TD_STYLE1">
-						请输入登记时间
-					</td>
-					<td class="TD_STYLE2">
-						<select name="">
-							<c:forEach var="list" items="${configMajorList }">
-								<option value="${list.first_kind_name }">${list.first_kind_name }</option>
-							</c:forEach>
-						</select>
-					</td>
-					<td class="TD_STYLE1">
-						请输入登记时间
-					</td>
-					<td class="TD_STYLE2">
-						<select name="">
-							<c:forEach var="list" items="${configMajorList }">
-								<option value="${list.first_kind_name }">${list.first_kind_name }</option>
+								<option value="${list.major_id }">${list.major_name }</option>
 							</c:forEach>
 						</select>
 					</td>
