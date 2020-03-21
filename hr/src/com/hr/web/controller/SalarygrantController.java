@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hr.pojo.SalaryGrant;
+import com.hr.pojo.SalaryGrantDetails;
 import com.hr.pojo.SalaryStandard;
 import com.hr.service.impl.HumanFileServiceImpl;
+import com.hr.service.impl.SalaryGrantDetailsServiceImpl;
 import com.hr.service.impl.SalaryGrantServiceImpl;
 import com.hr.service.impl.SalaryStandardServiceImpl;
 import com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName;
+import com.hr.web.controller.requestparamtype.SalaryGrantAndDetails;
 import com.hr.web.controller.requestparamtype.SalaryStandardDetailsList;
 import com.hr.web.controller.requestparamtype.SalaryStandardIdAndName;
 
@@ -29,25 +32,32 @@ public class SalarygrantController {
 	@Autowired
 	SalaryGrantServiceImpl salaryGrantServiceImpl;
 	@Autowired
+	SalaryGrantDetailsServiceImpl salaryGrantDetailsServiceImpl;
+	@Autowired
 	SalaryStandardServiceImpl salaryStandardServiceImpl;
 	@Autowired
 	HumanFileServiceImpl humanFileServiceImpl;
 	
 	@RequestMapping("/register")
-	public String register(@ModelAttribute SalaryGrant salaryGrant){
+	public String register(@ModelAttribute SalaryGrantAndDetails salaryGrantAndDetails){
 		
-		Boolean bl = salaryGrantServiceImpl.save(salaryGrant);
-		
-		if(bl){
-//			return "salarystandard_register_success";
+		Boolean b1 = salaryGrantServiceImpl.save(salaryGrantAndDetails);
+		List<SalaryGrantDetails> list = salaryGrantAndDetails.getSalaryGrantDetails();
+		for (SalaryGrantDetails salaryGrantDetails : list) {
+			salaryGrantDetails.setSalaryGrantId(salaryGrantAndDetails.getSalaryGrantId());
 		}
+		Boolean b2 = salaryGrantDetailsServiceImpl.save(list);
+//		if(bl){
+//			return "salarystandard_register_success";
+//		}
+		System.out.println(salaryGrantAndDetails.getFirst_kind_id()+"=="+salaryGrantAndDetails.getSalaryGrantDetails().get(0).getHumanName());
 		return null;
 	}
 	
 	@ResponseBody
 	@RequestMapping("/standardIdAndName")
 	public List<SalaryStandardIdAndName> standardIdAndName(){
-		System.out.println("11");
+		
 		List<SalaryStandardIdAndName> idAndName = salaryStandardServiceImpl.queryIdAndName();
 		return idAndName;
 		
@@ -57,8 +67,6 @@ public class SalarygrantController {
 	@RequestMapping("/humanIdAndName")
 	public List<HunanFileHumanIdAndName> humanIdAndName(String firstKindId,String secondKindId,String thirdKindId){
 		List<HunanFileHumanIdAndName> list = humanFileServiceImpl.queryHumanFileByKindId(firstKindId, secondKindId, thirdKindId);
-	    System.out.println("enter"+firstKindId);
-		System.out.println(list.size());
 		return list;
 	}
 	

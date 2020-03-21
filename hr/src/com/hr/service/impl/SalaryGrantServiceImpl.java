@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hr.mapper.SalaryGrantMapper;
 import com.hr.pojo.SalaryGrant;
 import com.hr.service.SalaryGrantService;
+import com.hr.web.controller.requestparamtype.SalaryGrantAndDetails;
 
 @Service
 public class SalaryGrantServiceImpl implements SalaryGrantService{
@@ -17,9 +18,9 @@ public class SalaryGrantServiceImpl implements SalaryGrantService{
 	SalaryGrantMapper salaryGrantMapper;
 	
 	@Override
-	public Boolean save(SalaryGrant salaryGrant) {
-		salaryGrant.setCheckStatus((short) 0);
-		salaryGrantMapper.insert(salaryGrant);
+	public Boolean save(SalaryGrantAndDetails salaryGrantAndDetails) {
+		salaryGrantAndDetails.setCheckStatus((short) 0);
+		salaryGrantMapper.insert(salaryGrantAndDetails);
 		return null;
 	}
 	

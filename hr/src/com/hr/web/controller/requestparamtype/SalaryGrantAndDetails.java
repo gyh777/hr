@@ -1,5 +1,7 @@
 package com.hr.web.controller.requestparamtype;
 
+import java.util.List;
+
 import com.hr.pojo.SalaryGrantDetails;
 
 public class SalaryGrantAndDetails {
@@ -38,7 +40,7 @@ public class SalaryGrantAndDetails {
 
     private Short checkStatus;
     
-    private SalaryGrantDetails salaryGrantDetails;
+    private List<SalaryGrantDetails> salaryGrantDetails;
 
 	public Short getSgrId() {
 		return sgrId;
@@ -182,13 +184,15 @@ public class SalaryGrantAndDetails {
 		this.checkStatus = checkStatus;
 	}
 
-	public SalaryGrantDetails getSalaryGrantDetails() {
+	public List<SalaryGrantDetails> getSalaryGrantDetails() {
 		return salaryGrantDetails;
 	}
 
-	public void setSalaryGrantDetails(SalaryGrantDetails salaryGrantDetails) {
+	public void setSalaryGrantDetails(List<SalaryGrantDetails> salaryGrantDetails) {
 		this.salaryGrantDetails = salaryGrantDetails;
 	}
+
+	
     
     
 

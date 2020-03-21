@@ -46,8 +46,8 @@
     </resultMap>
     <insert id="insert" parameterType="com.hr.pojo.SalaryGrant">
 		insert into salary_grant <include refid="SalaryGrant"/> values
-		(#{sgrId},#{salaryGrantId},#{salaryStandardId},#{firstKindId},#{firstKindName},
-		#{secondKindId},#{secondKindName},#{thirdKindId},#{thirdKindName},#{humanAmount},
+		(#{sgrId},#{salaryGrantId},#{salaryStandardId},#{first_kind_id},#{firstKindName},
+		#{second_kind_id},#{secondKindName},#{third_kind_id},#{thirdKindName},#{humanAmount},
 		#{salaryStandardSum},#{salaryPaidSum},#{register},#{registTime},#{checker},#{checkTime},#{checkStatus})
 	</insert>
 	
