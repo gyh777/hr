@@ -152,4 +152,8 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		SalaryStandardIdAndName standardIdAndName = salaryStandardMapper.selectIdAndNameOne(ssdId);
 		return standardIdAndName;
 	}
+	
+	public String queryNextId(){
+		return salaryStandardMapper.selectNextId();
+	}
 }

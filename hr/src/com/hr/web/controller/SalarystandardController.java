@@ -108,4 +108,10 @@ public class SalarystandardController {
 		System.out.println(salaryStandardDetailsList.getStandardName());
 		return "salarystandard_change";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/nextId")
+	public String nextId(){		
+		return salaryStandardServiceImpl.queryNextId();		
+	}
 }

@@ -30,4 +30,6 @@ public interface SalaryStandardMapper {
 	
 	public String selectIdByName(String name);
 	
+	public String selectNextId();
+	
 }
