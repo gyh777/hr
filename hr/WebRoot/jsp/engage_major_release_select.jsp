@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,7 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			function loadAll(){
 				$.each(${releaseList }, function (i, value) {
 					var content = 
-					"<tr data->"
+					"<tr >"
+						+"<input type='hidden' name='mre_id' value='"+ value.mre_id +"'>"
 						+"<td class='TD_STYLE2'>"+value.major_name+"</td>"
 						+"<td class='TD_STYLE2'>"+value.second_kind_name+"</td>"
 						+"<td class='TD_STYLE2'>"+value.human_amount+"</td>"

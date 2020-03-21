@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<td align="right">
 					<input type="submit" value="提交" class="BUTTON_STYLE1"
-							onclick="insertOrUpdateEngageRelease(insert)">
+							onclick="insertOrUpdateEngageRelease('insert')">
 					<input type="reset" value="清除" class="BUTTON_STYLE1" name="clean">
 				</td>
 			</tr>
@@ -113,7 +113,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 				<td width="10%" class="TD_STYLE1">登记时间</td>
 				<td class="TD_STYLE2">
-					<input type="text" name="regist_time" value="" class="INPUT_STYLE2" id="date_start">
+					<input type="text" name="time" value="" 
+							class="INPUT_STYLE2" readonly>
 				</td>
 				<td width="10%" class="TD_STYLE1"></td>
 				<td width="15%" class="TD_STYLE2"></td>

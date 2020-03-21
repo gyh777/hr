@@ -48,6 +48,10 @@ public class EngageMajorReleaseController {
 	@Autowired
 	EngageMajorReleaseService engageMajorReleaseServiceImpl;
 	
+	//定义两个转换类
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	SimpleDateFormat sdfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
 	@RequestMapping("/loadFirstKindAndMajorKind")
 	@ResponseBody
 	public Map<String, List<TwoStringValue>> selectFirstKindAndMajorKind(HttpServletRequest request) {
@@ -103,7 +107,7 @@ public class EngageMajorReleaseController {
 			,@RequestParam String majorKindId,@RequestParam String majorKindName
 			,@RequestParam String majorId,@RequestParam String majorName
 			,@RequestParam String humanAmount,@RequestParam String deadline
-			,@RequestParam String register,@RequestParam String registTime
+			,@RequestParam String operator,@RequestParam String time
 			,@RequestParam String majorDescribe,@RequestParam String engageRequired) {
 		//定义两个转换类
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -125,11 +129,11 @@ public class EngageMajorReleaseController {
 		emr.setChange_time(null);
 		try {
 			emr.setDeadline(sdf.parse(deadline));
-			emr.setRegist_time(sdfs.parse(registTime));
+			emr.setRegist_time(sdfs.parse(time));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		emr.setRegister(register);
+		emr.setRegister(operator);
 		emr.setMajor_describe(majorDescribe);
 		emr.setEngage_required(engageRequired);
 		
@@ -157,6 +161,49 @@ public class EngageMajorReleaseController {
 		int mre_id = Integer.parseInt(mreId);
 		boolean b = engageMajorReleaseServiceImpl.deleteEngageMajorReleaseById(mre_id);
 		
+		return b;
+	}
+	
+	@RequestMapping("/toChange")
+	@ResponseBody
+	public boolean updateEngageMajorRelease(
+			@RequestParam String mreId,@RequestParam String engageType
+			,@RequestParam String firstKindId,@RequestParam String firstKindName
+			,@RequestParam String secondKindId,@RequestParam String secondKindName
+			,@RequestParam String thirdKindId,@RequestParam String thirdKindName
+			,@RequestParam String majorKindId,@RequestParam String majorKindName
+			,@RequestParam String majorId,@RequestParam String majorName
+			,@RequestParam String humanAmount,@RequestParam String deadline
+			,@RequestParam String operator,@RequestParam String time
+			,@RequestParam String majorDescribe,@RequestParam String engageRequired) {
+		EngageMajorRelease emr = new EngageMajorRelease();
+		emr.setMre_id(Short.valueOf(mreId));
+		emr.setFirst_kind_id(firstKindId);
+		emr.setFirst_kind_name(firstKindName);
+		emr.setSecond_kind_id(secondKindId);
+		emr.setSecond_kind_name(secondKindName);
+		emr.setThird_kind_id(thirdKindId);
+		emr.setThird_kind_name(thirdKindName);
+		emr.setEngage_type(engageType);
+		emr.setMajor_kind_id(majorKindId);
+		emr.setMajor_kind_name(majorKindName);
+		emr.setMajor_id(majorId);
+		emr.setMajor_name(majorName);
+		emr.setHuman_amount(Short.parseShort(humanAmount));
+		try {
+			emr.setDeadline(sdf.parse(deadline));
+			emr.setChange_time(sdfs.parse(time));
+			emr.setRegist_time(null);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		emr.setRegister("");
+		emr.setChanger(operator);
+		emr.setMajor_describe(majorDescribe);
+		emr.setEngage_required(engageRequired);
+		
+		//插入
+		boolean b = engageMajorReleaseServiceImpl.updateEngageMajorRelease(emr);
 		return b;
 	}
 }
