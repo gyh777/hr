@@ -31,4 +31,9 @@
 		insert into salary_grant_details <include refid="SalaryGrantDetails"/> values
 		(#{grdId},#{salaryGrantId},#{humanId},#{humanName},#{bounsSum},#{saleSum},#{deductSum},#{salaryStandardSum},#{salaryPaidSum})
 	</insert>
+	
+	<select id="selectBySgrId" parameterType="String" resultType="com.hr.pojo.SalaryGrantDetails" resultMap="SalaryGrantDetailsMap">
+
+    	select *  from salary_grant_details where salary_grant_id=#{sgrId}
+    </select>
 </mapper>

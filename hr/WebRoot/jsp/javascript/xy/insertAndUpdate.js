@@ -28,6 +28,7 @@ function loadFirstAndKindName(){
 		}
 	});
 };
+
 function kindNameChange(obj){
 	//获得当前元素的name
 	var name = $(obj).attr("name");
@@ -101,7 +102,6 @@ function outFocus(){
 	var first_kind_id = $("#first_kind_id").val();
 	var second_kind_id = $("#second_kind_id").val();
 	var third_kind_id = $("#third_kind_id").val();
-
 	$.ajax({
 	dataType:"json",
 	url:'/hr/salarygrant/humanIdAndName?firstKindId='+first_kind_id+'&secondKindId'+second_kind_id+'&thirdKindId'+third_kind_id,
@@ -109,10 +109,10 @@ function outFocus(){
 	contentType : 'application/json;charset=utf-8',
 	async: false,
 	success:function(date){
-	
+		$('#humanFile').html("");
 	$.each(date,function(index,item){
 								
-								$('#humanFile').html("");
+								
 								$('#humanFile').append("<tr>"
 									+"<td width='14%' class='TD_STYLE1'>"
 										+"<input type='text' class='INPUT_STYLE2' name='salaryGrantDetails["+index+"].humanId' value='"+item.human_id+"' readonly='readonly'/>"

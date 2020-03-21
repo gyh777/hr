@@ -43,10 +43,13 @@ public class SalarygrantController {
 		
 		Boolean b1 = salaryGrantServiceImpl.save(salaryGrantAndDetails);
 		List<SalaryGrantDetails> list = salaryGrantAndDetails.getSalaryGrantDetails();
+		
 		for (SalaryGrantDetails salaryGrantDetails : list) {
 			salaryGrantDetails.setSalaryGrantId(salaryGrantAndDetails.getSalaryGrantId());
+			
 		}
 		Boolean b2 = salaryGrantDetailsServiceImpl.save(list);
+		
 //		if(bl){
 //			return "salarystandard_register_success";
 //		}
@@ -74,6 +77,9 @@ public class SalarygrantController {
 	public String check(@RequestParam String sgrId,@RequestParam String ssdId,Model m){
 		SalaryGrant salaryGrant = salaryGrantServiceImpl.queryBySgrId(sgrId);
 		m.addAttribute("check", salaryGrant);
+		List<SalaryGrantDetails> list = salaryGrantDetailsServiceImpl.queryBySgrId(sgrId);
+		m.addAttribute("human", list);
+		
 		SalaryStandardIdAndName salaryStandardIdAndName = salaryStandardServiceImpl.queryIdAndNameOne(ssdId);
 		m.addAttribute("standard", salaryStandardIdAndName);
 		return "salarygrant_check";
@@ -81,7 +87,7 @@ public class SalarygrantController {
 	
 	@RequestMapping(value="/checkList")
 	public String checkList(HttpServletRequest request){
-		System.out.println(111);
+		
 		ArrayList<SalaryGrant> list = (ArrayList<SalaryGrant>) salaryGrantServiceImpl.queryCheckAll();
 //		JSONArray ja = JSONArray.fromObject(list);
 		request.setAttribute("list", list);
@@ -95,6 +101,12 @@ public class SalarygrantController {
 			return "";
 		}
 		return null;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/nextId")
+	public String nextId(){		
+		return salaryGrantServiceImpl.queryNextId();		
 	}
 	
 }

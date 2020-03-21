@@ -45,4 +45,8 @@ public class SalaryGrantServiceImpl implements SalaryGrantService{
 		return false;
 		
 	}
+	
+	public String queryNextId(){
+		return salaryGrantMapper.selectNextId();
+	}
 }

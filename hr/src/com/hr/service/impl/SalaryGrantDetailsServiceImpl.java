@@ -15,6 +15,8 @@ public class SalaryGrantDetailsServiceImpl implements SalaryGrantDetailsService{
 	@Autowired 
 	SalaryGrantDetailsMapper salaryGrantDetailsMapper;
 	
+	List<SalaryGrantDetails> list = null;
+	
 	@Override
 	public Boolean save(List<SalaryGrantDetails> list) {
 		Boolean flag = true;
@@ -25,6 +27,13 @@ public class SalaryGrantDetailsServiceImpl implements SalaryGrantDetailsService{
 			}
 		}
 		return flag;
+	}
+
+	@Override
+	public List<SalaryGrantDetails> queryBySgrId(String sgrId) {
+		list = null;
+		list = salaryGrantDetailsMapper.selectBySgrId(sgrId);
+		return list;
 	}
 
 }

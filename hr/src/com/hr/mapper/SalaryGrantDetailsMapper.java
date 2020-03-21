@@ -8,4 +8,5 @@ import com.hr.pojo.SalaryGrantDetails;
 public interface SalaryGrantDetailsMapper {
 	
 	public int insert(SalaryGrantDetails list);
+	public List<SalaryGrantDetails> selectBySgrId(String sgrId);
 }

@@ -8,7 +8,7 @@ import com.hr.pojo.SalaryStandard;
 import com.hr.web.controller.requestparamtype.SalaryGrantAndDetails;
 
 public interface SalaryGrantMapper {
-	
+	public String selectNextId();
 	public int insert(SalaryGrantAndDetails salaryGrantAndDetails);
 	public List<SalaryGrant> selectCheckAll();
 	public SalaryGrant selectBySgrId(String sgrId);

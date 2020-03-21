@@ -58,7 +58,21 @@ form.submit();
 
 }
 
+function nextId(){
+$.ajax({
+dataType:"json",
+url:'/hr/salarygrant/nextId',
+type:'POST',
+contentType : 'application/json;charset=utf-8',
+async: true,
+success:function(date){
+alert(date);
+$('#salaryGrantId').val(date);
 
+},
+error:function(){alert("error")}
+});
+}
 
 
 
@@ -67,7 +81,7 @@ form.submit();
 
 
 
-	<body onload="loadFirstAndKindName();standardIdAndName()">
+	<body onload="loadFirstAndKindName();standardIdAndName();nextId()">
 		<form name="salarygrantForm" id="salarygrantForm" method="post" action="/hr/salarygrant/register">
 			
 			<table width="100%">
@@ -90,38 +104,14 @@ form.submit();
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
-				<tr>
-					<td width="74" class="TD_STYLE1">
-						薪酬标准编号
+				<tr>	
+				<td class="TD_STYLE1">
+						发放编号
 					</td>
-					<td width="168" class="TD_STYLE2"><!-- 应该从数据库薪酬表取最大主键+1 -->
-						<select name="standardId" id="standardId" class="SELECT_STYLE1" onchange="myoption1()">
-							<option value="">&nbsp;</option>
-						</select>
-					</td>
-					<td width="83" class="TD_STYLE1">
-						薪酬标准名称
-					</td>
-					<td width="171" class="TD_STYLE2">
-					<select name="standardName" id="standardName" class="SELECT_STYLE1" onchange="myoption2()">
-							<option value="">&nbsp;</option>
-						</select>
-					</td>
-					<td width="170" class="TD_STYLE1">
-						薪酬总额
-					</td>
-					<td width="138" class="TD_STYLE2">
-						<input type="text" name="salaryStandardSum" id="salaryStandardSum" value="0" readonly="readonly" class="INPUT_STYLE2">
-					</td>
-					<!-- <td width="103" class="TD_STYLE1">
-						制定人
-					</td>
-					<td width="95" height="26" class="TD_STYLE2">
-						<input type="text" name="designer" value="" class="INPUT_STYLE2">
-					</td> -->
-				</tr>
-				<tr>
-					<tr>
+					
+					<td class="TD_STYLE2">
+						<input type="text" name="salaryGrantId" id="salaryGrantId" value="" readonly="readonly" class="INPUT_STYLE2">
+					</td>				
 				<td class="TD_STYLE1" width="10%">I级机构</td>
 				<td width="15%" class="TD_STYLE2">
 					<input type="hidden" name="first_kind_id" id="first_kind_id" value="">
@@ -168,6 +158,33 @@ form.submit();
 							<option value="">&nbsp;</option>
 						</select>
 					</td> -->
+					
+				</tr>
+				
+				<tr>
+				
+					<td width="74" class="TD_STYLE1">
+						薪酬标准编号
+					</td>
+					<td width="168" class="TD_STYLE2"><!-- 应该从数据库薪酬表取最大主键+1 -->
+						<select name="salaryStandardId" id="standardId" class="SELECT_STYLE1" onchange="myoption1()">
+							<option value="">&nbsp;</option>
+						</select>
+					</td>
+					<td width="83" class="TD_STYLE1">
+						薪酬标准名称
+					</td>
+					<td width="171" class="TD_STYLE2">
+					<select name="standardName" id="standardName" class="SELECT_STYLE1" onchange="myoption2()">
+							<option value="">&nbsp;</option>
+						</select>
+					</td>
+					<td width="170" class="TD_STYLE1">
+						薪酬总额
+					</td>
+					<td width="138" class="TD_STYLE2">
+						<input type="text" name="salaryStandardSum" id="salaryStandardSum" value="0" readonly="readonly" class="INPUT_STYLE2">
+					</td>
 					<td class="TD_STYLE1">
 						人员总数
 					</td>
@@ -175,7 +192,14 @@ form.submit();
 					<td class="TD_STYLE2">
 						<input type="text" name="humanAmount" value="" readonly="readonly" class="INPUT_STYLE2">
 					</td>
+					<!-- <td width="103" class="TD_STYLE1">
+						制定人
+					</td>
+					<td width="95" height="26" class="TD_STYLE2">
+						<input type="text" name="designer" value="" class="INPUT_STYLE2">
+					</td> -->
 				</tr>
+				
 				<tr>
 					<td class="TD_STYLE1">
 						总薪酬
@@ -231,7 +255,7 @@ form.submit();
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
 				
-				</tr>
+				
 				
 				<!-- 
 				$.each(date,function(index,item){

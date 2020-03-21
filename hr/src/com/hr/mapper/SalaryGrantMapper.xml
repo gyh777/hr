@@ -66,4 +66,14 @@
     	check_time=#{checkTime},check_status=#{checkStatus},
     	where sgr_id=#{sgrId}
 	</update>
+	
+	<select id="selectNextId" resultType="string">
+    	SELECT
+		AUTO_INCREMENT
+		FROM
+		INFORMATION_SCHEMA. TABLES
+		WHERE
+		TABLE_NAME = 'salary_grant'
+    </select>
+	
 </mapper>
