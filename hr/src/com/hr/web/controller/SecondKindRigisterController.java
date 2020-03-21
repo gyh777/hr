@@ -24,15 +24,15 @@ public class SecondKindRigisterController {
 	ConfigFileSecondKindService configFileSecondKindServiceImpl;
 	
 	@RequestMapping("/addrigister")
-	public ModelAndView addRigister(@RequestParam String firstKindId,@RequestParam String firstKindName,@RequestParam String secondKindId,@RequestParam String secondKindName,@RequestParam String secondSalaryId
-			,@RequestParam String secondSaleId){
+	public ModelAndView addRigister(@RequestParam String firstKindId,@RequestParam String firstKindName,@RequestParam String secondKindId,@RequestParam String secondKindName,@RequestParam String secondKindSalaryId
+			,@RequestParam String secondKindSaleId){
 		ConfigFileSecondKind  configFileSecondKind = new ConfigFileSecondKind();
 		configFileSecondKind.setFirst_kind_id(firstKindId);
 		configFileSecondKind.setFirst_kind_name(firstKindName);
 		configFileSecondKind.setSecond_kind_id(secondKindId);
 		configFileSecondKind.setSecond_kind_name(secondKindName);
-		configFileSecondKind.setSecond_salary_id(secondSalaryId);
-		configFileSecondKind.setSecond_sale_id(secondSaleId);
+		configFileSecondKind.setSecond_salary_id(secondKindSalaryId);
+		configFileSecondKind.setSecond_sale_id(secondKindSaleId);
 		configFileSecondKindServiceImpl.addConfigFileSecondKind(configFileSecondKind);
 	    ModelAndView mav = new ModelAndView();
 	    mav.setViewName("second_kind_register_success");

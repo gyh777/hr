@@ -15,7 +15,7 @@
 	<update  id="updateConfigFileFirstKind" parameterType="com.hr.pojo.ConfigFileFirstKind">
 		update config_file_first_kind set first_kind_id=#{first_kind_id},
 			first_kind_name=#{first_kind_name},first_kind_salary_id=#{first_kind_salary_id},first_kind_sale_id=#{first_kind_sale_id}
-			where first_kind_id=#{first_kind_id}
+			where ffk_id=#{ffk_id}
 	</update>
 	
 	<select id="queryConfigFileFirstKindById" parameterType="String" resultType="com.hr.pojo.ConfigFileFirstKind">

@@ -105,7 +105,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="configfilethirdkind.?operate=list" target="mainFrame">III级机构设置</a>
+													<a href="/hr/thirdkindrigister/loadthirdkind" target="mainFrame">III级机构设置</a>
 												</td>
 											</tr>
 											<tr>
