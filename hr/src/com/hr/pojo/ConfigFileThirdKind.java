@@ -1,93 +1,95 @@
 package com.hr.pojo;
 
 public class ConfigFileThirdKind {
-    private Short ftkId;
+    private Short ftk_id;
 
-    private String firstKindId;
+    private String first_kind_id;
 
-    private String firstKindName;
+    private String first_kind_name;
 
-    private String secondKindId;
+    private String second_kind_id;
 
-    private String secondKindName;
+    private String second_kind_name;
 
-    private String thirdKindId;
+    public Short getFtk_id() {
+		return ftk_id;
+	}
 
-    private String thirdKindName;
+	public void setFtk_id(Short ftk_id) {
+		this.ftk_id = ftk_id;
+	}
 
-    private String thirdKindIsRetail;
+	public String getFirst_kind_id() {
+		return first_kind_id;
+	}
 
-    private String thirdKindSaleId;
+	public void setFirst_kind_id(String first_kind_id) {
+		this.first_kind_id = first_kind_id;
+	}
 
-    public Short getFtkId() {
-        return ftkId;
-    }
+	public String getFirst_kind_name() {
+		return first_kind_name;
+	}
 
-    public void setFtkId(Short ftkId) {
-        this.ftkId = ftkId;
-    }
+	public void setFirst_kind_name(String first_kind_name) {
+		this.first_kind_name = first_kind_name;
+	}
 
-    public String getFirstKindId() {
-        return firstKindId;
-    }
+	public String getSecond_kind_id() {
+		return second_kind_id;
+	}
 
-    public void setFirstKindId(String firstKindId) {
-        this.firstKindId = firstKindId == null ? null : firstKindId.trim();
-    }
+	public void setSecond_kind_id(String second_kind_id) {
+		this.second_kind_id = second_kind_id;
+	}
 
-    public String getFirstKindName() {
-        return firstKindName;
-    }
+	public String getSecond_kind_name() {
+		return second_kind_name;
+	}
 
-    public void setFirstKindName(String firstKindName) {
-        this.firstKindName = firstKindName == null ? null : firstKindName.trim();
-    }
+	public void setSecond_kind_name(String second_kind_name) {
+		this.second_kind_name = second_kind_name;
+	}
 
-    public String getSecondKindId() {
-        return secondKindId;
-    }
+	public String getThird_kind_id() {
+		return third_kind_id;
+	}
 
-    public void setSecondKindId(String secondKindId) {
-        this.secondKindId = secondKindId == null ? null : secondKindId.trim();
-    }
+	public void setThird_kind_id(String third_kind_id) {
+		this.third_kind_id = third_kind_id;
+	}
 
-    public String getSecondKindName() {
-        return secondKindName;
-    }
+	public String getThird_kind_name() {
+		return third_kind_name;
+	}
 
-    public void setSecondKindName(String secondKindName) {
-        this.secondKindName = secondKindName == null ? null : secondKindName.trim();
-    }
+	public void setThird_kind_name(String third_kind_name) {
+		this.third_kind_name = third_kind_name;
+	}
 
-    public String getThirdKindId() {
-        return thirdKindId;
-    }
+	public String getThird_kind_is_retail() {
+		return third_kind_is_retail;
+	}
 
-    public void setThirdKindId(String thirdKindId) {
-        this.thirdKindId = thirdKindId == null ? null : thirdKindId.trim();
-    }
+	public void setThird_kind_is_retail(String third_kind_is_retail) {
+		this.third_kind_is_retail = third_kind_is_retail;
+	}
 
-    public String getThirdKindName() {
-        return thirdKindName;
-    }
+	public String getThird_kind_sale_id() {
+		return third_kind_sale_id;
+	}
 
-    public void setThirdKindName(String thirdKindName) {
-        this.thirdKindName = thirdKindName == null ? null : thirdKindName.trim();
-    }
+	public void setThird_kind_sale_id(String third_kind_sale_id) {
+		this.third_kind_sale_id = third_kind_sale_id;
+	}
 
-    public String getThirdKindIsRetail() {
-        return thirdKindIsRetail;
-    }
+	private String third_kind_id;
 
-    public void setThirdKindIsRetail(String thirdKindIsRetail) {
-        this.thirdKindIsRetail = thirdKindIsRetail == null ? null : thirdKindIsRetail.trim();
-    }
+    private String third_kind_name;
 
-    public String getThirdKindSaleId() {
-        return thirdKindSaleId;
-    }
+    private String third_kind_is_retail;
 
-    public void setThirdKindSaleId(String thirdKindSaleId) {
-        this.thirdKindSaleId = thirdKindSaleId == null ? null : thirdKindSaleId.trim();
-    }
+    private String third_kind_sale_id;
+
+  
 }
