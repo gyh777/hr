@@ -84,10 +84,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				$(thirdObj).children("option[value='"+ allSecondName +"']").prop("selected","selected");
 				kindNameChange(thirdObj,1);
 				
-				$("select[name='engageType']").children("option[value='"+ value.engage_type +"']").prop("selected","selected");
-				var engageTypeObj = $("input[name='engage_type']");
-				$(engageTypeObj).val(value.engage_type);
-				kindNameChange(engageTypeObj,1);
+				var engageTypeObj = $("select[name='engageType']");
+				$(engageTypeObj).children("option[value='"+ value.engage_type +"']").prop("selected","selected");
+				kindNameChange(engageTypeObj,0);
 				
 				var allMindKindName = values.major_kind_id + "/" + values.major_kind_name;
 				var majorKindNameObj = $("select[name='majorKindName']");
@@ -101,10 +100,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				$(majorObj).children("option[value='"+ allMindName +"']").prop("selected","selected");
 				kindNameChange(majorObj,1);
 				
+				$("input[name='mre_id']").val(values.mre_id);
 				$("input[name='human_amount']").val(values.human_amount);
 				$("input[name='deadline']").val(dateToStr(values.deadline,1));
-				$("input[name='register']").val(values.register);
-				$("input[name='regist_time']").val(dateToStr(values.regist_time,2));
+				$("input[name='changer']").val(values.register);
 				$("textarea[name='major_describe']").val(values.major_describe);
 				$("textarea[name='engage_required']").val(values.engage_required);
 			};
@@ -151,13 +150,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%">
 				<tr>
 					<td>
+						<input type="hidden" name="mre_id" value="">
 						<font color="#0000CC">您正在做的业务是：人力资源--招聘管理--职位发布管理--职位发布变更 </font>
 					</td>
 				</tr>
 				<tr>
 					<td align="right">
 						<input type="submit" value="重新提交" class="BUTTON_STYLE1"
-								onclick="insertOrUpdateEngageRelease(update)">
+								onclick="insertOrUpdateEngageRelease('update')">
 						<input type="reset" value="返回" class="BUTTON_STYLE1"
 								onclick="toBack()">
 					</td>
@@ -235,13 +235,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 				<tr>
-					<td width="10%" class="TD_STYLE1">登记人</td>
+					<td width="10%" class="TD_STYLE1">变更人</td>
 					<td width="15%" class="TD_STYLE2">
-						<input type="text" name="register" value="" class="INPUT_STYLE2">
+						<input type="text" name="changer" value="" class="INPUT_STYLE2">
 					</td>
-					<td width="10%" class="TD_STYLE1">登记时间</td>
+					<td width="10%" class="TD_STYLE1">变更时间</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="regist_time" value="" class="INPUT_STYLE2" id="date_start">
+						<input type="text" name="time" value=""
+								 class="INPUT_STYLE2" readonly>
 					</td>
 					<td width="10%" class="TD_STYLE1"></td>
 					<td width="15%" class="TD_STYLE2"></td>
@@ -263,4 +264,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 		</form>
 	</body>
+	<script type="text/javascript" charset="UTF-8">
+		Calendar.setup ({
+			inputField : "date_end",
+			ifFormat : "%Y-%m-%d", 
+			showsTime : false, 
+			button : "date_end", 
+			singleClick : true, 
+			step : 1});
+		Calendar.setup ({
+			inputField : "date_start",
+			ifFormat : "%Y-%m-%d %H:%M:%S", 
+			showsTime : false, 
+			button : "date_start", 
+			singleClick : true, 
+			step : 1});
+	</script>
 </html>
