@@ -57,7 +57,9 @@ public class SalarygrantController {
 	@RequestMapping("/humanIdAndName")
 	public List<HunanFileHumanIdAndName> humanIdAndName(String firstKindId,String secondKindId,String thirdKindId){
 		List<HunanFileHumanIdAndName> list = humanFileServiceImpl.queryHumanFileByKindId(firstKindId, secondKindId, thirdKindId);
-	return list;
+	    System.out.println("enter"+firstKindId);
+		System.out.println(list.size());
+		return list;
 	}
 	
 	@RequestMapping("/check")

@@ -28,11 +28,11 @@
 	    <id column="sgr_id" property="sgrId"/>
 	    <result column="salary_grant_id" property="salaryGrantId"/>
 	    <result column="salary_standard_id" property="salaryStandardId"/>
-	    <result column="first_kind_id" property="firstKindId"/>
+	    <result column="first_kind_id" property="first_kind_id"/>
 	    <result column="first_kind_name" property="firstKindName"/>
-	    <result column="second_kind_id" property="secondKindId"/>
+	    <result column="second_kind_id" property="second_kind_id"/>
 	    <result column="second_kind_name" property="secondKindName"/>
-	    <result column="third_kind_id" property="thirdKindId"/>
+	    <result column="third_kind_id" property="third_kind_id"/>
 	    <result column="third_kind_name" property="thirdKindName"/>
 	    <result column="human_amount" property="humanAmount"/>
 	    <result column="salary_standard_sum" property="salaryStandardSum"/>

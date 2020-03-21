@@ -42,15 +42,15 @@
 	
 	<!-- 向宇加 -->
 	<select id="queryHumanFileByKindIdOne" parameterType="String" resultType="com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName">
-	   select human_id,human_name from human_file where first_kind_id = #{huf_id};
+	   select human_id,human_name from human_file where first_kind_id = #{first_kind_id};
 	</select>
 	
 	<select id="queryHumanFileByKindIdtwo" parameterType="String" resultType="com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName">
-	   select human_id,human_name from human_file where first_kind_id = #{huf_id} and second_kind_id = #{second_kind_id};
+	   select human_id,human_name from human_file where first_kind_id = #{first_kind_id} and second_kind_id = #{second_kind_id};
 	</select>
 	
 	<select id="queryHumanFileByKindIdThree" parameterType="String" resultType="com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName">
-	   select human_id,human_name from human_file where first_kind_id = #{huf_id} and second_kind_id = #{second_kind_id} and third_kind_id = #{third_kind_id};
+	   select human_id,human_name from human_file where first_kind_id = #{first_kind_id} and second_kind_id = #{second_kind_id} and third_kind_id = #{third_kind_id};
 	</select>
 	<!-- 向宇加结束 -->
 	

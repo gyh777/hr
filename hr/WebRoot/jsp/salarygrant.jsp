@@ -13,12 +13,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
-		<script type="text/javascript" src="javascript/comm/select.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/xy/insertAndUpdate.js" charset="UTF-8"></script>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<title>无标题文档</title>
-	</head>
-
-<script type="text/javascript">
+		
+		<script type="text/javascript">
 function myoption1(){
 var options=$("#standardId option:selected");
 $("#standardName").val(options.attr("myvalue"));
@@ -32,7 +31,7 @@ $("#standardId").val(options.attr("myvalue"));
 $("#salaryStandardSum").val(options.attr("mysalarysum")); 
 }
 
-window.onload=function(){
+function standardIdAndName(){
 $.ajax({
 dataType:"json",
 url:'/hr/salarygrant/standardIdAndName',
@@ -61,9 +60,14 @@ form.submit();
 
 
 
-</script>
 
-	<body>
+
+</script>
+	</head>
+
+
+
+	<body onload="loadFirstAndKindName();standardIdAndName()">
 		<form name="salarygrantForm" id="salarygrantForm" method="post" action="/hr/salarygrant/register">
 			
 			<table width="100%">
@@ -117,8 +121,35 @@ form.submit();
 					</td> -->
 				</tr>
 				<tr>
+					<tr>
+				<td class="TD_STYLE1" width="10%">I级机构</td>
+				<td width="15%" class="TD_STYLE2">
+					<input type="hidden" name="first_kind_id" id="first_kind_id" value="">
 					
+					<select name="firstKindName" class="SELECT_STYLE1" 
+							onchange="kindNameChange(this)">
+						<option value="">&nbsp;</option>
+					</select>
+				</td>
+				<td width="10%" class="TD_STYLE1">II级机构</td>
+				<td width="15%" class="TD_STYLE2">
+					<input type="hidden" name="second_kind_id" id="second_kind_id" value="">
 					
+					<select name="secondKindName" class="SELECT_STYLE1" 
+							onchange="kindNameChange(this)">
+						<option value="">&nbsp;</option>
+					</select>
+				</td>
+				<td width="10%" class="TD_STYLE1">III级机构</td>
+				<td width="15%" class="TD_STYLE2">
+					<input type="hidden" name="third_kind_id" id="third_kind_id" value="">
+					
+					<select name="thirdKindName" class="SELECT_STYLE1" 
+							onchange="kindNameChange(this)">
+						<option value="">&nbsp;</option>
+					</select>
+				</td>
+					<!-- 
 					<td class="TD_STYLE1" width="10%">I级机构</td>
 					<td width="15%" class="TD_STYLE2">
 						<select name="firstKindName" class="SELECT_STYLE1" onchange="">
@@ -136,7 +167,7 @@ form.submit();
 						<select name="thirdKindName" class="SELECT_STYLE1">
 							<option value="">&nbsp;</option>
 						</select>
-					</td>
+					</td> -->
 					<td class="TD_STYLE1">
 						人员总数
 					</td>
@@ -168,7 +199,10 @@ form.submit();
 					
 					
 				</tr>
-				
+				</table>
+				<table width="100%" border="1" cellpadding=0 cellspacing=1
+				bordercolorlight=#848284 bordercolordark=#eeeeee
+				class="TABLE_STYLE1">
 				<tr>
 					<td width="14%" class="TD_STYLE1">
 						职工id
@@ -192,6 +226,12 @@ form.submit();
 						应付职工薪酬
 					</td>
 				</tr>
+				</table>
+				<table id="humanFile" width="100%" border="1" cellpadding=0 cellspacing=1
+				bordercolorlight=#848284 bordercolordark=#eeeeee
+				class="TABLE_STYLE1">
+				
+				</tr>
 				
 				<!-- 
 				$.each(date,function(index,item){
@@ -201,30 +241,7 @@ form.submit();
 
 				}
 				 -->
-				<tr>
 				
-					<td width="14%" class="TD_STYLE1">
-						<input type="text" class="INPUT_STYLE2" name="humanId" value="item.human_id" readonly="readonly"/>
-					</td>
-					<td width="15%" class="TD_STYLE1">
-						<input type="text" class="INPUT_STYLE2" name="humanName" value="item.human_name" readonly="readonly"/>
-					</td>
-					<td width="14%" class="TD_STYLE1">
-						<input type="text" class="INPUT_STYLE2" name="bounsSum"/>
-					</td>
-					<td width="14%" class="TD_STYLE1">
-						<input type="text" class="INPUT_STYLE2" name="saleSum"/>
-					</td>
-					<td width="14%" class="TD_STYLE1">
-						<input type="text" class="INPUT_STYLE2" name="deductSum"/>
-					</td>
-					<td width="14%" class="TD_STYLE1">
-						<input type="text" class="INPUT_STYLE2" name="salaryStandardSum"/>
-					</td>
-					<td width="15%" class="TD_STYLE1">
-						<input type="text" class="INPUT_STYLE2" name="salaryPaidSum"/>
-					</td>
-				</tr>
 				
 			</table>
 			<p>
