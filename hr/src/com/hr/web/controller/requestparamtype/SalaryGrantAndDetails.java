@@ -2,6 +2,7 @@ package com.hr.web.controller.requestparamtype;
 
 import com.hr.pojo.SalaryGrantDetails;
 
+
 public class SalaryGrantAndDetails {
 	
 	private Short sgrId;

@@ -10,6 +10,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" href="../jsp/table.css" type="text/css">
+		<link rel="stylesheet" type="text/css" media="all"
+			href="../jsp/javascript/calendar/calendar-win2k-cold-1.css">
+		<script type="text/javascript" src="../jsp/javascript/calendar/cal.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="../jsp/javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/comm/select.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
@@ -20,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var content = 
 					"<tr data->"
 						+"<td class='TD_STYLE2'>"+value.major_name+"</td>"
-						+"<td class='TD_STYLE2'>"+value.first_kind_name+"</td>"
+						+"<td class='TD_STYLE2'>"+value.second_kind_name+"</td>"
 						+"<td class='TD_STYLE2'>"+value.human_amount+"</td>"
 						+"<td class='TD_STYLE2'>"+dateToStr(value.regist_time,2)+"</td>"
 						+"<td class='TD_STYLE2'>"+dateToStr(value.deadline,1)+"</td>"

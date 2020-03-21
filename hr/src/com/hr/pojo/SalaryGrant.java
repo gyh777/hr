@@ -10,15 +10,15 @@ public class SalaryGrant  implements Serializable{
 
     private String salaryStandardId;
 
-    private String firstKindId;
+    private String first_kind_id;
 
     private String firstKindName;
 
-    private String secondKindId;
+    private String second_kind_id;
 
     private String secondKindName;
 
-    private String thirdKindId;
+    private String third_kind_id;
 
     private String thirdKindName;
 
@@ -62,14 +62,7 @@ public class SalaryGrant  implements Serializable{
         this.salaryStandardId = salaryStandardId == null ? null : salaryStandardId.trim();
     }
 
-    public String getFirstKindId() {
-        return firstKindId;
-    }
-
-    public void setFirstKindId(String firstKindId) {
-        this.firstKindId = firstKindId == null ? null : firstKindId.trim();
-    }
-
+    
     public String getFirstKindName() {
         return firstKindName;
     }
@@ -78,15 +71,33 @@ public class SalaryGrant  implements Serializable{
         this.firstKindName = firstKindName == null ? null : firstKindName.trim();
     }
 
-    public String getSecondKindId() {
-        return secondKindId;
-    }
+    
 
-    public void setSecondKindId(String secondKindId) {
-        this.secondKindId = secondKindId == null ? null : secondKindId.trim();
-    }
+    public String getFirst_kind_id() {
+		return first_kind_id;
+	}
 
-    public String getSecondKindName() {
+	public void setFirst_kind_id(String first_kind_id) {
+		this.first_kind_id = first_kind_id;
+	}
+
+	public String getSecond_kind_id() {
+		return second_kind_id;
+	}
+
+	public void setSecond_kind_id(String second_kind_id) {
+		this.second_kind_id = second_kind_id;
+	}
+
+	public String getThird_kind_id() {
+		return third_kind_id;
+	}
+
+	public void setThird_kind_id(String third_kind_id) {
+		this.third_kind_id = third_kind_id;
+	}
+
+	public String getSecondKindName() {
         return secondKindName;
     }
 
@@ -94,13 +105,7 @@ public class SalaryGrant  implements Serializable{
         this.secondKindName = secondKindName == null ? null : secondKindName.trim();
     }
 
-    public String getThirdKindId() {
-        return thirdKindId;
-    }
-
-    public void setThirdKindId(String thirdKindId) {
-        this.thirdKindId = thirdKindId == null ? null : thirdKindId.trim();
-    }
+    
 
     public String getThirdKindName() {
         return thirdKindName;

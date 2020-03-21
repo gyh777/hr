@@ -12,11 +12,11 @@
 		where major_kind_name=#{major_kind_name}
 	</select>
 	
-	<select id="selectConfigMajorIdByName" resultType="string" parameterType="String">
+	<select id="selectConfigMajorIdByName" resultType="string" parameterType="string">
 		select major_id from config_major where major_name=#{major_name}
 	</select>
 	
-	<delete id="deleteConfigMajor" parameterType="String">
+	<delete id="deleteConfigMajor" parameterType="string">
 		delete from config_major where major_name=#{major_name}
 	</delete>
 	

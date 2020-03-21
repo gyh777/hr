@@ -60,10 +60,10 @@ public class HumanFileServiceImpl implements HumanFileService {
 	
 	//向宇加的--通过所属机构查询部门人员id和name
 	public List<HunanFileHumanIdAndName> queryHumanFileByKindId(String first_kind_id,String second_kind_id,String third_kind_id){
-		if(second_kind_id==null){
+		if(second_kind_id==null||second_kind_id==""){
 			//说明只有一级机构
 			queryHumanFileByKindId_list = humanFileMapper.queryHumanFileByKindIdOne(first_kind_id);
-		}else if(third_kind_id==null){
+		}else if(third_kind_id==null||third_kind_id==""){
 			//说明只有一二级机构
 			queryHumanFileByKindId_list = humanFileMapper.queryHumanFileByKindIdtwo(first_kind_id,second_kind_id);
 		}else if(third_kind_id!=null){

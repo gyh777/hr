@@ -23,4 +23,8 @@
 			,register from engage_major_release
 	</select>
 	
+	<delete id="deleteEngageMajorReleaseById">
+		delete from engage_major_release where mre_id=#{mre_id}
+	</delete>
+	
 </mapper>

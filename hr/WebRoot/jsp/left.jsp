@@ -636,7 +636,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="../engageMajorRelease/loadFirstKindAndMajorKind"
+													<a href="../jsp/engage_major_release_register.jsp"
 														target="mainFrame">职位发布登记</a>
 												</td>
 											</tr>
