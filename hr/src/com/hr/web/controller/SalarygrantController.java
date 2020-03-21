@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hr.pojo.SalaryGrant;
-import com.hr.pojo.SalaryStandard;
 import com.hr.service.impl.HumanFileServiceImpl;
 import com.hr.service.impl.SalaryGrantServiceImpl;
 import com.hr.service.impl.SalaryStandardServiceImpl;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.hr.pojo.ConfigFileFirstKind;
 import com.hr.pojo.ConfigFileThirdKind;
 import com.hr.web.controller.requestparamtype.TwoStringValue;
 
@@ -16,4 +17,5 @@ public interface ConfigFileThirdKindService {
     public String queryIdByName(String third_kind_id);
     public List<TwoStringValue> queryKindIdAndName(
     		String first_kind_name,String second_kind_name);
+    List<ConfigFileThirdKind> queryAllThirdByPage(com.hr.pojo.ConfigFileThirdKind t);
 }

@@ -58,4 +58,11 @@ public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindServic
 		return mapper.queryIdByName(first_kind_name);
 	}
 
+	@Override
+	public List<ConfigFileFirstKind> getAllFirstByPage(Integer pageNo,
+			Integer pageSize) {
+		// TODO Auto-generated method stub
+		return mapper.getAllFirstByPage(pageNo, pageSize);
+	}
+
 }

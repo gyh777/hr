@@ -3,6 +3,13 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.ConfigFileFirstKindMapper">
+	  <sql id="FirstColumn">
+	    first_kind_id,
+	    first_kind_name,
+		first_kind_salary_id,
+		first_kind_sale_id
+	  </sql>
+	  
 	  <insert  id="addConfigFileFirstKind" parameterType="com.hr.pojo.ConfigFileFirstKind">
 		insert into config_file_first_kind 
 			values(#{ffk_id},#{first_kind_id},#{first_kind_name},
@@ -34,4 +41,9 @@
 		select first_kind_id from config_file_first_kind where first_kind_name=#{first_kind_name};
 	</select>
 	
+	<select id="getAllFirstByPage" resultType="com.hr.pojo.ConfigFileFirstKind" >
+    select
+    <include refid="FirstColumn" />
+    from config_file_first_kind as acc
+  </select>
 </mapper>

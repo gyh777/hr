@@ -12,4 +12,11 @@ PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
 		<setting name="cacheEnabled" value="true"/>
 	</settings>
 	
+	  <plugins>
+        <plugin interceptor="com.hr.web.interceptor.MypageInterceptor">
+            <property name="dialect" value="Mysql"/>        
+        </plugin>
+    </plugins>
+	
+	
 </configuration>
