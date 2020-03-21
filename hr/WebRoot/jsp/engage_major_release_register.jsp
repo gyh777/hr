@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="first_kind_id" value="">
 					<input type="hidden" name="first_kind_name" value="">
 					<select name="firstKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="second_kind_id" value="">
 					<input type="hidden" name="second_kind_name" value="">
 					<select name="secondKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="third_kind_id" value="">
 					<input type="hidden" name="third_kind_name" value="">
 					<select name="thirdKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="engage_id" value="">
 					<input type="hidden" name="engage_type" value="">
 					<select name="engageType" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 						<option value="校园招聘">校园招聘</option>
 						<option value="社会招聘">社会招聘</option>
@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="major_kind_id" value="">
 					<input type="hidden" name="major_kind_name" value="">
 					<select name="majorKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -93,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="major_id" value="">
 					<input type="hidden" name="major_name" value="">
 					<select name="majorName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>

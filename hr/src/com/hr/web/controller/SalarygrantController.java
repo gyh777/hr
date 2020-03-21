@@ -2,7 +2,6 @@ package com.hr.web.controller;
 
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +19,7 @@ import com.hr.service.impl.HumanFileServiceImpl;
 import com.hr.service.impl.SalaryGrantServiceImpl;
 import com.hr.service.impl.SalaryStandardServiceImpl;
 import com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName;
+import com.hr.web.controller.requestparamtype.SalaryGrantAndDetails;
 import com.hr.web.controller.requestparamtype.SalaryStandardDetailsList;
 import com.hr.web.controller.requestparamtype.SalaryStandardIdAndName;
 
@@ -35,9 +35,9 @@ public class SalarygrantController {
 	HumanFileServiceImpl humanFileServiceImpl;
 	
 	@RequestMapping("/register")
-	public String register(@ModelAttribute SalaryGrant salaryGrant){
+	public String register(@ModelAttribute SalaryGrantAndDetails salaryGrantAndDetails){
 		
-		Boolean bl = salaryGrantServiceImpl.save(salaryGrant);
+		Boolean bl = salaryGrantServiceImpl.save(salaryGrantAndDetails);
 		
 		if(bl){
 //			return "salarystandard_register_success";

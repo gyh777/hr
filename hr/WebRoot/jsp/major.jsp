@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<link rel="stylesheet" href="../jsp/table.css" type="text/css">
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript">
 			function toDelete(delete_name,business){
@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </tr>
                 </c:forEach>
 			</table>
-			<p>&nbsp;&nbsp;总数：8例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="../jsp/images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：${fn:length(majorList) }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="../jsp/images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>

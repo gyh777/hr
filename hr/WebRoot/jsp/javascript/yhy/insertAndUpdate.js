@@ -28,7 +28,7 @@ function loadFirstAndKindName(){
 		}
 	});
 };
-function kindNameChange(obj){
+function kindNameChange(obj,type){
 	//获得当前元素的name
 	var name = $(obj).attr("name");
 	var kind = $(obj).find("option:selected").val();
@@ -43,6 +43,9 @@ function kindNameChange(obj){
 	
 	if(name == "firstKindName"){
 		$("select[name='thirdKindName']").children("option").not(":eq(0)").remove();
+		if(type==0){
+			$("select[name='thirdKindName']").children("option").eq(0).remove();
+		};
 		url = url + "selectSecondKindIdAndName";
 		addName = "secondKindName";
 		valueId = "first_kind_id";
@@ -77,6 +80,9 @@ function kindNameChange(obj){
 	};
 	//清空所有下级元素的内容
 	$("select[name='"+ addName +"']").children("option").not(":eq(0)").remove();
+	if(type==0){
+		$("select[name='"+ addName +"']").children("option").eq(0).remove();
+	};
 	$("input[name='"+ valueId +"']").val(firstId);
 	$("input[name='"+ valueName +"']").val(firstName);
 	$.ajax({
@@ -85,6 +91,9 @@ function kindNameChange(obj){
 		dataType : "json",
 		data: data,
 		success:function(result){
+			if(type==0){
+				$("select[name='"+ addName +"']").append("<option value=''></option>");
+			};
 			$.each(result, function (i, value) {
 				var values = value.first +"/"+ value.second;
 				var content = "<option value='"+values+"'>"+ values +"</option>";

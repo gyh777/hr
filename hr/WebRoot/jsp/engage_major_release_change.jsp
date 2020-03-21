@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -62,31 +63,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				$("form[name='change']").css("display","none");
 				var value = ${releaseList };
 				var values = value[i];
-				console.log(values);
 				//window.location = "../jsp/engage_major_release_changing.jsp"
 				//			+"?releaseList="+value[i];
 				var allFirstName = values.first_kind_id + "/" + values.first_kind_name;
 				var firstObj = $("select[name='firstKindName']");
 				$(firstObj).children("option[value='"+ allFirstName +"']").prop("selected","selected");
-				$(firstObj).trigger("change");
-				$("input[name='first_kind_id']").val();
-				$("input[name='first_kind_name']").val();
+				kindNameChange(firstObj,1);
+				
 				var allSecondName = values.second_kind_id + "/" + values.second_kind_name;
-				$("input[name='second_kind_id']").val();
-				$("input[name='second_kind_name']").val();
-				$("input[name='third_kind_id']").val();
-				$("input[name='third_kind_name']").val();
-				$("input[name='engage_type']").val();
-				$("input[name='major_kind_id']").val();
-				$("input[name='major_kind_name']").val();
-				$("input[name='major_id']").val();
-				$("input[name='major_name']").val();
-				$("input[name='human_amount']").val();
-				$("input[name='deadline']").val();
-				$("input[name='register']").val();
-				$("input[name='regist_time']").val();
-				$("textarea[name='major_describe']").val();
-				$("textarea[name='engage_required']").val();
+				var secondObj = $("select[name='secondKindName']");
+				$(secondObj).children("option").eq(0).val(allSecondName);
+				$(secondObj).children("option").eq(0).html(allSecondName);
+				$(secondObj).children("option[value='"+ allSecondName +"']").prop("selected","selected");
+				kindNameChange(secondObj,1);
+				
+				var allThirdName = values.third_kind_id + "/" + values.third_kind_name;
+				var thirdObj = $("select[name='thirdKindName']");
+				$(thirdObj).children("option").eq(0).val(allThirdName);
+				$(thirdObj).children("option").eq(0).html(allThirdName);
+				$(thirdObj).children("option[value='"+ allSecondName +"']").prop("selected","selected");
+				kindNameChange(thirdObj,1);
+				
+				$("select[name='engageType']").children("option[value='"+ value.engage_type +"']").prop("selected","selected");
+				var engageTypeObj = $("input[name='engage_type']");
+				$(engageTypeObj).val(value.engage_type);
+				kindNameChange(engageTypeObj,1);
+				
+				var allMindKindName = values.major_kind_id + "/" + values.major_kind_name;
+				var majorKindNameObj = $("select[name='majorKindName']");
+				$(majorKindNameObj).children("option[value='"+ allMindKindName +"']").prop("selected","selected");
+				kindNameChange(majorKindNameObj,1);
+				
+				var allMindName = values.major_id + "/" + values.major_name;
+				var majorObj = $("select[name='majorName']");
+				$(majorObj).children("option").eq(0).val(allMindName);
+				$(majorObj).children("option").eq(0).html(allMindName);
+				$(majorObj).children("option[value='"+ allMindName +"']").prop("selected","selected");
+				kindNameChange(majorObj,1);
+				
+				$("input[name='human_amount']").val(values.human_amount);
+				$("input[name='deadline']").val(dateToStr(values.deadline,1));
+				$("input[name='register']").val(values.register);
+				$("input[name='regist_time']").val(dateToStr(values.regist_time,2));
+				$("textarea[name='major_describe']").val(values.major_describe);
+				$("textarea[name='engage_required']").val(values.engage_required);
+			};
+			function toBack(){
+				$("form[name='changing']").css("display","none");
+				$("form[name='change']").css("display","block");
 			};
  		</script>
 	</head>
@@ -102,7 +126,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>>
 				<tr>
 					<td>
-						<p>当前职位发布总数：1例</p>
+						<p>当前职位发布总数：${fn:length(releaseList) }例</p>
 					</td>
 				</tr>
 			</table>
@@ -120,7 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				
 			</table>
-			<p>&nbsp;&nbsp;总数：8例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="../jsp/images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：${fn:length(releaseList) }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="../jsp/images/go.bmp" width=18 height=18 border=0></p>
 		</form>
 		
 		<form name="changing" method="post" action="" style="display:none;">
@@ -134,7 +158,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td align="right">
 						<input type="submit" value="重新提交" class="BUTTON_STYLE1"
 								onclick="insertOrUpdateEngageRelease(update)">
-						<input type="button" value="清除" class="BUTTON_STYLE1">
+						<input type="reset" value="返回" class="BUTTON_STYLE1"
+								onclick="toBack()">
 					</td>
 				</tr>
 			</table>
@@ -147,7 +172,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input type="hidden" name="first_kind_id" value="">
 						<input type="hidden" name="first_kind_name" value="">
 						<select name="firstKindName" class="SELECT_STYLE1" 
-								onchange="kindNameChange(this)">
+								onchange="kindNameChange(this,0)">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
@@ -156,7 +181,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input type="hidden" name="second_kind_id" value="">
 						<input type="hidden" name="second_kind_name" value="">
 						<select name="secondKindName" class="SELECT_STYLE1" 
-								onchange="kindNameChange(this)">
+								onchange="kindNameChange(this,0)">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
@@ -165,7 +190,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input type="hidden" name="third_kind_id" value="">
 						<input type="hidden" name="third_kind_name" value="">
 						<select name="thirdKindName" class="SELECT_STYLE1" 
-								onchange="kindNameChange(this)">
+								onchange="kindNameChange(this,0)">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
@@ -174,7 +199,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input type="hidden" name="engage_id" value="">
 						<input type="hidden" name="engage_type" value="">
 						<select name="engageType" class="SELECT_STYLE1" 
-								onchange="kindNameChange(this)">
+								onchange="kindNameChange(this,0)">
 							<option value="">&nbsp;</option>
 							<option value="校园招聘">校园招聘</option>
 							<option value="社会招聘">社会招聘</option>
@@ -187,7 +212,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input type="hidden" name="major_kind_id" value="">
 						<input type="hidden" name="major_kind_name" value="">
 						<select name="majorKindName" class="SELECT_STYLE1" 
-								onchange="kindNameChange(this)">
+								onchange="kindNameChange(this,0)">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
@@ -196,7 +221,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input type="hidden" name="major_id" value="">
 						<input type="hidden" name="major_name" value="">
 						<select name="majorName" class="SELECT_STYLE1" 
-								onchange="kindNameChange(this)">
+								onchange="kindNameChange(this,0)">
 							<option value="">&nbsp;</option>
 						</select>
 					</td>
