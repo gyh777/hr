@@ -90,7 +90,7 @@ public class MypageInterceptor implements Interceptor {
     } public String concatPageSql(String sql,Common co){
         StringBuffer sb=new StringBuffer();
         sb.append(sql);
-        sb.append(" limit ").append(co.getagebegin()).append(" , ").append(co.getPagesize()); return sb.toString();
+        sb.append(" limit ").append(co.getPagebegin()).append(" , ").append(co.getPagesize()); return sb.toString();
     }
 
 }
