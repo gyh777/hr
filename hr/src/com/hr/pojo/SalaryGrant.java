@@ -1,12 +1,17 @@
 package com.hr.pojo;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 public class SalaryGrant  implements Serializable{
+	
+	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
     private Short sgrId;
 
     private String salaryGrantId;
@@ -32,11 +37,11 @@ public class SalaryGrant  implements Serializable{
     private String salaryPaidSum;
 
     private String register;
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date registTime;
 
     private String checker;
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date checkTime;
 
     private Short checkStatus;
@@ -166,16 +171,26 @@ public class SalaryGrant  implements Serializable{
 		return registTime;
 	}
 
-	public void setRegistTime(Date registTime) {
-		this.registTime = registTime;
+	public void setRegistTime(String registTime) {
+		try {
+			this.registTime = format.parse(registTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	public Date getCheckTime() {
 		return checkTime;
 	}
 
-	public void setCheckTime(Date checkTime) {
-		this.checkTime = checkTime;
+	public void setCheckTime(String checkTime) {
+		try {
+			this.checkTime = format.parse(checkTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	public Short getCheckStatus() {

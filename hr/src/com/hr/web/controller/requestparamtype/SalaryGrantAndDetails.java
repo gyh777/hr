@@ -43,7 +43,7 @@ public class SalaryGrantAndDetails {
 
     private String checker;
     
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date checkTime;
 
     private Short checkStatus;
@@ -169,7 +169,7 @@ public class SalaryGrantAndDetails {
 		try {
 			this.registTime = format.parse(registTime);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -178,8 +178,13 @@ public class SalaryGrantAndDetails {
 		return checkTime;
 	}
 
-	public void setCheckTime(Date checkTime) {
-		this.checkTime = checkTime;
+	public void setCheckTime(String checkTime) {
+		try {
+			this.checkTime = format.parse(checkTime);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public String getChecker() {

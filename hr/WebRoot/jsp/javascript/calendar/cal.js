@@ -1736,39 +1736,39 @@ window.calendar = null;
 // ** Translated by ATang ** I18N
 // full day names
 Calendar._DN = new Array
-("星期日",
- "星期一",
- "星期二",
- "星期三",
- "星期四",
- "星期五",
- "星期六",
- "星期日");
+("锟斤拷锟斤拷锟斤拷",
+ "锟斤拷锟斤拷一",
+ "锟斤拷锟节讹拷",
+ "锟斤拷锟斤拷锟斤拷",
+ "锟斤拷锟斤拷锟斤拷",
+ "锟斤拷锟斤拷锟斤拷",
+ "锟斤拷锟斤拷锟斤拷",
+ "锟斤拷锟斤拷锟斤拷");
 
  // short day names
 Calendar._SDN = new Array
-("周日",
- "周一",
- "周二",
- "周三",
- "周四",
- "周五",
- "周六",
- "周日");
+("锟斤拷锟斤拷",
+ "锟斤拷一",
+ "锟杰讹拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷");
 
 Calendar._MN = new Array
-("一月",
- "二月",
- "三月",
- "四月",
- "五月",
- "六月",
- "七月",
- "八月",
- "九月",
- "十月",
- "十一月",
- "十二月");
+("一锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "锟斤拷锟斤拷",
+ "十锟斤拷",
+ "十一锟斤拷",
+ "十锟斤拷锟斤拷");
 
 // short month names
 Calendar._SMN = new Array
@@ -1786,33 +1786,33 @@ Calendar._SMN = new Array
  "Dec");
 // tooltips
 Calendar._TT = {};
-Calendar._TT["INFO"] = "关于日程安排";
-Calendar._TT["ABOUT"] = "关于日程安排";
-Calendar._TT["ABOUT_TIME"] = "关于日程安排";
+Calendar._TT["INFO"] = "锟斤拷锟斤拷锟秸程帮拷锟斤拷";
+Calendar._TT["ABOUT"] = "锟斤拷锟斤拷锟秸程帮拷锟斤拷";
+Calendar._TT["ABOUT_TIME"] = "锟斤拷锟斤拷锟秸程帮拷锟斤拷";
 
-Calendar._TT["TOGGLE"] = "切换周开始的一天";
-Calendar._TT["PREV_YEAR"] = "上一年 (按住出菜单)";
-Calendar._TT["PREV_MONTH"] = "上一月 (按住出菜单)";
-Calendar._TT["GO_TODAY"] = "到今日";
-Calendar._TT["NEXT_MONTH"] = "下一月 (按住出菜单)";
-Calendar._TT["NEXT_YEAR"] = "下一年 (按住出菜单)";
-Calendar._TT["SEL_DATE"] = "选择日期";
-Calendar._TT["DRAG_TO_MOVE"] = "拖动";
-Calendar._TT["PART_TODAY"] = " (今日)";
-Calendar._TT["DAY_FIRST"] = "首先显示 %s";
-Calendar._TT["MON_FIRST"] = "首先显示星期一";
-Calendar._TT["SUN_FIRST"] = "首先显示星期日";
-Calendar._TT["CLOSE"] = "关闭";
-Calendar._TT["TODAY"] = "今日";
+Calendar._TT["TOGGLE"] = "锟叫伙拷锟杰匡拷始锟斤拷一锟斤拷";
+Calendar._TT["PREV_YEAR"] = "锟斤拷一锟斤拷 (锟斤拷住锟斤拷锟剿碉拷)";
+Calendar._TT["PREV_MONTH"] = "锟斤拷一锟斤拷 (锟斤拷住锟斤拷锟剿碉拷)";
+Calendar._TT["GO_TODAY"] = "锟斤拷锟斤拷锟斤拷";
+Calendar._TT["NEXT_MONTH"] = "锟斤拷一锟斤拷 (锟斤拷住锟斤拷锟剿碉拷)";
+Calendar._TT["NEXT_YEAR"] = "锟斤拷一锟斤拷 (锟斤拷住锟斤拷锟剿碉拷)";
+Calendar._TT["SEL_DATE"] = "选锟斤拷锟斤拷锟斤拷";
+Calendar._TT["DRAG_TO_MOVE"] = "锟较讹拷";
+Calendar._TT["PART_TODAY"] = " (锟斤拷锟斤拷)";
+Calendar._TT["DAY_FIRST"] = "锟斤拷锟斤拷锟斤拷示 %s";
+Calendar._TT["MON_FIRST"] = "锟斤拷锟斤拷锟斤拷示锟斤拷锟斤拷一";
+Calendar._TT["SUN_FIRST"] = "锟斤拷锟斤拷锟斤拷示锟斤拷锟斤拷锟斤拷";
+Calendar._TT["CLOSE"] = "锟截憋拷";
+Calendar._TT["TODAY"] = "锟斤拷锟斤拷";
 
 // date formats
 Calendar._TT["DEF_DATE_FORMAT"] = "y-mm-dd";
 Calendar._TT["TT_DATE_FORMAT"] = "D, M d";
-Calendar._TT["WK"] = "周";
+Calendar._TT["WK"] = "锟斤拷";
 Calendar._TT["WEEKEND"] = "0,6";
-Calendar._TT["TIME_PART"] = "(Shift-)通过点击或拖动来改变时间";
-Calendar._TT["WK"] = "周";
-Calendar._TT["TIME"] = "时间:";
+Calendar._TT["TIME_PART"] = "(Shift-)通锟斤拷锟斤拷锟斤拷锟较讹拷锟斤拷锟侥憋拷时锟斤拷";
+Calendar._TT["WK"] = "锟斤拷";
+Calendar._TT["TIME"] = "时锟斤拷:";
 
 
 
