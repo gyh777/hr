@@ -108,7 +108,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				 </c:forEach>
 			</table>
-			<p>&nbsp;&nbsp;总数：${requestScope.pageSize}例 &nbsp;&nbsp;&nbsp;当前第 ${requestScope.pageNo} 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
+			<input type="hidden" id="pageSize" display="none" value="${requestScope.pageSize}"></input>
+			<input type="hidden" id="pageNo" display="none" value="${requestScope.pageNo}"></input>
+			 <p>&nbsp;&nbsp;总数：${requestScope.pageSize}例 &nbsp;&nbsp;&nbsp;当前第 ${requestScope.pageNo} 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input id="page" type="text" > 页&nbsp;&nbsp;<input type="button" value="跳转" width=18 height=18 border=0 onclick="jumpPage()">
 		</form>
 	</body>
 </html>

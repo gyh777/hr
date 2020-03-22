@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hr.dto.ThirdkindAndListDto;
 import com.hr.pojo.ConfigFileFirstKind;
 import com.hr.pojo.ConfigFileSecondKind;
 import com.hr.pojo.ConfigFileThirdKind;
@@ -71,11 +73,10 @@ public class ThirdKindRigisterController {
 	@RequestMapping("/loadthirdkind")
 	public ModelAndView loadSecondKind(){
 		ConfigFileThirdKind u=new ConfigFileThirdKind();
-		
-		  u.setPagebegin(2);
+		  u.setPagebegin(1);
 		  u.setPagesize(3);
+		  u.setPageid(1);
 		  List<ConfigFileThirdKind> thirdList =configFileThirdKindServiceImpl.queryAllThirdByPage(u);
-        System.out.println(thirdList.size()+"======");
 		ModelAndView mav  = new ModelAndView();
         mav.addObject("thirdList", thirdList);
         mav.addObject("pageNo", u.getPageid());
@@ -83,6 +84,31 @@ public class ThirdKindRigisterController {
 		mav.setViewName("third_kind");
 		return mav;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/ajax")
+	public ThirdkindAndListDto ajaxPage(String pageSize,String pageNo){
+		int pagesize = Integer.parseInt(pageSize);
+		int pageno = Integer.parseInt(pageNo);
+		
+		int begin = (pageno-1)*pagesize+1;
+		
+		ConfigFileThirdKind u=new ConfigFileThirdKind();
+		  u.setPagebegin(begin);
+		  u.setPagesize(pagesize);
+		  u.setPageid(pageno);
+		  List<ConfigFileThirdKind> thirdList =configFileThirdKindServiceImpl.queryAllThirdByPage(u);
+		ModelAndView mav  = new ModelAndView();
+        mav.addObject("thirdList", thirdList);
+        mav.addObject("pageNo", u.getPageid());
+        mav.addObject("pageSize", u.getPagesize());
+		mav.setViewName("third_kind");
+		ThirdkindAndListDto dto = new ThirdkindAndListDto();
+		dto.setConfigFileThirdKind(u);
+		dto.setList(thirdList);
+		return dto;
+	}
+	
 	
 	
 	

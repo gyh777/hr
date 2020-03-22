@@ -13,12 +13,13 @@ public class Test {
 		ApplicationContext context = 
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 		ConfigFileThirdKindService service = (ConfigFileThirdKindService)context.getBean("configFileThirdKindServiceImpl");
-	  ConfigFileThirdKind u=new ConfigFileThirdKind();
-	  u.setPagebegin(2);
-	  u.setPagesize(3);
-	  System.out.println("-u.getCount()------"+u.getCount());
-	  List<ConfigFileThirdKind> l=service.queryAllThirdByPage(u);
-	  System.out.println(l.size());
-	  System.out.println("-u.getCount()------"+u.getCount());
-}
+//	  ConfigFileThirdKind u=new ConfigFileThirdKind();
+//	  u.setPagebegin(2);
+//	  u.setPagesize(3);
+//	  System.out.println("-u.getCount()------"+u.getCount());
+//	  List<ConfigFileThirdKind> l=service.queryAllThirdByPage(u);
+//	  System.out.println(l.size());
+//	  System.out.println("-u.getCount()------"+u.getCount());
+     service.queryAllConfigFileThirdKind();
+  }
 }

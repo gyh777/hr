@@ -22,3 +22,19 @@ function deleteThirdKind(obj){
     frm.submit();
 }
 
+function jumpPage(){
+	var pageNo = $("#page").val();
+    var pageSize = $("#pageSize").val();
+    console.log(pageSize)
+	$.ajax({
+		url:"/hr/thirdkindrigister/ajax",
+	    type:"post",
+	    
+	    data:{"pageNo" : pageNo,
+	    	   "pageSize" : pageSize},
+	    success:function(data){
+	    	console.log(data);
+	    }
+	})
+}
+

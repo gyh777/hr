@@ -36,43 +36,45 @@ public class MypageInterceptor implements Interceptor {
 		 MetaObject metaStatementHandler = SystemMetaObject.forObject(statementHandler);  
 		 MappedStatement mappedStatement=(MappedStatement) metaStatementHandler.getValue("delegate.mappedStatement");
 		 String selectId=mappedStatement.getId();
-		 BoundSql boundSql = (BoundSql) metaStatementHandler.getValue("delegate.boundSql"); // 分页参数作为参数对象parameterObject的一个属性  String sql = boundSql.getSql();
-		 String sql = boundSql.getSql();
-		 Common co=(Common)(boundSql.getParameterObject());
-		 String countSql=concatCountSql(sql);
-		 String pageSql=concatPageSql(sql,co);
-		 Connection connection = (Connection) invocation.getArgs()[0];  
-         
-         PreparedStatement countStmt = null;  
-         ResultSet rs = null; 
-         int totalCount = 0;
-         try { 
-             countStmt = connection.prepareStatement(countSql);  
-             rs = countStmt.executeQuery();
-             if (rs.next()) {  
-                 totalCount = rs.getInt(1);  
-             } 
-         } catch (SQLException e) {  
-             System.out.println("Ignore this exception"+e);  
-         } finally { try {  
-                 rs.close();  
-                 countStmt.close();  
-             } catch (SQLException e) {  
-                 System.out.println("Ignore this exception"+ e);  
-             }  
-         } //绑定count 
-         co.setCount(totalCount);
-         metaStatementHandler.setValue("delegate.boundSql.sql", pageSql);
+		 if(selectId.endsWith("ByPage")){
+			 
+			 BoundSql boundSql = (BoundSql) metaStatementHandler.getValue("delegate.boundSql"); // 分页参数作为参数对象parameterObject的一个属性  String sql = boundSql.getSql();
+			 String sql = boundSql.getSql();
+			 Common co=(Common)(boundSql.getParameterObject());
+			 String countSql=concatCountSql(sql);
+			 String pageSql=concatPageSql(sql,co);
+			 Connection connection = (Connection) invocation.getArgs()[0];  
+			 
+			 PreparedStatement countStmt = null;  
+			 ResultSet rs = null; 
+			 int totalCount = 0;
+			 try { 
+				 countStmt = connection.prepareStatement(countSql);  
+				 rs = countStmt.executeQuery();
+				 if (rs.next()) {  
+					 totalCount = rs.getInt(1);  
+				 } 
+			 } catch (SQLException e) {  
+				 System.out.println("Ignore this exception"+e);  
+			 } finally { try {  
+				 rs.close();  
+				 countStmt.close();  
+			 } catch (SQLException e) {  
+				 System.out.println("Ignore this exception"+ e);  
+			 }  
+			 } //绑定count 
+			 co.setCount(totalCount);
+			 metaStatementHandler.setValue("delegate.boundSql.sql", pageSql);
+		 }
 	    return invocation.proceed();
 	}
 
 	@Override
 	public Object plugin(Object target) {
-		 if (target instanceof StatementHandler) {  
-	            return Plugin.wrap(target, this);  
-	        } else {  
-	            return target;  
-	        } 
+		if (target instanceof StatementHandler) { 
+			return Plugin.wrap(target, this);  
+        } else { return target;  
+        }  
 	}
 
 	@Override

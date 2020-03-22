@@ -1,9 +1,9 @@
 package com.hr.pojo;
 
 public class Common {
-	private int pagesize; 
-	private int pageid; 
-	private int pagebegin; 
+	private int pagesize;     //记录的条数
+	private int pageid;       //第几页
+	private int pagebegin;    //开始 
 	public int getPagesize() {
 		return pagesize;
 	}
