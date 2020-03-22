@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/xy/insertAndUpdate.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<title>无标题文档</title>
 		
@@ -70,7 +71,7 @@ alert(date);
 $('#salaryGrantId').val(date);
 
 },
-error:function(){alert("error")}
+error:function(){alert("error11")}
 });
 }
 
@@ -81,7 +82,7 @@ error:function(){alert("error")}
 
 
 
-	<body onload="loadFirstAndKindName();standardIdAndName();nextId()">
+	<body onload="loadFirstAndKindName();standardIdAndName();nextId();getNowDate()">
 		<form name="salarygrantForm" id="salarygrantForm" method="post" action="/hr/salarygrant/register">
 			
 			<table width="100%">
@@ -218,7 +219,7 @@ error:function(){alert("error")}
 					</td>
 					
 					<td class="TD_STYLE2">
-						<input type="text" name="registTime" value="2010-05-29 03:13:27" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="registTime" id="time" value="" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					
 					

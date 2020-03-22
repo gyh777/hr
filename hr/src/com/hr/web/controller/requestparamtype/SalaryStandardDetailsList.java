@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.hr.pojo.SalaryStandard;
 import com.hr.pojo.SalaryStandardDetails;
 
@@ -29,17 +31,20 @@ public class SalaryStandardDetailsList {
 	
 	private String register;
 	
-	private String registTime;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date registTime;
 	
 	private String checker;
 	
-	private String checkTime;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date checkTime;
 	
 	private String changer;
 	
 	private String changeStatus;
 	
-	private String changeTime;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date changeTime;
 	
 	private String checkStatus;
 	
@@ -84,14 +89,7 @@ public class SalaryStandardDetailsList {
 		this.changeStatus = changeStatus;
 	}
 
-	public String getChangeTime() {
-		return changeTime;
-	}
-
-	public void setChangeTime(String changeTime) {
-		this.changeTime = changeTime;
-	}
-
+	
 	public String getChecker() {
 		return checker;
 	}
@@ -100,13 +98,6 @@ public class SalaryStandardDetailsList {
 		this.checker = checker;
 	}
 
-	public String getCheckTime() {
-		return checkTime;
-	}
-
-	public void setCheckTime(String checkTime) {
-		this.checkTime = checkTime;
-	}
 
 	public String getStandardId() {
 		return standardId;
@@ -148,12 +139,29 @@ public class SalaryStandardDetailsList {
 		this.register = register;
 	}
 
-	public String getRegistTime() {
+
+	public Date getRegistTime() {
 		return registTime;
 	}
 
-	public void setRegistTime(String registTime) {
+	public void setRegistTime(Date registTime) {
 		this.registTime = registTime;
+	}
+
+	public Date getCheckTime() {
+		return checkTime;
+	}
+
+	public void setCheckTime(Date checkTime) {
+		this.checkTime = checkTime;
+	}
+
+	public Date getChangeTime() {
+		return changeTime;
+	}
+
+	public void setChangeTime(Date changeTime) {
+		this.changeTime = changeTime;
 	}
 
 	public String getRemark() {

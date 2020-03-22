@@ -69,7 +69,6 @@ public class SalarystandardController {
 	
 	@RequestMapping(value="/checkList")
 	public String checkList(HttpServletRequest request){
-		System.out.println(111);
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryCheckAll();
 //		JSONArray ja = JSONArray.fromObject(list);
 		request.setAttribute("list", list);
@@ -105,7 +104,6 @@ public class SalarystandardController {
 		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
 //		m.addAttribute("change", salaryStandardDetailsList);
 		request.setAttribute("change", salaryStandardDetailsList);
-		System.out.println(salaryStandardDetailsList.getStandardName());
 		return "salarystandard_change";
 	}
 	
