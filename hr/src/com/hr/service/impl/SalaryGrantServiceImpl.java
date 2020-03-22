@@ -10,6 +10,7 @@ import com.hr.mapper.SalaryGrantMapper;
 import com.hr.pojo.SalaryGrant;
 import com.hr.service.SalaryGrantService;
 import com.hr.web.controller.requestparamtype.SalaryGrantAndDetails;
+import com.hr.web.controller.requestparamtype.SalaryStandardIdAndName;
 
 @Service
 public class SalaryGrantServiceImpl implements SalaryGrantService{

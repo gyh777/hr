@@ -31,7 +31,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td align="right">
 					<input type="submit" value="提交" class="BUTTON_STYLE1"
 							onclick="insertOrUpdateEngageRelease('insert')">
-					<input type="reset" value="清除" class="BUTTON_STYLE1" name="clean">
+					<input type="reset" value="清除" class="BUTTON_STYLE1"
+							onclick="">
 				</td>
 			</tr>
 		</table>

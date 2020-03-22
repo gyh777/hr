@@ -79,6 +79,12 @@ function kindNameChange(obj,type){
 		valueName = "engage_type";
 		firstName = kind;
 		firstId = "0";
+	}else if(name == "salaryStandard"){
+		url = "";
+		valueId = "engage_id";
+		valueName = "engage_type";
+		firstName = kind;
+		firstId = "0";
 	};
 	//清空所有下级元素的内容
 	$("select[name='"+ addName +"']").children("option").not(":eq(0)").remove();
@@ -122,7 +128,7 @@ function insertOrUpdateEngageRelease(type){
 		operator = $("input[name='changer']").val();
 		mreId = $("input[name='mre_id']").val();
 	};
-	var time = $("input[name='change_time']").val();
+	var time = $("input[name='time']").val();
 	var firstKindId = $("input[name='first_kind_id']").val();
 	var firstKindName = $("input[name='first_kind_name']").val();
 	var secondKindId = $("input[name='second_kind_id']").val();
@@ -149,6 +155,7 @@ function insertOrUpdateEngageRelease(type){
 		"operator" : operator,"time" : time,"mreId" : mreId,
 		"majorDescribe" : majorDescribe,"engageRequired" : engageRequired
 	};
+	console.log(data);
 	
 	$.ajax({
 		type : "post",

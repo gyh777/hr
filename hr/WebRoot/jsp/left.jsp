@@ -489,7 +489,8 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td width="98%">
-									调动登记
+									<a href="../majorChange/toSelectNormalHumanFile"
+											target="mainFrame">调动登记</a>
 								</td>
 							</tr>
 							<tr>

@@ -73,6 +73,8 @@ function getNowDate(dateformat){
 		time = year+"-"+month+"-"+date;
 	}else if(dateformat=="2"){
 		time = year+"-"+month+"-"+date+" "+hour+":"+minutes+":"+second;
+	}else if(dateformat=="3"){
+		time = year+month+date+hour+minutes+second;
 	};
 	
 	return time;
