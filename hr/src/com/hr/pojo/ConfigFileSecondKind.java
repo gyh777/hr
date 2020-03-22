@@ -1,6 +1,6 @@
 package com.hr.pojo;
 
-public class ConfigFileSecondKind {
+public class ConfigFileSecondKind extends Common {
     private Short fsk_id;
 
     private String first_kind_id;

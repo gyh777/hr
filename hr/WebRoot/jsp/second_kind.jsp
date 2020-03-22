@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
-				class="TABLE_STYLE1">
+				class="TABLE_STYLE1" id="content">
 				<tr>
 				    <td width="15%" class="TD_STYLE1">
 						II级机构编号
@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						删除
 					</td>
 				</tr>
-				<c:forEach items="${requestScope.secondMap}" var="u">
+				<c:forEach items="${requestScope.secondList}" var="u">
 					<tr>
 						<td id="secondKindId" class="TD_STYLE2">
 							${u.second_kind_id}
@@ -91,7 +91,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				 </c:forEach>
 			</table>
-			<p>&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
+			<input type="hidden" id="pageSize" display="none" value="${requestScope.pageSize}"></input>
+			<input type="hidden" id="pageNo" display="none" value="${requestScope.pageNo}"></input>
+			 <p>&nbsp;&nbsp;总数：${requestScope.pageSize}例 &nbsp;&nbsp;&nbsp;当前第 ${requestScope.pageNo} 页  &nbsp;&nbsp;&nbsp;共 ${requestScope.pageSum} 页  &nbsp;&nbsp;&nbsp;跳到第 <input id="page" type="text" > 页&nbsp;&nbsp;<input type="button" value="跳转" width=18 height=18 border=0 onclick="jumpPage()">
 		</form>
 	</body>
 </html>

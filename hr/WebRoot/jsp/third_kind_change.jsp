@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <link rel="stylesheet" href="<%=basePath%>/jsp/table.css" type="text/css">
 <script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/comm.js"></script>
-<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/second_kind_change.js"></script>
+<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/third_kind_change.js"></script>
 </head>
 <body>
 <form id="changeThird" name="configfilefirstkindForm" method="post">
@@ -55,12 +55,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td class="TD_STYLE2"><input type="text" name="firstKindName" value="${fileThirdKind.first_kind_name}" readonly="readonly" class="INPUT_STYLE1"></td>
   </tr>
    <tr>
-    <td width="19%" class="TD_STYLE1">I级机构编号</td>
+    <td width="19%" class="TD_STYLE1">II级机构编号</td>
     <td width="81%" class="TD_STYLE2"><input type="text" name="secondKindId" value="${fileThirdKind.second_kind_id}" readonly="readonly" class="INPUT_STYLE1"></td>
   </tr>
   <tr>
     <td class="TD_STYLE1">II级机构名称</td>
     <td class="TD_STYLE2"><input type="text" name="secondKindName" value="${fileThirdKind.second_kind_name}"  class="INPUT_STYLE1"></td>
+  </tr>
+  <tr>
+    <td class="TD_STYLE1">III级机构名称</td>
+    <td class="TD_STYLE2"><input type="text" name="thirdKindName" value="${fileThirdKind.third_kind_name}"  class="INPUT_STYLE1"></td>
   </tr>
   <tr>
     <td class="TD_STYLE1">销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）</td>

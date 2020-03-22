@@ -25,8 +25,8 @@
 	
 	<update  id="updateConfigFileThirdKind" parameterType="com.hr.pojo.ConfigFileThirdKind">
 		update config_file_third_kind set first_kind_id=#{first_kind_id},first_kind_name=#{first_kind_name},second_kind_id=#{second_kind_id},
-			second_kind_name=#{second_kind_name},third_kind_id=#{third_kind_id},third_kind_name=#{third_kind_name},third_kind_salary_id=#{third_kind_salary_id},third_kind_sale_id=#{third_kind_sale_id}
-			where ftk_id=#{ftk_id}
+			second_kind_name=#{second_kind_name},third_kind_id=#{third_kind_id},third_kind_name=#{third_kind_name},third_kind_sale_id=#{third_kind_sale_id}
+			where third_kind_id=#{third_kind_id}
 	</update>
 	
 	

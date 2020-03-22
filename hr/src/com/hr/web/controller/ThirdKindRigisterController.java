@@ -46,10 +46,11 @@ public class ThirdKindRigisterController {
 
 	@RequestMapping("/changerigister")
 	public ModelAndView changeRigister(@RequestParam String thirdKindId){
+		System.out.println("改变三级机构"+thirdKindId);
 		ConfigFileThirdKind  fileThirdKind = configFileThirdKindServiceImpl.queryConfigFileThirdKindById(thirdKindId);
 		ModelAndView mav  = new ModelAndView();
 		mav.addObject("fileThirdKind",fileThirdKind);
-		mav.setViewName("second_kind_change");
+		mav.setViewName("third_kind_change");
 		return mav;
 	}
 	
@@ -77,10 +78,14 @@ public class ThirdKindRigisterController {
 		  u.setPagesize(3);
 		  u.setPageid(1);
 		  List<ConfigFileThirdKind> thirdList =configFileThirdKindServiceImpl.queryAllThirdByPage(u);
-		ModelAndView mav  = new ModelAndView();
+		  List<ConfigFileThirdKind> list =configFileThirdKindServiceImpl.queryAllConfigFileThirdKind();
+		  int pageSum = list.size()%u.getPagesize()==0?list.size()/u.getPagesize():list.size()/u.getPagesize()+1;
+		  list = null;
+		  ModelAndView mav  = new ModelAndView();
         mav.addObject("thirdList", thirdList);
         mav.addObject("pageNo", u.getPageid());
         mav.addObject("pageSize", u.getPagesize());
+        mav.addObject("pageSum", pageSum);
 		mav.setViewName("third_kind");
 		return mav;
 	}
@@ -111,8 +116,8 @@ public class ThirdKindRigisterController {
 	
 	
 	@RequestMapping("/deleterigister")
-	public String deleteRigister(@RequestParam String thirdKindId){
+	public void deleteRigister(@RequestParam String thirdKindId){
 		configFileThirdKindServiceImpl.removeConfigFileThirdKind(thirdKindId);
-		return "third_kind_delete_success";
+	
 	}
 }

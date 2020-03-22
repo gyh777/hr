@@ -19,7 +19,9 @@ function deleteThirdKind(obj){
 	var frm = document.getElementById("Third");
 	var id = $(obj).parent().siblings(":first").text();
 	frm.action = "/hr/thirdkindrigister/deleterigister?thirdKindId="+id;
-    frm.submit();
+    alert("删除成功" +
+    		"")
+	frm.submit();
 }
 
 function jumpPage(){
