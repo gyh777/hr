@@ -89,6 +89,7 @@ public class ThirdKindRigisterController {
 	@RequestMapping("/ajax")
 	public ThirdkindAndListDto ajaxPage(String pageSize,String pageNo){
 		int pagesize = Integer.parseInt(pageSize);
+//		System.out.println(pagesize+"=======");
 		int pageno = Integer.parseInt(pageNo);
 		
 		int begin = (pageno-1)*pagesize+1;
@@ -98,12 +99,8 @@ public class ThirdKindRigisterController {
 		  u.setPagesize(pagesize);
 		  u.setPageid(pageno);
 		  List<ConfigFileThirdKind> thirdList =configFileThirdKindServiceImpl.queryAllThirdByPage(u);
-		ModelAndView mav  = new ModelAndView();
-        mav.addObject("thirdList", thirdList);
-        mav.addObject("pageNo", u.getPageid());
-        mav.addObject("pageSize", u.getPagesize());
-		mav.setViewName("third_kind");
-		ThirdkindAndListDto dto = new ThirdkindAndListDto();
+		System.out.println(thirdList.size()+"=======数据的数量");
+		  ThirdkindAndListDto dto = new ThirdkindAndListDto();
 		dto.setConfigFileThirdKind(u);
 		dto.setList(thirdList);
 		return dto;

@@ -32,8 +32,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
-				class="TABLE_STYLE1">
-				<tr>
+				class="TABLE_STYLE1" id="content">
+				<tr >
 				    <td width="14%" class="TD_STYLE1">
 						III级机构编号
 					</td>
