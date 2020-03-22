@@ -3,6 +3,8 @@ package com.hr.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class SalaryStandard  implements Serializable{
 	
 	
@@ -19,12 +21,12 @@ public class SalaryStandard  implements Serializable{
     private String checker;
 
     private String changer;
-
-    private String registTime;
-
-    private String checkTime;
-
-    private String changeTime;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date registTime;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date checkTime;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date changeTime;
 
     private String salarySum;
 
@@ -108,31 +110,33 @@ public class SalaryStandard  implements Serializable{
         this.changer = changer == null ? null : changer.trim();
     }
 
-    public String getRegistTime() {
-        return registTime;
-    }
+   
 
-    public void setRegistTime(String registTime) {
-        this.registTime = registTime;
-    }
+    public Date getRegistTime() {
+		return registTime;
+	}
 
-    public String getCheckTime() {
-        return checkTime;
-    }
+	public void setRegistTime(Date registTime) {
+		this.registTime = registTime;
+	}
 
-    public void setCheckTime(String checkTime) {
-        this.checkTime = checkTime;
-    }
+	public Date getCheckTime() {
+		return checkTime;
+	}
 
-    public String getChangeTime() {
-        return changeTime;
-    }
+	public void setCheckTime(Date checkTime) {
+		this.checkTime = checkTime;
+	}
 
-    public void setChangeTime(String changeTime) {
-        this.changeTime = changeTime;
-    }
+	public Date getChangeTime() {
+		return changeTime;
+	}
 
-    public String getSalarySum() {
+	public void setChangeTime(Date changeTime) {
+		this.changeTime = changeTime;
+	}
+
+	public String getSalarySum() {
         return salarySum;
     }
 

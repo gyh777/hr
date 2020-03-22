@@ -20,8 +20,11 @@ public class SalaryGrantServiceImpl implements SalaryGrantService{
 	@Override
 	public Boolean save(SalaryGrantAndDetails salaryGrantAndDetails) {
 		salaryGrantAndDetails.setCheckStatus((short) 0);
-		salaryGrantMapper.insert(salaryGrantAndDetails);
-		return null;
+		int i = salaryGrantMapper.insert(salaryGrantAndDetails);
+		if(i<0){
+			return false;
+		}
+		return true;
 	}
 	
 	

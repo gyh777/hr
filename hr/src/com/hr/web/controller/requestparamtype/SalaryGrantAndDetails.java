@@ -1,11 +1,17 @@
 package com.hr.web.controller.requestparamtype;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.hr.pojo.SalaryGrantDetails;
 
 public class SalaryGrantAndDetails {
-	
+	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
 	private Short sgrId;
 
     private String salaryGrantId;
@@ -31,12 +37,14 @@ public class SalaryGrantAndDetails {
     private String salaryPaidSum;
 
     private String register;
-
-    private String registTime;
+    
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date registTime;
 
     private String checker;
-
-    private String checkTime;
+    
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date checkTime;
 
     private Short checkStatus;
     
@@ -152,12 +160,26 @@ public class SalaryGrantAndDetails {
 		this.register = register;
 	}
 
-	public String getRegistTime() {
+	
+	public Date getRegistTime() {
 		return registTime;
 	}
 
 	public void setRegistTime(String registTime) {
-		this.registTime = registTime;
+		try {
+			this.registTime = format.parse(registTime);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public Date getCheckTime() {
+		return checkTime;
+	}
+
+	public void setCheckTime(Date checkTime) {
+		this.checkTime = checkTime;
 	}
 
 	public String getChecker() {
@@ -166,14 +188,6 @@ public class SalaryGrantAndDetails {
 
 	public void setChecker(String checker) {
 		this.checker = checker;
-	}
-
-	public String getCheckTime() {
-		return checkTime;
-	}
-
-	public void setCheckTime(String checkTime) {
-		this.checkTime = checkTime;
 	}
 
 	public Short getCheckStatus() {

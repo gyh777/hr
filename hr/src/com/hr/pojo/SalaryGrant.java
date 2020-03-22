@@ -1,6 +1,9 @@
 package com.hr.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 public class SalaryGrant  implements Serializable{
@@ -29,12 +32,12 @@ public class SalaryGrant  implements Serializable{
     private String salaryPaidSum;
 
     private String register;
-
-    private String registTime;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date registTime;
 
     private String checker;
-
-    private String checkTime;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date checkTime;
 
     private Short checkStatus;
 
@@ -147,13 +150,7 @@ public class SalaryGrant  implements Serializable{
         this.register = register == null ? null : register.trim();
     }
 
-    public String getRegistTime() {
-        return registTime;
-    }
-
-    public void setRegistTime(String registTime) {
-        this.registTime = registTime;
-    }
+   
 
     public String getChecker() {
         return checker;
@@ -163,15 +160,25 @@ public class SalaryGrant  implements Serializable{
         this.checker = checker == null ? null : checker.trim();
     }
 
-    public String getCheckTime() {
-        return checkTime;
-    }
+    
 
-    public void setCheckTime(String checkTime) {
-        this.checkTime = checkTime;
-    }
+    public Date getRegistTime() {
+		return registTime;
+	}
 
-    public Short getCheckStatus() {
+	public void setRegistTime(Date registTime) {
+		this.registTime = registTime;
+	}
+
+	public Date getCheckTime() {
+		return checkTime;
+	}
+
+	public void setCheckTime(Date checkTime) {
+		this.checkTime = checkTime;
+	}
+
+	public Short getCheckStatus() {
         return checkStatus;
     }
 
