@@ -123,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<c:forEach items="${requestScope.human}" var="human">
 					<tr>
 						<td  class="TD_STYLE2">
-							${human.human_id}
+							${human.hfd_id}
 						</td>
 						<td class="TD_STYLE2">
 							${human.human_name}

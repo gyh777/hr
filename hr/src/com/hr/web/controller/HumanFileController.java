@@ -284,12 +284,12 @@ public class HumanFileController {
 		String[] str = splitStr(secondKindName);
 	
 		System.out.println(str[1]);
-//		map.put("firstKindName", firstKindName);
-//		map.put("secondKindName", str[1]);
-//		map.put("thirdKindName", thirdKindName);
-//		map.put("humanMajorName", humanMajorName);
-//		System.out.println(firstKindName+str[1]+thirdKindName+humanMajorName+humanMajorKindName);
-//		map.put("humanMajorKindName",humanMajorKindName);
+		map.put("firstKindName", firstKindName);
+		map.put("secondKindName", str[1]);
+		map.put("thirdKindName", thirdKindName);
+		map.put("humanMajorName", humanMajorName);
+		System.out.println(firstKindName+str[1]+thirdKindName+humanMajorName+humanMajorKindName);
+		map.put("humanMajorKindName",humanMajorKindName);
 		map.put("str_startTime",str_startTime);
 		map.put("str_endTime",str_endTime);
 		ModelAndView mav = new ModelAndView();

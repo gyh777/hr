@@ -58,9 +58,7 @@
 	
 	
 	<select id="queryByMapCondition" resultType="com.hr.pojo.HumanFileDig"  parameterType="hashmap">
-		select 
-       <include refid="allDigColumn"/>
-		from human_file_dig
+		select * from human_file_dig
 		<trim prefix="where" prefixOverrides="and|or">
 			<if test="firstKindName!=null">
 				and first_kind_name = #{firstKindName}
@@ -93,9 +91,7 @@
 	</select>
 	
 	<select id="queryByKeyCondition" resultType="com.hr.pojo.HumanFileDig" parameterType="hashmap">
-		select 
-		<include refid="allDigColumn"/>
-		 from human_file_dig
+		select * from human_file_dig
 		<trim prefix="where" prefixOverrides="or">
 	
 			<if test="keywords!=null">

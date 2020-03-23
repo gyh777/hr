@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 </head>
 
-<body><form action="humanfile.do" method="post">
+<body><form  method="post">
 <table width="100%" >
   <tr>
     <td> 
