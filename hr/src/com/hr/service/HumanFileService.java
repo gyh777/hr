@@ -15,4 +15,5 @@ public interface HumanFileService {
     public HumanFile queryHumanFileByHuf_id(int huf_id);
     public List<HumanFileSomeValue> queryNormalHumanFileSomeValue();
     public boolean updateHumanFileStatus(String huf_id,String human_file_status);
+    public boolean updateStatus(HumanFile hf);
 }

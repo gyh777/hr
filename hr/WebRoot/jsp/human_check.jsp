@@ -351,7 +351,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						个人履历
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="humanHistroyRecords" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="humanHistroyRecords" rows="4" class="TEXTAREA_STYLE1">${ human.human_history_records}</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -359,7 +359,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						家庭关系信息
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="humanFamilyMembership" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="humanFamilyMembership" rows="4" class="TEXTAREA_STYLE1">${human.human_family_membership}</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -367,7 +367,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						备注
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="remark" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="remark" rows="4" class="TEXTAREA_STYLE1">${human.remark}</textarea>
 					</td>
 				</tr>
 			</table>

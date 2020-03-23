@@ -23,6 +23,11 @@
 		  register=#{register},checker=#{checker},changer=#{changer},regist_time=#{regist_time},check_time=#{check_time},change_time=#{change_time},lastly_change_time=#{lastly_change_time},delete_time=#{delete_time},recovery_time=#{recovery_time},human_file_status=#{human_file_status}
 	</update>
 	
+	<update  id="updateStatus" parameterType="com.hr.pojo.HumanFile">
+		update human_file set human_file_status = #{human_file_status} where human_name = #{human_name}
+	</update>
+	
+	
 	
 	<select id="queryHumanFileByName" parameterType="String" resultType="com.hr.pojo.HumanFile">
 		select * from human_file where human_name=#{human_name}

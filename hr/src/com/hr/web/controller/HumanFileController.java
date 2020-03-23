@@ -269,7 +269,7 @@ public class HumanFileController {
 			humanFileDigServiceImpl.addHumanFileDig(hf);
 			HumanFile huf  = new HumanFile();
 			huf.setHuman_file_status((short)1);
-			humanFileServiceImpl.updateHumanFile(huf);
+			humanFileServiceImpl.updateStatus(huf);
 			System.out.println("档案复核成功");
 		
 		ModelAndView mav = new ModelAndView();

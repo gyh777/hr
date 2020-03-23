@@ -19,4 +19,5 @@ public interface ConfigFileThirdKindMapper {
     		@Param("first_kind_name")String first_kind_name,
     		@Param("second_kind_name")String second_kind_name);
     List<ConfigFileThirdKind> queryAllThirdByPage(ConfigFileThirdKind t);
+
 }

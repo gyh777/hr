@@ -89,4 +89,10 @@ public class HumanFileServiceImpl implements HumanFileService {
 		return humanFileMapper.updateHumanFileStatus(huf_id,human_file_status);
 	}
 
+	@Override
+	public boolean updateStatus(HumanFile hf) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.updateStatus(hf);
+	}
+
 }
