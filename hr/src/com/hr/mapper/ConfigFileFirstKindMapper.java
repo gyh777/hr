@@ -17,5 +17,6 @@ public interface ConfigFileFirstKindMapper {
     public List<TwoStringValue> queryConfigFileFirstKindIdAndName();
     public String queryIdByName(String first_kind_name);
     List<ConfigFileFirstKind> getAllFirstByPage(@Param("currPage")Integer pageNo,@Param("pageSize")Integer pageSize);
+
 }
 

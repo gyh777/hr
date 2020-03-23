@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form method="post" action="">
+		<form id="questionForm" method="post" action="/hr/engageAnswer/save">
 			<table width="100%">
 				<tr>
 					<td>
@@ -27,73 +27,100 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 				<tr>
-					<td>
-						答题限定时间${ }
+					<td class="BUTTON_STYLE1">
+						答题限定时间${engageExam.limite_time }分钟
 					</td>
 				</tr>
 				<tr>
-					<td>
-						答题已用时间<input type="text" name="" value="" readonly="readonly">
+					<td class="BUTTON_STYLE1">
+						答题已用时间
+						<span id="id_H">00</span>：
+						<span id="id_M">00</span>：
+						<span id="id_S">00</span>
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<input type="radio" name="" value="我要交卷">
-						<input type="radio" name="" value="再检查一遍">
-						<input type="submit" value="确认" class="BUTTON_STYLE1">
+					<td class="BUTTON_STYLE1">
+						<input type="submit" value="交卷" class="BUTTON_STYLE1">
 					</td>
 				</tr>
 			</table>
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
+				<input type="hidden" name="exam_number" value="${engageExam.exam_number }">
+				<input type="hidden" name="resume_id" value="${engageResume.res_id }">
+				<input type="hidden" name="interview_id" value="${engageInterview.ein_id }">
+				<input type="hidden" name="human_name" value="${engageResume.human_name }">
+				<input type="hidden" name="human_idcard" value="${engageResume.human_idcard }">
+				<input type="hidden" name="major_kind_id" value="${engageResume.human_major_kind_id }">
+				<input type="hidden" name="major_kind_name" value="${engageResume.human_major_kind_name }">
+				<input type="hidden" name="major_id" value="${engageResume.human_major_id }">
+				<input type="hidden" name="major_name" value="${engageResume.human_major_name }">
+				<input type="hidden" id="use_time" name="use_time" value="">
 				<tr>
 					<td width="20%" class="TD_STYLE1">
 						<span>试卷编号</span>
 					</td>
-					<td width="30%" class="TD_STYLE2">
-						<span></span>
+					<td width="30%" class="TD_STYLE1">
+						<span>${engageExam.exam_number }</span>
 					</td>
 					<td width="20%" class="TD_STYLE1">
 						<span>试题数量</span>
 					</td>
 					<td width="30%" class="TD_STYLE1">
-						<span></span>
+						<span>${question.size() }</span>
 					</td>
 				</tr>
 				<tr>
 					<td width="20%" class="TD_STYLE1">
 						<span>姓名</span>
 					</td>
-					<td width="30%" class="TD_STYLE2">
-						<span></span>
+					<td width="30%" class="TD_STYLE1">
+						<span>${engageResume.human_name }</span>
 					</td>
 					<td width="20%" class="TD_STYLE1">
 						<span>身份证号</span>
 					</td>
 					<td width="30%" class="TD_STYLE1">
-						<span></span>
+						<span>${engageResume.human_idcard }</span>
 					</td>
 				</tr>
-					<c:forEach var="list" items="${engageExamDtoList }">
-						<tr class="TD_STYLE2">
-							<td>
-								${list.configMajor.major_kind_id }
+					<c:forEach var="map" items="${question }" varStatus="s">
+						<tr class="TD_STYLE1">
+							<td class="TD_STYLE2">
+								${s.index+1 }. &nbsp;&nbsp;  ${map.value.content }
+								<input type="hidden" name="map[${s.index }].subject_id" value="${s.index+1 }">
 							</td>
-							<td>
-								${list.configMajor.major_kind_name }
+						</tr>
+						<tr class="TD_STYLE1">
+							<td class="TD_STYLE1">
+								<input type="radio" value="a" name="map[${s.index }].answer">
+								A.${map.value.key_a }
 							</td>
-							<td>
-								${list.configMajor.major_id }
+						</tr>
+						<tr class="TD_STYLE1">
+							<td class="TD_STYLE1">
+								<input type="radio" value="b" name="map[${s.index }].answer">
+								B.${map.value.key_b }
 							</td>
-							<td>
-								${list.configMajor.major_name }
+						</tr>
+						<tr class="TD_STYLE1">
+							<td class="TD_STYLE1">
+								<input type="radio" value="c" name="map[${s.index }].answer">
+								C.${map.value.key_c }
 							</td>
-							<td>
-								${list.count}
+						</tr>
+						<tr class="TD_STYLE1">
+							<td class="TD_STYLE1">
+								<input type="radio" value="d" name="map[${s.index }].answer">
+								D.${map.value.key_d }
 							</td>
-							<td>
-								<a href="/hr/engageExam/createExam?major_name=${list.configMajor.major_name }">出题</a>
+						</tr>
+						<tr class="TD_STYLE1">
+							<td class="TD_STYLE1">
+								<input type="radio" value="e" name="map[${s.index }].answer">
+								E.${map.value.key_e }
 							</td>
 						</tr>
 					</c:forEach>
@@ -102,3 +129,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</form>
 	</body>
 </html>
+<script type="text/javascript" src="/hr/jsp/javascript/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var count = 0;
+		timer = setInterval(function() {
+            count++;
+            $("#id_S").html(showNum(count % 60));
+            $("#id_M").html(showNum(parseInt(count / 60) % 60));
+            $("#id_H").html(showNum(parseInt(count / 60 / 60)));
+            $("#use_time").val(count);
+        }, 1000);
+		
+		function showNum(num) {
+            if (num < 10) {
+                return '0' + num;
+            }
+            return num;
+        }
+	}
+</script>

@@ -59,6 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				});
 			};
 			function toChange(i){
+				$("input[name='time']").val(getNowDate(2));
 				$("form[name='changing']").css("display","block");
 				$("form[name='change']").css("display","none");
 				var value = ${releaseList };

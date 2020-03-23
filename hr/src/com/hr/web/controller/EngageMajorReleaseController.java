@@ -109,9 +109,6 @@ public class EngageMajorReleaseController {
 			,@RequestParam String humanAmount,@RequestParam String deadline
 			,@RequestParam String operator,@RequestParam String time
 			,@RequestParam String majorDescribe,@RequestParam String engageRequired) {
-		//定义两个转换类
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat sdfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		EngageMajorRelease emr = new EngageMajorRelease();
 		emr.setFirst_kind_id(firstKindId);
 		emr.setFirst_kind_name(firstKindName);

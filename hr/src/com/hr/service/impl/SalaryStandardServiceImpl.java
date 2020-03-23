@@ -152,4 +152,10 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		List<SalaryStandard> list = salaryStandardMapper.selectByCondition(salaryStandardQueryLocate);	
 		return list;
 	}
+
+	@Override
+	public List<SalaryStandardIdAndName> selectIdAndName() {
+		// TODO Auto-generated method stub
+		return salaryStandardMapper.selectIdAndName();
+	}
 }

@@ -8,11 +8,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
 		<link rel="stylesheet" type="text/css" media="all"
-			href="javascript/calendar/calendar-win2k-cold-1.css">
-		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
+			href="/hr/jsp/javascript/calendar/calendar-win2k-cold-1.css">
+		<script type="text/javascript" src="/hr/jsp/javascript/calendar/cal.js"></script>
 		<title>无标题文档</title>
 		<script type="text/javascript">
 			function list()
@@ -47,10 +47,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="20%" class="TD_STYLE1">
 						请选择职位分类
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<select name="human_major_kind_id">
 							<option value="" selected="selected">请选择</option>
-							<c:forEach var="list" items="${configMajorList }">
+							<c:forEach var="list" items="${configMajorKindList }">
 								<option value="${list.major_kind_id }">${list.major_kind_name }</option>
 							</c:forEach>
 						</select>
@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						请输入关键字
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<input type="text" value="" name="keyWord" class="INPUT_STYLE1">
 					</td>
 				</tr>
@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						请输入登记时间
 					</td>
-					<td class="TD_STYLE2">
+					<td class="TD_STYLE1">
 						<input type="text" name="start" value="" class="INPUT_STYLE1" id="date_start">
 						至
 						<input type="text" name="end" value="" class="INPUT_STYLE1" id="date_end">
@@ -89,4 +89,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	Calendar.setup ({inputField : "date_end", ifFormat : "%Y-%m-%d", showsTime : false, button : "date_end", singleClick : true, step : 1});
 	</script>
 </html>
-

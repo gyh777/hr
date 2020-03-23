@@ -3,5 +3,50 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.EngageAnswerMapper">
-	
+	<select id="select" resultType="com.hr.pojo.EngageAnswer">
+		select * from engage_answer
+	</select>
+	<insert id="insert" parameterType="com.hr.pojo.EngageAnswer">
+		insert into engage_answer 
+		(
+		answer_number,exam_number,resume_id,interview_id,human_name,human_idcard,major_kind_id,major_kind_name,
+   		major_id,major_name,test_time,use_time,total_point
+   		)
+   		values 
+   		(
+   			#{answer_number},#{exam_number},#{resume_id},#{interview_id},#{human_name},#{human_idcard},#{major_kind_id},#{major_kind_name},
+   			#{major_id},#{major_name},#{test_time},#{use_time},#{total_point}
+   		)	
+   		
+	</insert>
+	<update id="update" parameterType="com.hr.pojo.EngageAnswer">
+		update engage_answer set 
+		answer_number=#{answer_number},exam_number=#{exam_number},resume_id=#{resume_id},
+		interview_id=#{interview_id},human_name=#{human_name},human_idcard=#{human_idcard},
+		major_kind_id=#{major_kind_id},major_kind_name=#{major_kind_name},major_id=#{major_id},
+		major_name=#{major_name},test_time=#{test_time},use_time=#{use_time},
+		total_point=#{total_point} where ans_id=#{ans_id}
+	</update>
+	<delete id="delete" parameterType="_int">
+		delete from engage_answer where ans_id=#{ans_id}
+	</delete>
+	<select id="find" parameterType="String" resultType="com.hr.pojo.EngageAnswer">
+		select * from engage_answer 
+		<trim prefix="where" suffixOverrides="and">
+			<if test="human_idcard !=null and human_idcard !=''">
+				human_idcard=#{human_idcard} and
+			</if>
+			<if test="keyWord !=null and keyWord != ''">
+				<bind name="keyWordOne" value="'%'+keyWord+'%'"/>
+				human_name like #{keyWordOne} or major_kind_name like #{keyWordOne} or 
+				major_name like #{keyWordOne} and
+			</if>
+			<if test="start !=null and end!= null and start !='' and end !=''">
+				test_time between #{start} and #{end} and
+			</if>
+		</trim>
+	</select>
+	<select id="selectByAnsId" parameterType="_int" resultType="com.hr.pojo.EngageAnswer">
+		select * from engage_answer where ans_id=#{ans_id}
+	</select>
 </mapper>

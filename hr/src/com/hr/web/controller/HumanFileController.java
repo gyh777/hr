@@ -3,9 +3,12 @@ package com.hr.web.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hr.pojo.ConfigFileFirstKind;
 import com.hr.pojo.ConfigFileSecondKind;
 import com.hr.pojo.HumanFile;
 import com.hr.pojo.HumanFileDig;
@@ -28,6 +32,7 @@ import com.hr.service.ConfigMajorService;
 import com.hr.service.HumanFileDigService;
 import com.hr.service.HumanFileService;
 import com.hr.service.SalaryStandardService;
+import com.hr.web.controller.requestparamtype.TwoStringValue;
 
 @Controller
 @RequestMapping("/humanfile")
@@ -310,8 +315,46 @@ public class HumanFileController {
         return mav;
 	}
 	
+	@RequestMapping("bringToHumanRig")
+	public void bringToHumanRig(){
+		List<TwoStringValue> firstList = configFileFirstKindServiceImpl.queryConfigFileFirstKindIdAndName();
+		List<TwoStringValue> secondList = new ArrayList<TwoStringValue>();
+		for (TwoStringValue twoStringValue : firstList) {
+						secondList.addAll(configFileSecondKindServiceImpl.queryIdAndNameByFirstKindName(twoStringValue.getSecond()));
+		}
+		List<TwoStringValue> thirdList = new ArrayList<TwoStringValue>();
+//		for (TwoStringValue twoStringValue2 : secondList) {
+//			for (TwoStringValue twoStringValue1 : firstList) {
+//				thirdList.addAll(configFileThirdKindServiceImpl.queryKindIdAndName(twoStringValue1.getSecond(), twoStringValue2.getSecond()));
+//			}
+//		}
+//		thirdList = selectDiff(thirdList);
+//		for (TwoStringValue twoStringValue : thirdList) {
+//			System.out.println(twoStringValue);
+//		}
+//		ModelAndView mav = new ModelAndView();
+//        mav.setViewName("delete_human_success");
+		
+//        return mav;
+		
+		TwoStringValue v1 = new TwoStringValue();
+		v1.setFirst("01");
+		v1.setSecond("外包组");
+		TwoStringValue v2 = new TwoStringValue();
+		v2.setFirst("02");
+		v2.setSecond("药店");
+		thirdList.add(v1);
+		thirdList.add(v2);
+		List<TwoStringValue> majorKindList = configMajorKindServiceImpl.selectAllConfigMajorKindIdAndName();
+		
+	}
 	
 	
-	
+	public List<TwoStringValue> selectDiff(List<TwoStringValue> list){
+		 HashSet h = new HashSet(list);   
+		    list.clear();   
+		    list.addAll(h);   
+		    return list;  
+	}
 
 }

@@ -11,8 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
 		<link rel="stylesheet" type="text/css" media="all"
-			href="javascript/calendar/calendar-win2k-cold-1.css">
-		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
+			href="/hr/jsp/javascript/calendar/calendar-win2k-cold-1.css">
+		<script type="text/javascript" src="/hr/jsp/javascript/calendar/cal.js"></script>
 		<title>无标题文档</title>
 		<script type="text/javascript">
 			function list()
@@ -50,10 +50,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						<input type="text" name="human_name" value="">
 					</td>
-					<td>
+					<td class="TD_STYLE1">
 						身份证号码
 					</td>
-					<td>
+					<td class="TD_STYLE1">
 						<input type="text" name="human_idcard" value="">
 					</td>
 				</tr>
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						<select name="human_major_kind_id">
 							<option value="" selected="selected"></option>
-							<c:forEach var="list" items="${configMajorList }">
+							<c:forEach var="list" items="${ConfigMajorKindList }">
 								<option value="${list.major_kind_id }">${list.major_kind_name }</option>
 							</c:forEach>
 						</select>

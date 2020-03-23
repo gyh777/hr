@@ -29,9 +29,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css">
 <script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/comm.js"></script>
+		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript">
+    function reBack(){
+         $("form").action = "/hr/jsp/left.jsp";
+         $("form").submit();
+    }
+</script>
 </head>
 <body>
-<form method="post" >
+<form method="post" id="form">
 <table width="100%" >
   <tr>
     <td colspan="2"> 
@@ -39,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tr>
   <tr>
     <td width="49%"> 档案审核中</td>
-    <td width="51%" align="right">  <input type="button" value="继续录入" class="BUTTON_STYLE1" onclick="javascript:toAdd();">
+    <td width="51%" align="right">  
     <input type="button" value="返回" class="BUTTON_STYLE1" onclick="javascript:reBack();"></td></tr>
   </table>
 

@@ -291,7 +291,7 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td width="98%">
-									<a href="human_register.jsp" target="mainFrame">人力资源档案登记</a>
+									<a href="/hr/jsp/human_register.jsp" target="mainFrame">人力资源档案登记</a>
 								</td>
 							</tr>
 							<tr>
@@ -489,7 +489,8 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td width="98%">
-									调动登记
+									<a href="../majorChange/toSelectNormalHumanFile"
+											target="mainFrame">调动登记</a>
 								</td>
 							</tr>
 							<tr>
@@ -825,7 +826,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="" target="mainFrame">考试阅卷</a>
+													<a href="/hr/jsp/question_test_result_success.jsp" target="mainFrame">考试阅卷</a>
 												</td>
 											</tr>
 											<tr>
@@ -833,10 +834,11 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="" target="mainFrame">成绩查询筛选</a>
+													<a href="/hr/jsp/question_test_result_locate.jsp" target="mainFrame">成绩查询筛选</a>
 												</td>
 											</tr>
-										</table> </span>
+										</table> 
+									</span>
 								</td>
 							</tr>
 							<tr>
@@ -861,7 +863,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.?operate=passList&method=register&passStatus=0" target="mainFrame">录用申请</a>
+													<a href="/hr/engageResume/pass" target="mainFrame">录用申请</a>
 												</td>
 											</tr>
 											<tr>
@@ -869,7 +871,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.?operate=passList&method=check&passStatus=1" target="mainFrame">录用审批</a>
+													<a href="/hr/engageResume/passCheck" target="mainFrame">录用审批</a>
 												</td>
 											</tr>
 											<tr>
@@ -877,7 +879,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="/hr/jsp/engageresume.?operate=passList&method=query&passStatus=2" target="mainFrame">录用查询</a>
+													<a href="/hr/engageResume/passFind" target="mainFrame">录用查询</a>
 												</td>
 											</tr>
 										</table> </span>

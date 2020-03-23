@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hr.mapper.HumanFileMapper;
 import com.hr.pojo.HumanFile;
 import com.hr.service.HumanFileService;
+import com.hr.web.controller.requestparamtype.HumanFileSomeValue;
 import com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName;
 
 @Service
@@ -74,6 +75,18 @@ public class HumanFileServiceImpl implements HumanFileService {
 			}
 		return queryHumanFileByKindId_list;
 		
+	}
+
+	@Override
+	public List<HumanFileSomeValue> queryNormalHumanFileSomeValue() {
+		// TODO Auto-generated method stub
+		return humanFileMapper.queryNormalHumanFileSomeValue();
+	}
+
+	@Override
+	public boolean updateHumanFileStatus(String huf_id,String human_file_status) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.updateHumanFileStatus(huf_id,human_file_status);
 	}
 
 }

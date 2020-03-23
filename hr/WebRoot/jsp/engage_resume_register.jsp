@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="168" class="TD_STYLE2">
 						<select name="human_major_kind_name">
-							<c:forEach var="list" items="${engageResumeFindList }">
+							<c:forEach var="list" items="${configMajorKindList }">
 								<option value="${list.major_kind_name }" >${list.major_kind_name }</option>
 							</c:forEach>
 						</select>
@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="171" class="TD_STYLE2">
 						<select name="human_major_name">
-							<c:forEach var="list" items="${engageResumeFindList }">
+							<c:forEach var="list" items="${configMajorList }">
 								<option value="${list.major_name }" >${list.major_name }</option>
 							</c:forEach>
 						</select>
