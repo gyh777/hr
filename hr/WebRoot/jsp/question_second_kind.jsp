@@ -53,22 +53,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 					<c:forEach var="configQuestionSecondKind" items="${configQuestionSecondKindList }">
 						<tr>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								${configQuestionSecondKind.first_kind_id }
 							</td>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								${configQuestionSecondKind.first_kind_name }
 							</td>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								${configQuestionSecondKind.second_kind_id }
 							</td>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								${configQuestionSecondKind.second_kind_name }
 							</td>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								<a href="/hr/configQuestionSecondKind/getByQfkIdForUpdate?qskId=${configQuestionSecondKind.qsk_id }">变更</a>
 							</td>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								<a href="/hr/configQuestionSecondKind/getByQfkIdForRemove?qskId=${configQuestionSecondKind.qsk_id }">删除</a>
 							</td>
 						</tr>

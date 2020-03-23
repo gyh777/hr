@@ -8,8 +8,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<link rel="stylesheet" href="table.css" type="text/css">
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css">
+		<script type="text/javascript" src="/hr/jsp/javascript/comm/comm.js"></script>
 	</head>
 
 	<body>
@@ -47,24 +47,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 					<c:forEach var="configQuestionFirstKind" items="${configQuestionFirstKindList }">
 						<tr>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								${configQuestionFirstKind.first_kind_id }
 							</td>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								${configQuestionFirstKind.first_kind_name }
 							</td>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								<%-- <a href="/hr/jsp/question_first_kind_change.jsp?changeConfigQuestionFirstKind="+${configQuestionFirstKind }>变更</a> --%>
 								<a href="/hr/configQuestionFirstKind/getByQfkIdForUpdate?qfkId=${configQuestionFirstKind.qfk_id }">变更</a>
 							</td>
-							<td class="TD_STYLE2">
+							<td class="TD_STYLE1">
 								<a href="/hr/configQuestionFirstKind/getByQfkIdForRemove?qfkId=${configQuestionFirstKind.qfk_id }">删除</a>
 							</td>
 						</tr>
 					</c:forEach>
 				
 			</table>
-			<p>&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="/hr/jsp/images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：${configQuestionFirstKindList.size() }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="/hr/jsp/images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>

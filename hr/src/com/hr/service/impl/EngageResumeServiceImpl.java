@@ -62,5 +62,10 @@ public class EngageResumeServiceImpl implements EngageResumeService{
 			String human_major_id, String human_name, String human_idcard) {
 		return engageResumeMapper.findForQuestion(human_major_kind_id, human_major_id, human_name, human_idcard);
 	}
+
+	@Override
+	public List<EngageResume> listByInterview(int interview_status) {
+		return engageResumeMapper.selectByInterview(interview_status);
+	}
 	
 }

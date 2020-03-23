@@ -1,8 +1,12 @@
 package com.hr.web.controller.requestparamtype;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,6 +14,8 @@ import com.hr.pojo.SalaryStandard;
 import com.hr.pojo.SalaryStandardDetails;
 
 public class SalaryStandardDetailsList {
+	
+	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 
 	private List<SalaryStandardDetails> salaryStandardDetails = new ArrayList<SalaryStandardDetails>();
 	
@@ -31,29 +37,29 @@ public class SalaryStandardDetailsList {
 	
 	private String register;
 	
-	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date registTime;
 	
 	private String checker;
 	
-	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date checkTime;
 	
 	private String changer;
 	
-	private String changeStatus;
+	private short changeStatus;
 	
-	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date changeTime;
 	
-	private String checkStatus;
+	private short checkStatus;
 	
 
-	public String getCheckStatus() {
+	public short getCheckStatus() {
 		return checkStatus;
 	}
 
-	public void setCheckStatus(String checkStatus) {
+	public void setCheckStatus(short checkStatus) {
 		this.checkStatus = checkStatus;
 	}
 
@@ -81,11 +87,11 @@ public class SalaryStandardDetailsList {
 		this.changer = changer;
 	}
 
-	public String getChangeStatus() {
+	public short getChangeStatus() {
 		return changeStatus;
 	}
 
-	public void setChangeStatus(String changeStatus) {
+	public void setChangeStatus(short changeStatus) {
 		this.changeStatus = changeStatus;
 	}
 
@@ -144,24 +150,40 @@ public class SalaryStandardDetailsList {
 		return registTime;
 	}
 
-	public void setRegistTime(Date registTime) {
-		this.registTime = registTime;
+	public void setRegistTime(String registTime) {
+		try {
+			
+			this.registTime = format.parse(registTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	public Date getCheckTime() {
 		return checkTime;
 	}
 
-	public void setCheckTime(Date checkTime) {
-		this.checkTime = checkTime;
+	public void setCheckTime(String checkTime) {
+		try {
+			this.checkTime = format.parse(checkTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	public Date getChangeTime() {
 		return changeTime;
 	}
 
-	public void setChangeTime(Date changeTime) {
-		this.changeTime = changeTime;
+	public void setChangeTime(String changeTime) {
+		try {
+			this.changeTime = format.parse(changeTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	public String getRemark() {

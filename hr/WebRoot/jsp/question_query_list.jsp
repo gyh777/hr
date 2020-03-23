@@ -1,5 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,8 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<style type="text/css">
 <!--
@@ -33,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>
-						符合条件的薪酬标准总数:
+						符合条件的试题总数:
 						${engageSubjectsFindList.size() }
 						例
 					</td>
@@ -61,26 +62,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 					<c:forEach var="list" items="${engageSubjectsFindList }">
 						<tr class="TD_STYLE2">
-							<td>
+							<td class="TD_STYLE1">
 								${list.first_kind_name }
 							</td>
-							<td>
+							<td class="TD_STYLE1">
 								${list.second_kind_name }
 							</td>
-							<td>
+							<td class="TD_STYLE1">
 								${list.register }
 							</td>
-							<td>
+							<td class="TD_STYLE1">
 								${list.content }
 							</td>
-							<td>
-								${list.regist_time }
+							<td class="TD_STYLE1">
+								<fmt:formatDate type="both" value="${list.regist_time }"></fmt:formatDate>
 							</td>
 						</tr>
 					</c:forEach>
 				
 			</table>
-			<p>&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：${engageSubjectsFindList.size() }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="/hr/jsp/images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>

@@ -3,343 +3,364 @@ package com.hr.pojo;
 import java.util.Date;
 
 public class MajorChange {
-    private Short mchId;
+    private Short mch_id;
+    
+    private String mch_file_number;
 
-    private String firstKindId;
+    private String first_kind_id;
 
-    private String firstKindName;
+    private String first_kind_name;
 
-    private String secondKindId;
+    private String second_kind_id;
 
-    private String secondKindName;
+    private String second_kind_name;
 
-    private String thirdKindId;
+    private String third_kind_id;
 
-    private String thirdKindName;
+    private String third_kind_name;
 
-    private String majorKindId;
+    private String major_kind_id;
 
-    private String majorKindName;
+    private String major_kind_name;
 
-    private String majorId;
+    private String major_id;
 
-    private String majorName;
+    private String major_name;
 
-    private String newFirstKindId;
+    private String new_first_kind_id;
 
-    private String newFirstKindName;
+    private String new_first_kind_name;
 
-    private String newSecondKindId;
+    private String new_second_kind_id;
 
-    private String newSecondKindName;
+    private String new_second_kind_name;
 
-    private String newThirdKindId;
+    private String new_third_kind_id;
 
-    private String newThirdKindName;
+    private String new_third_kind_name;
 
-    private String newMajorKindId;
+    private String new_major_kind_id;
 
-    private String newMajorKindName;
+    private String new_major_kind_name;
 
-    private String newMajorId;
+    private String new_major_id;
 
-    private String newMajorName;
+    private String new_major_name;
 
-    private String humanId;
+    private String human_id;
 
-    private String humanName;
+    private String human_name;
 
-    private String salaryStandardId;
+    private String salary_standard_id;
 
-    private String salaryStandardName;
+    private String salary_standard_name;
 
-    private Double salarySum;
+    private Double salary_sum;
 
-    private String newSalaryStandardId;
+    private String new_salary_standard_id;
 
-    private String newSalaryStandardName;
+    private String new_salary_standard_name;
 
-    private Double newSalarySum;
+    private Double new_salary_sum;
 
-    private Short checkStatus;
+    private Short check_status;
 
     private String register;
 
     private String checker;
+    
+    private String change_reason;
 
-    private Date registTime;
+    private Date regist_time;
 
-    private Date checkTime;
+    private Date check_time;
 
-    public Short getMchId() {
-        return mchId;
-    }
+	public Short getMch_id() {
+		return mch_id;
+	}
 
-    public void setMchId(Short mchId) {
-        this.mchId = mchId;
-    }
+	public void setMch_id(Short mch_id) {
+		this.mch_id = mch_id;
+	}
 
-    public String getFirstKindId() {
-        return firstKindId;
-    }
+	public String getMch_file_number() {
+		return mch_file_number;
+	}
 
-    public void setFirstKindId(String firstKindId) {
-        this.firstKindId = firstKindId == null ? null : firstKindId.trim();
-    }
+	public void setMch_file_number(String mch_file_number) {
+		this.mch_file_number = mch_file_number;
+	}
 
-    public String getFirstKindName() {
-        return firstKindName;
-    }
+	public String getFirst_kind_id() {
+		return first_kind_id;
+	}
 
-    public void setFirstKindName(String firstKindName) {
-        this.firstKindName = firstKindName == null ? null : firstKindName.trim();
-    }
+	public void setFirst_kind_id(String first_kind_id) {
+		this.first_kind_id = first_kind_id;
+	}
 
-    public String getSecondKindId() {
-        return secondKindId;
-    }
+	public String getFirst_kind_name() {
+		return first_kind_name;
+	}
 
-    public void setSecondKindId(String secondKindId) {
-        this.secondKindId = secondKindId == null ? null : secondKindId.trim();
-    }
+	public void setFirst_kind_name(String first_kind_name) {
+		this.first_kind_name = first_kind_name;
+	}
 
-    public String getSecondKindName() {
-        return secondKindName;
-    }
+	public String getSecond_kind_id() {
+		return second_kind_id;
+	}
 
-    public void setSecondKindName(String secondKindName) {
-        this.secondKindName = secondKindName == null ? null : secondKindName.trim();
-    }
+	public void setSecond_kind_id(String second_kind_id) {
+		this.second_kind_id = second_kind_id;
+	}
 
-    public String getThirdKindId() {
-        return thirdKindId;
-    }
+	public String getSecond_kind_name() {
+		return second_kind_name;
+	}
 
-    public void setThirdKindId(String thirdKindId) {
-        this.thirdKindId = thirdKindId == null ? null : thirdKindId.trim();
-    }
+	public void setSecond_kind_name(String second_kind_name) {
+		this.second_kind_name = second_kind_name;
+	}
 
-    public String getThirdKindName() {
-        return thirdKindName;
-    }
+	public String getThird_kind_id() {
+		return third_kind_id;
+	}
 
-    public void setThirdKindName(String thirdKindName) {
-        this.thirdKindName = thirdKindName == null ? null : thirdKindName.trim();
-    }
+	public void setThird_kind_id(String third_kind_id) {
+		this.third_kind_id = third_kind_id;
+	}
 
-    public String getMajorKindId() {
-        return majorKindId;
-    }
+	public String getThird_kind_name() {
+		return third_kind_name;
+	}
 
-    public void setMajorKindId(String majorKindId) {
-        this.majorKindId = majorKindId == null ? null : majorKindId.trim();
-    }
+	public void setThird_kind_name(String third_kind_name) {
+		this.third_kind_name = third_kind_name;
+	}
 
-    public String getMajorKindName() {
-        return majorKindName;
-    }
+	public String getMajor_kind_id() {
+		return major_kind_id;
+	}
 
-    public void setMajorKindName(String majorKindName) {
-        this.majorKindName = majorKindName == null ? null : majorKindName.trim();
-    }
+	public void setMajor_kind_id(String major_kind_id) {
+		this.major_kind_id = major_kind_id;
+	}
 
-    public String getMajorId() {
-        return majorId;
-    }
+	public String getMajor_kind_name() {
+		return major_kind_name;
+	}
 
-    public void setMajorId(String majorId) {
-        this.majorId = majorId == null ? null : majorId.trim();
-    }
+	public void setMajor_kind_name(String major_kind_name) {
+		this.major_kind_name = major_kind_name;
+	}
 
-    public String getMajorName() {
-        return majorName;
-    }
+	public String getMajor_id() {
+		return major_id;
+	}
 
-    public void setMajorName(String majorName) {
-        this.majorName = majorName == null ? null : majorName.trim();
-    }
+	public void setMajor_id(String major_id) {
+		this.major_id = major_id;
+	}
 
-    public String getNewFirstKindId() {
-        return newFirstKindId;
-    }
+	public String getMajor_name() {
+		return major_name;
+	}
 
-    public void setNewFirstKindId(String newFirstKindId) {
-        this.newFirstKindId = newFirstKindId == null ? null : newFirstKindId.trim();
-    }
-
-    public String getNewFirstKindName() {
-        return newFirstKindName;
-    }
-
-    public void setNewFirstKindName(String newFirstKindName) {
-        this.newFirstKindName = newFirstKindName == null ? null : newFirstKindName.trim();
-    }
-
-    public String getNewSecondKindId() {
-        return newSecondKindId;
-    }
-
-    public void setNewSecondKindId(String newSecondKindId) {
-        this.newSecondKindId = newSecondKindId == null ? null : newSecondKindId.trim();
-    }
-
-    public String getNewSecondKindName() {
-        return newSecondKindName;
-    }
-
-    public void setNewSecondKindName(String newSecondKindName) {
-        this.newSecondKindName = newSecondKindName == null ? null : newSecondKindName.trim();
-    }
-
-    public String getNewThirdKindId() {
-        return newThirdKindId;
-    }
-
-    public void setNewThirdKindId(String newThirdKindId) {
-        this.newThirdKindId = newThirdKindId == null ? null : newThirdKindId.trim();
-    }
-
-    public String getNewThirdKindName() {
-        return newThirdKindName;
-    }
-
-    public void setNewThirdKindName(String newThirdKindName) {
-        this.newThirdKindName = newThirdKindName == null ? null : newThirdKindName.trim();
-    }
-
-    public String getNewMajorKindId() {
-        return newMajorKindId;
-    }
-
-    public void setNewMajorKindId(String newMajorKindId) {
-        this.newMajorKindId = newMajorKindId == null ? null : newMajorKindId.trim();
-    }
-
-    public String getNewMajorKindName() {
-        return newMajorKindName;
-    }
-
-    public void setNewMajorKindName(String newMajorKindName) {
-        this.newMajorKindName = newMajorKindName == null ? null : newMajorKindName.trim();
-    }
-
-    public String getNewMajorId() {
-        return newMajorId;
-    }
-
-    public void setNewMajorId(String newMajorId) {
-        this.newMajorId = newMajorId == null ? null : newMajorId.trim();
-    }
-
-    public String getNewMajorName() {
-        return newMajorName;
-    }
-
-    public void setNewMajorName(String newMajorName) {
-        this.newMajorName = newMajorName == null ? null : newMajorName.trim();
-    }
-
-    public String getHumanId() {
-        return humanId;
-    }
-
-    public void setHumanId(String humanId) {
-        this.humanId = humanId == null ? null : humanId.trim();
-    }
-
-    public String getHumanName() {
-        return humanName;
-    }
-
-    public void setHumanName(String humanName) {
-        this.humanName = humanName == null ? null : humanName.trim();
-    }
-
-    public String getSalaryStandardId() {
-        return salaryStandardId;
-    }
-
-    public void setSalaryStandardId(String salaryStandardId) {
-        this.salaryStandardId = salaryStandardId == null ? null : salaryStandardId.trim();
-    }
-
-    public String getSalaryStandardName() {
-        return salaryStandardName;
-    }
-
-    public void setSalaryStandardName(String salaryStandardName) {
-        this.salaryStandardName = salaryStandardName == null ? null : salaryStandardName.trim();
-    }
-
-    public Double getSalarySum() {
-        return salarySum;
-    }
-
-    public void setSalarySum(Double salarySum) {
-        this.salarySum = salarySum;
-    }
-
-    public String getNewSalaryStandardId() {
-        return newSalaryStandardId;
-    }
-
-    public void setNewSalaryStandardId(String newSalaryStandardId) {
-        this.newSalaryStandardId = newSalaryStandardId == null ? null : newSalaryStandardId.trim();
-    }
-
-    public String getNewSalaryStandardName() {
-        return newSalaryStandardName;
-    }
-
-    public void setNewSalaryStandardName(String newSalaryStandardName) {
-        this.newSalaryStandardName = newSalaryStandardName == null ? null : newSalaryStandardName.trim();
-    }
-
-    public Double getNewSalarySum() {
-        return newSalarySum;
-    }
-
-    public void setNewSalarySum(Double newSalarySum) {
-        this.newSalarySum = newSalarySum;
-    }
-
-    public Short getCheckStatus() {
-        return checkStatus;
-    }
-
-    public void setCheckStatus(Short checkStatus) {
-        this.checkStatus = checkStatus;
-    }
-
-    public String getRegister() {
-        return register;
-    }
-
-    public void setRegister(String register) {
-        this.register = register == null ? null : register.trim();
-    }
-
-    public String getChecker() {
-        return checker;
-    }
-
-    public void setChecker(String checker) {
-        this.checker = checker == null ? null : checker.trim();
-    }
-
-    public Date getRegistTime() {
-        return registTime;
-    }
-
-    public void setRegistTime(Date registTime) {
-        this.registTime = registTime;
-    }
-
-    public Date getCheckTime() {
-        return checkTime;
-    }
-
-    public void setCheckTime(Date checkTime) {
-        this.checkTime = checkTime;
-    }
+	public void setMajor_name(String major_name) {
+		this.major_name = major_name;
+	}
+
+	public String getNew_first_kind_id() {
+		return new_first_kind_id;
+	}
+
+	public void setNew_first_kind_id(String new_first_kind_id) {
+		this.new_first_kind_id = new_first_kind_id;
+	}
+
+	public String getNew_first_kind_name() {
+		return new_first_kind_name;
+	}
+
+	public void setNew_first_kind_name(String new_first_kind_name) {
+		this.new_first_kind_name = new_first_kind_name;
+	}
+
+	public String getNew_second_kind_id() {
+		return new_second_kind_id;
+	}
+
+	public void setNew_second_kind_id(String new_second_kind_id) {
+		this.new_second_kind_id = new_second_kind_id;
+	}
+
+	public String getNew_second_kind_name() {
+		return new_second_kind_name;
+	}
+
+	public void setNew_second_kind_name(String new_second_kind_name) {
+		this.new_second_kind_name = new_second_kind_name;
+	}
+
+	public String getNew_third_kind_id() {
+		return new_third_kind_id;
+	}
+
+	public void setNew_third_kind_id(String new_third_kind_id) {
+		this.new_third_kind_id = new_third_kind_id;
+	}
+
+	public String getNew_third_kind_name() {
+		return new_third_kind_name;
+	}
+
+	public void setNew_third_kind_name(String new_third_kind_name) {
+		this.new_third_kind_name = new_third_kind_name;
+	}
+
+	public String getNew_major_kind_id() {
+		return new_major_kind_id;
+	}
+
+	public void setNew_major_kind_id(String new_major_kind_id) {
+		this.new_major_kind_id = new_major_kind_id;
+	}
+
+	public String getNew_major_kind_name() {
+		return new_major_kind_name;
+	}
+
+	public void setNew_major_kind_name(String new_major_kind_name) {
+		this.new_major_kind_name = new_major_kind_name;
+	}
+
+	public String getNew_major_id() {
+		return new_major_id;
+	}
+
+	public void setNew_major_id(String new_major_id) {
+		this.new_major_id = new_major_id;
+	}
+
+	public String getNew_major_name() {
+		return new_major_name;
+	}
+
+	public void setNew_major_name(String new_major_name) {
+		this.new_major_name = new_major_name;
+	}
+
+	public String getHuman_id() {
+		return human_id;
+	}
+
+	public void setHuman_id(String human_id) {
+		this.human_id = human_id;
+	}
+
+	public String getHuman_name() {
+		return human_name;
+	}
+
+	public void setHuman_name(String human_name) {
+		this.human_name = human_name;
+	}
+
+	public String getSalary_standard_id() {
+		return salary_standard_id;
+	}
+
+	public void setSalary_standard_id(String salary_standard_id) {
+		this.salary_standard_id = salary_standard_id;
+	}
+
+	public String getSalary_standard_name() {
+		return salary_standard_name;
+	}
+
+	public void setSalary_standard_name(String salary_standard_name) {
+		this.salary_standard_name = salary_standard_name;
+	}
+
+	public Double getSalary_sum() {
+		return salary_sum;
+	}
+
+	public void setSalary_sum(Double salary_sum) {
+		this.salary_sum = salary_sum;
+	}
+
+	public String getNew_salary_standard_id() {
+		return new_salary_standard_id;
+	}
+
+	public void setNew_salary_standard_id(String new_salary_standard_id) {
+		this.new_salary_standard_id = new_salary_standard_id;
+	}
+
+	public String getNew_salary_standard_name() {
+		return new_salary_standard_name;
+	}
+
+	public void setNew_salary_standard_name(String new_salary_standard_name) {
+		this.new_salary_standard_name = new_salary_standard_name;
+	}
+
+	public Double getNew_salary_sum() {
+		return new_salary_sum;
+	}
+
+	public void setNew_salary_sum(Double new_salary_sum) {
+		this.new_salary_sum = new_salary_sum;
+	}
+
+	public Short getCheck_status() {
+		return check_status;
+	}
+
+	public void setCheck_status(Short check_status) {
+		this.check_status = check_status;
+	}
+
+	public String getRegister() {
+		return register;
+	}
+
+	public void setRegister(String register) {
+		this.register = register;
+	}
+
+	public String getChecker() {
+		return checker;
+	}
+
+	public void setChecker(String checker) {
+		this.checker = checker;
+	}
+
+	public Date getRegist_time() {
+		return regist_time;
+	}
+
+	public void setRegist_time(Date regist_time) {
+		this.regist_time = regist_time;
+	}
+
+	public Date getCheck_time() {
+		return check_time;
+	}
+
+	public void setCheck_time(Date check_time) {
+		this.check_time = check_time;
+	}
+
+	public String getChange_reason() {
+		return change_reason;
+	}
+
+	public void setChange_reason(String change_reason) {
+		this.change_reason = change_reason;
+	}
+    
 }

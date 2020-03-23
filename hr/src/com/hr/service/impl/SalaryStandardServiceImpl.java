@@ -1,11 +1,13 @@
 package com.hr.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hr.dto.SalaryStandardQueryLocate;
 import com.hr.mapper.SalaryStandardDetailsMapper;
 import com.hr.mapper.SalaryStandardMapper;
 import com.hr.pojo.SalaryStandard;
@@ -24,27 +26,11 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 	
 	@Override
 	public Boolean save(SalaryStandardDetailsList ssdl) {
+
+		ssdl.setChangeStatus((short) 0);
+		ssdl.setCheckStatus((short) 0);
 		
-//		ssdId;standardId;standardName;designer;register;checker;changer;
-//	    registTime;checkTime;changeTime;salarySum;checkStatus;changeStatus;
-		
-		SalaryStandard ss = new SalaryStandard();
-//		ss.setChanger();
-		ss.setChangeStatus((short) 0);
-//		ss.setChangeTime(changeTime);
-//		ss.setChecker(checker);
-		ss.setChangeStatus((short) 0);
-		ss.setCheckStatus((short) 0);
-		ss.setCheckTime(ssdl.getCheckTime());
-		ss.setDesigner(ssdl.getDesigner());
-		ss.setRegister(ssdl.getRegister());
-		ss.setRegistTime(ssdl.getRegistTime());
-		ss.setSalarySum(ssdl.getSalarySum());
-		ss.setSsdId(ssdl.getSsdId());
-		ss.setStandardId(ssdl.getStandardId());
-		ss.setStandardName(ssdl.getStandardName());
-		
-		int result = salaryStandardMapper.insert(ss);
+		int result = salaryStandardMapper.insert(ssdl);
 		
 		if(result>-1){
 			ArrayList<SalaryStandardDetails> array = (ArrayList<SalaryStandardDetails>) ssdl.getSalaryStandardDetails();
@@ -120,11 +106,11 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		SalaryStandard salaryStandard = salaryStandardMapper.selectBySsdId(ssdId);
 //		ssdl.setChangeStatus(salaryStandard.getChangeStatus().toString());
 		String standardId = salaryStandard.getStandardId();
-		ssdl.setCheckStatus(salaryStandard.getCheckStatus().toString());
-		ssdl.setCheckTime(salaryStandard.getCheckTime());
+		ssdl.setCheckStatus(salaryStandard.getCheckStatus());
+//		ssdl.setCheckTime(salaryStandard.getCheckTime().toString());
 		ssdl.setDesigner(salaryStandard.getDesigner());
 		ssdl.setRegister(salaryStandard.getRegister());
-		ssdl.setRegistTime(salaryStandard.getRegistTime());
+		ssdl.setRegistTime(salaryStandard.getRegistTime().toString());
 		ssdl.setSalarySum(salaryStandard.getSalarySum());
 		ssdl.setSsdId(salaryStandard.getSsdId());
 		ssdl.setStandardId(standardId);
@@ -155,5 +141,17 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 	
 	public String queryNextId(){
 		return salaryStandardMapper.selectNextId();
+	}
+
+	@Override
+	public List<SalaryStandard> queryByCondition(SalaryStandardQueryLocate salaryStandardQueryLocate) {
+		List<SalaryStandard> list = salaryStandardMapper.selectByCondition(salaryStandardQueryLocate);	
+		return list;
+	}
+
+	@Override
+	public List<SalaryStandardIdAndName> selectIdAndName() {
+		// TODO Auto-generated method stub
+		return salaryStandardMapper.selectIdAndName();
 	}
 }

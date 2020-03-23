@@ -1,13 +1,16 @@
 package com.hr.pojo;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class SalaryStandard  implements Serializable{
 	
-	
+	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
     private Short ssdId;
 
     private String standardId;
@@ -21,11 +24,11 @@ public class SalaryStandard  implements Serializable{
     private String checker;
 
     private String changer;
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date registTime;
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date checkTime;
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date changeTime;
 
     private String salarySum;
@@ -116,24 +119,39 @@ public class SalaryStandard  implements Serializable{
 		return registTime;
 	}
 
-	public void setRegistTime(Date registTime) {
-		this.registTime = registTime;
+	public void setRegistTime(String registTime) {
+		try {
+			this.registTime = format.parse(registTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	public Date getCheckTime() {
 		return checkTime;
 	}
 
-	public void setCheckTime(Date checkTime) {
-		this.checkTime = checkTime;
+	public void setCheckTime(String checkTime) {
+		try {
+			this.checkTime = format.parse(checkTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	public Date getChangeTime() {
 		return changeTime;
 	}
 
-	public void setChangeTime(Date changeTime) {
-		this.changeTime = changeTime;
+	public void setChangeTime(String changeTime) {
+		try {
+			this.changeTime = format.parse(changeTime);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public String getSalarySum() {

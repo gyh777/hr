@@ -7,7 +7,7 @@ public class EngageExamDetails {
     private String first_kind_name;	//试卷一级分类
     private String second_kind_id;	//试卷二级分类编号
     private String second_kind_name;	//试卷二级分类
-    private int question_amount;	//出题数量
+    private int question_amount;	//题号
     
 	public int getExd_id() {
 		return exd_id;

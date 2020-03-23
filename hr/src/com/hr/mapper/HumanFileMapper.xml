@@ -54,4 +54,21 @@
 	</select>
 	<!-- 向宇加结束 -->
 	
+	<!-- 尹厚粤加 -->
+	<select id="queryNormalHumanFileSomeValue" resultType="com.hr.web.controller.requestparamtype.HumanFileSomeValue">
+	   select huf_id,human_id,first_kind_id,first_kind_name,second_kind_id,second_kind_name,
+	   		third_kind_name,third_kind_id,human_name,salary_sum,
+	   		human_major_kind_id,human_major_kind_name,human_major_id,
+	   		human_major_name,salary_standard_id,salary_standard_name
+	   from human_file 
+	   where human_file_status = 1;
+	</select>
+	
+	<!-- 9暂时代表调动中 -->
+	<update  id="updateHumanFileStatus">
+		update human_file set human_file_status = #{human_file_status} 
+		where huf_id = #{huf_id}
+	</update>
+	<!-- 尹厚粤加结束 -->
+	
 </mapper>

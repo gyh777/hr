@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hr.dto.SalaryStandardQueryLocate;
 import com.hr.pojo.SalaryStandard;
 import com.hr.service.impl.SalaryStandardServiceImpl;
 import com.hr.web.controller.requestparamtype.SalaryStandardDetailsList;
@@ -28,11 +29,11 @@ public class SalarystandardController {
 	
 	@RequestMapping("/register")
 	public String register(@ModelAttribute SalaryStandardDetailsList salaryStandardDetails){
-		
-		Boolean bl = salaryStandardServiceImpl.save(salaryStandardDetails);
-		if(bl){
-			return "salarystandard_register_success";
-		}
+		System.out.println(salaryStandardDetails.getRegistTime());
+//		Boolean bl = salaryStandardServiceImpl.save(salaryStandardDetails);
+//		if(bl){
+//			return "salarystandard_register_success";
+//		}
 		return null;
 	}
 	
@@ -77,11 +78,11 @@ public class SalarystandardController {
 	
 	
 	@RequestMapping(value="/queryList")
-	public String queryList(HttpServletRequest request){
-		
-		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryChangeAll();
+	public String queryList(HttpServletRequest request,SalaryStandardQueryLocate salaryStandardQueryLocate){
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryByCondition(salaryStandardQueryLocate);
 //		JSONArray ja = JSONArray.fromObject(list);
 		request.setAttribute("list", list);
+//		System.out.println(list.size()+"--"+salaryStandardQueryLocate.getStandardId()+"--"+salaryStandardQueryLocate.getTextfield());
 		return "salarystandard_query_list";
 	}
 	
@@ -102,6 +103,7 @@ public class SalarystandardController {
 	@RequestMapping("/change")
 	public String change(@RequestParam String ssdId,HttpServletRequest request){
 		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
+		
 //		m.addAttribute("change", salaryStandardDetailsList);
 		request.setAttribute("change", salaryStandardDetailsList);
 		return "salarystandard_change";

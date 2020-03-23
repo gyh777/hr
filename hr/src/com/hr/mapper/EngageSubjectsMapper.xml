@@ -30,9 +30,9 @@
     	delete from engage_subjects where sub_id=#{sub_id}
     </delete>
 	<insert id="insert" parameterType="com.hr.pojo.EngageSubjects">
-		insert into engage_subjects <include refid="EngageSubjects"/> values
+		insert into engage_subjects values
 		(#{sub_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},
-		#{register},#{derivation},#{content},#{key_a},#{key_b},#{key_c},#{key_d},#{key_e},#{correct_key},#{changer})
+		#{register},#{regist_time},#{derivation},#{content},#{key_a},#{key_b},#{key_c},#{key_d},#{key_e},#{correct_key},#{changer},#{change_time})
 	</insert>
 	<update id="update" parameterType="com.hr.pojo.EngageSubjects">
 		update engage_subjects set first_kind_id=#{first_kind_id},

@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hr.pojo.ConfigMajor;
+import com.hr.pojo.ConfigMajorKind;
+import com.hr.service.ConfigMajorKindService;
 import com.hr.service.ConfigMajorService;
 import com.hr.util.CharacterEncodingHelper;
 
@@ -27,6 +29,8 @@ import com.hr.util.CharacterEncodingHelper;
 public class ConfigMajorController {
 	@Autowired
 	ConfigMajorService configMajorServiceImpl;
+	@Autowired
+	ConfigMajorKindService configMajorKindService;
 	
 	private ModelAndView mav = new ModelAndView();
 	
@@ -60,7 +64,11 @@ public class ConfigMajorController {
 	@RequestMapping("/selectAllForEngage")
 	public String selectAllForEngage(String choose, HttpServletRequest request){
 		List<ConfigMajor> list = configMajorServiceImpl.selectAllConfigMajor();
-		request.setAttribute("engageResumeFindList", list);
+		request.setAttribute("configMajorList", list);
+		
+		List<ConfigMajorKind> list2 = configMajorKindService.selectAllConfigMajorKind();
+		request.setAttribute("configMajorKindList", list2);
+		
 		if("1".equals(choose)){
 			return "engage_resume_query_locate";
 		}

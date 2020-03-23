@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -7,9 +8,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
+		<script type="text/javascript" src="/hr/jsp/javascript/comm/comm.js"></script>
 		<title>无标题文档</title>
 	</head>
 
@@ -36,29 +37,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="74" class="TD_STYLE1">
 						试题I级分类
 					</td>
-					<td width="168" class="TD_STYLE2">
-						<select name="first_kind_id">
-							
-						</select>
+					<td width="168" class="TD_STYLE1">
+						<input type="text" value="${engageSubjects.first_kind_name }" name="first_kind_name" readonly="readonly">
 					</td>
 					<td width="83" class="TD_STYLE1">
 						试题II级分类
 					</td>
-					<td width="171" class="TD_STYLE2">
-						<select name="second_kind_id">
-							
-						</select>
+					<td width="171" class="TD_STYLE1">
+						<input type="text" value="${engageSubjects.second_kind_name }" name="second_kind_name" readonly="readonly">
 					</td>
 					<td width="170" class="TD_STYLE1">
 						改变人
 					</td>
-					<td width="138" class="TD_STYLE2">
+					<td width="138" class="TD_STYLE1">
 						<input type="text" name="changer" value="" class="INPUT_STYLE2">
 					</td>
 					<td width="103" class="TD_STYLE1">
 						登记时间
 					</td>
-					<td width="95" height="26" class="TD_STYLE2">
+					<td width="95" height="26" class="TD_STYLE1">
 						
 					</td>
 				</tr>
@@ -66,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						题干
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="content" rows="4" class="TEXTAREA_STYLE1">${engageSubjects.content }</textarea>
 					</td>
 				</tr>
@@ -74,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案a
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_a" rows="4" class="TEXTAREA_STYLE1">${engageSubjects.key_a }</textarea>
 					</td>
 				</tr>
@@ -82,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案b
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_b" rows="4" class="TEXTAREA_STYLE1">${engageSubjects.key_b }</textarea>
 					</td>
 				</tr>
@@ -90,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案c
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_c" rows="4" class="TEXTAREA_STYLE1">${engageSubjects.key_c }</textarea>
 					</td>
 				</tr>
@@ -98,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案d
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_d" rows="4" class="TEXTAREA_STYLE1">${engageSubjects.key_d }</textarea>
 					</td>
 				</tr>
@@ -106,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案e
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_e" rows="4" class="TEXTAREA_STYLE1">${engageSubjects.key_e }</textarea>
 					</td>
 				</tr>
@@ -114,13 +111,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="74" class="TD_STYLE1">
 						正确答案
 					</td>
-					<td width="168" class="TD_STYLE2">
+					<td width="168" class="TD_STYLE1">
 						<input type="text" name="correct_key" value="${engageSubjects.correct_key }" class="INPUT_STYLE2">
 					</td>
 					<td width="83" class="TD_STYLE1">
 						试题出处
 					</td>
-					<td width="171" class="TD_STYLE2">
+					<td width="171" class="TD_STYLE1">
 						<input type="text" name="derivation" value="${engageSubjects.derivation }" class="INPUT_STYLE2">
 					</td>
 					<td width="170" class="TD_STYLE1">
@@ -129,13 +126,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input type="hidden" value="${engageSubjects.second_kind_id }" name="second_kind_id">
 						<input type="hidden" value="${engageSubjects.register }" name="register">
 					</td>
-					<td width="138" class="TD_STYLE2">
+					<td width="138" class="TD_STYLE1">
 						
 					</td>
 					<td width="103" class="TD_STYLE1">
 						
 					</td>
-					<td width="95" height="26" class="TD_STYLE2">
+					<td width="95" height="26" class="TD_STYLE1">
 						
 					</td>
 				</tr>

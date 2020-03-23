@@ -52,13 +52,15 @@ public class EngageSubjectsController {
 	@RequestMapping("/save")
 	public String save(String qfkId, EngageSubjects engageSubjects){
 		ConfigQuestionSecondKind c = configQuestionSecondKindServiceImpl.getByQfkId(qfkId);
-		if(c == null){
+		if(c != null){
 			engageSubjects.setFirst_kind_id(c.getFirst_kind_id());
 			engageSubjects.setFirst_kind_name(c.getFirst_kind_name());
 			engageSubjects.setSecond_kind_id(c.getSecond_kind_id());
 			engageSubjects.setSecond_kind_name(c.getSecond_kind_name());
 		}
 		engageSubjects.setSub_id(UUIDHelper.getUUID());
+		engageSubjects.setRegist_time(new Date());
+		engageSubjects.setChange_time(new Date());
 		engageSubjectsServiceImpl.save(engageSubjects);
 		return "question_register_success";
 	}

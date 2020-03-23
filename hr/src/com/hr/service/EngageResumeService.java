@@ -15,4 +15,5 @@ public interface EngageResumeService {
 	public List<EngageResume> listFind(String human_major_kind_id, String human_major_id, String keyWord, String start, String end);
 	public List<EngageResume> listFindForEffective(String human_major_kind_id, String human_major_id, String keyWord, String start, String end);
 	public List<EngageResume> listForQuestion(String human_major_kind_id, String human_major_id, String human_name, String human_idcard);
+	public List<EngageResume> listByInterview(int interview_status);
 }

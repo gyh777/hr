@@ -9,9 +9,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<script type="text/javascript" src="/hr/jsp/javascript/comm/comm.js"></script>
 		<title>无标题文档</title>
 	</head>
 
@@ -75,16 +75,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<c:forEach var="list" items="${resList }" varStatus="s">
 					<tr>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE1">
 							试题一级分类名称
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE1">
 							试题二级分类名称
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE1">
 							可用试题数量
 						</td>
-						<td class="TD_STYLE2">
+						<td class="TD_STYLE1">
 							出题数量
 						</td>
 					</tr>
@@ -114,7 +114,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</form>
 	</body>
 </html>
-
-
-
-
