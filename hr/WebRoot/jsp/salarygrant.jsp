@@ -42,6 +42,7 @@ async: true,
 success:function(date){
 alert(date);
 $.each(date,function(index,item){
+
 							$('#standardName').append("<option myvalue='"+item.standardId+"' mysalarysum='"+item.salarySum+"'>"+item.standardName+"</option>");
                              $('#standardId').append("<option myvalue='"+item.standardName+"' mysalarysum='"+item.salarySum+"'>"+item.standardId+"</option>");//往下拉菜单里添加元素
                          })

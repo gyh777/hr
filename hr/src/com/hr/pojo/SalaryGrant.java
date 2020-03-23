@@ -55,6 +55,7 @@ public class SalaryGrant  implements Serializable{
     
     
     public void setSqlRegistTime(Timestamp sqlRegistTime) {
+    	
     	String get = sqlRegistTime.toString();
 		this.registTime = get.substring(0, get.length()-2);
 	}

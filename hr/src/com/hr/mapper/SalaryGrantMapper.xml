@@ -40,8 +40,8 @@
 	    <result column="register" property="register"/>
 	    <result column="regist_time" property="sqlRegistTime"/>
 	    <result column="checker" property="checker"/>
-	    <result column="check_time" property="checkTime"/>
-	    <result column="check_status" property="sqlCheckStatus"/>
+	    <result column="check_time" property="sqlCheckTime"/>
+	    <result column="check_status" property="checkStatus"/>
     
     </resultMap>
     <insert id="insert" parameterType="com.hr.pojo.SalaryGrant">
@@ -55,15 +55,19 @@
     	select * from salary_grant where check_status=0
     </select>
     
+    <select id="selectQueryAll" resultType="com.hr.pojo.SalaryGrant" resultMap="SalaryGrant">
+    	select * from salary_grant where check_status=1
+    </select>
+    
     
      <select id="selectBySgrId" parameterType="String" resultType="com.hr.pojo.SalaryGrant" resultMap="SalaryGrant">
     	select *  from salary_grant where sgr_id=#{sgrId}
     </select>
     
-    <update id="ckeckUpdate" parameterType="String">
+    <update id="checkUpdate" parameterType="String">
 		update salary_grant set 
     	checker=#{checker},
-    	check_time=STR_TO_DATE(#{checkTime},'%Y-%m-%d %H:%i:%s'),check_status=#{checkStatus},
+    	check_time=STR_TO_DATE(#{checkTime},'%Y-%m-%d %H:%i:%s'),check_status=#{checkStatus}
     	where sgr_id=#{sgrId}
 	</update>
 	
@@ -74,6 +78,27 @@
 		INFORMATION_SCHEMA. TABLES
 		WHERE
 		TABLE_NAME = 'salary_grant'
+    </select>
+	
+	<select id="selectByConditionQuery" parameterType="com.hr.dto.SalaryGrantQueryLocate" resultType="com.hr.pojo.SalaryGrant" resultMap="SalaryGrant">
+    	select * from salary_grant where check_status=1	
+			<if test="salaryGrantId!=null">
+				and salary_grant_id = #{salaryGrantId}
+			</if>
+			<if test="startTime!=null">
+				<![CDATA[
+					and regist_time >= #{startTime}
+				]]>
+			</if>
+			<if test="endTime!=null">
+				<![CDATA[
+					and regist_time <= #{endTime}
+				]]>
+			</if>
+			<if test="textfield!=null">
+				and first_kind_name like CONCAT('%',#{textfield},'%') or second_kind_name like CONCAT('%',#{textfield},'%') or third_kind_name like CONCAT('%',#{textfield},'%')
+			</if>
+		
     </select>
 	
 </mapper>

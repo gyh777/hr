@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hr.dto.SalaryGrantQueryLocate;
+import com.hr.dto.SalaryStandardQueryLocate;
 import com.hr.pojo.SalaryGrant;
 import com.hr.pojo.SalaryGrantDetails;
+import com.hr.pojo.SalaryStandard;
 import com.hr.service.impl.HumanFileServiceImpl;
 import com.hr.service.impl.SalaryGrantDetailsServiceImpl;
 import com.hr.service.impl.SalaryGrantServiceImpl;
@@ -86,7 +89,7 @@ public class SalarygrantController {
 	
 	@RequestMapping(value="/checkList")
 	public String checkList(HttpServletRequest request){
-		System.out.println(111);
+		
 		ArrayList<SalaryGrant> list = (ArrayList<SalaryGrant>) salaryGrantServiceImpl.queryCheckAll();
 //		JSONArray ja = JSONArray.fromObject(list);
 		request.setAttribute("list", list);
@@ -95,11 +98,33 @@ public class SalarygrantController {
 	
 	@RequestMapping(value="/checkAdopt")
 	public String checkAdopt(@RequestParam String checker,@RequestParam String checkTime,@RequestParam String sgrId){
+		System.out.println(checker+"-"+checkTime+"-"+sgrId);
 		Boolean b = salaryGrantServiceImpl.checkChange(checker, checkTime, sgrId);
 		if(b){
 			return "";
 		}
 		return null;
+	}
+	
+	@RequestMapping("/query")
+	public String query(@RequestParam String sgrId,@RequestParam String ssdId,Model m){
+		SalaryGrant salaryGrant = salaryGrantServiceImpl.queryBySgrId(sgrId);
+		m.addAttribute("check", salaryGrant);
+		List<SalaryGrantDetails> list = salaryGrantDetailsServiceImpl.queryBySgrId(sgrId);
+		m.addAttribute("human", list);
+		
+		SalaryStandardIdAndName salaryStandardIdAndName = salaryStandardServiceImpl.queryIdAndNameOne(ssdId);
+		m.addAttribute("standard", salaryStandardIdAndName);
+		return "salarygrant_query";
+	}
+	
+	@RequestMapping(value="/queryList")
+	public String queryList(HttpServletRequest request,SalaryGrantQueryLocate salaryGrantQueryLocate){
+		ArrayList<SalaryGrant> list = (ArrayList<SalaryGrant>) salaryGrantServiceImpl.queryByConditionQuery(salaryGrantQueryLocate);
+//		JSONArray ja = JSONArray.fromObject(list);
+		
+		request.setAttribute("list", list);
+		return "salarygrant_query_list";
 	}
 	
 	@ResponseBody
