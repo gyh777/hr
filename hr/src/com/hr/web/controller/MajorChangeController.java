@@ -8,6 +8,7 @@ import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -93,12 +94,12 @@ public class MajorChangeController {
 		mc.setNew_second_kind_name(new_second_kind_name);
 		mc.setNew_third_kind_id(new_third_kind_id);
 		mc.setNew_third_kind_name(new_third_kind_name);
-		mc.setNew_major_kind_name(new_major_kind_name);
+		mc.setNew_major_kind_id(new_major_kind_id);
 		mc.setNew_major_kind_name(new_major_kind_name);
 		mc.setNew_major_name(new_major_name);
-		mc.setNew_major_name(new_major_name);
+		mc.setNew_major_id(new_major_id);
 		mc.setHuman_name(human_name);
-		mc.setHuman_name(human_name);
+		mc.setHuman_id(human_id);
 		mc.setSalary_standard_id(salary_standard_id);
 		mc.setSalary_standard_name(salary_standard_name);
 		mc.setSalary_sum(Double.valueOf(salary_sum));
@@ -106,10 +107,12 @@ public class MajorChangeController {
 		mc.setNew_salary_standard_name(new_salary_standard_name);
 		mc.setNew_salary_sum(Double.valueOf(new_salary_sum));
 		mc.setChange_reason(change_reason);
+		mc.setCheck_time(null);
 		mc.setRegister(register);
 		mc.setCheck_status(Short.valueOf(check_status));
+		System.out.println("time："+time);
 		try {
-			mc.setRegist_time(sdf.parse(time));
+			mc.setRegist_time(sdfs.parse(time));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -129,4 +132,71 @@ public class MajorChangeController {
 		}
 	}
 	
+	@RequestMapping(value="/toSelectAll")
+	@ResponseBody
+	public ModelAndView toSelectAll(){
+		List<MajorChange> list = majorChangeServiceImpl.selectAllMajorChange();
+		JSONArray json = JSONArray.fromObject(list);
+		ModelAndView mav =new ModelAndView();
+		mav.setViewName("major_change_select");
+		mav.addObject("allMajorChangeList", json);
+		return mav;
+	}
+	
+	@RequestMapping(value="/toSelectNotChecked")
+	@ResponseBody
+	public ModelAndView toSelectNotChecked(){
+		List<MajorChange> list = majorChangeServiceImpl.selectAllNotCheckMajorChange();
+		JSONArray json = JSONArray.fromObject(list);
+		ModelAndView mav =new ModelAndView();
+		mav.setViewName("major_change_check");
+		mav.addObject("notCheckList", json);
+		return mav;
+	}
+	
+//	@RequestMapping(value="/toInsert")
+//	@ResponseBody
+//	public boolean toInsert(@ModelAttribute MajorChange mc,
+//						@RequestParam(value="paramter",required=false) String huf_id){
+//		boolean b = majorChangeServiceImpl.addMajorChange(mc);
+//		
+//		//0为成功，1为职员档案状态更改失败，2为调动失败
+//		return b;
+//	}
+	
+	@RequestMapping(value="/toDeleteByMchId")
+	@ResponseBody
+	public boolean toDeleteByMchId(String mchId){
+		Short mch_id = Short.valueOf(mchId);
+		boolean b = majorChangeServiceImpl.deleteMajorChangeByMchId(mch_id);
+		
+		return b;
+	}
+	
+	@RequestMapping(value="/toUpdateCheckStatus")
+	@ResponseBody
+	public boolean updateCheckStatus(Short mchId,String checkStatus){
+		boolean b = majorChangeServiceImpl.updateCheckStatus(mchId,checkStatus);
+		
+		return b;
+	}
+	
+	@RequestMapping(value="/toUpdateCheckResult")
+	@ResponseBody
+	public boolean updateCheckResult(@RequestParam String mchId,
+			@RequestParam String checkStatus,@RequestParam String check_reason,
+			@RequestParam String checker,@RequestParam String check_time){
+		System.out.println(Short.valueOf(mchId));
+		System.out.println(checkStatus);
+		System.out.println(check_reason);
+		System.out.println(checker);
+		try {
+			System.out.println(sdfs.parse(check_time));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

@@ -144,6 +144,13 @@ resize:none;
 overflow:scroll;
 overflow-x:hidden;
 }
+.TEXTAREA_STYLE2{
+width:100%;
+resize:none;
+overflow:scroll;
+overflow-x:hidden;
+outline:none;
+}
 .DIV_STYLE1{
 
 float :right ;

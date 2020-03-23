@@ -75,4 +75,28 @@
 		)
 	</insert>
 	
+	<select id="selectAllNotCheckMajorChange" resultType="com.hr.pojo.MajorChange">
+		select * from major_change where check_status=1
+	</select>
+	
+	<select id="selectAllMajorChange" resultType="com.hr.pojo.MajorChange">
+		select * from major_change
+	</select>
+	
+	<delete id="deleteMajorChangeByMchId">
+		delete from major_change where mch_id=#{mch_id}
+	</delete>
+	
+	<update id="updateCheckStatus">
+		update major_change set check_status=#{check_status} 
+		where mch_id=#{mch_id}
+	</update>
+	
+	<update id="updateCheckResult">
+		update major_change set 
+		checker=#{checker},check_reason=#{check_reason},
+		check_time=#{check_time},check_status=#{check_status} 
+		where mch_id=#{mch_id}
+	</update>
+	
 </mapper>

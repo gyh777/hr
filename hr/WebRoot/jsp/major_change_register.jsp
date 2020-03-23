@@ -142,7 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				data.time = time;
 				var change_reason = $("textarea[name='change_reason']").val();
 				data.change_reason = change_reason;
-				//设置审核状态，1为未审核，2为审核中，3位审核完毕
+				//设置审核状态，1为未审核，2为审核中，3位不通过，4未通过
 				data.check_status = "1";
 				
 				$.ajax({

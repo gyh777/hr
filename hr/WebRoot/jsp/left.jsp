@@ -498,7 +498,8 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td>
-									调动审核
+									<a href="../majorChange/toSelectNotChecked"
+											target="mainFrame">调动审核</a>
 								</td>
 							</tr>
 							<tr>
@@ -506,7 +507,8 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td>
-									调动查询
+									<a href="../majorChange/toSelectAll"
+											target="mainFrame">调动查询</a>
 								</td>
 							</tr>
 						</table> </span>

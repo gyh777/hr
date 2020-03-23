@@ -62,14 +62,16 @@ public class MajorChange {
     private String new_salary_standard_name;
 
     private Double new_salary_sum;
+    
+    private String change_reason;
+    
+    private String check_reason;
 
     private Short check_status;
 
     private String register;
 
     private String checker;
-    
-    private String change_reason;
 
     private Date regist_time;
 
@@ -361,6 +363,14 @@ public class MajorChange {
 
 	public void setChange_reason(String change_reason) {
 		this.change_reason = change_reason;
+	}
+
+	public String getCheck_reason() {
+		return check_reason;
+	}
+
+	public void setCheck_reason(String check_reason) {
+		this.check_reason = check_reason;
 	}
     
 }
