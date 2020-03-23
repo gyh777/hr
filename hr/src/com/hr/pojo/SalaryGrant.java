@@ -2,6 +2,7 @@ package com.hr.pojo;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,24 +42,26 @@ public class SalaryGrant  implements Serializable{
     
     private String registTime;
 
-    private Date sqlRegistTime;
+    private Timestamp sqlRegistTime;
     
     private String checker;
 //    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private String checkTime;
     
-    private Date sqlCheckTime;
+    private Timestamp sqlCheckTime;
 
     private Short checkStatus;
 
     
     
-    public void setSqlRegistTime(Date sqlRegistTime) {
-		this.registTime = sqlRegistTime.toString();
+    public void setSqlRegistTime(Timestamp sqlRegistTime) {
+    	String get = sqlRegistTime.toString();
+		this.registTime = get.substring(0, get.length()-2);
 	}
 
-	public void setSqlCheckTime(Date sqlCheckTime) {
-		this.checkTime = sqlCheckTime.toString();
+	public void setSqlCheckTime(Timestamp sqlCheckTime) {
+		String get = sqlCheckTime.toString();
+		this.checkTime = get.substring(0, get.length()-2);
 	}
 
 	public Short getSgrId() {

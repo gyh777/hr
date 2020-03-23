@@ -81,6 +81,7 @@ public class SalarystandardController {
 	public String queryList(HttpServletRequest request,SalaryStandardQueryLocate salaryStandardQueryLocate){
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryByCondition(salaryStandardQueryLocate);
 //		JSONArray ja = JSONArray.fromObject(list);
+		System.out.println(list.get(0).getRegistTime());
 		request.setAttribute("list", list);
 //		System.out.println(list.size()+"--"+salaryStandardQueryLocate.getStandardId()+"--"+salaryStandardQueryLocate.getTextfield());
 		return "salarystandard_query_list";
