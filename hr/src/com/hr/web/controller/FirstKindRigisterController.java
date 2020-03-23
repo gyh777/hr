@@ -65,9 +65,15 @@ public class FirstKindRigisterController {
 	//查一级机构所有
 	@RequestMapping("/loadfirstkind")
 	public ModelAndView loadFirstKind(){
-		List<ConfigFileFirstKind> map = configFileFirstKindServiceImpl.queryAllConfigFileFirstKind();
+		int pageNo=1;   //当前页码
+        int pageSize=5;   //页面大小
+        //获取当前页数据
+        List<ConfigFileFirstKind> firstList = configFileFirstKindServiceImpl.getAllFirstByPage(pageNo,pageSize);
+        
 		ModelAndView mav  = new ModelAndView();
-        mav.addObject("firstMap", map);
+        mav.addObject("firstList", firstList);
+        mav.addObject("pageNo", pageNo);
+        mav.addObject("pageSize", pageSize);
 		mav.setViewName("first_kind");
 		return mav;
 	}

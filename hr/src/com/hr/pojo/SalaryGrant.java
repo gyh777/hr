@@ -1,24 +1,32 @@
 package com.hr.pojo;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 public class SalaryGrant  implements Serializable{
+	
+	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
     private Short sgrId;
 
     private String salaryGrantId;
 
     private String salaryStandardId;
 
-    private String firstKindId;
+    private String first_kind_id;
 
     private String firstKindName;
 
-    private String secondKindId;
+    private String second_kind_id;
 
     private String secondKindName;
 
-    private String thirdKindId;
+    private String third_kind_id;
 
     private String thirdKindName;
 
@@ -29,12 +37,12 @@ public class SalaryGrant  implements Serializable{
     private String salaryPaidSum;
 
     private String register;
-
-    private String registTime;
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date registTime;
 
     private String checker;
-
-    private String checkTime;
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date checkTime;
 
     private Short checkStatus;
 
@@ -62,14 +70,7 @@ public class SalaryGrant  implements Serializable{
         this.salaryStandardId = salaryStandardId == null ? null : salaryStandardId.trim();
     }
 
-    public String getFirstKindId() {
-        return firstKindId;
-    }
-
-    public void setFirstKindId(String firstKindId) {
-        this.firstKindId = firstKindId == null ? null : firstKindId.trim();
-    }
-
+    
     public String getFirstKindName() {
         return firstKindName;
     }
@@ -78,15 +79,33 @@ public class SalaryGrant  implements Serializable{
         this.firstKindName = firstKindName == null ? null : firstKindName.trim();
     }
 
-    public String getSecondKindId() {
-        return secondKindId;
-    }
+    
 
-    public void setSecondKindId(String secondKindId) {
-        this.secondKindId = secondKindId == null ? null : secondKindId.trim();
-    }
+    public String getFirst_kind_id() {
+		return first_kind_id;
+	}
 
-    public String getSecondKindName() {
+	public void setFirst_kind_id(String first_kind_id) {
+		this.first_kind_id = first_kind_id;
+	}
+
+	public String getSecond_kind_id() {
+		return second_kind_id;
+	}
+
+	public void setSecond_kind_id(String second_kind_id) {
+		this.second_kind_id = second_kind_id;
+	}
+
+	public String getThird_kind_id() {
+		return third_kind_id;
+	}
+
+	public void setThird_kind_id(String third_kind_id) {
+		this.third_kind_id = third_kind_id;
+	}
+
+	public String getSecondKindName() {
         return secondKindName;
     }
 
@@ -94,13 +113,7 @@ public class SalaryGrant  implements Serializable{
         this.secondKindName = secondKindName == null ? null : secondKindName.trim();
     }
 
-    public String getThirdKindId() {
-        return thirdKindId;
-    }
-
-    public void setThirdKindId(String thirdKindId) {
-        this.thirdKindId = thirdKindId == null ? null : thirdKindId.trim();
-    }
+    
 
     public String getThirdKindName() {
         return thirdKindName;
@@ -142,13 +155,7 @@ public class SalaryGrant  implements Serializable{
         this.register = register == null ? null : register.trim();
     }
 
-    public String getRegistTime() {
-        return registTime;
-    }
-
-    public void setRegistTime(String registTime) {
-        this.registTime = registTime;
-    }
+   
 
     public String getChecker() {
         return checker;
@@ -158,15 +165,35 @@ public class SalaryGrant  implements Serializable{
         this.checker = checker == null ? null : checker.trim();
     }
 
-    public String getCheckTime() {
-        return checkTime;
-    }
+    
 
-    public void setCheckTime(String checkTime) {
-        this.checkTime = checkTime;
-    }
+    public Date getRegistTime() {
+		return registTime;
+	}
 
-    public Short getCheckStatus() {
+	public void setRegistTime(String registTime) {
+		try {
+			this.registTime = format.parse(registTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+	public Date getCheckTime() {
+		return checkTime;
+	}
+
+	public void setCheckTime(String checkTime) {
+		try {
+			this.checkTime = format.parse(checkTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+	public Short getCheckStatus() {
         return checkStatus;
     }
 

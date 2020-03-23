@@ -22,7 +22,7 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 	}
 
 	@Override
-	public boolean removeConfigFileThirdKind(int ffkId) {
+	public boolean removeConfigFileThirdKind(String ffkId) {
 		// TODO Auto-generated method stub
 		return mapper.removeConfigFileThirdKind(ffkId);
 	}
@@ -34,7 +34,7 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 	}
 
 	@Override
-	public ConfigFileThirdKind queryConfigFileThirdKindById(int ffkId) {
+	public ConfigFileThirdKind queryConfigFileThirdKindById(String ffkId) {
 		// TODO Auto-generated method stub
 		return mapper.queryConfigFileThirdKindById(ffkId);
 	}
@@ -56,6 +56,12 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 			String first_kind_name,String second_kind_name) {
 		// TODO Auto-generated method stub
 		return mapper.queryKindIdAndName(first_kind_name, second_kind_name);
+	}
+
+	@Override
+	public List<ConfigFileThirdKind> queryAllThirdByPage(ConfigFileThirdKind t) {
+		// TODO Auto-generated method stub
+		return mapper.queryAllThirdByPage(t);
 	}
 
 }

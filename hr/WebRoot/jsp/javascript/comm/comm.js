@@ -1,3 +1,4 @@
+
 function doUpLoadPhoto()
 {
 	document.forms[0].action = document.forms[0].action + "?operate=doUpLoadPhoto";

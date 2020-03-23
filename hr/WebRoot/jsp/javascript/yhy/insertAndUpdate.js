@@ -1,5 +1,7 @@
 //加载一级机构和职位分类
 function loadFirstAndKindName(){
+	//设置登记或更改时间
+	$("input[name='time']").val(getNowDate(2));
 	$.ajax({
 		type : "post",
 		url : "../engageMajorRelease/loadFirstKindAndMajorKind",
@@ -28,7 +30,7 @@ function loadFirstAndKindName(){
 		}
 	});
 };
-function kindNameChange(obj){
+function kindNameChange(obj,type){
 	//获得当前元素的name
 	var name = $(obj).attr("name");
 	var kind = $(obj).find("option:selected").val();
@@ -43,6 +45,9 @@ function kindNameChange(obj){
 	
 	if(name == "firstKindName"){
 		$("select[name='thirdKindName']").children("option").not(":eq(0)").remove();
+		if(type==0){
+			$("select[name='thirdKindName']").children("option").eq(0).remove();
+		};
 		url = url + "selectSecondKindIdAndName";
 		addName = "secondKindName";
 		valueId = "first_kind_id";
@@ -74,9 +79,18 @@ function kindNameChange(obj){
 		valueName = "engage_type";
 		firstName = kind;
 		firstId = "0";
+	}else if(name == "salaryStandard"){
+		url = "";
+		valueId = "engage_id";
+		valueName = "engage_type";
+		firstName = kind;
+		firstId = "0";
 	};
 	//清空所有下级元素的内容
 	$("select[name='"+ addName +"']").children("option").not(":eq(0)").remove();
+	if(type==0){
+		$("select[name='"+ addName +"']").children("option").eq(0).remove();
+	};
 	$("input[name='"+ valueId +"']").val(firstId);
 	$("input[name='"+ valueName +"']").val(firstName);
 	$.ajax({
@@ -85,6 +99,9 @@ function kindNameChange(obj){
 		dataType : "json",
 		data: data,
 		success:function(result){
+			if(type==0){
+				$("select[name='"+ addName +"']").append("<option value=''></option>");
+			};
 			$.each(result, function (i, value) {
 				var values = value.first +"/"+ value.second;
 				var content = "<option value='"+values+"'>"+ values +"</option>";
@@ -97,15 +114,21 @@ function insertOrUpdateEngageRelease(type){
 	var url = "";
 	var successMessage = "";
 	var errorMessage = "";
+	var operator = "";
+	var mreId = "";
 	if(type=="insert"){
 		url = "../engageMajorRelease/addEngageMajorRelease";
 		successMessage = "添加成功！";
 		errorMessage = "添加失败！请刷新重试！";
+		operator = $("input[name='register']").val();
 	}else if(type=="update"){
-		url = "../engageMajorRelease/";
+		url = "../engageMajorRelease/toChange";
 		successMessage = "更改成功！";
 		errorMessage = "更改失败！请重试！";
+		operator = $("input[name='changer']").val();
+		mreId = $("input[name='mre_id']").val();
 	};
+	var time = $("input[name='time']").val();
 	var firstKindId = $("input[name='first_kind_id']").val();
 	var firstKindName = $("input[name='first_kind_name']").val();
 	var secondKindId = $("input[name='second_kind_id']").val();
@@ -119,8 +142,6 @@ function insertOrUpdateEngageRelease(type){
 	var majorName = $("input[name='major_name']").val();
 	var humanAmount = $("input[name='human_amount']").val();
 	var deadline = $("input[name='deadline']").val();
-	var register = $("input[name='register']").val();
-	var registTime = $("input[name='regist_time']").val();
 	var majorDescribe = $("textarea[name='major_describe']").val();
 	var engageRequired = $("textarea[name='engage_required']").val();
 	
@@ -131,9 +152,10 @@ function insertOrUpdateEngageRelease(type){
 		"majorKindId" : majorKindId,"majorKindName" : majorKindName,
 		"majorId" : majorId,"majorName" : majorName,"engageType" : engageType,
 		"humanAmount" : humanAmount, "deadline" : deadline,
-		"register" : register,"registTime" : registTime,
+		"operator" : operator,"time" : time,"mreId" : mreId,
 		"majorDescribe" : majorDescribe,"engageRequired" : engageRequired
 	};
+	console.log(data);
 	
 	$.ajax({
 		type : "post",
@@ -142,10 +164,13 @@ function insertOrUpdateEngageRelease(type){
 		data: data,
 		success:function(result){
 			if(result==true){
-				//window.location="../engageMajorRelease/selectAllEngageMajorRelease"
-				//S		+"?jumpPage=engage_major_release_change";
 				alert(successMessage);
-				window.location = "";
+				if(type=="insert"){
+					window.location = "";
+				}else if(type=="update"){
+					window.location = "../engageMajorRelease/selectAllEngageMajorRelease" +
+							"?jumpPage=engage_major_release_change";
+				};
 			}else{
 				alert(errorMessage);
 			};

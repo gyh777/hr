@@ -1,5 +1,6 @@
 package com.hr.web.controller;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hr.pojo.SalaryGrant;
-import com.hr.pojo.SalaryStandard;
+import com.hr.pojo.SalaryGrantDetails;
 import com.hr.service.impl.HumanFileServiceImpl;
+import com.hr.service.impl.SalaryGrantDetailsServiceImpl;
 import com.hr.service.impl.SalaryGrantServiceImpl;
 import com.hr.service.impl.SalaryStandardServiceImpl;
 import com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName;
+import com.hr.web.controller.requestparamtype.SalaryGrantAndDetails;
 import com.hr.web.controller.requestparamtype.SalaryStandardDetailsList;
 import com.hr.web.controller.requestparamtype.SalaryStandardIdAndName;
 
@@ -32,12 +35,18 @@ public class SalarygrantController {
 	SalaryStandardServiceImpl salaryStandardServiceImpl;
 	@Autowired
 	HumanFileServiceImpl humanFileServiceImpl;
+	@Autowired
+	SalaryGrantDetailsServiceImpl salaryGrantDetailsServiceImpl;
 	
 	@RequestMapping("/register")
-	public String register(@ModelAttribute SalaryGrant salaryGrant){
+	public String register(@ModelAttribute SalaryGrantAndDetails salaryGrantAndDetails){
 		
-		Boolean bl = salaryGrantServiceImpl.save(salaryGrant);
-		
+		Boolean bl = salaryGrantServiceImpl.save(salaryGrantAndDetails);
+		List<SalaryGrantDetails> list = salaryGrantAndDetails.getSalaryGrantDetails();
+		for (SalaryGrantDetails salaryGrantDetails : list) {
+			salaryGrantDetails.setSalaryGrantId(salaryGrantAndDetails.getSalaryGrantId());
+		}
+		salaryGrantDetailsServiceImpl.save(list);
 		if(bl){
 //			return "salarystandard_register_success";
 		}
@@ -64,6 +73,9 @@ public class SalarygrantController {
 	public String check(@RequestParam String sgrId,@RequestParam String ssdId,Model m){
 		SalaryGrant salaryGrant = salaryGrantServiceImpl.queryBySgrId(sgrId);
 		m.addAttribute("check", salaryGrant);
+		List<SalaryGrantDetails> list = salaryGrantDetailsServiceImpl.queryBySgrId(sgrId);
+		m.addAttribute("human", list);
+		
 		SalaryStandardIdAndName salaryStandardIdAndName = salaryStandardServiceImpl.queryIdAndNameOne(ssdId);
 		m.addAttribute("standard", salaryStandardIdAndName);
 		return "salarygrant_check";
@@ -85,6 +97,12 @@ public class SalarygrantController {
 			return "";
 		}
 		return null;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/nextId")
+	public String nextId(){		
+		return salaryGrantServiceImpl.queryNextId();		
 	}
 	
 }

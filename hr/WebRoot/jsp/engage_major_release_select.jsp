@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,7 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			function loadAll(){
 				$.each(${releaseList }, function (i, value) {
 					var content = 
-					"<tr data->"
+					"<tr >"
+						+"<input type='hidden' name='mre_id' value='"+ value.mre_id +"'>"
 						+"<td class='TD_STYLE2'>"+value.major_name+"</td>"
 						+"<td class='TD_STYLE2'>"+value.second_kind_name+"</td>"
 						+"<td class='TD_STYLE2'>"+value.human_amount+"</td>"
@@ -48,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>>
 				<tr>
 					<td>
-						<p>当前职位发布总数：1例</p>
+						<p>当前职位发布总数：${fn:length(releaseList) }例</p>
 					</td>
 				</tr>
 			</table>
@@ -65,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				
 			</table>
-			<p>&nbsp;&nbsp;总数：8例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="../jsp/images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：${fn:length(releaseList) }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="../jsp/images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>

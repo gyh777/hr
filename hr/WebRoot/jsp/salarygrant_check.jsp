@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<title>无标题文档</title>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
 		<script type="text/javascript">
 		function doEdit()
 		{
@@ -26,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</script>
 	</head>
 
-	<body>
+	<body onload="getNowDate()">
 		<form action="salarystandard.do" method="post">
 			<table width="100%">
 				<tr>
@@ -81,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						薪酬标准编号
 					</td>
 					<td width="168" class="TD_STYLE2"><!-- 应该从数据库薪酬表取最大主键+1 -->
-						<input type="text" name="standardId" value="${check.standardId}" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="standardId" value="${check.salaryStandardId}" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td width="83" class="TD_STYLE1">
 						薪酬标准名称
@@ -122,18 +123,75 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td class="TD_STYLE2">
-						<input type="text" name="checker" value="2010-05-29 03:13:27" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="checker" value="" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						复核时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="checkTime" value="" class="INPUT_STYLE2">
+						<input type="text" name="checkTime" id="time" value="" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				
 				
 			</table>
+			<table width="100%" border="1" cellpadding=0 cellspacing=1
+				bordercolorlight=#848284 bordercolordark=#eeeeee
+				class="TABLE_STYLE1">
+				<tr>
+					<td width="14%" class="TD_STYLE1">
+						职工id
+					</td>
+					<td width="15%" class="TD_STYLE1">
+						职工姓名
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						奖金
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						销售绩效金额
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						应扣金额
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						薪酬
+					</td>
+					<td width="15%" class="TD_STYLE1">
+						应付职工薪酬
+					</td>
+				</tr>
+				</table>
+				<table id="humanFile" width="100%" border="1" cellpadding=0 cellspacing=1
+				bordercolorlight=#848284 bordercolordark=#eeeeee
+				class="TABLE_STYLE1">
+				<c:forEach items="${requestScope.human}" var="one">
+				
+					<tr>
+					<td width="14%" class="TD_STYLE1">
+						${one.humanId}
+					</td>
+					<td width="15%" class="TD_STYLE1">
+						${one.humanName}
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						${one.bounsSum}
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						${one.saleSum}
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						${one.deductSum}
+					</td>
+					<td width="14%" class="TD_STYLE1">
+						${one.salaryStandardSum}
+					</td>
+					<td width="15%" class="TD_STYLE1">
+						${one.salaryPaidSum}
+					</td>
+				</tr>
+				</c:forEach>
+				</table>
 		</form>
 	</body>
 </html>

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,6 +13,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
 		<title>无标题文档</title>
 	</head>
 
@@ -24,9 +27,26 @@ form.submit();
 
 }
 
+function nextId(){
+alert("aa");
+$.ajax({
+dataType:"json",
+url:'/hr/salarystandard/nextId',
+type:'POST',
+contentType : 'application/json;charset=utf-8',
+async: true,
+success:function(date){
+alert(date);
+$('#standardId').val(date);//ssid
+
+},
+error:function(){alert("error")}
+});
+}
+
 </script>
 
-	<body>
+	<body onload="nextId();getNowDate()">
 		<form name="salarystandardForm" id="salarystandardForm" method="post" action="/hr/salarystandard/register">
 			
 			<table width="100%">
@@ -54,7 +74,7 @@ form.submit();
 						薪酬标准编号
 					</td>
 					<td width="168" class="TD_STYLE2"><!-- 应该从数据库薪酬表取最大主键+1 -->
-						<input type="text" name="standardId" value="1000001" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="standardId" id="standardId" value="" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td width="83" class="TD_STYLE1">
 						薪酬标准名称
@@ -92,7 +112,7 @@ form.submit();
 						登记时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="registTime" value="2010-05-29 03:13:27" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="registTime" id="time" value="2010-05-29 03:13:27" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						&nbsp;

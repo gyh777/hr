@@ -39,7 +39,7 @@
 	    <result column="remark" property="remark"/>
     
     </resultMap>
-    <insert id="insert" parameterType="com.hr.pojo.SalaryStandard">
+    <insert id="insert" parameterType="com.hr.web.controller.requestparamtype.SalaryStandardDetailsList">
 		insert into salary_standard <include refid="SalaryStandard"/> values
 		(#{ssdId},#{standardId},#{standardName},#{designer},#{register},
 		#{checker},#{changer},#{registTime},#{checkTime},#{changeTime},
@@ -88,6 +88,37 @@
 
     </select> -->
     <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
-    	select *  from salary_standard where ssd_id=#{ssdId}
+    	select *  from salary_standard where ssd_id=#{ssdId} and check_status=1
+    </select>
+    
+    <select id="selectNextId" resultType="string">
+    	SELECT
+		AUTO_INCREMENT
+		FROM
+		INFORMATION_SCHEMA. TABLES
+		WHERE
+		TABLE_NAME = 'salary_standard'
+    </select>
+    
+    
+    <select id="selectByCondition" parameterType="com.hr.dto.SalaryStandardQueryLocate" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
+    	select * from salary_standard where 1=1	
+			<if test="standardId!=null">
+				and standard_id = #{standardId}
+			</if>
+			<if test="startTime!=null">
+				<![CDATA[
+					and regist_time >= #{startTime}
+				]]>
+			</if>
+			<if test="endTime!=null">
+				<![CDATA[
+					and regist_time <= #{endTime}
+				]]>
+			</if>
+			<if test="textfield!=null">
+				and standard_name like CONCAT('%',#{textfield},'%') or remark like CONCAT('%',#{textfield},'%')
+			</if>
+		
     </select>
 </mapper>

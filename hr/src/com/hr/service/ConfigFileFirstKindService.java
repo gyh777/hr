@@ -3,6 +3,8 @@ package com.hr.service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hr.pojo.ConfigFileFirstKind;
 import com.hr.web.controller.requestparamtype.TwoStringValue;
 
@@ -14,4 +16,6 @@ public interface ConfigFileFirstKindService {
     public List<ConfigFileFirstKind> queryAllConfigFileFirstKind();
     public List<TwoStringValue> queryConfigFileFirstKindIdAndName();
     public String queryIdByName(String three_kind_name);
+    List<ConfigFileFirstKind> getAllFirstByPage(@Param("currPage")Integer pageNo,@Param("pageSize")Integer pageSize);
+
 }

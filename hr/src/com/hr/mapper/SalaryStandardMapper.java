@@ -1,14 +1,16 @@
 package com.hr.mapper;
 
+import java.util.Date;
 import java.util.List;
 
+import com.hr.dto.SalaryStandardQueryLocate;
 import com.hr.pojo.SalaryStandard;
 import com.hr.web.controller.requestparamtype.SalaryStandardDetailsList;
 import com.hr.web.controller.requestparamtype.SalaryStandardIdAndName;
 
 public interface SalaryStandardMapper {
 	
-	public int insert(SalaryStandard ss);
+	public int insert(SalaryStandardDetailsList ssdl);
 	
 	public int ckeckUpdate(String ssdId,String checkStatus,String checker,String checkTime,String checkComment);
 	
@@ -29,5 +31,9 @@ public interface SalaryStandardMapper {
 	public SalaryStandard selectBySsdId(String ssdId);
 	
 	public String selectIdByName(String name);
+	
+	public String selectNextId();
+	
+	public List<SalaryStandard> selectByCondition(SalaryStandardQueryLocate salaryStandardQueryLocate);
 	
 }

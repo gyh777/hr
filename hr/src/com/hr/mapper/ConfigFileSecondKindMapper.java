@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.hr.pojo.ConfigFileSecondKind;
+import com.hr.pojo.ConfigFileThirdKind;
 import com.hr.web.controller.requestparamtype.TwoStringValue;
 
 public interface ConfigFileSecondKindMapper {
@@ -16,4 +17,5 @@ public interface ConfigFileSecondKindMapper {
     public String queryIdByName(String second_kind_name);
 	public List<TwoStringValue> queryIdAndNameByFirstKindName(
 			@Param("first_kind_name")String first_kind_name);
+	 List<ConfigFileSecondKind> queryAllSecondByPage(ConfigFileSecondKind t);
 }

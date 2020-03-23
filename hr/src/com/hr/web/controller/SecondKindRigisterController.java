@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hr.dto.SecondkindAndListDto;
+import com.hr.dto.ThirdkindAndListDto;
 import com.hr.pojo.ConfigFileSecondKind;
+import com.hr.pojo.ConfigFileThirdKind;
 import com.hr.service.ConfigFileSecondKindService;
 import com.hr.service.ConfigFileSecondKindService;
 import com.hr.service.ConfigMajorService;
@@ -24,15 +28,15 @@ public class SecondKindRigisterController {
 	ConfigFileSecondKindService configFileSecondKindServiceImpl;
 	
 	@RequestMapping("/addrigister")
-	public ModelAndView addRigister(@RequestParam String firstKindId,@RequestParam String firstKindName,@RequestParam String secondKindId,@RequestParam String secondKindName,@RequestParam String secondSalaryId
-			,@RequestParam String secondSaleId){
+	public ModelAndView addRigister(@RequestParam String firstKindId,@RequestParam String firstKindName,@RequestParam String secondKindId,@RequestParam String secondKindName,@RequestParam String secondKindSalaryId
+			,@RequestParam String secondKindSaleId){
 		ConfigFileSecondKind  configFileSecondKind = new ConfigFileSecondKind();
 		configFileSecondKind.setFirst_kind_id(firstKindId);
 		configFileSecondKind.setFirst_kind_name(firstKindName);
 		configFileSecondKind.setSecond_kind_id(secondKindId);
 		configFileSecondKind.setSecond_kind_name(secondKindName);
-		configFileSecondKind.setSecond_salary_id(secondSalaryId);
-		configFileSecondKind.setSecond_sale_id(secondSaleId);
+		configFileSecondKind.setSecond_salary_id(secondKindSalaryId);
+		configFileSecondKind.setSecond_sale_id(secondKindSaleId);
 		configFileSecondKindServiceImpl.addConfigFileSecondKind(configFileSecondKind);
 	    ModelAndView mav = new ModelAndView();
 	    mav.setViewName("second_kind_register_success");
@@ -67,13 +71,45 @@ public class SecondKindRigisterController {
 	//查二级机构所有
 	@RequestMapping("/loadsecondkind")
 	public ModelAndView loadSecondKind(){
-		List<ConfigFileSecondKind> map = configFileSecondKindServiceImpl.queryAllConfigFileSecondKind();
-		ModelAndView mav  = new ModelAndView();
-        mav.addObject("secondMap", map);
+		ConfigFileSecondKind u=new ConfigFileSecondKind();
+		u.setPagebegin(0);
+		  u.setPagesize(3);
+		  u.setPageid(1);
+		  List<ConfigFileSecondKind> secondList =configFileSecondKindServiceImpl.queryAllSecondByPage(u);
+		 System.out.println(secondList+"=======");
+		  List<ConfigFileSecondKind> list =configFileSecondKindServiceImpl.queryAllConfigFileSecondKind();
+		
+		  int pageSum = list.size()%u.getPagesize()==0?list.size()/u.getPagesize():list.size()/u.getPagesize()+1;
+		  list = null;
+		  ModelAndView mav  = new ModelAndView();
+      mav.addObject("secondList", secondList);
+      mav.addObject("pageNo", u.getPageid());
+      mav.addObject("pageSize", u.getPagesize());
+      mav.addObject("pageSum", pageSum);
 		mav.setViewName("second_kind");
 		return mav;
 	}
 	
+	@ResponseBody
+	@RequestMapping("/ajax")
+	public SecondkindAndListDto ajaxPage(String pageSize,String pageNo){
+		int pagesize = Integer.parseInt(pageSize);
+//		System.out.println(pagesize+"=======");
+		int pageno = Integer.parseInt(pageNo);
+		
+		int begin = (pageno-1)*pagesize;
+		
+		ConfigFileSecondKind u=new ConfigFileSecondKind();
+		  u.setPagebegin(begin);
+		  u.setPagesize(pagesize);
+		  u.setPageid(pageno);
+		  List<ConfigFileSecondKind> secondList =configFileSecondKindServiceImpl.queryAllSecondByPage(u);
+		System.out.println(secondList.size()+"=======数据的数量");
+		   SecondkindAndListDto dto = new SecondkindAndListDto();
+		dto.setConfigFileSecondKind(u);
+		dto.setList(secondList);
+		return dto;
+	}
 	
 	
 	

@@ -105,7 +105,7 @@ a{ CURSOR: hand}
 													<img src="/hr/jsp/images/jt0.gif">
 												</td>
 												<td>
-													<a href="configfilethirdkind.?operate=list" target="mainFrame">III级机构设置</a>
+													<a href="/hr/thirdkindrigister/loadthirdkind" target="mainFrame">III级机构设置</a>
 												</td>
 											</tr>
 											<tr>
@@ -397,7 +397,7 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td>
-									<a href="salarystandard_check_list.jsp" target="mainFrame">薪酬标准登记复核</a>
+									<a href="/hr/salarystandard/checkList" target="mainFrame">薪酬标准登记复核</a>
 								</td>
 							</tr>
 							<tr>
@@ -441,7 +441,8 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td width="98%">
-									薪酬发放登记
+									
+									<a href="salarygrant.jsp" target="mainFrame">薪酬发放登记</a>
 								</td>
 							</tr>
 							<tr>
@@ -449,7 +450,8 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td>
-									薪酬发放登记复核
+									
+									<a href="/hr/salarygrant/checkList" target="mainFrame">薪酬发放登记复核</a>
 								</td>
 							</tr>
 							<tr>
@@ -487,7 +489,8 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td width="98%">
-									调动登记
+									<a href="../majorChange/toSelectNormalHumanFile"
+											target="mainFrame">调动登记</a>
 								</td>
 							</tr>
 							<tr>

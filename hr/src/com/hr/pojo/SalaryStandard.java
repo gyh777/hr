@@ -1,11 +1,16 @@
 package com.hr.pojo;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class SalaryStandard  implements Serializable{
 	
-	
+	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
     private Short ssdId;
 
     private String standardId;
@@ -19,12 +24,12 @@ public class SalaryStandard  implements Serializable{
     private String checker;
 
     private String changer;
-
-    private String registTime;
-
-    private String checkTime;
-
-    private String changeTime;
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date registTime;
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date checkTime;
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date changeTime;
 
     private String salarySum;
 
@@ -108,31 +113,48 @@ public class SalaryStandard  implements Serializable{
         this.changer = changer == null ? null : changer.trim();
     }
 
-    public String getRegistTime() {
-        return registTime;
-    }
+   
 
-    public void setRegistTime(String registTime) {
-        this.registTime = registTime;
-    }
+    public Date getRegistTime() {
+		return registTime;
+	}
 
-    public String getCheckTime() {
-        return checkTime;
-    }
+	public void setRegistTime(String registTime) {
+		try {
+			this.registTime = format.parse(registTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
+	}
 
-    public void setCheckTime(String checkTime) {
-        this.checkTime = checkTime;
-    }
+	public Date getCheckTime() {
+		return checkTime;
+	}
 
-    public String getChangeTime() {
-        return changeTime;
-    }
+	public void setCheckTime(String checkTime) {
+		try {
+			this.checkTime = format.parse(checkTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
+	}
 
-    public void setChangeTime(String changeTime) {
-        this.changeTime = changeTime;
-    }
+	public Date getChangeTime() {
+		return changeTime;
+	}
 
-    public String getSalarySum() {
+	public void setChangeTime(String changeTime) {
+		try {
+			this.changeTime = format.parse(changeTime);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public String getSalarySum() {
         return salarySum;
     }
 

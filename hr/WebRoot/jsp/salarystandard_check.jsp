@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<title>无标题文档</title>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
 		<script type="text/javascript">
 		function doEdit(checker,checkTime,checkComment)
 		{
@@ -27,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</script>
 	</head>
 
-	<body>
+	<body onload="getNowDate()">
 		<form action="salarystandard.do" method="post">
 			<table width="100%">
 				<tr>
@@ -94,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						复核时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="checkTime" value="2010-05-29 03:27:14" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="checkTime" id="time" value="2010-05-29 03:27:14" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						&nbsp;

@@ -2,7 +2,10 @@ package com.hr.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hr.pojo.HumanFile;
+import com.hr.web.controller.requestparamtype.HumanFileSomeValue;
 import com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName;
 
 public interface HumanFileMapper {
@@ -19,5 +22,11 @@ public interface HumanFileMapper {
     public List<HunanFileHumanIdAndName> queryHumanFileByKindIdOne(String first_kind_id);
     public List<HunanFileHumanIdAndName> queryHumanFileByKindIdtwo(String first_kind_id,String second_kind_id);
     public List<HunanFileHumanIdAndName> queryHumanFileByKindIdThree(String first_kind_id,String second_kind_id,String third_kind_id);
+    //===============
+    
+    //尹厚粤加===========
+    public List<HumanFileSomeValue> queryNormalHumanFileSomeValue();
+    public boolean updateHumanFileStatus(@Param("huf_id") String huf_id,
+    		@Param("human_file_status") String human_file_status);
     //===============
 }

@@ -30,8 +30,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<td align="right">
 					<input type="submit" value="提交" class="BUTTON_STYLE1"
-							onclick="insertOrUpdateEngageRelease(insert)">
-					<input type="reset" value="清除" class="BUTTON_STYLE1" name="clean">
+							onclick="insertOrUpdateEngageRelease('insert')">
+					<input type="reset" value="清除" class="BUTTON_STYLE1"
+							onclick="">
 				</td>
 			</tr>
 		</table>
@@ -44,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="first_kind_id" value="">
 					<input type="hidden" name="first_kind_name" value="">
 					<select name="firstKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -53,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="second_kind_id" value="">
 					<input type="hidden" name="second_kind_name" value="">
 					<select name="secondKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -62,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="third_kind_id" value="">
 					<input type="hidden" name="third_kind_name" value="">
 					<select name="thirdKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -71,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="engage_id" value="">
 					<input type="hidden" name="engage_type" value="">
 					<select name="engageType" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 						<option value="校园招聘">校园招聘</option>
 						<option value="社会招聘">社会招聘</option>
@@ -84,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="major_kind_id" value="">
 					<input type="hidden" name="major_kind_name" value="">
 					<select name="majorKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -93,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="hidden" name="major_id" value="">
 					<input type="hidden" name="major_name" value="">
 					<select name="majorName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -113,7 +114,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 				<td width="10%" class="TD_STYLE1">登记时间</td>
 				<td class="TD_STYLE2">
-					<input type="text" name="regist_time" value="" class="INPUT_STYLE2" id="date_start">
+					<input type="text" name="time" value="" 
+							class="INPUT_STYLE2" readonly>
 				</td>
 				<td width="10%" class="TD_STYLE1"></td>
 				<td width="15%" class="TD_STYLE2"></td>

@@ -3,9 +3,20 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.ConfigFileSecondKindMapper">
+	 <sql id="SecondColumn">
+	    first_kind_id,
+	    first_kind_name,
+	    second_kind_id,
+	    second_kind_name,
+	    second_salary_id,
+		second_sale_id
+		
+	  </sql>
+	 
+	 
 	  <insert  id="addConfigFileSecondKind" parameterType="com.hr.pojo.ConfigFileSecondKind">
 		insert into config_file_second_kind
-			values(#{fsk_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},#{second_kind_salary_id},#{second_kind_sale_id})
+			values(#{fsk_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},#{second_salary_id},#{second_sale_id})
 	   </insert>
 	<delete id="removeConfigFileSecondKind" parameterType="String">
 		delete from config_file_second_kind where second_kind_id=#{second_kind_id}
@@ -35,4 +46,10 @@
 		select second_kind_id as first, second_kind_name as second 
 		from config_file_second_kind where first_kind_name=#{first_kind_name}
 	</select>
+	
+	<select id="queryAllSecondByPage" parameterType="com.hr.pojo.ConfigFileSecondKind" resultType="com.hr.pojo.ConfigFileSecondKind" >
+    select
+    <include refid="SecondColumn" />
+    from config_file_second_kind as acc
+  </select>
 </mapper>

@@ -1,24 +1,32 @@
 package com.hr.web.controller.requestparamtype;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.hr.pojo.SalaryGrantDetails;
 
 public class SalaryGrantAndDetails {
-	
+	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
 	private Short sgrId;
 
     private String salaryGrantId;
 
     private String salaryStandardId;
 
-    private String firstKindId;
+    private String first_kind_id;
 
     private String firstKindName;
 
-    private String secondKindId;
+    private String second_kind_id;
 
     private String secondKindName;
 
-    private String thirdKindId;
+    private String third_kind_id;
 
     private String thirdKindName;
 
@@ -29,16 +37,18 @@ public class SalaryGrantAndDetails {
     private String salaryPaidSum;
 
     private String register;
-
-    private String registTime;
+    
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date registTime;
 
     private String checker;
-
-    private String checkTime;
+    
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date checkTime;
 
     private Short checkStatus;
     
-    private SalaryGrantDetails salaryGrantDetails;
+    private List<SalaryGrantDetails> salaryGrantDetails;
 
 	public Short getSgrId() {
 		return sgrId;
@@ -64,13 +74,7 @@ public class SalaryGrantAndDetails {
 		this.salaryStandardId = salaryStandardId;
 	}
 
-	public String getFirstKindId() {
-		return firstKindId;
-	}
-
-	public void setFirstKindId(String firstKindId) {
-		this.firstKindId = firstKindId;
-	}
+	
 
 	public String getFirstKindName() {
 		return firstKindName;
@@ -80,13 +84,7 @@ public class SalaryGrantAndDetails {
 		this.firstKindName = firstKindName;
 	}
 
-	public String getSecondKindId() {
-		return secondKindId;
-	}
-
-	public void setSecondKindId(String secondKindId) {
-		this.secondKindId = secondKindId;
-	}
+	
 
 	public String getSecondKindName() {
 		return secondKindName;
@@ -96,12 +94,30 @@ public class SalaryGrantAndDetails {
 		this.secondKindName = secondKindName;
 	}
 
-	public String getThirdKindId() {
-		return thirdKindId;
+	
+
+	public String getFirst_kind_id() {
+		return first_kind_id;
 	}
 
-	public void setThirdKindId(String thirdKindId) {
-		this.thirdKindId = thirdKindId;
+	public void setFirst_kind_id(String first_kind_id) {
+		this.first_kind_id = first_kind_id;
+	}
+
+	public String getSecond_kind_id() {
+		return second_kind_id;
+	}
+
+	public void setSecond_kind_id(String second_kind_id) {
+		this.second_kind_id = second_kind_id;
+	}
+
+	public String getThird_kind_id() {
+		return third_kind_id;
+	}
+
+	public void setThird_kind_id(String third_kind_id) {
+		this.third_kind_id = third_kind_id;
 	}
 
 	public String getThirdKindName() {
@@ -144,12 +160,31 @@ public class SalaryGrantAndDetails {
 		this.register = register;
 	}
 
-	public String getRegistTime() {
+	
+	public Date getRegistTime() {
 		return registTime;
 	}
 
 	public void setRegistTime(String registTime) {
-		this.registTime = registTime;
+		try {
+			this.registTime = format.parse(registTime);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+	public Date getCheckTime() {
+		return checkTime;
+	}
+
+	public void setCheckTime(String checkTime) {
+		try {
+			this.checkTime = format.parse(checkTime);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public String getChecker() {
@@ -160,14 +195,6 @@ public class SalaryGrantAndDetails {
 		this.checker = checker;
 	}
 
-	public String getCheckTime() {
-		return checkTime;
-	}
-
-	public void setCheckTime(String checkTime) {
-		this.checkTime = checkTime;
-	}
-
 	public Short getCheckStatus() {
 		return checkStatus;
 	}
@@ -176,13 +203,15 @@ public class SalaryGrantAndDetails {
 		this.checkStatus = checkStatus;
 	}
 
-	public SalaryGrantDetails getSalaryGrantDetails() {
+	public List<SalaryGrantDetails> getSalaryGrantDetails() {
 		return salaryGrantDetails;
 	}
 
-	public void setSalaryGrantDetails(SalaryGrantDetails salaryGrantDetails) {
+	public void setSalaryGrantDetails(List<SalaryGrantDetails> salaryGrantDetails) {
 		this.salaryGrantDetails = salaryGrantDetails;
 	}
+
+	
     
     
 
