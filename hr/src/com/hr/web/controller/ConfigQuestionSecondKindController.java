@@ -78,7 +78,7 @@ public class ConfigQuestionSecondKindController {
 	public String getAllForQuestion(HttpServletRequest request){
 		List<ConfigQuestionSecondKind> list = configQuestionSecondKindServiceImpl.list();
 		request.setAttribute("configQuestionSecondKindList", list);
-		return "forward:/engageSubjects/getAll";
+		return "question_register";
 	}
 	
 }

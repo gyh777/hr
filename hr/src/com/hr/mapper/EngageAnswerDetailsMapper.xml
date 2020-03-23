@@ -3,5 +3,47 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.EngageAnswerDetailsMapper">
-	
+	<resultMap type="com.hr.dto.AnswerDetailsDto" id="answerDetailsDtoMap">
+		<id property="and_id" column="and_id"/>
+		<result property="answer_number" column="answer_number"/>
+		<result property="subject_id" column="subject_id"/>
+		<result property="answer" column="answer"/>
+		<association property="engageSubjects" javaType="com.hr.pojo.EngageSubjects">
+			<id property="sub_id" column="sub_id"/>
+			<result property="first_kind_id" column="first_kind_id"/>
+			<result property="first_kind_name" column="first_kind_name"/>
+			<result property="second_kind_id" column="second_kind_id"/>
+			<result property="second_kind_name" column="second_kind_name"/>
+			<result property="register" column="register"/>
+			<result property="regist_time" column="regist_time"/>
+			<result property="derivation" column="derivation"/>
+			<result property="correct_key" column="correct_key"/>		
+			<result property="content" column="content"/>
+			<result property="key_a" column="key_a"/>
+			<result property="key_b" column="key_b"/>
+			<result property="key_c" column="key_c"/>
+			<result property="key_d" column="key_d"/>
+			<result property="changer" column="changer"/>
+			<result property="change_time" column="change_time"/>
+		</association>
+	</resultMap>
+
+	<select id="select" resultType="com.hr.pojo.EngageAnswerDetails">
+		select * from engage_answer_details
+	</select>
+	<insert id="insert" parameterType="com.hr.pojo.EngageAnswerDetails">
+		insert into engage_answer_details (answer_number,subject_id,answer) values (#{answer_number},#{subject_id},#{answer})
+	</insert>
+	<update id="update" parameterType="com.hr.pojo.EngageAnswerDetails">
+		update engage_answer_details set answer_number=#{answer_number},subject_id=#{subject_id},answer=#{answer} where and_id=#{and_id}
+	</update>
+	<delete id="delete" parameterType="_int">
+		delete from engage_answer_details where and_id=#{and_id}
+	</delete>
+	<select id="selectByAnswerNumber" parameterType="String" resultType="com.hr.pojo.EngageAnswerDetails">
+		select * from engage_answer_details where answer_number=#{answer_number}
+	</select>
+	<select id="selectByAnswerNumberMap" parameterType="String" resultMap="answerDetailsDtoMap">
+		select * from engage_answer_details,engage_subjects where answer_number=#{answer_number} and subject_id=sub_id
+	</select>
 </mapper>

@@ -12,18 +12,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="/hr/jsp/javascript/comm/comm.js"></script>
 </head>
 <body>
-<form method="post" action="configfilefirstkind.do">
+<form method="post" action="">
 <table width="100%" >
   <tr>
     <td colspan="2"> 
-    <font color="#0000CC">您正在做的业务是：人力资源--客户化设置--题库管理设置--试题II级分类设置  </font></td>
+    <font color="#0000CC">您正在做的业务是：招聘管理--招聘考试管理--考试阅卷 </font></td>
   </tr>
   <tr>
-    <td width="49%"> 录入成功。</td>
-    <td width="51%" align="right">  <input type="button" value="继续录入" class="BUTTON_STYLE1" onclick="javascript:toAdd();">
-    <input type="button" value="返回" class="BUTTON_STYLE1" onclick="javascript:reBack();"></td></tr>
+    <td width="49%"> 阅卷完成！</td>
+    <td width="51%" align="right">
   </table>
 
 </form>
 </body>
 </html>
+
+
+

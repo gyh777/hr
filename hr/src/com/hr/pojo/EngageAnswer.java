@@ -101,5 +101,17 @@ public class EngageAnswer {
 	public void setTotal_point(Double total_point) {
 		this.total_point = total_point;
 	}
-    
+	
+	@Override
+	public String toString() {
+		return "EngageAnswer [ans_id=" + ans_id + ", answer_number="
+				+ answer_number + ", exam_number=" + exam_number
+				+ ", resume_id=" + resume_id + ", interview_id=" + interview_id
+				+ ", human_name=" + human_name + ", human_idcard="
+				+ human_idcard + ", major_kind_id=" + major_kind_id
+				+ ", major_kind_name=" + major_kind_name + ", major_id="
+				+ major_id + ", major_name=" + major_name + ", test_time="
+				+ test_time + ", use_time=" + use_time + ", total_point="
+				+ total_point + "]";
+	}
 }

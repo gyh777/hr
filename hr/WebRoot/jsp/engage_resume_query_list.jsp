@@ -8,8 +8,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<style type="text/css">
 <!--
@@ -63,30 +63,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 					<c:forEach var="list" items="${engageResumeFindList }">
-						<tr class="TD_STYLE2">
-							<td>
+						<tr class="TD_STYLE1">
+							<td class="TD_STYLE1">
 								${list.human_major_kind_name }
 							</td>
-							<td>
+							<td class="TD_STYLE1">
 								${list.human_major_name }
 							</td>
-							<td>
+							<td class="TD_STYLE1">
 								${list.human_name }
 							</td>
-							<td>
+							<td class="TD_STYLE1">
 								${list.human_sex }
 							</td>
-							<td>
+							<td class="TD_STYLE1">
 								${list.human_telephone }
 							</td>
-							<td>
-								<a href="/hr/engageResume/getByResIdFoeUpdate?res_id=${list.res_id }">筛选</a>
+							<td class="TD_STYLE1">
+								<a href="/hr/engageResume/getByResIdForUpdate?res_id=${list.res_id }">筛选</a>
 							</td>
 						</tr>
 					</c:forEach>
 				
 			</table>
-			<p>&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：${engageResumeFindList.size() }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="/hr/jsp/images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>

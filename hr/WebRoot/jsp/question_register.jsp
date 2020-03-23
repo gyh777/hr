@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
@@ -9,9 +9,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
+		<script type="text/javascript" src="/hr/jsp/javascript/comm/comm.js"></script>
 		<title>无标题文档</title>
 	</head>
 
@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="74" class="TD_STYLE1">
 						试题I级分类
 					</td>
-					<td width="168" class="TD_STYLE2">
+					<td width="168" class="TD_STYLE1">
 						<select>
 							<c:forEach var="list" items="${configQuestionSecondKindList }">
 								<option value="${list.first_kind_name }">${list.first_kind_name }</option>
@@ -48,8 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="83" class="TD_STYLE1">
 						试题II级分类
 					</td>
-					<td width="171" class="TD_STYLE2">
-						<select name="second_kind_name">
+					<td width="171" class="TD_STYLE1">
+						<select name="qfkId">
 							<c:forEach var="list" items="${configQuestionSecondKindList }">
 								<option value="${list.qsk_id }">${list.second_kind_name }</option>
 							</c:forEach>
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="170" class="TD_STYLE1">
 						登记人
 					</td>
-					<td width="138" class="TD_STYLE2">
+					<td width="138" class="TD_STYLE1">
 						<input type="text" name="register" value="" class="INPUT_STYLE2">
 					</td>
 					<td width="103" class="TD_STYLE1">
@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						题干
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="content" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案a
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_a" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案b
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_b" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案c
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_c" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案d
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_d" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
@@ -113,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1">
 						答案e
 					</td>
-					<td colspan="7" class="TD_STYLE2">
+					<td colspan="7" class="TD_STYLE1">
 						<textarea name="key_e" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
@@ -121,25 +121,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="74" class="TD_STYLE1">
 						正确答案
 					</td>
-					<td width="168" class="TD_STYLE2">
+					<td width="168" class="TD_STYLE1">
 						<input type="text" name="correct_key" value="" class="INPUT_STYLE2">
 					</td>
 					<td width="83" class="TD_STYLE1">
 						试题出处
 					</td>
-					<td width="171" class="TD_STYLE2">
+					<td width="171" class="TD_STYLE1">
 						<input type="text" name="derivation" value="" class="INPUT_STYLE2">
 					</td>
 					<td width="170" class="TD_STYLE1">
 						
 					</td>
-					<td width="138" class="TD_STYLE2">
+					<td width="138" class="TD_STYLE1">
 						
 					</td>
 					<td width="103" class="TD_STYLE1">
 						
 					</td>
-					<td width="95" height="26" class="TD_STYLE2">
+					<td width="95" height="26" class="TD_STYLE1">
 						
 					</td>
 				</tr>

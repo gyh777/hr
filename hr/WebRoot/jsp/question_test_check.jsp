@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -15,22 +16,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form name="salarystandardForm" method="post" action="/hr/engageInterview/updateForResult">
+		<form name="salarystandardForm" method="post" action="/hr/engageAnswer/updateForTestCheck">
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：招聘管理--面试管理--面试筛选
+						<font color="#0000CC">您正在做的业务是：招聘管理--招聘考试管理--成绩查询筛选
 						</font>
 					</td>
 				</tr>
 				<tr>
 					<td align="right">
-						<input type="hidden" name="ein_id" value="${engageInterview.ein_id }">
-						<span><input type="radio" name="result" value="1">建议面试</span>
-						<span><input type="radio" name="result" value="2">建议笔试</span>
-						<span><input type="radio" name="result" value="3">建议录用</span>
-						<span><input type="radio" name="result" value="4">删除简历</span>
-						
 						<input type="submit" value="提交" class="BUTTON_STYLE1">
 						<input type="reset" value="清除" class="BUTTON_STYLE1" >
 					</td>
@@ -41,42 +36,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				class="TABLE_STYLE1">
 				<tr>
 					<td width="74" class="TD_STYLE1">
-						职位分类
-					</td>
-					<td width="168" class="TD_STYLE1">
-						${getByResIdForInterview.human_major_kind_name }
-					</td>
-					<td width="83" class="TD_STYLE1">
-						职位名称
-					</td>
-					<td width="171" class="TD_STYLE1">
-						${getByResIdForInterview.human_major_name }
-					</td>
-					<td width="170" class="TD_STYLE1">
-						招聘类型
-					</td>
-					<td width="138" class="TD_STYLE1">
-						${getByResIdForInterview.engage_type }
-					</td>
-				</tr>
-				<tr>
-					<td width="74" class="TD_STYLE1">
 						姓名
 					</td>
 					<td width="168" class="TD_STYLE1">
-						${getByResIdForInterview.human_name }
+						${engageResume.human_name }
 					</td>
 					<td width="83" class="TD_STYLE1">
 						性别
 					</td>
 					<td width="171" class="TD_STYLE1">
-						${getByResIdForInterview.human_sex }
+						${engageResume.human_sex }
 					</td>
 					<td width="170" class="TD_STYLE1">
 						EMAIL
 					</td>
 					<td width="138" class="TD_STYLE1">
-						${getByResIdForInterview.human_email }
+						${engageResume.human_email }
 					</td>
 				</tr>
 				<tr>
@@ -84,19 +59,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						民族
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_race }
+						${engageResume.human_race }
 					</td>
 					<td class="TD_STYLE1">
 						宗教信仰
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_religion }
+						${engageResume.human_religion }
 					</td>
 					<td class="TD_STYLE1">
 						政治面貌
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_party }
+						${engageResume.human_party }
 					</td>
 				</tr>
 				<tr>
@@ -104,51 +79,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						身份证号码
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_idcard }
+						${engageResume.human_idcard }
 					</td>
 					<td class="TD_STYLE1">
 						年龄
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_age }
+						${engageResume.human_age }
 					</td>
 					<td class="TD_STYLE1">
 						毕业院校
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_college }
+						${engageResume.human_college }
 					</td>
 					<td class="TD_STYLE1">
 						学历
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_educated_degree }
+						${engageResume.human_educated_degree }
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">
 						教育年限
 					</td>
-					<td width="95" height="26" class="TD_STYLE1" colspan="3">
-						${getByResIdForInterview.human_educated_years }
+					<td width="95" height="26" class="TD_STYLE1">
+						${engageResume.human_educated_years }
 					</td>
 					<td class="TD_STYLE1">
 						学历专业
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_educated_major }
+						${engageResume.human_educated_major }
 					</td>
 					<td class="TD_STYLE1">
 						薪酬要求
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.demand_salary_standard }
+						${engageResume.demand_salary_standard }
 					</td>
 					<td class="TD_STYLE1">
 						注册时间
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						<fmt:formatDate type="both" value="${getByResIdForInterview.regist_time }"></fmt:formatDate>
+						<fmt:formatDate type="both" value="${engageResume.regist_time }"></fmt:formatDate>
 					</td>
 				</tr>
 				<tr>
@@ -156,25 +131,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						特长
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_specility }
+						${engageResume.human_specility }
 					</td>
 					<td class="TD_STYLE1">
 						爱好
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.human_hobby }
+						${engageResume.human_hobby }
 					</td>
 					<td class="TD_STYLE1">
 						推荐人
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						${getByResIdForInterview.checker }
+						${engageResume.checker }
 					</td>
 					<td class="TD_STYLE1">
 						推荐时间
 					</td>
 					<td width="95" height="26" class="TD_STYLE1">
-						<fmt:formatDate type="both" value="${getByResIdForInterview.check_time }"></fmt:formatDate>
+						<fmt:formatDate type="both" value="${engageResume.check_time }"></fmt:formatDate>
 					</td>
 				</tr>
 				<tr>
@@ -187,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						个人信息
 					</td>
 					<td colspan="7" class="TD_STYLE1">
-						${getByResIdForInterview.human_history_records }
+						${engageResume.human_history_records }
 					</td>
 				</tr>
 				<tr>
@@ -195,7 +170,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						备注
 					</td>
 					<td colspan="7" class="TD_STYLE1">
-						${getByResIdForInterview.remark }
+						${engageResume.remark }
 					</td>
 				</tr>
 				<tr>
@@ -203,23 +178,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						推荐意见
 					</td>
 					<td colspan="7" class="TD_STYLE1">
-						${getByResIdForInterview.recomandation }
+						${engageResume.recomandation }
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">
+						考试次数
+					</td>
+					<td class="TD_STYLE1">
+						参加${engageResume.test_amount }次考试
+					</td>
+					<td class="TD_STYLE1">
+						成绩平均分
+					</td>
+					<td class="TD_STYLE1">
+						${engageResume.total_points }
+					</td>
+					<td class="TD_STYLE1">
 						筛选人
 					</td>
 					<td class="TD_STYLE1">
-						<input type="text" name="checker" />
+						<input type="hidden" value="${engageResume.res_id }" name="res_id">
+						<input type="text" name="test_checker">
+					</td>
+					<td class="TD_STYLE1">
+						筛选时间
+					</td>
+					<td class="TD_STYLE1">
+						<jsp:useBean id="now" class="java.util.Date" scope="page"/>
+						<fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh-mm-ss" />
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">
 						录用申请审核意见
 					</td>
-					<td colspan="7" class="TD_STYLE1">
-						<input type="text" name="check_comment" />
+					<td colspan="7" class="TD_STYLE2">
+						<textarea name="pass_checkComment" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
 			</table>

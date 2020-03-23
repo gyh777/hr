@@ -8,8 +8,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<style type="text/css">
 <!--
@@ -60,19 +60,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 					<c:forEach var="list" items="${engageInterviewList }">
-						<tr class="TD_STYLE2">
-							<td>
+						<tr class="TD_STYLE1">
+							<td  class="TD_STYLE1">
 								${list.human_name }
 							</td>
-							<td>
+							<td class="TD_STYLE1">
 								${list.interview_amount }
 							</td>
 							<td>
 								${list.human_major_kind_name }
-							</td>
+							</td class="TD_STYLE1">
 							<td>
 								${list.human_major_name }
-							</td>
+							</td class="TD_STYLE1">
 							<td>
 								<a href="/hr/engageInterview/getByEinId?ein_id=${list.ein_id }">登记</a>
 							</td>

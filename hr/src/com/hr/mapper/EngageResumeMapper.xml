@@ -71,12 +71,12 @@
 		human_history_records=#{human_history_records},
 		remark=#{remark},recomandation=#{recomandation},human_picture=#{human_picture},
 		attachment_name=#{attachment_name},check_status=#{check_status},
-		<!-- register=#{register},regist_time=#{regist_time},-->checker=#{checker},
-		check_time=#{check_time},interview_status=#{interview_status}<!-- ,total_points=#{total_points},
-		test_amount=#{test_amount},test_checker=#{test_checker},test_check_time=#{test_check_time},
+			register=#{register},regist_time=#{regist_time},	checker=#{checker},
+		check_time=#{check_time},interview_status=#{interview_status},total_points=#{total_points},
+		test_amount=#{test_amount}	,test_checker=#{test_checker},test_check_time=#{test_check_time},
 		pass_register=#{pass_register},pass_regist_time=#{pass_regist_time},pass_checker=#{pass_checker},
 		pass_check_time=#{pass_check_time},pass_check_status=#{pass_check_status},
-		pass_checkComment=#{pass_checkComment},pass_passComment=#{pass_passComment} --> where res_id = #{res_id}
+		pass_checkComment=#{pass_checkComment},pass_passComment=#{pass_passComment}	 where res_id = #{res_id}
 	</update>
 	<delete id="delete" parameterType="int">
 		delete from engage_resume where res_id = #{res_id}
@@ -135,5 +135,8 @@
 				and human_idcard = #{human_idcard}
 			</if>
 		</trim>
+	</select>
+	<select id="selectByInterview" parameterType="_int" resultType="com.hr.pojo.EngageResume">
+		select * from engage_resume where interview_status=#{interview_status}
 	</select>
 </mapper>

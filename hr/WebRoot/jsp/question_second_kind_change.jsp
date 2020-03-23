@@ -8,9 +8,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<link rel="stylesheet" href="table.css" type="text/css">
-<script type="text/javascript" src="javascript/comm/comm.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css">
+<script type="text/javascript" src="/hr/jsp/javascript/comm/comm.js"></script>
 </head>
 <body>
 <form name="configfilefirstkindForm" method="post" action="/hr/configQuestionSecondKind/update">
@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<input type="hidden" value="${changeConfigQuestionSecondKind.first_kind_name }" name="first_kind_name">
   	<input type="hidden" value="${changeConfigQuestionSecondKind.second_kind_id }" name="second_kind_id">
     <td width="19%" class="TD_STYLE1">试题II级名称</td>
-    <td width="81%" class="TD_STYLE2"><input type="text" name="second_kind_name" value="${changeConfigQuestionSecondKind.second_kind_name }" class="INPUT_STYLE1"></td>
+    <td width="81%" class="TD_STYLE1"><input type="text" name="second_kind_name" value="${changeConfigQuestionSecondKind.second_kind_name }" class="INPUT_STYLE1"></td>
   </tr>
 </table>
 </form>

@@ -3,7 +3,7 @@ package com.hr.pojo;
 public class EngageAnswerDetails {
     private int and_id;	//id
     private String answer_number;	//答案编号
-    private int subject_id;	//试题编号
+    private String subject_id;	//试题编号
     private String answer;	//测试者答案
 	public int getAnd_id() {
 		return and_id;
@@ -17,10 +17,10 @@ public class EngageAnswerDetails {
 	public void setAnswer_number(String answer_number) {
 		this.answer_number = answer_number;
 	}
-	public int getSubject_id() {
+	public String getSubject_id() {
 		return subject_id;
 	}
-	public void setSubject_id(int subject_id) {
+	public void setSubject_id(String subject_id) {
 		this.subject_id = subject_id;
 	}
 	public String getAnswer() {

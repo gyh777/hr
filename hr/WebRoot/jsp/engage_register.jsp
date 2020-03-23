@@ -7,8 +7,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<link rel="stylesheet" href="table.css" type="text/css">
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css">
+		<script type="text/javascript" src="/hr/jsp/javascript/comm/comm.js"></script>
 	</head>
 
 	<body>
@@ -56,16 +56,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input type="text" name="">
 					</td>
 				</tr>
+				<tr>
 					<td width="10%" class="TD_STYLE1">
 						登记时间
 					</td>
 					<td width="10%" class="TD_STYLE1">
 						<input type="text" name="">
 					</td>
-					</tr>
-				
+				</tr>
 			</table>
-			<p>&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>

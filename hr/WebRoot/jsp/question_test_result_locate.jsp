@@ -25,11 +25,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form method="post" action="/hr/engageSubjects/find">
+		<form method="post" action="/hr/engageAnswer/find">
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：招聘管理--招聘考试题库管理--试题查询 </font>
+						<font color="#0000CC">您正在做的业务是：招聘管理--招聘考试管理--成绩查询筛选</font>
 					</td>
 				</tr>
 				<tr>
@@ -45,15 +45,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				class="TABLE_STYLE1">
 				<tr>
 					<td width="20%" class="TD_STYLE1">
-						请选择试题分类
+						请输入应试人身份证号码
 					</td>
 					<td class="TD_STYLE1">
-						<select name="firstKindName">
-							<option value="" selected="selected">请选择</option>
-							<c:forEach var="list" items="${configQuestionSecondKindList }">
-								<option value="${list.second_kind_id }">${list.second_kind_name }</option>
-							</c:forEach>
-						</select>
+						<input type="text" name="human_idcard" value="">
 					</td>
 				</tr>
 				<tr>
@@ -61,12 +56,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						请输入关键字
 					</td>
 					<td class="TD_STYLE1">
-						<input type="text" name="keyWord" class="INPUT_STYLE1">
+						<input type="text" name="keyWord" value="">
 					</td>
 				</tr>
 				<tr>
 					<td class="TD_STYLE1">
-						请输入登记时间
+						请输入应试时间
 					</td>
 					<td class="TD_STYLE1">
 						<input type="text" name="start" value="" class="INPUT_STYLE1" id="date_start">
@@ -83,3 +78,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	Calendar.setup ({inputField : "date_end", ifFormat : "%Y-%m-%d", showsTime : false, button : "date_end", singleClick : true, step : 1});
 	</script>
 </html>
+

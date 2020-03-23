@@ -22,4 +22,5 @@ public interface EngageResumeMapper {
 	public List<EngageResume> findForQuestion(@Param("human_major_kind_id") String human_major_kind_id,
 			@Param("human_major_id") String human_major_id, @Param("human_name") String human_name,
 			@Param("human_idcard") String human_idcard);
+	public List<EngageResume> selectByInterview(@Param("interview_status") int interview_status);
 }

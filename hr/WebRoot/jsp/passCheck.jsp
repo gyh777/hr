@@ -20,11 +20,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 
 	<body>
-		<form method="post" action="salarystandard.do">
+		<form method="post" action="">
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：招聘管理--招聘考试题库管理--试题查询</font>
+						<font color="#0000CC">您正在做的业务是：招聘管理--录用管理--录用审批</font>
 					</td>
 				</tr>
 				<tr>
@@ -34,8 +34,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>
-						符合条件的试题总数:
-						${engageSubjectsFindList.size() }
+						总数:
+						${engageResumeList.size() }
 						例
 					</td>
 				</tr>
@@ -45,43 +45,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				class="TABLE_STYLE1">
 				<tr>
 					<td width="20%" class="TD_STYLE1">
-						<span>I级试题分类名称</span>
+						<span>姓名</span>
 					</td>
 					<td width="20%" class="TD_STYLE1">
-						<span>II级试题分类名称</span>
+						<span>性别</span>
 					</td>
 					<td width="15%" class="TD_STYLE1">
-						<span>制定人</span>
+						<span>职位分类</span>
 					</td>
 					<td width="30%" class="TD_STYLE1">
-						<span>题目</span>
+						<span>职位名称</span>
 					</td>
 					<td class="TD_STYLE1" width="15%">
-						<span>登记时间</span>
+						<span>电话</span>
+					</td>
+					<td class="TD_STYLE1" width="15%">
+						<span>录用</span>
 					</td>
 				</tr>
-					<c:forEach var="list" items="${engageSubjectsFindList }">
-						<tr class="TD_STYLE2">
-							<td class="TD_STYLE1">
-								${list.first_kind_name }
-							</td>
-							<td class="TD_STYLE1">
-								${list.second_kind_name }
-							</td>
-							<td class="TD_STYLE1">
-								${list.register }
-							</td>
-							<td class="TD_STYLE1">
-								${list.content }
-							</td>
-							<td class="TD_STYLE1">
-								<fmt:formatDate type="both" value="${list.regist_time }"></fmt:formatDate>
-							</td>
-						</tr>
-					</c:forEach>
-				
+				<c:forEach var="list" items="${engageResumeList }">
+					<tr class="TD_STYLE2">
+						<td class="TD_STYLE1">
+							${list.human_name }
+						</td>
+						<td class="TD_STYLE1">
+							${list.human_sex }
+						</td>
+						<td class="TD_STYLE1">
+							${list.human_major_kind_name }
+						</td>
+						<td class="TD_STYLE1">
+							${list.human_major_name }
+						</td>
+						<td class="TD_STYLE1">
+							${list.human_telephone }
+						</td>
+						<td class="TD_STYLE1">
+							<a href="/hr/engageResume/employment?res_id=${list.res_id }">录用</a>
+						</td>
+					</tr>
+				</c:forEach>
 			</table>
-			<p>&nbsp;&nbsp;总数：${engageSubjectsFindList.size() }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="/hr/jsp/images/go.bmp" width=18 height=18 border=0>
+			<p>&nbsp;&nbsp;总数：${engageResumeList.size() }例 &nbsp;&nbsp;&nbsp;当前第 1 页  &nbsp;&nbsp;&nbsp;共 1 页  &nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1> 页&nbsp;&nbsp;<input type=image src="/hr/jsp/images/go.bmp" width=18 height=18 border=0>
 		</form>
 	</body>
 </html>
