@@ -29,9 +29,9 @@
 	    <result column="register" property="register"/>
 	    <result column="checker" property="checker"/>
 	    <result column="changer" property="changer"/>
-	    <result column="regist_time" property="registTime"/>
-	    <result column="check_time" property="checkTime"/>
-	    <result column="change_time" property="changeTime"/>
+	    <result column="regist_time" property="sqlRegistTime"/>
+	    <result column="check_time" property="sqlCheckTime"/>
+	    <result column="change_time" property="sqlChangeTime"/>
 	    <result column="salary_sum" property="salarySum"/>
 	    <result column="check_status" property="checkStatus"/>
 	    <result column="change_status" property="changeStatus"/>
@@ -42,7 +42,7 @@
     <insert id="insert" parameterType="com.hr.web.controller.requestparamtype.SalaryStandardDetailsList">
 		insert into salary_standard <include refid="SalaryStandard"/> values
 		(#{ssdId},#{standardId},#{standardName},#{designer},#{register},
-		#{checker},#{changer},#{registTime},#{checkTime},#{changeTime},
+		#{checker},#{changer}, STR_TO_DATE(#{registTime},'%Y-%m-%d %H:%i:%s'),STR_TO_DATE(#{checkTime},'%Y-%m-%d %H:%i:%s'),STR_TO_DATE(#{changeTime},'%Y-%m-%d %H:%i:%s'),
 		#{salarySum},#{checkStatus},#{changeStatus},#{checkComment},#{remark})
 	</insert>
 	
@@ -50,14 +50,14 @@
 	<update id="ckeckUpdate" parameterType="String">
 		update salary_standard set 
     	checker=#{checker},
-    	check_time=#{checkTime},check_status=#{checkStatus},
+    	check_time=STR_TO_DATE(#{checkTime},'%Y-%m-%d %H:%i:%s'),check_status=#{checkStatus},
     	check_comment=#{checkComment} where ssd_id=#{ssdId}
 	</update>
 	<!-- -->
 	<update id="changeUpdate" parameterType="com.hr.web.controller.requestparamtype.SalaryStandardDetailsList">
 		update salary_standard set 
     	standard_name=#{standardName},
-		changer=#{changer},change_time=#{changeTime},
+		changer=#{changer},change_time=STR_TO_DATE(#{changeTime},'%Y-%m-%d %H:%i:%s'),
 		salary_sum=#{salarySum},change_status=#{changeStatus},remark=#{remark} where ssd_id=#{ssdId}
 	</update> 
 	
@@ -88,7 +88,7 @@
 
     </select> -->
     <select id="selectBySsdId" parameterType="String" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
-    	select *  from salary_standard where ssd_id=#{ssdId} and check_status=1
+    	select *  from salary_standard where ssd_id=#{ssdId} and check_status=0
     </select>
     
     <select id="selectNextId" resultType="string">

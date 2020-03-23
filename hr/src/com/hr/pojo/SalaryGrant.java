@@ -1,17 +1,17 @@
 package com.hr.pojo;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 public class SalaryGrant  implements Serializable{
 	
-	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+//	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
     private Short sgrId;
 
     private String salaryGrantId;
@@ -38,15 +38,30 @@ public class SalaryGrant  implements Serializable{
 
     private String register;
 //    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date registTime;
+    
+    private String registTime;
 
+    private Date sqlRegistTime;
+    
     private String checker;
 //    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date checkTime;
+    private String checkTime;
+    
+    private Date sqlCheckTime;
 
     private Short checkStatus;
 
-    public Short getSgrId() {
+    
+    
+    public void setSqlRegistTime(Date sqlRegistTime) {
+		this.registTime = sqlRegistTime.toString();
+	}
+
+	public void setSqlCheckTime(Date sqlCheckTime) {
+		this.checkTime = sqlCheckTime.toString();
+	}
+
+	public Short getSgrId() {
         return sgrId;
     }
 
@@ -167,30 +182,30 @@ public class SalaryGrant  implements Serializable{
 
     
 
-    public Date getRegistTime() {
+    
+//	public void setCheckTime(String checkTime) {
+//		try {
+//			this.checkTime = format.parse(checkTime);
+//		} catch (ParseException e) {
+//			
+//			e.printStackTrace();
+//		}
+//	}
+
+	public String getRegistTime() {
 		return registTime;
 	}
 
 	public void setRegistTime(String registTime) {
-		try {
-			this.registTime = format.parse(registTime);
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+		this.registTime = registTime;
 	}
 
-	public Date getCheckTime() {
+	public String getCheckTime() {
 		return checkTime;
 	}
 
 	public void setCheckTime(String checkTime) {
-		try {
-			this.checkTime = format.parse(checkTime);
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+		this.checkTime = checkTime;
 	}
 
 	public Short getCheckStatus() {

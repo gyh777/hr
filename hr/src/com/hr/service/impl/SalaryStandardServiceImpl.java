@@ -102,23 +102,27 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 
 	@Override
 	public SalaryStandardDetailsList queryBySsdId(String ssdId) {
+		System.out.println(ssdId);
 		SalaryStandardDetailsList ssdl = new SalaryStandardDetailsList();
 		SalaryStandard salaryStandard = salaryStandardMapper.selectBySsdId(ssdId);
-//		ssdl.setChangeStatus(salaryStandard.getChangeStatus().toString());
-		String standardId = salaryStandard.getStandardId();
-		ssdl.setCheckStatus(salaryStandard.getCheckStatus());
-//		ssdl.setCheckTime(salaryStandard.getCheckTime().toString());
-		ssdl.setDesigner(salaryStandard.getDesigner());
-		ssdl.setRegister(salaryStandard.getRegister());
-		ssdl.setRegistTime(salaryStandard.getRegistTime().toString());
-		ssdl.setSalarySum(salaryStandard.getSalarySum());
-		ssdl.setSsdId(salaryStandard.getSsdId());
-		ssdl.setStandardId(standardId);
-		ssdl.setStandardName(salaryStandard.getStandardName());
-		
-		ArrayList<SalaryStandardDetails> salaryStandardDetails = (ArrayList<SalaryStandardDetails>) salaryStandardDetailsMapper.selectByStandardId(standardId);
-		
-		ssdl.setSalaryStandardDetails(salaryStandardDetails);
+		if(salaryStandard!=null){
+//			ssdl.setChangeStatus(salaryStandard.getChangeStatus().toString());
+			String standardId = salaryStandard.getStandardId();
+			ssdl.setCheckStatus(salaryStandard.getCheckStatus());
+//			ssdl.setCheckTime(salaryStandard.getCheckTime().toString());
+			ssdl.setDesigner(salaryStandard.getDesigner());
+			ssdl.setRegister(salaryStandard.getRegister());
+			ssdl.setRegistTime(salaryStandard.getRegistTime());
+			ssdl.setSalarySum(salaryStandard.getSalarySum());
+			ssdl.setSsdId(salaryStandard.getSsdId());
+			ssdl.setStandardId(standardId);
+			ssdl.setStandardName(salaryStandard.getStandardName());
+			
+			ArrayList<SalaryStandardDetails> salaryStandardDetails = (ArrayList<SalaryStandardDetails>) salaryStandardDetailsMapper.selectByStandardId(standardId);
+			
+			ssdl.setSalaryStandardDetails(salaryStandardDetails);
+		}
+
 		return ssdl;
 	}
 

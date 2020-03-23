@@ -1,16 +1,16 @@
 package com.hr.pojo;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class SalaryStandard  implements Serializable{
 	
-	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+//	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
     private Short ssdId;
 
     private String standardId;
@@ -25,11 +25,11 @@ public class SalaryStandard  implements Serializable{
 
     private String changer;
 //    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date registTime;
+    private String registTime;
 //    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date checkTime;
+    private String checkTime;
 //    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date changeTime;
+    private String changeTime;
 
     private String salarySum;
 
@@ -40,8 +40,28 @@ public class SalaryStandard  implements Serializable{
     private String checkComment;
     
     private String remark;
+    
+    private Date sqlRegistTime;
+    
+    private Date sqlCheckTime;
+    
+    private Date sqlChangeTime;
 
-    public String getCheckComment() {
+
+    
+	public void setSqlCheckTime(Date sqlCheckTime) {
+		this.checkTime = sqlCheckTime.toString();
+	}
+
+	public void setSqlChangeTime(Date sqlChangeTime) {
+		this.changeTime = sqlChangeTime.toString();
+	}
+
+	public void setSqlRegistTime(Date sqlRegistTime) {
+		this.registTime = sqlRegistTime.toString();
+	}
+
+	public String getCheckComment() {
 		return checkComment;
 	}
 
@@ -115,43 +135,38 @@ public class SalaryStandard  implements Serializable{
 
    
 
-    public Date getRegistTime() {
+
+//	public void setChangeTime(String changeTime) {
+//		try {
+//			this.changeTime = format.parse(changeTime);
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+
+	public String getRegistTime() {
 		return registTime;
 	}
 
 	public void setRegistTime(String registTime) {
-		try {
-			this.registTime = format.parse(registTime);
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+		this.registTime = registTime;
 	}
 
-	public Date getCheckTime() {
+	public String getCheckTime() {
 		return checkTime;
 	}
 
 	public void setCheckTime(String checkTime) {
-		try {
-			this.checkTime = format.parse(checkTime);
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+		this.checkTime = checkTime;
 	}
 
-	public Date getChangeTime() {
+	public String getChangeTime() {
 		return changeTime;
 	}
 
 	public void setChangeTime(String changeTime) {
-		try {
-			this.changeTime = format.parse(changeTime);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.changeTime = changeTime;
 	}
 
 	public String getSalarySum() {

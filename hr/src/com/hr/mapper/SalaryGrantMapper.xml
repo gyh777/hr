@@ -38,17 +38,17 @@
 	    <result column="salary_standard_sum" property="salaryStandardSum"/>
 	    <result column="salary_paid_sum" property="salaryPaidSum"/>
 	    <result column="register" property="register"/>
-	    <result column="regist_time" property="registTime"/>
+	    <result column="regist_time" property="sqlRegistTime"/>
 	    <result column="checker" property="checker"/>
 	    <result column="check_time" property="checkTime"/>
-	    <result column="check_status" property="checkStatus"/>
+	    <result column="check_status" property="sqlCheckStatus"/>
     
     </resultMap>
     <insert id="insert" parameterType="com.hr.pojo.SalaryGrant">
 		insert into salary_grant <include refid="SalaryGrant"/> values
 		(#{sgrId},#{salaryGrantId},#{salaryStandardId},#{first_kind_id},#{firstKindName},
 		#{second_kind_id},#{secondKindName},#{third_kind_id},#{thirdKindName},#{humanAmount},
-		#{salaryStandardSum},#{salaryPaidSum},#{register},#{registTime},#{checker},#{checkTime},#{checkStatus})
+		#{salaryStandardSum},#{salaryPaidSum},#{register}, STR_TO_DATE(#{registTime},'%Y-%m-%d %H:%i:%s'),#{checker}, STR_TO_DATE(#{checkTime},'%Y-%m-%d %H:%i:%s'),#{checkStatus})
 	</insert>
 	
 	 <select id="selectCheckAll" resultType="com.hr.pojo.SalaryGrant" resultMap="SalaryGrant">
@@ -63,7 +63,7 @@
     <update id="ckeckUpdate" parameterType="String">
 		update salary_grant set 
     	checker=#{checker},
-    	check_time=#{checkTime},check_status=#{checkStatus},
+    	check_time=STR_TO_DATE(#{checkTime},'%Y-%m-%d %H:%i:%s'),check_status=#{checkStatus},
     	where sgr_id=#{sgrId}
 	</update>
 	

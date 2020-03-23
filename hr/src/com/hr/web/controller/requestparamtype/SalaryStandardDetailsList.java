@@ -15,7 +15,7 @@ import com.hr.pojo.SalaryStandardDetails;
 
 public class SalaryStandardDetailsList {
 	
-	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+//	DateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 
 	private List<SalaryStandardDetails> salaryStandardDetails = new ArrayList<SalaryStandardDetails>();
 	
@@ -38,19 +38,19 @@ public class SalaryStandardDetailsList {
 	private String register;
 	
 //	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private Date registTime;
+	private String registTime;
 	
 	private String checker;
 	
 //	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private Date checkTime;
+	private String checkTime;
 	
 	private String changer;
 	
 	private short changeStatus;
 	
 //	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private Date changeTime;
+	private String changeTime;
 	
 	private short checkStatus;
 	
@@ -146,44 +146,28 @@ public class SalaryStandardDetailsList {
 	}
 
 
-	public Date getRegistTime() {
+	public String getRegistTime() {
 		return registTime;
 	}
 
 	public void setRegistTime(String registTime) {
-		try {
-			
-			this.registTime = format.parse(registTime);
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+		this.registTime = registTime;
 	}
 
-	public Date getCheckTime() {
+	public String getCheckTime() {
 		return checkTime;
 	}
 
 	public void setCheckTime(String checkTime) {
-		try {
-			this.checkTime = format.parse(checkTime);
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+		this.checkTime = checkTime;
 	}
 
-	public Date getChangeTime() {
+	public String getChangeTime() {
 		return changeTime;
 	}
 
 	public void setChangeTime(String changeTime) {
-		try {
-			this.changeTime = format.parse(changeTime);
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+		this.changeTime = changeTime;
 	}
 
 	public String getRemark() {
