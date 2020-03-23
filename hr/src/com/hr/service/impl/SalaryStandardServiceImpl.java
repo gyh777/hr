@@ -53,7 +53,7 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 	}
 
 	public Boolean changeAdopt(SalaryStandardDetailsList ssdl) {
-		
+		System.out.println(ssdl.getStandardName());
 		int i = salaryStandardMapper.changeUpdate(ssdl);
 		
 		ArrayList<SalaryStandardDetails> array = (ArrayList<SalaryStandardDetails>) ssdl.getSalaryStandardDetails();
@@ -148,8 +148,14 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 	}
 
 	@Override
-	public List<SalaryStandard> queryByCondition(SalaryStandardQueryLocate salaryStandardQueryLocate) {
-		List<SalaryStandard> list = salaryStandardMapper.selectByCondition(salaryStandardQueryLocate);	
+	public List<SalaryStandard> queryByConditionQuery(SalaryStandardQueryLocate salaryStandardQueryLocate) {
+		List<SalaryStandard> list = salaryStandardMapper.selectByConditionQuery(salaryStandardQueryLocate);	
+		return list;
+	}
+	
+	
+	public List<SalaryStandard> queryByConditionChange(SalaryStandardQueryLocate salaryStandardQueryLocate) {
+		List<SalaryStandard> list = salaryStandardMapper.selectByConditionChange(salaryStandardQueryLocate);	
 		return list;
 	}
 

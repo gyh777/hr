@@ -15,17 +15,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
 		<title>无标题文档</title>
 		<script type="text/javascript">
-	function list()
+	function mylist()
 	{
 		//document.forms[0].action = document.forms[0].action + "?operate=list&status=1&method=change";
-		document.forms[0].action = "salarystandard_change_list.jsp";
+		document.forms[0].action = "/hr/salarystandard/changeList";
 		document.forms[0].submit();
 	}
 </script>
 	</head>
 
 	<body>
-		<form method="post" action="salarystandard.do">
+		<form method="post" action="/hr/salarystandard/changeList">
 			<table width="100%">
 				<tr>
 					<td>
@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td align="right">
 						<input type="button" value="开始" class="BUTTON_STYLE1"
-							onclick="list();">
+							onclick="mylist();">
 					</td>
 				</tr>
 			</table>
@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						请输入薪酬标准编号
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.standardId" value="" class="INPUT_STYLE1">
+						<input type="text" name="standardId" value="" class="INPUT_STYLE1">
 					</td>
 				</tr>
 				<tr>
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						请输入关键字
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="textfield2" class="INPUT_STYLE1">
+						<input type="text" name="textfield" class="INPUT_STYLE1">
 					</td>
 				</tr>
 				<tr>
@@ -63,9 +63,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						请输入登记时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="item.str_startTime" value="" class="INPUT_STYLE1" id="date_start">
+						<input type="text" name="startTime" value="" class="INPUT_STYLE1" id="date_start">
 						至
-						<input type="text" name="item.str_endTime" value="" class="INPUT_STYLE1" id="date_end">
+						<input type="text" name="endTime" value="" class="INPUT_STYLE1" id="date_end">
 						(YYYY-MM-DD)
 					</td>
 				</tr>

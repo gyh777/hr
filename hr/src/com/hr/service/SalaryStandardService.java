@@ -14,6 +14,6 @@ public interface SalaryStandardService {
 	public List<SalaryStandard> queryAll();
 	public SalaryStandardDetailsList queryBySsdId(String ssdId);
 	public String queryIdByName(String ssdId);
-	public List<SalaryStandard> queryByCondition(SalaryStandardQueryLocate salaryStandardQueryLocate);
+	public List<SalaryStandard> queryByConditionQuery(SalaryStandardQueryLocate salaryStandardQueryLocate);
 	public List<SalaryStandardIdAndName> selectIdAndName();
 }

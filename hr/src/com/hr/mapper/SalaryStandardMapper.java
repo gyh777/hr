@@ -34,6 +34,7 @@ public interface SalaryStandardMapper {
 	
 	public String selectNextId();
 	
-	public List<SalaryStandard> selectByCondition(SalaryStandardQueryLocate salaryStandardQueryLocate);
+	public List<SalaryStandard> selectByConditionQuery(SalaryStandardQueryLocate salaryStandardQueryLocate);
 	
+	public List<SalaryStandard> selectByConditionChange(SalaryStandardQueryLocate salaryStandardQueryLocate);
 }

@@ -65,8 +65,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						薪酬总额
 					</td>
 					<td width="17%" class="TD_STYLE2">
-						${change.salarySum}
-						<input type="text" name="salarySum" value="${change.standardName}" class="INPUT_STYLE2" readonly="readonly" >
+						
+						<input type="text" name="salarySum" value="${change.salarySum}" class="INPUT_STYLE2" readonly="readonly" >
 
 					</td>
 					<td width="12%" class="TD_STYLE1">
@@ -124,15 +124,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 				<c:forEach items="${change.salaryStandardDetails}" var="one">
-				<input type="hidden" name="sdtId" value="${one.ssdId}" class="INPUT_STYLE2">
+				<input type="hidden" name="sdtId" value="${one.sdtId}" class="INPUT_STYLE2">
 				<tr class="TD_STYLE2">
 					<td>
 						${one.itemId}
 						<input type="hidden" name="itemId" value="1" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
-						出差补助
-						<input type="hidden" name="itemName" value="${one.itemName}" class="INPUT_STYLE2">
+						
+						<input type="text" name="itemName" value="${one.itemName}" class="INPUT_STYLE2">
 					</td>
 					<td colspan="4">
 						<input type="text" name="salary" value="${one.salary}" class="INPUT_STYLE2">

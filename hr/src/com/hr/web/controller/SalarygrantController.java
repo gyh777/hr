@@ -43,10 +43,13 @@ public class SalarygrantController {
 		
 		Boolean bl = salaryGrantServiceImpl.save(salaryGrantAndDetails);
 		List<SalaryGrantDetails> list = salaryGrantAndDetails.getSalaryGrantDetails();
-		for (SalaryGrantDetails salaryGrantDetails : list) {
-			salaryGrantDetails.setSalaryGrantId(salaryGrantAndDetails.getSalaryGrantId());
+		if(list!=null){
+			
+			for (SalaryGrantDetails salaryGrantDetails : list) {
+				salaryGrantDetails.setSalaryGrantId(salaryGrantAndDetails.getSalaryGrantId());
+			}
+			salaryGrantDetailsServiceImpl.save(list);
 		}
-		salaryGrantDetailsServiceImpl.save(list);
 		if(bl){
 //			return "salarystandard_register_success";
 		}

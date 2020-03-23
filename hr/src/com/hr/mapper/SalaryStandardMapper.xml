@@ -55,10 +55,9 @@
 	</update>
 	<!-- -->
 	<update id="changeUpdate" parameterType="com.hr.web.controller.requestparamtype.SalaryStandardDetailsList">
-		update salary_standard set 
-    	standard_name=#{standardName},
+		update salary_standard set standard_name=#{standardName},
 		changer=#{changer},change_time=STR_TO_DATE(#{changeTime},'%Y-%m-%d %H:%i:%s'),
-		salary_sum=#{salarySum},change_status=#{changeStatus},remark=#{remark} where ssd_id=#{ssdId}
+		salary_sum=#{salarySum},change_status=1,remark=#{remark} where ssd_id=#{ssdId}
 	</update> 
 	
 
@@ -101,8 +100,29 @@
     </select>
     
     
-    <select id="selectByCondition" parameterType="com.hr.dto.SalaryStandardQueryLocate" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
-    	select * from salary_standard where 1=1	
+    <select id="selectByConditionQuery" parameterType="com.hr.dto.SalaryStandardQueryLocate" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
+    	select * from salary_standard where check_status=1	
+			<if test="standardId!=null">
+				and standard_id = #{standardId}
+			</if>
+			<if test="startTime!=null">
+				<![CDATA[
+					and regist_time >= #{startTime}
+				]]>
+			</if>
+			<if test="endTime!=null">
+				<![CDATA[
+					and regist_time <= #{endTime}
+				]]>
+			</if>
+			<if test="textfield!=null">
+				and standard_name like CONCAT('%',#{textfield},'%') or remark like CONCAT('%',#{textfield},'%')
+			</if>
+		
+    </select>
+    
+    <select id="selectByConditionChange" parameterType="com.hr.dto.SalaryStandardQueryLocate" resultType="com.hr.pojo.SalaryStandard" resultMap="SalaryStandardMap">
+    	select * from salary_standard where change_status=1	
 			<if test="standardId!=null">
 				and standard_id = #{standardId}
 			</if>

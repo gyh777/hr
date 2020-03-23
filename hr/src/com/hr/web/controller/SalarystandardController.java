@@ -58,9 +58,9 @@ public class SalarystandardController {
 	
 	
 	@RequestMapping("/changeList")
-	public String changeList(HttpServletRequest request){
+	public String changeList(HttpServletRequest request,SalaryStandardQueryLocate salaryStandardQueryLocate){
 		
-		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryChangeAll();
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryByConditionQuery(salaryStandardQueryLocate);
 //		JSONArray ja = JSONArray.fromObject(list);
 		request.setAttribute("list", list);
 		
@@ -79,11 +79,10 @@ public class SalarystandardController {
 	
 	@RequestMapping(value="/queryList")
 	public String queryList(HttpServletRequest request,SalaryStandardQueryLocate salaryStandardQueryLocate){
-		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryByCondition(salaryStandardQueryLocate);
+		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryByConditionQuery(salaryStandardQueryLocate);
 //		JSONArray ja = JSONArray.fromObject(list);
-		System.out.println(list.get(0).getRegistTime());
+		
 		request.setAttribute("list", list);
-//		System.out.println(list.size()+"--"+salaryStandardQueryLocate.getStandardId()+"--"+salaryStandardQueryLocate.getTextfield());
 		return "salarystandard_query_list";
 	}
 	
