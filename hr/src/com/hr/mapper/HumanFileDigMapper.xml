@@ -4,6 +4,9 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hr.mapper.HumanFileDigMapper">
 	  <sql id="allDigColumn">
+	    human_id,
+	    human_sex,
+	    human_name,
 	    first_kind_name,
 		second_kind_name,
 		third_kind_name,

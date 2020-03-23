@@ -281,17 +281,21 @@ public class HumanFileController {
 	public ModelAndView selectByLocatePage(@RequestParam String firstKindName,@RequestParam String secondKindName,@RequestParam String thirdKindName,
 			@RequestParam String humanMajorKindName,@RequestParam String humanMajorName,@RequestParam String str_startTime,@RequestParam String str_endTime){
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("firstKindName", firstKindName);
-		map.put("secondKindName", secondKindName);
-		map.put("thirdKindName", thirdKindName);
-		map.put("humanMajorName", humanMajorName);
-		map.put("humanMajorKindName",humanMajorKindName);
+		String[] str = splitStr(secondKindName);
+	
+		System.out.println(str[1]);
+//		map.put("firstKindName", firstKindName);
+//		map.put("secondKindName", str[1]);
+//		map.put("thirdKindName", thirdKindName);
+//		map.put("humanMajorName", humanMajorName);
+//		System.out.println(firstKindName+str[1]+thirdKindName+humanMajorName+humanMajorKindName);
+//		map.put("humanMajorKindName",humanMajorKindName);
 		map.put("str_startTime",str_startTime);
 		map.put("str_endTime",str_endTime);
 		ModelAndView mav = new ModelAndView();
-		List<HumanFileDig> humans = humanFileDigServiceImpl.queryByMapCondition(map);
-		System.out.println(humans.size());
-		mav.addObject("humans", humans);
+		List<HumanFileDig> human = humanFileDigServiceImpl.queryByMapCondition(map);
+		System.out.println(human.size());
+		mav.addObject("human", human);
 		mav.setViewName("query_list");
 		return mav;
 	}
@@ -300,9 +304,11 @@ public class HumanFileController {
 	public ModelAndView selectByKeywordsPage(@RequestParam String keywords){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("keywords", keywords);
-        List<HumanFileDig> humans =  humanFileDigServiceImpl.queryByMapCondition(map);
+        List<HumanFileDig> human =  humanFileDigServiceImpl.queryByMapCondition(map);
+        
         ModelAndView mav = new ModelAndView();
-        mav.addObject("humans", humans);
+        mav.addObject("human", human);
+        System.out.println("===="+human.get(0).getHuman_id());
         mav.setViewName("query_list");
         return mav;
 	}

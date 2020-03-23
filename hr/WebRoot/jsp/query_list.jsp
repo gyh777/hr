@@ -120,31 +120,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					职位名称
 				</td>
 			</tr>
-			<c:forEach items="${requestScope.humans}" var="human">
+			<c:forEach items="${requestScope.human}" var="human">
 					<tr>
 						<td  class="TD_STYLE2">
-							${human.hfd_id }
+							${human.human_id}
 						</td>
 						<td class="TD_STYLE2">
-							${human.human_name }
+							${human.human_name}
 						</td>
 						<td class="TD_STYLE2">
-						    ${human.human_sex }
+						    ${human.human_sex}
 						</td>
 						<td class="TD_STYLE2">
 							${human.first_kind_name}
 						</td>
 						<td class="TD_STYLE2">
-							${human.second_kind_name }
+							${human.second_kind_name}
 						</td>
 						<td class="TD_STYLE2">
-							${human.third_kind_name }
+							${human.third_kind_name}
 						</td>
 						<td class="TD_STYLE2">
-							${human.human_major_kind_name }
+							${human.human_major_kind_name}
 						</td>
 						<td class="TD_STYLE2">
-							${human.human_major_name }
+							${human.human_major_name}
 						</td>
 					</tr>
 				   </c:forEach>

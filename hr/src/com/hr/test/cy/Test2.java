@@ -16,29 +16,29 @@ public class Test2 {
 		
 		
 		//测试倒数第二个方法
-		HashMap<String, String> map = new HashMap<String, String>();
-//		map.put("firstKindName", "sss");
-//		map.put("secondKindName", "sss");
-//		map.put("thirdKindName", "sss");
-//		map.put("humanMajorName", "sss");
-//		map.put("humanMajorKindName","sss");
-		map.put("str_startTime","2000-09-02");
-		map.put("str_endTime","2011-02-06");
-		ApplicationContext context = 
-				new ClassPathXmlApplicationContext("applicationContext.xml");
-		HumanFileDigService service = (HumanFileDigService)context.getBean("humanFileDigServiceImpl");
-         List<HumanFileDig> list =       service.queryByMapCondition(map);
-	System.out.println(list.size());
-	
-	//测试倒数第一个方法
 //		HashMap<String, String> map = new HashMap<String, String>();
-//		map.put("keywords", "项目经理");
-//	
+//		map.put("firstKindName", "集团");
+//		map.put("secondKindName", "生物科技有限公司");
+//		map.put("thirdKindName", "药店");
+//		map.put("humanMajorName", "项目经理");
+//		map.put("humanMajorKindName","软件开发");
+//		map.put("str_startTime","2000-09-02");
+//		map.put("str_endTime","2011-02-06");
 //		ApplicationContext context = 
 //				new ClassPathXmlApplicationContext("applicationContext.xml");
 //		HumanFileDigService service = (HumanFileDigService)context.getBean("humanFileDigServiceImpl");
-//         List<HumanFileDig> list =       service.queryByKeyCondition(map);
-//	     System.out.println(list.size());
+//         List<HumanFileDig> list =       service.queryByMapCondition(map);
+//	System.out.println(list.get(0).getHuman_id());
+	
+	//测试倒数第一个方法
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("keywords", "项目经理");
+	
+		ApplicationContext context = 
+				new ClassPathXmlApplicationContext("applicationContext.xml");
+		HumanFileDigService service = (HumanFileDigService)context.getBean("humanFileDigServiceImpl");
+         List<HumanFileDig> list =       service.queryByKeyCondition(map);
+	     System.out.println(list.get(0).getHuman_id());
 	}
 
 }

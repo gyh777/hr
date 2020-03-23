@@ -33,7 +33,7 @@ subcat2[5] = ["6", "专员", "人力资源/专员", "人力资源"];
 subcat2[6] = ["7", "主任", "生产部/主任", "生产部"];
 subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 
- 		function list()
+ 		function getlist()
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=list&method=change&delete_status=1";
 			document.forms[0].action ="query_list.jsp";
@@ -59,7 +59,7 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 				<tr>
 					<td align="right">
 						<input type="button" value="开始"
-							class="BUTTON_STYLE1" onclick="javascript:list();">
+							class="BUTTON_STYLE1" onclick="javascript:getlist();">
 						<input type="button" value="搜索"
 							class="BUTTON_STYLE1" onclick="search();">
 					</td>
