@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <font color="#0000CC">您正在做的业务是：人力资源----人力资源档案管理----人力资源档案管理删除 </font></td>
   </tr>
   <tr>
-    <td width="49%"> 录入成功。</td>
+    <td width="49%"> 删除成功。</td>
     <input type="button" value="返回" class="BUTTON_STYLE1" onclick="javascript:reBack();"></td></tr>
   </table>
 

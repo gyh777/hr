@@ -24,17 +24,19 @@
 	</update>
 	
 	<update  id="updateStatus" parameterType="com.hr.pojo.HumanFile">
-		update human_file set human_file_status = #{human_file_status} where human_name = #{human_name}
+		update human_file set check_status = #{check_status} where human_name = #{human_name}
 	</update>
 	
-	
+	<select id="queryFileByCheckstatus" parameterType="_short"  resultType="com.hr.pojo.HumanFile">
+		select * from human_file where check_status= #[check_status]
+	</select>
 	
 	<select id="queryHumanFileByName" parameterType="String" resultType="com.hr.pojo.HumanFile">
 		select * from human_file where human_name=#{human_name}
 	</select>
 	
 	<select id="queryAllHumanFile" resultType="com.hr.pojo.HumanFile">
-		select * from human_file
+		select * from human_file 
 	</select>
 	
 	<select id="queryAllHumanFileByStatus" parameterType="_int" resultType="com.hr.pojo.HumanFile">

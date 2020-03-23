@@ -95,4 +95,10 @@ public class HumanFileServiceImpl implements HumanFileService {
 		return humanFileMapper.updateStatus(hf);
 	}
 
+	@Override
+	public List<HumanFile> queryFileByCheckstatus(Short s) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.queryFileByCheckstatus(s);
+	}
+
 }

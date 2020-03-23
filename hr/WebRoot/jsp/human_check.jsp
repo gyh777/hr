@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td align="right">
 						<input type="button" value="复核通过" class="BUTTON_STYLE1" onclick="checkAgree()">
-						<input type="reset" value="清除" class="BUTTON_STYLE1" onclick="deleteHuman()">
+						<input type="reset" value="删除" class="BUTTON_STYLE1" onclick="deleteHuman()">
 						<input type="button" value="返回" class="BUTTON_STYLE1"
 							onclick="history.back()">
 					</td>

@@ -157,11 +157,9 @@ public class HumanFileController {
 	
 	@RequestMapping("checkList")
 	public ModelAndView checkRigister(){
-		List<HumanFile> humans = humanFileServiceImpl.queryAllHumanFileByStatus(0);
+		List<HumanFile> humans = humanFileServiceImpl.queryFileByCheckstatus((short) 0);
 		ModelAndView mav = new ModelAndView();
-		for (HumanFile humanFile : humans) {
-			System.out.println(humanFile.getHuman_sex()+"==========");
-		}
+		
 		mav.addObject("humans", humans);
 	    mav.setViewName("check_list");
 	    return mav;
@@ -268,7 +266,7 @@ public class HumanFileController {
 			hf.setRegister(human.getRegister());
 			humanFileDigServiceImpl.addHumanFileDig(hf);
 			HumanFile huf  = new HumanFile();
-			huf.setHuman_file_status((short)1);
+			huf.setCheck_status((short) 1);
 			humanFileServiceImpl.updateStatus(huf);
 			System.out.println("档案复核成功");
 		
@@ -315,7 +313,9 @@ public class HumanFileController {
 	
 	@RequestMapping("deleteHuman")
 	public ModelAndView deleteHuman(@RequestParam String humanName){
-		humanFileServiceImpl.removeHumanFile(humanName);
+		HumanFile hf = humanFileServiceImpl.queryHumanFileByName(humanName);
+		hf.setHumanFile_status((byte) 1);
+		humanFileServiceImpl.updateHumanFile(hf);
 		ModelAndView mav = new ModelAndView();
         mav.setViewName("delete_human_success");
         return mav;
@@ -362,5 +362,41 @@ public class HumanFileController {
 		    list.addAll(h);   
 		    return list;  
 	}
-
+	
+	@RequestMapping("recoveryHuman")
+	public ModelAndView recoveryHumanfile(){
+		List<HumanFile> humans = humanFileServiceImpl.queryAllHumanFileByStatus(1);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("humans", humans);
+		mav.setViewName("recovery_locate");
+		return null;
+	}
+	
+	@RequestMapping("recoveryHumantwo")
+	public ModelAndView recoveryHumantwo(@RequestParam String huf_id){
+	   HumanFile human = humanFileServiceImpl.queryHumanFileByHuf_id(Integer.parseInt(huf_id));
+		human.setHuman_file_status((short) 0);
+		humanFileServiceImpl.updateHumanFile(human);
+	   ModelAndView mav = new ModelAndView();
+//		mav.addObject("humans", humans);
+		mav.setViewName("recovery_locate");
+		return mav;
+	}
+	
+	@RequestMapping("deleteForever")
+	public ModelAndView deleteForever(){
+		List<HumanFile> humans = humanFileServiceImpl.queryAllHumanFileByStatus(1);
+	   ModelAndView mav = new ModelAndView();
+		mav.addObject("humans", humans);
+		mav.setViewName("delete_forever");
+		return mav;
+	}
+	
+	@RequestMapping("deleteForevertwo")
+	public ModelAndView deleteForevertwo(@RequestParam String human_name){
+		humanFileServiceImpl.removeHumanFile(human_name);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("delete_forever");
+		return mav;
+	}
 }

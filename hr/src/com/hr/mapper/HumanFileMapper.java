@@ -18,6 +18,7 @@ public interface HumanFileMapper {
     public HumanFile queryHumanFileByHuf_id(int huf_id);
     public int queryIdByName(String huf_id);
     public boolean updateStatus(HumanFile hf);
+    public List<HumanFile> queryFileByCheckstatus(Short s);
     //向宇加===========
     public List<HunanFileHumanIdAndName> queryHumanFileByKindIdOne(String first_kind_id);
     public List<HunanFileHumanIdAndName> queryHumanFileByKindIdtwo(String first_kind_id,String second_kind_id);
