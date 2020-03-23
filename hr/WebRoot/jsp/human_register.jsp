@@ -99,7 +99,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 							
 								<option value="01/集团">01/集团</option>
 							
-								<option value="03/02">03/02</option></select>
+								</select>
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						II级机构
