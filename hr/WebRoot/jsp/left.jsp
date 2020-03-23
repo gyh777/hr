@@ -459,7 +459,7 @@ a{ CURSOR: hand}
 									<img src="images/jt0.gif">
 								</td>
 								<td>
-									薪酬发放查询
+									<a href="salarygrant_query_locate.jsp" target="mainFrame">薪酬发放查询</a>
 								</td>
 							</tr>
 						</table> </span>

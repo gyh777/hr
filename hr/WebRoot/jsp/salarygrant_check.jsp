@@ -16,11 +16,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
 		<script type="text/javascript">
 		function doEdit()
-		{
+		{alert("222");
 			//document.forms[0].action = document.forms[0].action + "?operate=doEdit&method=check&id=" + id;
-			var checker = document.getElementByName("checker");
-			var checkTime = document.getElementByName("checkTime");
-			var checkComment = document.getElementByName("checkComment");
+			var checker = $("#checker").val();
+			var checkTime = $("#time").val();
+			var sgrId = $("#sgrId").val();
+			
+			alert(checker+"-"+checkTime+"-"+"sgrId");
 			window.location ="/hr/salarygrant/checkAdopt?checker="+checker+"&checkTime="+checkTime+"&sgrId="+sgrId;
 			
 		}
@@ -50,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<tr>
 					
-					
+					<input type="hidden" value="${check.sgrId}" id="sgrId"/>
 					<td class="TD_STYLE1">
 						一级机构
 					</td>
@@ -123,13 +125,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td class="TD_STYLE2">
-						<input type="text" name="checker" value="" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="checker" id="checker" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						复核时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="checkTime" id="time" value="" class="INPUT_STYLE2">
+						<input type="text" name="checkTime" id="time" value="" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				

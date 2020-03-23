@@ -44,6 +44,7 @@ error:function(){alert("error")}
 });
 }
 
+
 </script>
 
 	<body onload="nextId();getNowDate()">
@@ -86,7 +87,7 @@ error:function(){alert("error")}
 						薪酬总额
 					</td>
 					<td width="138" class="TD_STYLE2">
-						<input type="text" name="salarySum" value="0" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="salarySum" value="0" class="INPUT_STYLE2">
 					</td>
 					<td width="103" class="TD_STYLE1">
 						&nbsp;

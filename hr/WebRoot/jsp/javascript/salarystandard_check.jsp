@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<title>无标题文档</title>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
 		<script type="text/javascript">
 		function doEdit(checker,checkTime,checkComment)
 		{
@@ -20,13 +21,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var checker = document.getElementByName("checker");
 			var checkTime = document.getElementByName("checkTime");
 			var checkComment = document.getElementByName("checkComment");
-			document.forms[0].action ="/hr/salarystandard/checkAdopt?checker="+checker+"&checkTime="+checkTime+"&checkComment="+checkComment;
-			document.forms[0].submit();
+			var ssdId = document.getElementByName("ssdId");
+			window.href ="/hr/salarystandard/checkAdopt?checker="+checker+"&checkTime="+checkTime+"&checkComment="+checkComment+"&ssdId="+ssdId;
+			
 		}
 		</script>
 	</head>
 
-	<body>
+	<body onload="getNowDate()">
 		<form action="salarystandard.do" method="post">
 			<table width="100%">
 				<tr>
@@ -93,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						复核时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="checkTime" value="2010-05-29 03:27:14" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="checkTime" id="time" value="2010-05-29 03:27:14" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						&nbsp;
@@ -123,14 +125,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<c:forEach items="${check.salaryStandardDetails}" var="one">
 				<tr class="TD_STYLE2">
-				    <input type="hidden" name="sdtId" value="${one.ssdId}" class="INPUT_STYLE2">
+				    <input type="hidden" name="sdtId" value="${one.sdtId}" class="INPUT_STYLE2">
 					<td align="center">
 						
-						<input type="hidden" name="itemId" value="${one.itemId}" class="INPUT_STYLE2">
+						<input type="text" name="itemId" value="${one.itemId}" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
 						
-						<input type="hidden" name="itemName" value="${one.itemName}" class="INPUT_STYLE2">
+						<input type="text" name="itemName" value="${one.itemName}" class="INPUT_STYLE2">
 					</td>
 					<td>
 						<input type="text" name="salary" value="${one.salary}" class="INPUT_STYLE2">
