@@ -44,7 +44,7 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 		function search()
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=toSearch&method=change";
-			document.forms[0].action ="query_keywords.jsp";
+			document.forms[0].action ="change_keywords.jsp";
 			document.forms[0].submit();
 		}
  		</script>

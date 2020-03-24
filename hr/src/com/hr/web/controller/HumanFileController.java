@@ -588,6 +588,19 @@ public class HumanFileController {
 	}
 	
 	
+	@RequestMapping("keywordsChange")
+	public ModelAndView KeywordsChange(@RequestParam String keywords){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("keywords", keywords);
+        List<HumanFile> human =  humanFileServiceImpl.queryByMapCondition(map);
+        
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("human", human);
+        System.out.println("===="+human.get(0).getHuman_id());
+        mav.setViewName("change_list");
+        return mav;
+	}
+	
 
 	
 	@RequestMapping("recoveryHuman")

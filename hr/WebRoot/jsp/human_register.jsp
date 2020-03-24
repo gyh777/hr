@@ -166,7 +166,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						姓名
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanName" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanName" value="${engageResume.human_name }" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						性别
@@ -179,7 +179,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						EMAIL
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanEmail" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanEmail" value="${engageResume.human_email }" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
@@ -187,7 +187,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						电话
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanTelephone" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanTelephone" value="${engageResume.human_telphone }" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						QQ
@@ -199,7 +199,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						手机
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanMobilephone" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanMobilephone" value="${engageResume.mobilephone }" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
@@ -207,13 +207,13 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						住址
 					</td>
 					<td colspan="3" class="TD_STYLE2">
-						<input type="text" name="humanAddress" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanAddress" value="${engageResume.humanAddress }" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						邮编
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanPostcode" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanPostcode" value="${engageResume.human_postcode }" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
