@@ -40,7 +40,7 @@ public class MajorChangeServiceImpl implements MajorChangeService{
 	}
 
 	@Override
-	public boolean updateCheckStatus(Short mch_id,String check_status) {
+	public boolean updateCheckStatus(Short mch_id,Short check_status) {
 		// TODO Auto-generated method stub
 		return mapper.updateCheckStatus(mch_id,check_status);
 	}
