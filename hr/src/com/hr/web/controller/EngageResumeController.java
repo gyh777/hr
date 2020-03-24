@@ -148,49 +148,50 @@ public class EngageResumeController {
 		engageResume.setPass_checker("checker");
 		engageResume.setPass_check_time(new Date());
 		engageResumeServiceImpl.update(engageResume);
+		request.setAttribute("engageResume", engageResume);
 		
 		//创建员工档案
-		HumanFile humanFile = new HumanFile();
-		humanFile.setHuman_id("");
-		humanFile.setFirst_kind_id("");
-		humanFile.setFirst_kind_name("");
-		humanFile.setSecond_kind_id("");
-		humanFile.setSecond_kind_name("");
-		humanFile.setThird_kind_id("");
-		humanFile.setThird_kind_name("");
-		humanFile.setHuman_name(engageResume.getHuman_name());
-		humanFile.setHuman_address(engageResume.getHuman_address());
-		humanFile.setHuman_major_id(engageResume.getHuman_major_id());
-		humanFile.setHuman_major_name(engageResume.getHuman_major_name());
-		humanFile.setHuman_major_kind_id(engageResume.getHuman_major_kind_id());
-		humanFile.setHuman_major_kind_name(engageResume.getHuman_major_kind_name());
-		humanFile.setHuman_telephone(engageResume.getHuman_telephone());
-		humanFile.setHuman_mobilephone(engageResume.getHuman_mobilephone());
-		humanFile.setHuman_email(engageResume.getHuman_email());
-		humanFile.setHuman_hobby(engageResume.getHuman_hobby());
-		humanFile.setHuman_speciality(engageResume.getHuman_specility());
-		humanFile.setHuman_sex(engageResume.getHuman_sex());
-		humanFile.setHuman_race(engageResume.getHuman_race());
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");//注意月份是MM
-        try {
-			Date date = simpleDateFormat.parse(engageResume.getHuman_birthday());
-			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-			humanFile.setHuman_birthday(sqlDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		humanFile.setHuman_birthplace(engageResume.getHuman_birthplace());
-		Short x = Short.valueOf(String.valueOf(engageResume.getHuman_age()));
-		humanFile.setHuman_age(x);
-		humanFile.setHuman_educated_degree(engageResume.getHuman_educated_degree());
-		Short y = Short.valueOf(String.valueOf(engageResume.getHuman_educated_years()));
-		humanFile.setHuman_educated_years(y);
-		humanFile.setHuman_educated_major(engageResume.getHuman_educated_major());
-		humanFile.setHuman_id_card(engageResume.getHuman_idcard());
+//		HumanFile humanFile = new HumanFile();
+//		humanFile.setHuman_id("");
+//		humanFile.setFirst_kind_id("");
+//		humanFile.setFirst_kind_name("");
+//		humanFile.setSecond_kind_id("");
+//		humanFile.setSecond_kind_name("");
+//		humanFile.setThird_kind_id("");
+//		humanFile.setThird_kind_name("");
+//		humanFile.setHuman_name(engageResume.getHuman_name());
+//		humanFile.setHuman_address(engageResume.getHuman_address());
+//		humanFile.setHuman_major_id(engageResume.getHuman_major_id());
+//		humanFile.setHuman_major_name(engageResume.getHuman_major_name());
+//		humanFile.setHuman_major_kind_id(engageResume.getHuman_major_kind_id());
+//		humanFile.setHuman_major_kind_name(engageResume.getHuman_major_kind_name());
+//		humanFile.setHuman_telephone(engageResume.getHuman_telephone());
+//		humanFile.setHuman_mobilephone(engageResume.getHuman_mobilephone());
+//		humanFile.setHuman_email(engageResume.getHuman_email());
+//		humanFile.setHuman_hobby(engageResume.getHuman_hobby());
+//		humanFile.setHuman_speciality(engageResume.getHuman_specility());
+//		humanFile.setHuman_sex(engageResume.getHuman_sex());
+//		humanFile.setHuman_race(engageResume.getHuman_race());
+//		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");//注意月份是MM
+//        try {
+//			Date date = simpleDateFormat.parse(engageResume.getHuman_birthday());
+//			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+//			humanFile.setHuman_birthday(sqlDate);
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+//		humanFile.setHuman_birthplace(engageResume.getHuman_birthplace());
+//		Short x = Short.valueOf(String.valueOf(engageResume.getHuman_age()));
+//		humanFile.setHuman_age(x);
+//		humanFile.setHuman_educated_degree(engageResume.getHuman_educated_degree());
+//		Short y = Short.valueOf(String.valueOf(engageResume.getHuman_educated_years()));
+//		humanFile.setHuman_educated_years(y);
+//		humanFile.setHuman_educated_major(engageResume.getHuman_educated_major());
+//		humanFile.setHuman_id_card(engageResume.getHuman_idcard());
 		
 //		humanFileServiceImpl.addHumanFile(humanFile);
 		
-		return "forward:/engageResume/passCheck";
+		return "human_register";
 	}
 	
 	@RequestMapping("/passFind")

@@ -124,7 +124,7 @@ public class EngageInterviewController {
 		}
 		//建议录用
 		if("3".equals(result)){
-			engageResume.setInterview_status(5);
+			engageResume.setInterview_status(6);
 		}
 		//删除简历
 		if("4".equals(result)){

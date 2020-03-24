@@ -28,6 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td class="BUTTON_STYLE1">
+						<input type="hidden" id="limite_time" value="${engageExam.limite_time }">
 						答题限定时间${engageExam.limite_time }分钟
 					</td>
 				</tr>
@@ -133,12 +134,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 	window.onload = function() {
 		var count = 0;
+		var end = $("#limite_time").val() * 60;
+		alert(end);
 		timer = setInterval(function() {
             count++;
             $("#id_S").html(showNum(count % 60));
             $("#id_M").html(showNum(parseInt(count / 60) % 60));
             $("#id_H").html(showNum(parseInt(count / 60 / 60)));
             $("#use_time").val(count);
+            if(count == end){
+            	$("#questionForm").submit();
+            }
         }, 1000);
 		
 		function showNum(num) {
@@ -147,5 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             }
             return num;
         }
+		
+		
 	}
 </script>

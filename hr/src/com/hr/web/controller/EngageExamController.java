@@ -143,7 +143,6 @@ public class EngageExamController {
 			request.setAttribute("engageInterview", engageInterview);
 			//拿到所有套卷
 			List<EngageExam>  engageExamList = engageExamServiceImpl.listByMajorId(engageResume.getHuman_major_kind_id(), engageResume.getHuman_major_id());
-			System.out.println(engageExamList.size());
 			if(engageExamList != null && engageExamList.size() > 0){
 				int number = r.nextInt(engageExamList.size());
 				//随机获取一套套卷
@@ -161,6 +160,7 @@ public class EngageExamController {
 							int n = r.nextInt(engageSubjectsList.size());
 							result.put(flag, engageSubjectsList.get(n));
 							engageSubjectsList.remove(n);
+							flag++;
 						}
 					}
 				}

@@ -78,6 +78,7 @@ public class EngageAnswerController {
 		return "error";
 	}
 	
+	//成绩查询筛选
 	@RequestMapping("/find")
 	public String find(String human_idcard, String keyWord, String start, String end, HttpServletRequest request){
 		List<EngageAnswer> list = engageAnswerServiceImpl.find(human_idcard, keyWord, start, end);
@@ -106,13 +107,30 @@ public class EngageAnswerController {
 		return "question_test_check";
 	}
 	
+	//成绩查询筛选审核
 	@RequestMapping("updateForTestCheck")
-	public String updateForTestCheck(int res_id, String test_checker, String pass_checkComment, HttpServletRequest request){
+	public String updateForTestCheck(int res_id, String test_checker, String pass_checkComment,String status, HttpServletRequest request){
 		EngageResume engageResume = engageResumeServiceImpl.getByResId(res_id);
 		engageResume.setTest_checker(test_checker);
 		engageResume.setTest_check_time(new Date());
 		engageResume.setPass_checkComment(pass_checkComment);
-		engageResume.setInterview_status(6);
+		
+		//建议面试处理
+		if("1".equals(status)){
+			engageResume.setInterview_status(2);
+		}
+		//建议笔试
+		if("2".equals(status)){
+			engageResume.setInterview_status(4);
+		}
+		//建议录用
+		if("3".equals(status)){
+			engageResume.setInterview_status(6);
+		}
+		//删除简历
+		if("4".equals(status)){
+			engageResume.setInterview_status(3);
+		}
 		if(engageResumeServiceImpl.update(engageResume)){
 			return "question_test_result_locate";
 		}else{

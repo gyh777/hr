@@ -26,6 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td align="right">
+						<sapn><input type="radio" name="status" value="1">建议面试</sapn>
+						<sapn><input type="radio" name="status" value="2">建议笔试</sapn>
+						<sapn><input type="radio" name="status" value="3">建议录用</sapn>
+						<sapn><input type="radio" name="status" value="4">删除简历</sapn>
 						<input type="submit" value="提交" class="BUTTON_STYLE1">
 						<input type="reset" value="清除" class="BUTTON_STYLE1" >
 					</td>
