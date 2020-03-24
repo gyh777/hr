@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css">
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css">
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/delete_forever.js">
 		<script type="text/javascript">
@@ -72,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<c:forEach items="${requestScope.humans}" var="human">
 					<tr>
 						<td class="TD_STYLE2">
-							${human.huf_id }
+							${human.huf_id}
 						</td>
 						<td class="TD_STYLE2">
 							${human.human_name }
@@ -91,6 +92,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 						<td class="TD_STYLE2">
 							${human.human_major_kind_name }
+						</td>
+						<td class="TD_STYLE2">
+							${human.human_major_name }
 						</td>
 						<td class="TD_STYLE2">
 						    <input type="button" value="永久删除" class="BUTTON_STYLE1" onclick="deleteForever(this)">
