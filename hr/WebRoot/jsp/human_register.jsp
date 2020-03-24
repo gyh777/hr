@@ -46,11 +46,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" href="table.css" type="text/css">
 		<link rel="stylesheet" type="text/css" media="all"
-			href="javascript/calendar/calendar-win2k-cold-1.css">
-		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
-		<script type="text/javascript" src="javascript/comm/select.js"></script>
-		<script type="text/javascript" src="javascript/cy/human_register.js"></script>
+			href="<%=basePath%>jsp/javascript/calendar/calendar-win2k-cold-1.css">
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/calendar/cal.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/comm.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/select.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/human_register.js"></script>
 		<script type="text/javascript">
 		var subcat = new Array(2);
 subcat[0] = ["1", "01/软件公司","01/集团","01/集团/01/软件公司"];

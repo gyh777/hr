@@ -76,7 +76,7 @@ public class HumanFileController {
 	    //获得二级机构
 	    String[] second = splitStr(secondKindName);
 	    hf.setSecond_kind_id(second[0]);
-	    hf.setSecond_kind_name(second[1]);
+	    hf.setSecond_kind_name(second[3]);
 	    //获得三级机构
 	    String[] third = splitStr(thirdKindName);
 	    hf.setThird_kind_id(third[0]);
@@ -100,7 +100,7 @@ public class HumanFileController {
 	   
 	    hf.setHuman_pro_designation(humanProDesignation);
 	    hf.setHuman_name(humanName);
-	    hf.setHuman_sex(humanSex);
+	    hf.setHuman_sex("男");
 	    hf.setHuman_email(humanEmail);
 	    hf.setHuman_telephone(humanTelephone);
 	    hf.setHuman_qq(humanQq);
@@ -121,29 +121,27 @@ public class HumanFileController {
 			e.printStackTrace();
 		} 
 		hf.setHuman_race(humanRace);
-		hf.setHuman_religion(humanReligion);
+		hf.setHuman_religion("佛教");
 		hf.setHuman_party(humanParty);
 		hf.setHuman_id_card(humanIdCard);
 		int h_age = Integer.parseInt(humanAge);
 		Short age = (short) h_age;
 		hf.setHuman_age(age);
-		hf.setHuman_educated_degree(humanEducatedDegree);
+		hf.setHuman_educated_degree("本科");
 		int h_year = Integer.parseInt(humanEducatedYears);
-		Short year = (short) h_year;
-		hf.setHuman_educated_years(year);
-		hf.setHuman_educated_major(humanEducatedMajor);
+		hf.setHuman_educated_years((short) 20);
+		hf.setHuman_educated_major("软件工程");
 		hf.setHuman_bank(humanBank);
 		hf.setHuman_account(humanAccount);
 		hf.setRegister(register);
 		hf.setRemark(remark);
-		hf.setHuman_speciality(humanSpeciality);
-		hf.setHuman_hobby(humanHobby);
+		hf.setHuman_speciality("游泳");
+		hf.setHuman_hobby("登山");
 		hf.setHuman_history_records(humanHistroyRecords);
 		hf.setHuman_family_membership(humanFamilyMembership);
 		Byte human_file_status = 0;
 		hf.setHuman_file_status(human_file_status);
-		
-		System.out.println("档案审核中");
+		hf.setCheck_status((short) 0);
 	    ModelAndView mav = new ModelAndView();
 	    mav.setViewName("human_registing");
 	    humanFileServiceImpl.addHumanFile(hf);
@@ -270,7 +268,6 @@ public class HumanFileController {
 			huf.setHuman_name(humanName);
 			huf.setCheck_status((short) 1);
 			humanFileServiceImpl.updateStatus(huf);
-			System.out.println("档案复核成功");
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("human_check_success");
@@ -287,13 +284,11 @@ public class HumanFileController {
 		map.put("secondKindName", str[1]);
 		map.put("thirdKindName", thirdKindName);
 		map.put("humanMajorName", humanMajorName);
-		System.out.println(firstKindName+str[1]+thirdKindName+humanMajorName+humanMajorKindName);
 		map.put("humanMajorKindName",humanMajorKindName);
 		map.put("str_startTime",str_startTime);
 		map.put("str_endTime",str_endTime);
 		ModelAndView mav = new ModelAndView();
 		List<HumanFile> human = humanFileServiceImpl.queryByMapCondition(map);
-		System.out.println(human.size());
 		mav.addObject("human", human);
 		mav.setViewName("query_list");
 		return mav;
@@ -307,7 +302,6 @@ public class HumanFileController {
         
         ModelAndView mav = new ModelAndView();
         mav.addObject("human", human);
-        System.out.println("===="+human.get(0).getHuman_id());
         mav.setViewName("query_list");
         return mav;
 	}
@@ -323,7 +317,6 @@ public class HumanFileController {
 	
 	@RequestMapping("deleteHuman")
 	public ModelAndView deleteHuman(@RequestParam String huf_id){
-		System.out.println(huf_id+"======");
 		HumanFile hf = new HumanFile();
 		int id = Integer.parseInt(huf_id);
 		hf.setHuf_id((short) id);
@@ -430,7 +423,6 @@ public class HumanFileController {
 			@RequestParam String humanPostcode,@RequestParam String humanNationality,@RequestParam String humanBirthplace,@RequestParam String str_humanBirthday,@RequestParam String humanRace,@RequestParam String humanReligion,@RequestParam String humanParty,
 			@RequestParam String humanIdCard,@RequestParam String humanSocietySecurityId,@RequestParam String humanAge,@RequestParam String humanEducatedDegree,@RequestParam String humanEducatedYears,@RequestParam String humanEducatedMajor,@RequestParam String salaryStandardName,@RequestParam String humanBank,
 			@RequestParam String humanAccount,@RequestParam String remark,@RequestParam String humanSpeciality,@RequestParam String humanHobby,@RequestParam String humanHistroyRecords,@RequestParam String humanFamilyMembership,@RequestParam String checker){
-		
 		    HumanFileDig hf = new HumanFileDig();
 		    HumanFile human = humanFileServiceImpl.queryHumanFileByName(humanName);
 		    //获得一级机构
@@ -512,6 +504,7 @@ public class HumanFileController {
 			hf.setRegister(human.getRegister());
 			humanFileDigServiceImpl.addHumanFileDig(hf);
 			HumanFile huf  = new HumanFile();
+			huf.setHuf_id(human.getHuf_id());
 			huf.setHuman_name(hf.getHuman_name());
 			huf.setCheck_status(hf.getCheck_status());
 			//获得一级机构
@@ -574,14 +567,11 @@ public class HumanFileController {
 			huf.setChange_time(time);
 			huf.setCheck_time(time);
 			huf.setCheck_status((short)1);
-		
 			huf.setChecker(checker);
 			huf.setChanger(checker);
 			huf.setRegist_time(human.getRegist_time());
 			huf.setRegister(human.getRegister());
-			humanFileServiceImpl.updateStatus(huf);
-			System.out.println("档案更改成功");
-		
+			humanFileServiceImpl.updateHumanFile(huf);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("change_human_success");
 		return mav;
@@ -596,7 +586,6 @@ public class HumanFileController {
         
         ModelAndView mav = new ModelAndView();
         mav.addObject("human", human);
-        System.out.println("===="+human.get(0).getHuman_id());
         mav.setViewName("change_list");
         return mav;
 	}
@@ -683,7 +672,6 @@ public class HumanFileController {
 	@RequestMapping("deleteForever")
 	public ModelAndView deleteForever(){
 		List<HumanFile> humans = humanFileServiceImpl.queryAllHumanFileByStatus(1);
-	   System.out.println(humans.size());
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("humans", humans);
 		mav.setViewName("delete_forever");

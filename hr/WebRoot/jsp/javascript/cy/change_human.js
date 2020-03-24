@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -23,7 +24,9 @@ function selectPro(){
 	var frm = document.getElementById("sex");
 	var sex = frm.value;
 		$(".SELECT_STYLE1 option[value='"+sex+"']").attr("selected",true)
-	
+	var frm2 = document.getElementById("prodesignation");
+		var prodesignation = frm.value;
+		$(".SELECT_STYLE2 option[value='"+prodesignation+"']").attr("selected",true)
 }
 
 function deleteHuman(){

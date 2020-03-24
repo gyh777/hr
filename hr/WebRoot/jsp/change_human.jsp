@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案复核 </font>
+						<font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案更改 </font>
 					</td>
 				</tr>
 				<tr>
@@ -120,6 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						职称
 					</td>
 					<td colspan="2" class="TD_STYLE2">
+					 <input type="hidden" id="prodesignation" display="none" value="${human.human_pro_designation}"></input>
 						<select name="humanProDesignation" class="SELECT_STYLE1"><option value="工程师">工程师</option>
 							
 								<option value="经理" selected="selected">经理</option>
@@ -196,7 +197,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE2">
 						<select name="humanNationality" class="SELECT_STYLE1"><option value="中国" selected="selected">中国</option>
 							
-								<option value="美国">美国</option></select>
+								<option value="美国">美国</option></select><br>
 					</td>
 					<td class="TD_STYLE1">
 						出生地

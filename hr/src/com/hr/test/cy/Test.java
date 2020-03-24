@@ -42,21 +42,22 @@ public class Test {
 //		System.out.println(cf.getSecond_kind_name());
 		
 		
-		ConfigFileThirdKindService service = (ConfigFileThirdKindService)context.getBean("configFileThirdKindServiceImpl");
-		ConfigFileThirdKind cffk =   new ConfigFileThirdKind();
-		cffk.setSecond_kind_id("02");
-		cffk.setSecond_kind_name("软件公司");
-		cffk.setFirst_kind_id("01");
-		cffk.setFirst_kind_name("集团");
-		cffk.setThird_kind_id("04");
-		cffk.setThird_kind_name("分部");
-		cffk.setThird_kind_is_retail("是");
-		cffk.setThird_kind_sale_id("02");
-		service.addConfigFileThirdKind(cffk);
+//		ConfigFileThirdKindService service = (ConfigFileThirdKindService)context.getBean("configFileThirdKindServiceImpl");
+//		ConfigFileThirdKind cffk =   new ConfigFileThirdKind();
+//		cffk.setSecond_kind_id("02");
+//		cffk.setSecond_kind_name("软件公司");
+//		cffk.setFirst_kind_id("01");
+//		cffk.setFirst_kind_name("集团");
+//		cffk.setThird_kind_id("04");
+//		cffk.setThird_kind_name("分部");
+//		cffk.setThird_kind_is_retail("是");
+//		cffk.setThird_kind_sale_id("02");
+//		service.addConfigFileThirdKind(cffk);
 		
 		
-//		HumanFileService service = (HumanFileService)context.getBean("humanFileServiceImpl");
-//		HumanFile hf = new HumanFile();
+		HumanFileService service = (HumanFileService)context.getBean("humanFileServiceImpl");
+		List<HumanFile> humans = service.queryFileByCheckstatus((short) 0);
+		//		HumanFile hf = new HumanFile();
 //		hf.setHuman_name("sss");
 //		Short age = 20;
 //		hf.setHuman_age(age);

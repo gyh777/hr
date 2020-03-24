@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <table width="100%" >
   <tr>
     <td colspan="2"> 
-    <font color="#0000CC">您正在做的业务是：人力资源----人力资源档案管理----人力资源档案管理删除 </font></td>
+    <font color="#0000CC">您正在做的业务是：人力资源----人力资源档案管理----人力资源档案管理更改 </font></td>
   </tr>
   <tr>
     <td width="49%"> 更改成功。</td>
