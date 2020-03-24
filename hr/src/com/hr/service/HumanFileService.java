@@ -1,5 +1,6 @@
 package com.hr.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.hr.pojo.HumanFile;
@@ -17,4 +18,6 @@ public interface HumanFileService {
     public boolean updateHumanFileStatus(String huf_id,String human_file_status);
     public boolean updateStatus(HumanFile hf);
     public List<HumanFile> queryFileByCheckstatus(Short s);
+    public List<HumanFile> queryByMapCondition(HashMap<String, String> map);
+    public List<HumanFile> queryByKeyCondition(HashMap<String, String> map);
 }

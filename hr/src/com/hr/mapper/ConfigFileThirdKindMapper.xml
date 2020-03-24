@@ -15,8 +15,7 @@
 	  </sql>
 	
 	  <insert  id="addConfigFileThirdKind" parameterType="com.hr.pojo.ConfigFileThirdKind">
-		insert into config_file_third_kind 
-			values(#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},#{third_kind_id},#{third_kind_name},#{third_kind_sale_id},#{third_kind_is_retail})
+		insert into config_file_third_kind values(#{ftk_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},#{third_kind_id},#{third_kind_name},#{third_kind_sale_id},#{third_kind_is_retail})
 	</insert>
 	<delete id="removeConfigFileThirdKind" parameterType="String">
 		delete from config_file_third_kind where third_kind_id=#{third_kind_id}

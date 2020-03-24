@@ -140,7 +140,7 @@ public class HumanFileController {
 		hf.setHuman_hobby(humanHobby);
 		hf.setHuman_history_records(humanHistroyRecords);
 		hf.setHuman_family_membership(humanFamilyMembership);
-		Short human_file_status = 0;
+		Byte human_file_status = 0;
 		hf.setHuman_file_status(human_file_status);
 		
 		System.out.println("档案审核中");
@@ -159,7 +159,6 @@ public class HumanFileController {
 	public ModelAndView checkRigister(){
 		List<HumanFile> humans = humanFileServiceImpl.queryFileByCheckstatus((short) 0);
 		ModelAndView mav = new ModelAndView();
-		
 		mav.addObject("humans", humans);
 	    mav.setViewName("check_list");
 	    return mav;
@@ -247,8 +246,6 @@ public class HumanFileController {
 			hf.setHuman_hobby(humanHobby);
 			hf.setHuman_history_records(humanHistroyRecords);
 			hf.setHuman_family_membership(humanFamilyMembership);
-			Short human_file_status = 1;
-			hf.setHuman_file_status(human_file_status);
 			hf.setDemand_salary_sum(2000.00);
 			hf.setFile_chang_amount(human.getFile_chang_amount());
 			hf.setBonus_amount(human.getBonus_amount());
@@ -260,12 +257,14 @@ public class HumanFileController {
 			hf.setChange_time(time);
 			hf.setCheck_time(time);
 			hf.setCheck_status((short)1);
+		
 			hf.setChecker(checker);
 			hf.setChanger(checker);
 			hf.setRegist_time(human.getRegist_time());
 			hf.setRegister(human.getRegister());
 			humanFileDigServiceImpl.addHumanFileDig(hf);
 			HumanFile huf  = new HumanFile();
+			huf.setHuman_name(humanName);
 			huf.setCheck_status((short) 1);
 			humanFileServiceImpl.updateStatus(huf);
 			System.out.println("档案复核成功");
@@ -291,7 +290,7 @@ public class HumanFileController {
 		map.put("str_startTime",str_startTime);
 		map.put("str_endTime",str_endTime);
 		ModelAndView mav = new ModelAndView();
-		List<HumanFileDig> human = humanFileDigServiceImpl.queryByMapCondition(map);
+		List<HumanFile> human = humanFileServiceImpl.queryByMapCondition(map);
 		System.out.println(human.size());
 		mav.addObject("human", human);
 		mav.setViewName("query_list");
@@ -302,7 +301,7 @@ public class HumanFileController {
 	public ModelAndView selectByKeywordsPage(@RequestParam String keywords){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("keywords", keywords);
-        List<HumanFileDig> human =  humanFileDigServiceImpl.queryByMapCondition(map);
+        List<HumanFile> human =  humanFileServiceImpl.queryByMapCondition(map);
         
         ModelAndView mav = new ModelAndView();
         mav.addObject("human", human);
@@ -314,8 +313,61 @@ public class HumanFileController {
 	@RequestMapping("deleteHuman")
 	public ModelAndView deleteHuman(@RequestParam String humanName){
 		HumanFile hf = humanFileServiceImpl.queryHumanFileByName(humanName);
-		hf.setHumanFile_status((byte) 1);
-		humanFileServiceImpl.updateHumanFile(hf);
+		hf.setHuman_file_status((byte) 1);
+		HumanFileDig hfd = new HumanFileDig();
+	    HumanFile human = humanFileServiceImpl.queryHumanFileByName(humanName);
+	    //获得一级机构
+	    hfd.setFirst_kind_id(hf.getFirst_kind_id());
+	    hfd.setFirst_kind_name(hf.getFirst_kind_name());
+	    //获得二级机构
+	    hfd.setSecond_kind_id(hf.getSecond_kind_id());
+	    hfd.setSecond_kind_name(hf.getSecond_kind_name());
+	    //获得三级机构
+	    hfd.setThird_kind_id(hf.getThird_kind_id());
+	    hfd.setThird_kind_name(hf.getThird_kind_name());
+	    
+	    //获得职位分类 humanMajorKindName
+	    hfd.setHuman_major_kind_id(hf.getHuman_major_kind_id());
+	    hfd.setHuman_major_kind_name(hf.getHuman_major_kind_name());
+	    
+	    //获得职位名称  hunmaMajorName
+	    hfd.setHuman_major_id(hf.getHuman_major_id());
+	    hfd.setHuman_major_name(hf.getHuman_major_name());
+	    
+	    //获得标准薪酬  salaryStandardName
+	    hfd.setSalary_standard_id(hf.getSalary_standard_id());
+	    hfd.setSalary_standard_name(hf.getSalary_standard_name());
+	    
+	   
+	    hfd.setHuman_pro_designation(hf.getHuman_pro_designation());
+	    hfd.setHuman_name(hf.getHuman_name());
+	    hfd.setHuman_sex(hf.getHuman_sex());
+	    hfd.setHuman_email(hf.getHuman_email());
+	    hfd.setHuman_telephone(hf.getHuman_telephone());
+	    hfd.setHuman_qq(hf.getHuman_qq());
+	    hfd.setHuman_mobilephone(hf.getHuman_mobilephone());
+	    hfd.setHuman_address(hf.getHuman_address());
+	    hfd.setHuman_postcode(hf.getHuman_postcode());
+	    hfd.setHuman_nationality(hf.getHuman_nationality());
+	    hfd.setHuman_birthplace(hf.getHuman_birthplace());
+			hfd.setHuman_birthday(hf.getHuman_birthday());
+		hfd.setHuman_race(hf.getHuman_race());
+		hfd.setHuman_religion(hf.getHuman_religion());
+		hfd.setHuman_party(hf.getHuman_religion());
+		hfd.setHuman_id_card(hf.getHuman_id_card());
+		
+		hfd.setHuman_age(hf.getHuman_age());
+		hfd.setHuman_educated_degree(hf.getHuman_educated_degree());
+		hfd.setHuman_educated_years(hf.getHuman_educated_years());
+		hfd.setHuman_educated_major(hf.getHuman_educated_major());
+		hfd.setHuman_bank(hf.getHuman_bank());
+		hfd.setHuman_account(hf.getHuman_account());
+		hfd.setRemark(hf.getRemark());
+		hfd.setHuman_speciality(hf.getHuman_speciality());
+		hfd.setHuman_hobby(hf.getHuman_hobby());
+		hfd.setHuman_history_records(hf.getHuman_history_records());
+		hfd.setHuman_family_membership(hf.getHuman_family_membership());
+		humanFileDigServiceImpl.addHumanFileDig(hfd);
 		ModelAndView mav = new ModelAndView();
         mav.setViewName("delete_human_success");
         return mav;
@@ -369,24 +421,22 @@ public class HumanFileController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("humans", humans);
 		mav.setViewName("recovery_locate");
-		return null;
+		return mav;
 	}
 	
 	@RequestMapping("recoveryHumantwo")
-	public ModelAndView recoveryHumantwo(@RequestParam String huf_id){
+	public void recoveryHumantwo(@RequestParam String huf_id){
 	   HumanFile human = humanFileServiceImpl.queryHumanFileByHuf_id(Integer.parseInt(huf_id));
-		human.setHuman_file_status((short) 0);
+		human.setHuman_file_status((byte) 0);
 		humanFileServiceImpl.updateHumanFile(human);
-	   ModelAndView mav = new ModelAndView();
-//		mav.addObject("humans", humans);
-		mav.setViewName("recovery_locate");
-		return mav;
+		
 	}
 	
 	@RequestMapping("deleteForever")
 	public ModelAndView deleteForever(){
 		List<HumanFile> humans = humanFileServiceImpl.queryAllHumanFileByStatus(1);
-	   ModelAndView mav = new ModelAndView();
+	   System.out.println(humans.size());
+		ModelAndView mav = new ModelAndView();
 		mav.addObject("humans", humans);
 		mav.setViewName("delete_forever");
 		return mav;

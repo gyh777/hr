@@ -1,5 +1,6 @@
 package com.hr.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,6 +100,18 @@ public class HumanFileServiceImpl implements HumanFileService {
 	public List<HumanFile> queryFileByCheckstatus(Short s) {
 		// TODO Auto-generated method stub
 		return humanFileMapper.queryFileByCheckstatus(s);
+	}
+
+	@Override
+	public List<HumanFile> queryByMapCondition(HashMap<String, String> map) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.queryByMapCondition(map);
+	}
+
+	@Override
+	public List<HumanFile> queryByKeyCondition(HashMap<String, String> map) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.queryByKeyCondition(map);
 	}
 
 }
