@@ -117,7 +117,7 @@ $("#salarySum").val(salarySum);
 						登记人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="register" value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="register" value="better_wanghao" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						登记时间
