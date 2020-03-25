@@ -53,16 +53,16 @@ public class SalarygrantController {
 			}
 			salaryGrantDetailsServiceImpl.save(list);
 		}
-		if(bl){
-//			return "salarystandard_register_success";
-		}
-		return null;
+		
+			return "salarystandard_register_success";
+		
+		
 	}
 	
 	@ResponseBody
 	@RequestMapping("/standardIdAndName")
 	public List<SalaryStandardIdAndName> standardIdAndName(){
-		System.out.println("11");
+		
 		List<SalaryStandardIdAndName> idAndName = salaryStandardServiceImpl.queryIdAndName();
 		return idAndName;
 		
@@ -71,7 +71,7 @@ public class SalarygrantController {
 	@ResponseBody
 	@RequestMapping("/humanIdAndName")
 	public List<HunanFileHumanIdAndName> humanIdAndName(String firstKindId,String secondKindId,String thirdKindId){
-		System.out.println("---");
+		
 		List<HunanFileHumanIdAndName> list = humanFileServiceImpl.queryHumanFileByKindId(firstKindId, secondKindId, thirdKindId);
 		return list;
 	}
@@ -101,10 +101,10 @@ public class SalarygrantController {
 	public String checkAdopt(@RequestParam String checker,@RequestParam String checkTime,@RequestParam String sgrId){
 		System.out.println(checker+"-"+checkTime+"-"+sgrId);
 		Boolean b = salaryGrantServiceImpl.checkChange(checker, checkTime, sgrId);
-		if(b){
-			return "";
-		}
-		return null;
+		
+			return "salarystandard_check_.success";
+		
+		
 	}
 	
 	@RequestMapping("/query")
@@ -122,8 +122,6 @@ public class SalarygrantController {
 	@RequestMapping(value="/queryList")
 	public String queryList(HttpServletRequest request,SalaryGrantQueryLocate salaryGrantQueryLocate){
 		ArrayList<SalaryGrant> list = (ArrayList<SalaryGrant>) salaryGrantServiceImpl.queryByConditionQuery(salaryGrantQueryLocate);
-//		JSONArray ja = JSONArray.fromObject(list);
-		
 		request.setAttribute("list", list);
 		return "salarygrant_query_list";
 	}

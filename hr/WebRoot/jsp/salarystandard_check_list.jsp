@@ -38,8 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td>
 						当前等待复核的薪酬标准总数:
-						3
-						例
+						
 					</td>
 				</tr>
 			</table>

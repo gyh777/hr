@@ -54,8 +54,7 @@ error:function(){alert(23)}
 				<tr>
 					<td>
 						符合条件的薪酬标准总数:
-						1
-						例
+						
 					</td>
 				</tr>
 			</table>

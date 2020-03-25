@@ -15,7 +15,8 @@ function outFocus(){
 	$.each(date,function(index,item){
 								
 								$('#humanAmount').val(index+1);
-								
+								var aaa=$('#salaryStandardSum').val();
+								$('#salaryPaidSum').val(parseInt(aaa)*(index+1));
 								$('#humanFile').append("<tr>"
 									+"<td width='14%' class='TD_STYLE1'>"
 										+"<input type='text' class='INPUT_STYLE2' name='salaryGrantDetails["+index+"].humanId' value='"+item.human_id+"' readonly='readonly'/>"

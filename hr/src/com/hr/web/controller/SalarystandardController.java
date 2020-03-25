@@ -71,7 +71,6 @@ public class SalarystandardController {
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryCheckAll();
 //		JSONArray ja = JSONArray.fromObject(list);
 		request.setAttribute("list", list);
-		System.out.println(list.get(0).getSsdId()+"--");
 		return "salarystandard_check_list";
 	}
 	
@@ -89,7 +88,7 @@ public class SalarystandardController {
 	public String check(@RequestParam String ssdId,Model m){
 		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
 		m.addAttribute("check", salaryStandardDetailsList);
-		System.out.println(salaryStandardDetailsList.getRegistTime());
+
 		return "salarystandard_check";
 	}
 	
