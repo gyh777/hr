@@ -149,12 +149,14 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 
 	@Override
 	public List<SalaryStandard> queryByConditionQuery(SalaryStandardQueryLocate salaryStandardQueryLocate) {
+		System.out.println(salaryStandardQueryLocate);
 		List<SalaryStandard> list = salaryStandardMapper.selectByConditionQuery(salaryStandardQueryLocate);	
 		return list;
 	}
 	
 	
 	public List<SalaryStandard> queryByConditionChange(SalaryStandardQueryLocate salaryStandardQueryLocate) {
+		System.out.println(salaryStandardQueryLocate);
 		List<SalaryStandard> list = salaryStandardMapper.selectByConditionChange(salaryStandardQueryLocate);	
 		return list;
 	}

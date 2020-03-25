@@ -10,19 +10,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
 		<script type="text/javascript">
 		function doEdit()
-		{alert("222");
+		{
 			//document.forms[0].action = document.forms[0].action + "?operate=doEdit&method=check&id=" + id;
 			var checker = $("#checker").val();
 			var checkTime = $("#time").val();
 			var sgrId = $("#sgrId").val();
 			
-			alert(checker+"-"+checkTime+"-"+"sgrId");
+			
 			window.location ="/hr/salarygrant/checkAdopt?checker="+checker+"&checkTime="+checkTime+"&sgrId="+sgrId;
 			
 		}
@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是:人力资源管理--薪酬标准管理--薪酬标准登记复核</font>
+						<font color="#0000CC">您正在做的业务是:人力资源管理--薪酬发放管理--薪酬发放登记复核</font>
 					</td>
 				</tr>
 				<tr>

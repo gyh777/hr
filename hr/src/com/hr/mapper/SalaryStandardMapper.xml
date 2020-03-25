@@ -57,7 +57,7 @@
 	<update id="changeUpdate" parameterType="com.hr.web.controller.requestparamtype.SalaryStandardDetailsList">
 		update salary_standard set standard_name=#{standardName},
 		changer=#{changer},change_time=STR_TO_DATE(#{changeTime},'%Y-%m-%d %H:%i:%s'),
-		salary_sum=#{salarySum},change_status=1,remark=#{remark} where standard_id=#{salaryId}
+		salary_sum=#{salarySum},change_status=1,remark=#{remark} where standard_id=#{standardId}
 	</update> 
 	
 

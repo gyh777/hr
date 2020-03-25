@@ -14,7 +14,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="table.css" type="text/css" />
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/xy/insertAndUpdate.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="../jsp/javascript/yhy/util.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="../jsp/javascript/comm/comm.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="../jsp/javascript/comm/select.js" charset="UTF-8"></script>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<title>无标题文档</title>
 		
@@ -40,11 +43,11 @@ type:'POST',
 contentType : 'application/json;charset=utf-8',
 async: true,
 success:function(date){
-alert(date);
 $.each(date,function(index,item){
-
+							
 							$('#standardName').append("<option myvalue='"+item.standardId+"' mysalarysum='"+item.salarySum+"'>"+item.standardName+"</option>");
                              $('#standardId').append("<option myvalue='"+item.standardName+"' mysalarysum='"+item.salarySum+"'>"+item.standardId+"</option>");//往下拉菜单里添加元素
+                             
                          })
 
 },
@@ -68,7 +71,6 @@ type:'POST',
 contentType : 'application/json;charset=utf-8',
 async: true,
 success:function(date){
-alert(date);
 $('#salaryGrantId').val(date);
 
 },
@@ -76,7 +78,18 @@ error:function(){alert("error11")}
 });
 }
 
+function sumsalary(){
 
+var salarySum = 0;
+		var a=$('input[name="salary"]').map(function(){
+			return {value:this.value,name:this.name}}).get();
+		for(var i=0;i<a.length;i++){
+		salarySum=salarySum+parseInt(a[i].value);
+		
+					}
+		$("#salarySum").val(salarySum);
+		
+}
 
 </script>
 	</head>
@@ -89,7 +102,7 @@ error:function(){alert("error11")}
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：人力资源--薪酬标准管理--薪酬标准登记
+						<font color="#0000CC">您正在做的业务是：人力资源--薪酬发放管理--薪酬发放登记
 						</font>
 					</td>
 				</tr>
@@ -119,7 +132,7 @@ error:function(){alert("error11")}
 					<input type="hidden" name="first_kind_id" id="first_kind_id" value="">
 					
 					<select name="firstKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0);outFocus()">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -128,7 +141,7 @@ error:function(){alert("error11")}
 					<input type="hidden" name="second_kind_id" id="second_kind_id" value="">
 					
 					<select name="secondKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -137,7 +150,7 @@ error:function(){alert("error11")}
 					<input type="hidden" name="third_kind_id" id="third_kind_id" value="">
 					
 					<select name="thirdKindName" class="SELECT_STYLE1" 
-							onchange="kindNameChange(this)">
+							onchange="kindNameChange(this,0)">
 						<option value="">&nbsp;</option>
 					</select>
 				</td>
@@ -192,7 +205,7 @@ error:function(){alert("error11")}
 					</td>
 					
 					<td class="TD_STYLE2">
-						<input type="text" name="humanAmount" value="" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="humanAmount" id="humanAmount" value="" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<!-- <td width="103" class="TD_STYLE1">
 						制定人
@@ -207,7 +220,7 @@ error:function(){alert("error11")}
 						总薪酬
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="salaryPaidSum" value="" class="INPUT_STYLE2">
+						<input type="text" name="salaryPaidSum" id="salaryPaidSum" value="" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						登记人

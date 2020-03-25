@@ -30,20 +30,18 @@ public class SalarystandardController {
 	@RequestMapping("/register")
 	public String register(@ModelAttribute SalaryStandardDetailsList salaryStandardDetails){
 		System.out.println(salaryStandardDetails.getRegistTime());
-//		Boolean bl = salaryStandardServiceImpl.save(salaryStandardDetails);
-//		if(bl){
-//			return "salarystandard_register_success";
-//		}
-		return null;
+		Boolean bl = salaryStandardServiceImpl.save(salaryStandardDetails);
+		
+			return "salarystandard_register_success";
+		
 	}
 	
 	@RequestMapping("/checkAdopt")
 	public String checkAdopt(String ssdId,String checker,String checkTime,String checkComment){
 		Boolean bl = salaryStandardServiceImpl.checkChange(ssdId,checker, checkTime, checkComment);
-		if(bl){
+		
 			return "salarystandard_check_.success";
-		}
-		return null;
+		
 	}
 	
 	
@@ -53,7 +51,7 @@ public class SalarystandardController {
 		if(bl){
 			return "salarystandard_check_.success";
 		}
-		return null;
+		return "redirect:salarystandard_check_list";
 	}
 	
 	
@@ -73,6 +71,7 @@ public class SalarystandardController {
 		ArrayList<SalaryStandard> list = (ArrayList<SalaryStandard>) salaryStandardServiceImpl.queryCheckAll();
 //		JSONArray ja = JSONArray.fromObject(list);
 		request.setAttribute("list", list);
+		System.out.println(list.get(0).getSsdId()+"--");
 		return "salarystandard_check_list";
 	}
 	
@@ -90,6 +89,7 @@ public class SalarystandardController {
 	public String check(@RequestParam String ssdId,Model m){
 		SalaryStandardDetailsList salaryStandardDetailsList = salaryStandardServiceImpl.queryBySsdId(ssdId);
 		m.addAttribute("check", salaryStandardDetailsList);
+		System.out.println(salaryStandardDetailsList.getRegistTime());
 		return "salarystandard_check";
 	}
 	

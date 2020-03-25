@@ -21,8 +21,8 @@ public interface HumanFileMapper {
     public List<HumanFile> queryFileByCheckstatus(Short s);
     //向宇加===========
     public List<HunanFileHumanIdAndName> queryHumanFileByKindIdOne(String first_kind_id);
-    public List<HunanFileHumanIdAndName> queryHumanFileByKindIdtwo(String first_kind_id,String second_kind_id);
-    public List<HunanFileHumanIdAndName> queryHumanFileByKindIdThree(String first_kind_id,String second_kind_id,String third_kind_id);
+    public List<HunanFileHumanIdAndName> queryHumanFileByKindIdtwo(@Param("first_kind_id")String first_kind_id,@Param("second_kind_id")String second_kind_id);
+    public List<HunanFileHumanIdAndName> queryHumanFileByKindIdThree(@Param("first_kind_id")String first_kind_id,@Param("second_kind_id")String second_kind_id,@Param("third_kind_id")String third_kind_id);
     //===============
     
     //尹厚粤加===========

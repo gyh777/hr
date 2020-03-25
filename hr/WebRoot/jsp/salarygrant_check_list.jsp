@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<style type="text/css">
 <!--
@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是:人力资源管理--薪酬标准管理--薪酬标准登记复核</font>
+						<font color="#0000CC">您正在做的业务是:人力资源管理--薪酬发放管理--薪酬发放登记复核</font>
 					</td>
 				</tr>
 				<tr>

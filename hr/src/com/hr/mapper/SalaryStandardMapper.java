@@ -3,6 +3,8 @@ package com.hr.mapper;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hr.dto.SalaryStandardQueryLocate;
 import com.hr.pojo.SalaryStandard;
 import com.hr.web.controller.requestparamtype.SalaryStandardDetailsList;
@@ -12,7 +14,7 @@ public interface SalaryStandardMapper {
 	
 	public int insert(SalaryStandardDetailsList ssdl);
 	
-	public int ckeckUpdate(String ssdId,String checkStatus,String checker,String checkTime,String checkComment);
+	public int ckeckUpdate(@Param("ssdId")String ssdId,@Param("checkStatus")String checkStatus,@Param("checker")String checker,@Param("checkTime")String checkTime,@Param("checkComment")String checkComment);
 	
 	public int changeUpdate(SalaryStandardDetailsList salaryStandardDetailsList);
 	

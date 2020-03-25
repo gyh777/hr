@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src=""<%=basePath%>jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
@@ -21,6 +21,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			//document.forms[0].action = document.forms[0].action + "?operate=doEdit&method=change&id=" + id;
 			document.forms[0].action = "/hr/salarystandard/changeAdopt";
 			document.forms[0].submit();
+		}
+		
+		function out(){
+		var salarySum = 0;
+		var a=$('input[name="salary"]').map(function(){
+			return {value:this.value,name:this.name}}).get();
+		for(var i=0;i<a.length;i++){
+		salarySum=salarySum+parseInt(a[i].value);
+		
+					}
+		$("#salarySum").val(salarySum);
 		}
 		</script>
 	</head>
@@ -67,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td width="17%" class="TD_STYLE2">
 						
-						<input type="text" name="salarySum" value="${change.salarySum}" class="INPUT_STYLE2" readonly="readonly" >
+						<input type="text" name="salarySum" id="salarySum" value="${change.salarySum}" class="INPUT_STYLE2" readonly="readonly" >
 
 					</td>
 					<td width="12%" class="TD_STYLE1">
@@ -96,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						变更时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="changeTime" id="time" value="2010-05-29 03:38:31" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="changeTime" id="time" value="" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						&nbsp;
@@ -136,7 +147,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input type="text" name="itemName" value="${one.itemName}" class="INPUT_STYLE2">
 					</td>
 					<td colspan="4">
-						<input type="text" name="salary" value="${one.salary}" class="INPUT_STYLE2">
+						<input type="text" name="salary" value="${one.salary}" onblur="out()" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				</c:forEach>

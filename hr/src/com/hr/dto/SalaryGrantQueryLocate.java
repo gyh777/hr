@@ -28,10 +28,10 @@ public class SalaryGrantQueryLocate {
 		
 			if(startTime!=null&&startTime!=""){
 				
-				this.startTime = (startTime+" 00:00:00");
+				this.startTime = (startTime+" 00:00:01");
 
 			}else{
-				this.startTime = ("0000-00-00 00:00:00");
+				this.startTime = ("2000-01-01 01:01:01");
 			}
 		
 	}
@@ -45,7 +45,7 @@ public class SalaryGrantQueryLocate {
 				this.endTime = (endTime+" 23:59:59");
 				
 			}else{
-				this.endTime = ("0000-00-00 00:00:00");
+				this.endTime = ("5000-12-15 23:59:59");
 			}
 		
 	}

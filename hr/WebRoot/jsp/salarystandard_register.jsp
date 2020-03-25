@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css" />
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
@@ -28,7 +28,6 @@ form.submit();
 }
 
 function nextId(){
-alert("aa");
 $.ajax({
 dataType:"json",
 url:'/hr/salarystandard/nextId',
@@ -36,7 +35,6 @@ type:'POST',
 contentType : 'application/json;charset=utf-8',
 async: true,
 success:function(date){
-alert(date);
 $('#standardId').val(date);//ssid
 
 },
@@ -44,6 +42,18 @@ error:function(){alert("error")}
 });
 }
 
+function out(){
+
+var zero=$("#salaryStandardDetailszerosalary").val();
+var one=$("#salaryStandardDetailsonesalary").val();
+var two=$("#salaryStandardDetailstwosalary").val();
+var three=$("#salaryStandardDetailsthreesalary").val();
+var four=$("#salaryStandardDetailsfoursalary").val();
+var five=$("#salaryStandardDetailsfivesalary").val();
+
+var salarySum=parseInt(zero)+parseInt(one)+parseInt(two)+parseInt(three)+parseInt(four)+parseInt(five);
+$("#salarySum").val(salarySum);
+}
 
 </script>
 
@@ -87,7 +97,7 @@ error:function(){alert("error")}
 						薪酬总额
 					</td>
 					<td width="138" class="TD_STYLE2">
-						<input type="text" name="salarySum" value="0" class="INPUT_STYLE2">
+						<input type="text" name="salarySum" id="salarySum" readonly="readonly"  class="INPUT_STYLE2">
 					</td>
 					<td width="103" class="TD_STYLE1">
 						&nbsp;
@@ -155,7 +165,7 @@ error:function(){alert("error")}
 						<input type="hidden" name="salaryStandardDetails[0].itemName" value="出差补助">
 					</td>
 					<td>
-						<input type="text" name="salaryStandardDetails[0].salary" value="" class="INPUT_STYLE2">
+						<input type="text" name="salaryStandardDetails[0].salary" id="salaryStandardDetailszerosalary" onblur="out()" value="0" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
 						&nbsp;
@@ -172,7 +182,7 @@ error:function(){alert("error")}
 						<input type="hidden" name="salaryStandardDetails[1].itemName" value="交通补贴">
 					</td>
 					<td>
-						<input type="text" name="salaryStandardDetails[1].salary" value="" class="INPUT_STYLE2">
+						<input type="text" id="salaryStandardDetailsonesalary" value="0"  name="salaryStandardDetails[1].salary" onblur="out()" value="" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
 						&nbsp;
@@ -189,7 +199,7 @@ error:function(){alert("error")}
 						<input type="hidden" name="salaryStandardDetails[2].itemName" value="住房补贴">
 					</td>
 					<td>
-						<input type="text" name="salaryStandardDetails[2].salary" value="" class="INPUT_STYLE2">
+						<input type="text" id="salaryStandardDetailstwosalary" value="0"  name="salaryStandardDetails[2].salary" onblur="out()" value="" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
 						&nbsp;
@@ -206,7 +216,7 @@ error:function(){alert("error")}
 						<input type="hidden" name="salaryStandardDetails[3].itemName" value="基本工资">
 					</td>
 					<td>
-						<input type="text" name="salaryStandardDetails[3].salary" value="" class="INPUT_STYLE2">
+						<input type="text" id="salaryStandardDetailsthreesalary" value="0"  name="salaryStandardDetails[3].salary" onblur="out()" value="" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
 						&nbsp;
@@ -223,7 +233,7 @@ error:function(){alert("error")}
 						<input type="hidden" name="salaryStandardDetails[4].itemName" value="年终奖">
 					</td>
 					<td>
-						<input type="text" name="salaryStandardDetails[4].salary" value="" class="INPUT_STYLE2">
+						<input type="text" id="salaryStandardDetailsfoursalary" value="0"  name="salaryStandardDetails[4].salary" onblur="out()" value="" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
 						&nbsp;
@@ -240,7 +250,7 @@ error:function(){alert("error")}
 						<input type="hidden" name="salaryStandardDetails[5].itemName" value="误餐补助">
 					</td>
 					<td>
-						<input type="text" name="salaryStandardDetails[5].salary" value="" class="INPUT_STYLE2">
+						<input type="text" id="salaryStandardDetailsfivesalary" value="0"  name="salaryStandardDetails[5].salary" onblur="out()" value="" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
 						&nbsp;

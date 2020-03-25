@@ -10,23 +10,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<link rel="stylesheet" href="table.css" type="text/css" />
+		<link rel="stylesheet" href="<%=basePath%>jsp/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="../jsp/javascript/xy/nowDate.js" charset="UTF-8"></script>
 		<script type="text/javascript">
 		function doEdit(checker,checkTime,checkComment)
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=doEdit&method=check&id=" + id;
-			var checker = document.getElementByName("checker");
-			var checkTime = document.getElementByName("checkTime");
-			var checkComment = document.getElementByName("checkComment");
-			document.forms[0].action ="/hr/salarystandard/checkAdopt?checker="+checker+"&checkTime="+checkTime+"&checkComment="+checkComment;
-			document.forms[0].submit();
+			var checker = $("#checker").val();
+			var checkTime = $("#checkTime").val();
+			var checkComment = $("#checkComment").val();
+			var ssdId = $("#ssdId").val();
+			
+			window.location ="/hr/salarystandard/checkAdopt?checker="+checker+"&checkTime="+checkTime+"&checkComment="+checkComment+"&ssdId="+ssdId;
+			//document.forms[0].submit();
 		}
 		</script>
 	</head>
 
-	<body>
+	<body onload="getNowDate()">
 		<form action="salarystandard.do" method="post">
 			<table width="100%">
 				<tr>
@@ -48,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				class="TABLE_STYLE1">
 				<tr>
 				
-				<input type="hidden" name="ssdId" value="${check.ssdId}" class="INPUT_STYLE2">
+				<input type="hidden" name="ssdId" id="ssdId" value="${check.ssdId}" class="INPUT_STYLE2">
 					<td width="12%" class="TD_STYLE1">
 						薪酬编号
 					</td>
@@ -87,13 +90,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						复核人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="checker" value="better_wanghao" class="INPUT_STYLE2">
+						<input type="text" name="checker" id="checker" value="better_wanghao" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						复核时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="checkTime" value="2010-05-29 03:27:14" readonly="readonly" class="INPUT_STYLE2">
+						<input type="text" name="checkTime" id="time" value="2010-05-29 03:27:14" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						&nbsp;
@@ -107,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						复核意见
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="checkComment" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="checkComment" id="checkComment" rows="4" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -123,14 +126,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<c:forEach items="${check.salaryStandardDetails}" var="one">
 				<tr class="TD_STYLE2">
-				    <input type="hidden" name="sdtId" value="${one.ssdId}" class="INPUT_STYLE2">
+				    <input type="hidden" name="sdtId" value="${one.sdtId}" class="INPUT_STYLE2">
 					<td align="center">
 						
-						<input type="hidden" name="itemId" value="${one.itemId}" class="INPUT_STYLE2">
+						<input type="text" name="itemId" value="${one.itemId}" class="INPUT_STYLE2">
 					</td>
 					<td colspan="3">
 						
-						<input type="hidden" name="itemName" value="${one.itemName}" class="INPUT_STYLE2">
+						<input type="text" name="itemName" value="${one.itemName}" class="INPUT_STYLE2">
 					</td>
 					<td>
 						<input type="text" name="salary" value="${one.salary}" class="INPUT_STYLE2">
