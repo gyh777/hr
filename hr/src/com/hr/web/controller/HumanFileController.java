@@ -298,8 +298,8 @@ public class HumanFileController {
 	public ModelAndView selectByKeywordsPage(@RequestParam String keywords){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("keywords", keywords);
-        List<HumanFile> human =  humanFileServiceImpl.queryByMapCondition(map);
-        
+        List<HumanFile> human =  humanFileServiceImpl.queryByKeyCondition(map);
+        System.out.println(human.size());
         ModelAndView mav = new ModelAndView();
         mav.addObject("human", human);
         mav.setViewName("query_list");
