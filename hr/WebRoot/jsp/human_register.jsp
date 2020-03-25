@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" href="table.css" type="text/css">
+		<link rel="stylesheet" href="/hr/jsp/table.css" type="text/css">
 		<link rel="stylesheet" type="text/css" media="all"
 			href="<%=basePath%>jsp/javascript/calendar/calendar-win2k-cold-1.css">
 		<script type="text/javascript" src="<%=basePath%>jsp/javascript/calendar/cal.js"></script>
@@ -172,7 +172,9 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						性别
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanSex" class="SELECT_STYLE1"><option value="男">男</option>
+						<select name="humanSex" class="SELECT_STYLE1">
+							<option value="${engageResume.human_sex }" selected="selected">${engageResume.human_sex }</option>
+							<option value="男">男</option>
 							<option value="女">女</option></select>
 					</td>
 					<td class="TD_STYLE1">
@@ -187,7 +189,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						电话
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanTelephone" value="${engageResume.human_telphone }" class="INPUT_STYLE2">
+						<input type="text" name="humanTelephone" value="${engageResume.human_telephone }" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						QQ
@@ -199,7 +201,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						手机
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanMobilephone" value="${engageResume.mobilephone }" class="INPUT_STYLE2">
+						<input type="text" name="humanMobilephone" value="${engageResume.human_mobilephone }" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
@@ -207,7 +209,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						住址
 					</td>
 					<td colspan="3" class="TD_STYLE2">
-						<input type="text" name="humanAddress" value="${engageResume.humanAddress }" class="INPUT_STYLE2">
+						<input type="text" name="humanAddress" value="${engageResume.human_address }" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						邮编
@@ -221,29 +223,33 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						国籍
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanNationality" class="SELECT_STYLE1"><option value="中国">中国</option>
-							
-								<option value="美国">美国</option></select>
+						<select name="humanNationality" class="SELECT_STYLE1">
+							<option value="${engageResume.human_nationality }" selected="selected">${engageResume.human_nationality }</option>
+							<option value="中国">中国</option>
+							<option value="美国">美国</option>
+						</select>
 					</td>
 					<td class="TD_STYLE1">
 						出生地
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanBirthplace" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanBirthplace" value="${engageResume.human_birthplace }" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						生日
 					</td>
 					<td width="13%" class="TD_STYLE2">
-						<input type="text" name="str_humanBirthday" value="" class="INPUT_STYLE2" id="date_start">
+						<input type="text" name="str_humanBirthday" value="${engageResume.human_birthday }" class="INPUT_STYLE2" id="date_start">
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						民族
 					</td>
 					<td class="TD_STYLE2" width="14%">
-						<select name="humanRace" class="SELECT_STYLE1"><option value="汉族">汉族</option>
-							
-								<option value="回族">回族</option></select>
+						<select name="humanRace" class="SELECT_STYLE1">
+							<option value="${engageResume.human_race }" selected="selected">汉族</option>
+							<option value="汉族">汉族</option>
+							<option value="回族">回族</option>
+						</select>
 					</td>
 				</tr>
 				<tr>
@@ -251,23 +257,26 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						宗教信仰
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanReligion" class="SELECT_STYLE1"><option value="无">无</option>
-							
-								<option value="佛教">佛教</option></select>
+						<select name="humanReligion" class="SELECT_STYLE1">
+							<option value="${engageResume.human_religion }" selected="selected">${engageResume.human_religion }</option>
+							<option value="无">无</option>
+							<option value="佛教">佛教</option>
+						</select>
 					</td>
 					<td class="TD_STYLE1">
 						政治面貌
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanParty" class="SELECT_STYLE1"><option value="党员">党员</option>
-							
-								<option value="群众">群众</option></select>
+						<select name="humanParty" class="SELECT_STYLE1">
+							<option value="${engageResume.human_party }" selected="selected">${engageResume.human_party }</option>
+							<option value="党员">党员</option>
+							<option value="群众">群众</option></select>
 					</td>
 					<td class="TD_STYLE1">
 						身份证号码
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanIdCard" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanIdCard" value="${engageResume.human_idcard }" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						社会保障号码
@@ -281,31 +290,34 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						年龄
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanAge" value="" class="INPUT_STYLE2">
+						<input type="text" name="humanAge" value="${engageResume.human_age }" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						学历
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanEducatedDegree" class="SELECT_STYLE1"><option value="本科">本科</option>
-							
-								<option value="大专">大专</option></select>
+						<select name="humanEducatedDegree" class="SELECT_STYLE1">
+							<option value="${engageResume.human_educated_degree }" selected="selected">${engageResume.human_educated_degree }</option>
+							<option value="本科">本科</option>
+							<option value="大专">大专</option></select>
 					</td>
 					<td class="TD_STYLE1">
 						教育年限
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanEducatedYears" class="SELECT_STYLE1"><option value="12">12</option>
-							
-								<option value="16">16</option></select>
+						<select name="humanEducatedYears" class="SELECT_STYLE1">
+							<option value="${engageResume.human_educated_years }" selected="selected">${engageResume.human_educated_years }</option>
+							<option value="12">12</option>
+							<option value="16">16</option></select>
 					</td>
 					<td class="TD_STYLE1">
 						学历专业
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanEducatedMajor" class="SELECT_STYLE1"><option value="生物工程">生物工程</option>
-							
-								<option value="计算机">计算机</option></select>
+						<select name="humanEducatedMajor" class="SELECT_STYLE1">
+							<option value="${engageResume.human_educated_major }" selected="selected">${engageResume.human_educated_major }</option>
+							<option value="生物工程">生物工程</option>
+							<option value="计算机">计算机</option></select>
 					</td>
 				</tr>
 				<tr>
@@ -345,15 +357,18 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						特长
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanSpeciality" class="SELECT_STYLE1"><option value="数据库">数据库</option>
-							
-								<option value="java">java</option></select>
+						<select name="humanSpeciality" class="SELECT_STYLE1">
+							<option value="${engageResume.human_specility }" selected="selected">${engageResume.human_specility }</option>
+							<option value="数据库">数据库</option>
+							<option value="java">java</option></select>
 					</td>
 					<td class="TD_STYLE1">
 						爱好
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanHobby" class="SELECT_STYLE1"><option value="篮球">篮球</option>
+						<select name="humanHobby" class="SELECT_STYLE1">
+							<option value="${engageResume.human_hobby }" selected="selected">${engageResume.human_hobby }</option>
+							<option value="篮球">篮球</option>
 							
 								<option value="舞蹈">舞蹈</option></select>
 					</td>
@@ -369,7 +384,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						个人履历
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="humanHistroyRecords" rows="4" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="humanHistroyRecords" rows="4" class="TEXTAREA_STYLE1">${engageResume.human_history_records }</textarea>
 					</td>
 				</tr>
 				<tr>
