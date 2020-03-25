@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=doEdit&method=check&id=" + id;
 			var checker = $("#checker").val();
-			var checkTime = $("#checkTime").val();
+			var checkTime = $("#time").val();
 			var checkComment = $("#checkComment").val();
 			var ssdId = $("#ssdId").val();
 			
