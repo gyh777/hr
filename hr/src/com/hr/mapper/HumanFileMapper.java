@@ -1,10 +1,12 @@
 package com.hr.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
 import com.hr.pojo.HumanFile;
+import com.hr.pojo.HumanFileDig;
 import com.hr.web.controller.requestparamtype.HumanFileSomeValue;
 import com.hr.web.controller.requestparamtype.HunanFileHumanIdAndName;
 
@@ -18,6 +20,8 @@ public interface HumanFileMapper {
     public HumanFile queryHumanFileByHuf_id(int huf_id);
     public int queryIdByName(String huf_id);
     public boolean updateStatus(HumanFile hf);
+    public List<HumanFile> queryByMapCondition(HashMap<String, String> map);
+    public List<HumanFile> queryByKeyCondition(HashMap<String, String> map);
     public List<HumanFile> queryFileByCheckstatus(Short s);
     //向宇加===========
     public List<HunanFileHumanIdAndName> queryHumanFileByKindIdOne(String first_kind_id);

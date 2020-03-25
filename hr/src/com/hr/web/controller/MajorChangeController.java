@@ -2,6 +2,7 @@ package com.hr.web.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import net.sf.json.JSONArray;
@@ -110,7 +111,6 @@ public class MajorChangeController {
 		mc.setCheck_time(null);
 		mc.setRegister(register);
 		mc.setCheck_status(Short.valueOf(check_status));
-		System.out.println("time："+time);
 		try {
 			mc.setRegist_time(sdfs.parse(time));
 		} catch (ParseException e) {
@@ -175,8 +175,9 @@ public class MajorChangeController {
 	
 	@RequestMapping(value="/toUpdateCheckStatus")
 	@ResponseBody
-	public boolean updateCheckStatus(Short mchId,String checkStatus){
-		boolean b = majorChangeServiceImpl.updateCheckStatus(mchId,checkStatus);
+	public boolean updateCheckStatus(Short mchId,Short checkStatus){
+		Short check_status = Short.valueOf(checkStatus);
+		boolean b = majorChangeServiceImpl.updateCheckStatus(mchId,check_status);
 		
 		return b;
 	}
@@ -184,19 +185,18 @@ public class MajorChangeController {
 	@RequestMapping(value="/toUpdateCheckResult")
 	@ResponseBody
 	public boolean updateCheckResult(@RequestParam String mchId,
-			@RequestParam String checkStatus,@RequestParam String check_reason,
-			@RequestParam String checker,@RequestParam String check_time){
-		System.out.println(Short.valueOf(mchId));
-		System.out.println(checkStatus);
-		System.out.println(check_reason);
-		System.out.println(checker);
+			@RequestParam String checkStatus,@RequestParam String checkReason,
+			@RequestParam String checker,@RequestParam String checkTime){
+		Date check_time = null;
 		try {
-			System.out.println(sdfs.parse(check_time));
+			check_time = sdfs.parse(checkTime);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Short mch_id = Short.valueOf(mchId);
+		boolean b = majorChangeServiceImpl.updateCheckResult
+				(mch_id, checker, checkStatus, check_time, checkReason);
 		
-		return false;
+		return b;
 	}
 }

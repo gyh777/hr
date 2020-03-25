@@ -135,7 +135,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	window.onload = function() {
 		var count = 0;
 		var end = $("#limite_time").val() * 60;
-		alert(end);
 		timer = setInterval(function() {
             count++;
             $("#id_S").html(showNum(count % 60));

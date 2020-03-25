@@ -340,7 +340,7 @@ a{ CURSOR: hand}
 													<img src="images/jt0.gif">
 												</td>
 												<td width="98%">
-													<a href="javascript:;" target="mainFrame">人力资源档案删除</a>
+													<a href="/hr/humanfile/deletelist" target="mainFrame">人力资源档案删除</a>
 												</td>
 											</tr>
 											<tr>

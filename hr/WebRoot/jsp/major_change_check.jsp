@@ -136,10 +136,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					type : "post",
 					url : "../majorChange/toUpdateCheckResult",
 					dataType : "json",
-					data : {"mchId" : mch_id,"checkStatus" : checkStatus,"check_reason":check_reason,
-							"checker" : checker,"check_time" : check_time},
+					data : {"mchId" : mch_id,"checkStatus" : checkStatus,"checkReason":check_reason,
+							"checker" : checker,"checkTime" : check_time},
 					success:function(result){
 						if(result==true){
+							alert("审核成功！");
 							window.location = "../majorChange/toSelectNotChecked";
 						}else{
 							alert("请求失败！请刷新重试！");
@@ -185,8 +186,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table width="100%">
 				<tr>
 					<td align="right">
-    					<input type="radio" name="checkResult" checked="checked" />未通过
-    					<input type="radio"  name="checkResult"/>通过
+    					<input type="radio" name="checkResult" checked="checked" value="未通过"/>未通过
+    					<input type="radio"  name="checkResult" value="通过"/>通过
 						<input type="button" value="确认" class="BUTTON_STYLE1"
 								onclick="toUpdateCheckResult()">
 						<input type="reset" value="返回" class="BUTTON_STYLE1"

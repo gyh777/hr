@@ -133,8 +133,8 @@ public class HumanFile {
 
     private Date delete_time;
     
-    private Short human_file_status;
-
+    private Byte human_file_status;
+    
     public Short getHuf_id() {
 		return huf_id;
 	}
@@ -570,13 +570,7 @@ public class HumanFile {
 		this.recovery_time = recovery_time;
 	}
 
-	public Byte getHumanFile_status() {
-		return humanFile_status;
-	}
-
-	public void setHumanFile_status(Byte humanFile_status) {
-		this.humanFile_status = humanFile_status;
-	}
+	
 
 	public String getFirst_kind_id() {
 		return first_kind_id;
@@ -610,13 +604,7 @@ public class HumanFile {
 		this.demand_salary_sum = demand_salary_sum;
 	}
 
-	public Short getHuman_file_status() {
-		return human_file_status;
-	}
 
-	public void setHuman_file_status(Short human_file_status) {
-		this.human_file_status = human_file_status;
-	}
 
 	public String getHuman_major_name() {
 		return human_major_name;
@@ -634,9 +622,17 @@ public class HumanFile {
 		this.human_history_records = human_history_records;
 	}
 
+	public Byte getHuman_file_status() {
+		return human_file_status;
+	}
+
+	public void setHuman_file_status(Byte human_file_status) {
+		this.human_file_status = human_file_status;
+	}
+
 	private Date recovery_time;
 
-    private Byte humanFile_status;
+   
 
    
 }

@@ -32,8 +32,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 		<link rel="stylesheet" href="table.css" type="text/css">
 		
-		<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/second_kind_rigister.js"></script>
-		<script type="text/javascript" src="javascript/comm/comm.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/cy/first_kind_rigister.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/comm.js"></script>
 </head>
 <body>
 <form id="firstRigist" name="configfilefirstkindForm" method="post" >

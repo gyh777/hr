@@ -15,4 +15,5 @@ public interface HumanFileDigService {
     public HumanFileDig queryHumanFileDigByHfd_id(int hfd_id);
     public List<HumanFileDig> queryByMapCondition(HashMap<String, String> map);
     public List<HumanFileDig> queryByKeyCondition(HashMap<String, String> map);
+    
 }

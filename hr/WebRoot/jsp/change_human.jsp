@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"  deferredSyntaxAllowedAsLiteral="true"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -48,22 +47,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath%>jsp/javascript/calendar/cal.js"></script>
 		<script type="text/javascript" src="<%=basePath%>jsp/javascript/comm/comm.js"></script>
 		<script language="javascript" src="<%=basePath%>jsp/javascript/winopen/winopenm.js"></script>
-	    <script language="javascript" src="<%=basePath%>jsp/javascript/cy/human_check.js"></script>
+	    <script language="javascript" src="<%=basePath%>jsp/javascript/cy/change_human.js"></script>
 	    <script src="<%=basePath%>jsp/javascript/cy/jquery-1.8.3.min.js"></script>
 	</head>
 
 	<body onload="selectPro()">
 	
-		<form id="humancheck" name="humanfileForm" method="post">
+		<form id="changeHuman" name="humanfileForm" method="post">
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案复核 </font>
+						<font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案更改 </font>
 					</td>
 				</tr>
 				<tr>
 					<td align="right">
-						<input type="button" value="复核通过" class="BUTTON_STYLE1" onclick="checkAgree()">
+						<input type="button" value="更改" class="BUTTON_STYLE1" onclick="changeAgree()">
 						<input type="button" value="返回" class="BUTTON_STYLE1"
 							onclick="history.back()">
 					</td>
@@ -121,6 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						职称
 					</td>
 					<td colspan="2" class="TD_STYLE2">
+					 <input type="hidden" id="prodesignation" display="none" value="${human.human_pro_designation}"></input>
 						<select name="humanProDesignation" class="SELECT_STYLE1"><option value="工程师">工程师</option>
 							
 								<option value="经理" selected="selected">经理</option>
@@ -197,7 +197,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE2">
 						<select name="humanNationality" class="SELECT_STYLE1"><option value="中国" selected="selected">中国</option>
 							
-								<option value="美国">美国</option></select>
+								<option value="美国">美国</option></select><br>
 					</td>
 					<td class="TD_STYLE1">
 						出生地
