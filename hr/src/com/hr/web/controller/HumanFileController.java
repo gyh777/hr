@@ -2,6 +2,7 @@ package com.hr.web.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -68,7 +72,7 @@ public class HumanFileController {
 			@RequestParam String humanPostcode,@RequestParam String humanNationality,@RequestParam String humanBirthplace,@RequestParam String str_humanBirthday,@RequestParam String humanRace,@RequestParam String humanReligion,@RequestParam String humanParty,
 			@RequestParam String humanIdCard,@RequestParam String humanSocietySecurityId,@RequestParam String humanAge,@RequestParam String humanEducatedDegree,@RequestParam String humanEducatedYears,@RequestParam String humanEducatedMajor,@RequestParam String salaryStandardName,@RequestParam String humanBank,
 			@RequestParam String humanAccount,@RequestParam String register,@RequestParam String remark,@RequestParam String str_registTime,@RequestParam String humanSpeciality,@RequestParam String humanHobby,@RequestParam String humanHistroyRecords,@RequestParam String humanFamilyMembership){
-	    HumanFile hf = new HumanFile();
+		HumanFile hf = new HumanFile();
 	    //获得一级机构
 	    String[] first = splitStr(firstKindName);
 	    hf.setFirst_kind_id(first[0]);
@@ -121,14 +125,13 @@ public class HumanFileController {
 			e.printStackTrace();
 		} 
 		hf.setHuman_race(humanRace);
-		hf.setHuman_religion("佛教");
+		hf.setHuman_religion("共青团员");
 		hf.setHuman_party(humanParty);
 		hf.setHuman_id_card(humanIdCard);
+		System.out.println(humanAge+"======");
 		int h_age = Integer.parseInt(humanAge);
 		Short age = (short) h_age;
 		hf.setHuman_age(age);
-		hf.setHuman_educated_degree("本科");
-		int h_year = Integer.parseInt(humanEducatedYears);
 		hf.setHuman_educated_years((short) 20);
 		hf.setHuman_educated_major("软件工程");
 		hf.setHuman_bank(humanBank);
@@ -140,7 +143,7 @@ public class HumanFileController {
 		hf.setHuman_history_records(humanHistroyRecords);
 		hf.setHuman_family_membership(humanFamilyMembership);
 		Byte human_file_status = 0;
-		hf.setHuman_file_status(human_file_status);
+		hf.setHuman_file_status((byte) 0);
 		hf.setCheck_status((short) 0);
 	    ModelAndView mav = new ModelAndView();
 	    mav.setViewName("human_registing");
@@ -171,30 +174,41 @@ public class HumanFileController {
 		int hufid = Integer.parseInt(huf_id);
 		HumanFile human = humanFileServiceImpl.queryHumanFileByHuf_id(hufid);
 		ModelAndView mav = new ModelAndView();
-		
+		System.out.println(human.getHuman_name());
 		mav.addObject("human", human);
 	    mav.setViewName("human_check");
 	    return mav;
 	}
 	
 	@RequestMapping("checkagree")
-	public ModelAndView checkAgree(@RequestParam String firstKindName,@RequestParam String secondKindName,@RequestParam String thirdKindName,@RequestParam String humanMajorKindName,@RequestParam String humanMajorName
+	public ModelAndView checkAgree(HttpServletRequest request,@RequestParam String firstKindName,@RequestParam String secondKindName,@RequestParam String thirdKindName,@RequestParam String humanMajorKindName,@RequestParam String humanMajorName
 			,@RequestParam String humanProDesignation,@RequestParam String humanName,@RequestParam String humanSex,@RequestParam String humanEmail,@RequestParam String humanTelephone,@RequestParam String humanQq,@RequestParam String humanMobilephone,@RequestParam String humanAddress,
 			@RequestParam String humanPostcode,@RequestParam String humanNationality,@RequestParam String humanBirthplace,@RequestParam String str_humanBirthday,@RequestParam String humanRace,@RequestParam String humanReligion,@RequestParam String humanParty,
 			@RequestParam String humanIdCard,@RequestParam String humanSocietySecurityId,@RequestParam String humanAge,@RequestParam String humanEducatedDegree,@RequestParam String humanEducatedYears,@RequestParam String humanEducatedMajor,@RequestParam String salaryStandardName,@RequestParam String humanBank,
 			@RequestParam String humanAccount,@RequestParam String remark,@RequestParam String humanSpeciality,@RequestParam String humanHobby,@RequestParam String humanHistroyRecords,@RequestParam String humanFamilyMembership,@RequestParam String checker){
-		
+		    try {
+				firstKindName = new String(firstKindName.getBytes("iso-8859-1"),"utf-8");
+				secondKindName= new String(secondKindName.getBytes("iso-8859-1"),"utf-8");
+				thirdKindName = new String(thirdKindName.getBytes("iso-8859-1"),"utf-8");
+				humanMajorKindName= new String(humanMajorKindName.getBytes("iso-8859-1"),"utf-8");
+				humanMajorName = new String(humanMajorName.getBytes("iso-8859-1"),"utf-8");
+		    
+		    } catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		    System.out.println(firstKindName+secondKindName+thirdKindName+humanMajorKindName+humanMajorName);
 		    HumanFileDig hf = new HumanFileDig();
 		    HumanFile human = humanFileServiceImpl.queryHumanFileByName(humanName);
 		    //获得一级机构
-		    hf.setFirst_kind_id(configFileFirstKindServiceImpl.queryIdByName(firstKindName));
-		    hf.setFirst_kind_name(firstKindName);
+		    hf.setFirst_kind_id(human.getFirst_kind_id());
+		    hf.setFirst_kind_name(human.getFirst_kind_name());
 		    //获得二级机构
-		    hf.setSecond_kind_id(configFileSecondKindServiceImpl.queryIdByName(secondKindName));
-		    hf.setSecond_kind_name(secondKindName);
+		    hf.setSecond_kind_id(human.getSecond_kind_id());
+		    hf.setSecond_kind_name(human.getSecond_kind_name());
 		    //获得三级机构
-		    hf.setThird_kind_id(configFileThirdKindServiceImpl.queryIdByName(thirdKindName));
-		    hf.setThird_kind_name(thirdKindName);
+		    hf.setThird_kind_id(human.getThird_kind_id());
+		    hf.setThird_kind_name(human.getThird_kind_name());
 		    
 		    //获得职位分类 humanMajorKindName
 		    hf.setHuman_major_kind_id(configMajorKindServiceImpl.selectConfigMajorKindIdByName(humanMajorKindName));
@@ -258,13 +272,14 @@ public class HumanFileController {
 			hf.setChange_time(time);
 			hf.setCheck_time(time);
 			hf.setCheck_status((short)1);
-		
+		    hf.setHuman_file_status((short) 0);
 			hf.setChecker(checker);
 			hf.setChanger(checker);
 			hf.setRegist_time(human.getRegist_time());
 			hf.setRegister(human.getRegister());
 			humanFileDigServiceImpl.addHumanFileDig(hf);
 			HumanFile huf  = new HumanFile();
+			System.out.println(humanName+"//////");
 			huf.setHuman_name(humanName);
 			huf.setCheck_status((short) 1);
 			humanFileServiceImpl.updateStatus(huf);
