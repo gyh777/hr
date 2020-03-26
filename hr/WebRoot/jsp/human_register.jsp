@@ -239,7 +239,7 @@ subcat2[7] = ["8", "02/技术工人", "04/生产部"];
 						生日
 					</td>
 					<td width="13%" class="TD_STYLE2">
-						<input type="text" name="str_humanBirthday" value="${engageResume.human_birthday }" class="INPUT_STYLE2" id="date_start">
+						<input type="text" name="str_humanBirthday" value="${engageResume.human_birthday }" class="INPUT_STYLE2">
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						民族
